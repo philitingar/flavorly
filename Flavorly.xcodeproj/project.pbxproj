@@ -11,6 +11,9 @@
 		26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF52A93A92600E8F9A8 /* ContentView.swift */; };
 		26710DF82A93A92700E8F9A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF72A93A92700E8F9A8 /* Assets.xcassets */; };
 		26710DFB2A93A92700E8F9A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */; };
+		26710E032A93A96A00E8F9A8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E022A93A96A00E8F9A8 /* DataController.swift */; };
+		26710E062A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */; };
+		26710E082A93AA9200E8F9A8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E072A93AA9200E8F9A8 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		26710DF52A93A92600E8F9A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26710DF72A93A92700E8F9A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		26710E022A93A96A00E8F9A8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		26710E052A93A99F00E8F9A8 /* RecipeDesign.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDesign.xcdatamodel; sourceTree = "<group>"; };
+		26710E072A93AA9200E8F9A8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */,
-				26710DF52A93A92600E8F9A8 /* ContentView.swift */,
+				26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */,
+				26710E022A93A96A00E8F9A8 /* DataController.swift */,
+				26710E012A93A94D00E8F9A8 /* Views */,
 				26710DF72A93A92700E8F9A8 /* Assets.xcassets */,
 				26710DF92A93A92700E8F9A8 /* Preview Content */,
 			);
@@ -65,6 +73,15 @@
 				26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26710E012A93A94D00E8F9A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				26710DF52A93A92600E8F9A8 /* ContentView.swift */,
+				26710E072A93AA9200E8F9A8 /* SearchView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26710E082A93AA9200E8F9A8 /* SearchView.swift in Sources */,
 				26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */,
+				26710E032A93A96A00E8F9A8 /* DataController.swift in Sources */,
 				26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */,
+				26710E062A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +359,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				26710E052A93A99F00E8F9A8 /* RecipeDesign.xcdatamodel */,
+			);
+			currentVersion = 26710E052A93A99F00E8F9A8 /* RecipeDesign.xcdatamodel */;
+			path = RecipeDesign.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 26710DE82A93A92600E8F9A8 /* Project object */;
 }
