@@ -41,16 +41,19 @@ struct AddRecipeView: View {
                         TextField("Author's name", text: $author)
                         
                         Picker("Diet", selection: $diet) {
+                            Text("").tag("")
                             ForEach(diets, id: \.self) {
                                 Text($0)
                             }
                         }
                         Picker("Type", selection: $type) {
+                            Text("").tag("")
                             ForEach(types, id: \.self) {
                                 Text($0)
                             }
                         }
                         Picker("Occasion", selection: $occasion) {
+                            Text("").tag("")
                             ForEach(occasions, id: \.self) {
                                 Text($0)
                             }

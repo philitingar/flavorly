@@ -35,7 +35,7 @@ struct ContentView: View {
                 }
                 .onDelete(perform: deleteRecipe)
             }
-                .navigationTitle("RecipeDesign")
+                .navigationTitle("Flavorly")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         EditButton()
