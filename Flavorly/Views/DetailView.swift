@@ -19,7 +19,7 @@ struct DetailView: View {
         ScrollView {
             Text(recipe.author ?? "Unknown author")
                 .font(.headline)
-                    .foregroundColor(.secondary)
+                .foregroundColor(.secondary)
             HStack(alignment: .center) {
                 Text(recipe.type?.uppercased() ?? "SOUP")
                     .font(.caption)

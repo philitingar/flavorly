@@ -21,7 +21,7 @@ struct AddRecipeView: View {
     @State private var diet = ""
     @State private var occasion = ""
     
-    let diets = ["Vegetarian", "Vegan", "Gluten free", "Dairy free", "Pescatarian", "Omnivore"]
+    let diets = ["Vegetarian", "Vegan", "Gluten free",  "Dairy free", "Pescatarian", "Omnivore"]
     let types = ["Soup", "Salad", "Main", "Dessert", "Side", "Breakfast", "Lunch", "Dinner"]
     let occasions = ["Christmas", "New Years", "Birthday", "Easter", "Everyday"]
     
