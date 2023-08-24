@@ -54,7 +54,7 @@ struct ContentView: View {
                     }
                 }
                 .sheet(isPresented: $showingAddScreen) {
-                    AddRecipeView()
+                    AddEditRecipeView(recipe: nil)
                 }
                 .sheet(isPresented: $showingSearchScreen) {
                     SearchView()
