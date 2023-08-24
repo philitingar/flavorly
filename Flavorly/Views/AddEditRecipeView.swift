@@ -27,6 +27,7 @@ struct AddEditRecipeView: View {
     let diets = ["Vegetarian", "Vegan", "Gluten free",  "Dairy free", "Pescatarian", "Omnivore"]
     let types = ["Soup", "Salad", "Main", "Dessert", "Side", "Breakfast", "Lunch", "Dinner"]
     let occasions = ["Christmas", "New Years", "Birthday", "Easter", "Everyday"]
+    @State private var selectedIndex = 0
     
     var hasValidName: Bool {
         if title.isEmpty || author.isEmpty {
@@ -43,23 +44,20 @@ struct AddEditRecipeView: View {
                         TextField("Recipe name", text: $title)
                         TextField("Author's name", text: $author)
                         
-                        Picker("Diet", selection: $diet) {
-                            Text("").tag("")
-                            ForEach(diets, id: \.self) {
-                                Text($0)
-                            }
+                        Picker("Diet", selection: $selectedIndex) {
+                            ForEach(diets, id: \.self, content: { diet in
+                                Text(diet).tag(selectedIndex)// whatever is used for selection needs to be in tag as well
+                            })
                         }
-                        Picker("Type", selection: $type) {
-                            Text("").tag("")
-                            ForEach(types, id: \.self) {
-                                Text($0)
-                            }
+                        Picker("Type", selection: $selectedIndex) {
+                            ForEach(types, id: \.self, content: { type in
+                                Text(type).tag(selectedIndex)
+                            })
                         }
-                        Picker("Occasion", selection: $occasion) {
-                            Text("").tag("")
-                            ForEach(occasions, id: \.self) {
-                                Text($0)
-                            }
+                        Picker("Occasion", selection: $selectedIndex) {
+                            ForEach(occasions, id: \.self, content: { occasion in
+                                Text(occasion).tag(selectedIndex)
+                            })
                         }
                         
                     }
@@ -127,7 +125,8 @@ struct AddEditRecipeView: View {
                         Button {
                             dismiss()
                         } label: {
-                            Label("Back", systemImage: "xmark")
+                            Label("Back", systemImage: "x.circle.fill")
+                                .foregroundStyle(.orange)
                         }
                         Text("Add recipe".uppercased())
                             .padding(95)
