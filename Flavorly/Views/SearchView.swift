@@ -36,7 +36,8 @@ struct SearchView: View {
                         Button {
                             dismiss()
                         } label: {
-                            Label("Back", systemImage: "xmark")
+                            Label("Back", systemImage: "arrowshape.turn.up.backward.circle.fill")
+                                .foregroundStyle(.orange)
                         }
                     }
                 }

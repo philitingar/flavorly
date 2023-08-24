@@ -37,19 +37,19 @@ struct ContentView: View {
             }
                 .navigationTitle("Flavorly")
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        EditButton()
-                    }
+                    
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button {
                             self.showingAddScreen.toggle()
                         } label: {
-                            Label("Add Recipe", systemImage: "plus")
+                            Label("Add Recipe", systemImage: "plus.circle.fill")
+                                .foregroundStyle(.orange)
                         }
                         Button {
                             self.showingSearchScreen.toggle()
                         } label: {
-                            Label("Search", systemImage: "magnifyingglass")
+                            Label("Search", systemImage: "magnifyingglass.circle.fill")
+                                .foregroundStyle(.orange)
                         }
                     }
                 }
