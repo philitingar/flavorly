@@ -7,15 +7,18 @@
 import CoreData
 import SwiftUI
 
-struct AddRecipeView: View {
+struct AddEditRecipeView: View {
     
     @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
     @Environment(\.dismiss) var dismiss
     
+    let recipe: Recipe?
+    @State private var newRecipe = false
+    
     @State private var title = ""
     @State private var type = ""
     @State private var ingredients = ""
-    @State private var recipe = ""
+    @State private var text = ""
     @State private var author = ""
     @State private var hardness = 3
     @State private var diet = ""
@@ -73,27 +76,49 @@ struct AddRecipeView: View {
                         Text("Write the ingredients")
                     }
                     Section {
-                        TextEditor(text: $recipe)
+                        TextEditor(text: $text)
                     } header: {
                         Text("recipe")
                     }
                     Section {
-                        Button("Save") {
-                            let newRecipe = Recipe(context: moc)
-                            newRecipe.id = UUID()
-                            newRecipe.title = title
-                            newRecipe.author = author
-                            newRecipe.hardness = Int16(hardness)
-                            newRecipe.diet = diet
-                            newRecipe.occasion = occasion
-                            newRecipe.ingredients = ingredients
-                            newRecipe.type = type
-                            newRecipe.recipe = recipe
+                        Button(newRecipe ? "Add" : "Update") {
+                            if newRecipe {
+                                let newRecipe = Recipe(context: moc)
+                                newRecipe.id = UUID()
+                                newRecipe.title = title
+                                newRecipe.author = author
+                                newRecipe.hardness = Int16(hardness)
+                                newRecipe.diet = diet
+                                newRecipe.occasion = occasion
+                                newRecipe.ingredients = ingredients
+                                newRecipe.type = type
+                                newRecipe.text = text
+                                
+                                try? moc.save()
+                                dismiss()
+                            } else {
+                                recipe?.title = title
+                                recipe?.author = author
+                                recipe?.hardness = Int16(hardness)
+                                recipe?.diet = diet
+                                recipe?.occasion = occasion
+                                recipe?.ingredients = ingredients
+                                recipe?.type = type
+                                recipe?.text = text
+                                
+                                try? moc.save()
+                                dismiss()
+                            }
                             
-                            try? moc.save()
-                            dismiss()
                         }
-                        
+                        .onAppear {
+                            newRecipe = (recipe == nil) // here we check if we passed recipe to this view
+                            // and if there is recipe that you are passing you assign those properties of recipe to your view fields
+                            if newRecipe == false {
+                                title = recipe?.title ?? ""
+                                author = recipe?.author ?? ""
+                            }
+                        }
                     }
                     .disabled(hasValidName == false)
                 }
@@ -117,6 +142,6 @@ struct AddRecipeView: View {
 
 struct AddRecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRecipeView()
+        AddEditRecipeView(recipe: nil)
     }
 }
