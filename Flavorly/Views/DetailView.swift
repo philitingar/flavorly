@@ -4,11 +4,11 @@
 //
 //  Created by Timea Bartha on 21/8/23.
 //
-
+import CoreData
 import SwiftUI
 
 struct DetailView: View {
-    let recipe: Recipe
+    @State var recipe: Recipe
     
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
@@ -50,7 +50,7 @@ struct DetailView: View {
                     .foregroundColor(.secondary)
                     .padding()
                 
-                Text(recipe.recipe ?? "No recipe")
+                Text(recipe.text ?? "No recipe text")
                     .foregroundColor(.secondary)
                     .padding()
             
@@ -70,6 +70,9 @@ struct DetailView: View {
                         showingDeleteAlert = true
                     } label: {
                         Label("Delete this recipe", systemImage: "trash")
+                    }
+                    NavigationLink("Edit") {
+                        AddEditRecipeView (recipe: recipe)
                     }
                 }
         }
