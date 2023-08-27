@@ -8,7 +8,6 @@ import CoreData
 import SwiftUI
 
 struct SearchView: View {
-    let searchObjects = [ "diet", "occasion", "type" ]
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @FetchRequest(sortDescriptors: [])
