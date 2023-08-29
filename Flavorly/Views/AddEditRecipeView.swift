@@ -20,14 +20,12 @@ struct AddEditRecipeView: View {
     @State private var ingredients = ""
     @State private var text = ""
     @State private var author = ""
-    @State private var hardness = 3
     @State private var diet = ""
     @State private var occasion = ""
     
     let diets = ["Vegetarian", "Vegan", "Gluten free",  "Dairy free", "Pescatarian", "Omnivore"]
     let types = ["Soup", "Salad", "Main", "Dessert", "Side", "Breakfast", "Lunch", "Dinner"]
     let occasions = ["Christmas", "New Years", "Birthday", "Easter", "Everyday"]
-    @State private var selectedIndex = 0
     
     var hasValidName: Bool {
         if title.isEmpty || author.isEmpty {
@@ -64,12 +62,6 @@ struct AddEditRecipeView: View {
                     }
                     
                     Section {
-                        HardnessView(hardness: $hardness)
-                    } header: {
-                        Text("How hard is this?")
-                    }
-                    
-                    Section {
                         TextEditor(text: $ingredients)
                     } header: {
                         Text("Write the ingredients")
@@ -86,7 +78,6 @@ struct AddEditRecipeView: View {
                                 newRecipe.id = UUID()
                                 newRecipe.title = title
                                 newRecipe.author = author
-                                newRecipe.hardness = Int16(hardness)
                                 newRecipe.diet = diet
                                 newRecipe.occasion = occasion
                                 newRecipe.ingredients = ingredients
@@ -98,7 +89,6 @@ struct AddEditRecipeView: View {
                             } else {
                                 recipe?.title = title
                                 recipe?.author = author
-                                recipe?.hardness = Int16(hardness)
                                 recipe?.diet = diet
                                 recipe?.occasion = occasion
                                 recipe?.ingredients = ingredients
@@ -110,14 +100,7 @@ struct AddEditRecipeView: View {
                             }
                             
                         }
-                        .onAppear {
-                            newRecipe = (recipe == nil) // here we check if we passed recipe to this view
-                            // and if there is recipe that you are passing you assign those properties of recipe to your view fields
-                            if newRecipe == false {
-                                title = recipe?.title ?? ""
-                                author = recipe?.author ?? ""
-                            }
-                        }
+
                     }
                     .disabled(hasValidName == false)
                 }
@@ -132,6 +115,23 @@ struct AddEditRecipeView: View {
                         Text("Add recipe".uppercased())
                             .padding(95)
                             
+                    }
+                }.onAppear {
+                    newRecipe = (recipe == nil) // here we check if we passed recipe to this view
+                    // and if there is recipe that you are passing you assign those properties of recipe to your view fields
+                        
+                    if newRecipe == false {
+                        title = recipe?.title ?? ""
+                        author = recipe?.author ?? ""
+                        diet = recipe?.diet ?? diets[0]
+                        type = recipe?.type ?? types[0]
+                        occasion = recipe?.occasion ?? occasions[0]
+                        ingredients = recipe?.ingredients ?? ""
+                        text = recipe?.text ?? ""
+                    } else {
+                        diet = diets[0]
+                        type = types[0]
+                        occasion = occasions[0]
                     }
                 }
             }
