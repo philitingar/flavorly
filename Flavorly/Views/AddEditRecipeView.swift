@@ -44,20 +44,21 @@ struct AddEditRecipeView: View {
                         TextField("Recipe name", text: $title)
                         TextField("Author's name", text: $author)
                         
-                        Picker("Diet", selection: $selectedIndex) {
-                            ForEach(diets, id: \.self, content: { diet in
-                                Text(diet).tag(selectedIndex)// whatever is used for selection needs to be in tag as well
-                            })
+                        Picker("Diet", selection: $diet) {
+                            ForEach(diets, id: \.self) {
+                                Text($0)
+                            }
                         }
-                        Picker("Type", selection: $selectedIndex) {
-                            ForEach(types, id: \.self, content: { type in
-                                Text(type).tag(selectedIndex)
-                            })
+                            
+                        Picker("Type", selection: $type) {
+                            ForEach(types, id: \.self) {
+                                Text($0)
+                            }
                         }
-                        Picker("Occasion", selection: $selectedIndex) {
-                            ForEach(occasions, id: \.self, content: { occasion in
-                                Text(occasion).tag(selectedIndex)
-                            })
+                        Picker("Occasion", selection: $occasion) {
+                            ForEach(occasions, id: \.self) {
+                                Text($0)
+                            }
                         }
                         
                     }
