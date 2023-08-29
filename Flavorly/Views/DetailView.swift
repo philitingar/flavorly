@@ -17,7 +17,13 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
+            Text(recipe.title ?? "Unknown Recipe")
+                .lineLimit(2)
+                .multilineTextAlignment(.center)
+                .font(.title2)
+                .foregroundColor(.secondary)
             Text(recipe.author ?? "Unknown author")
+                .lineLimit(2)
                 .font(.headline)
                 .foregroundColor(.secondary)
             HStack(alignment: .center) {
@@ -54,7 +60,7 @@ struct DetailView: View {
                     .foregroundColor(.secondary)
                     .padding()
             
-                .navigationTitle(recipe.title?.uppercased() ?? "Unknown Recipe")
+                .navigationTitle("Recipe")
                 .navigationBarTitleDisplayMode(.inline)
                 .alert("Delete recipe", isPresented: $showingDeleteAlert) {
                     Button("Delete", role: .destructive, action: deleteRecipe)
