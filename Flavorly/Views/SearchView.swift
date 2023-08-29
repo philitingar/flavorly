@@ -27,7 +27,7 @@ struct SearchView: View {
             }
             .searchable(text: $searchText, prompt: "Look for something")
             .onChange(of: searchText, perform: { newValue in
-                recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title BEGINSWITH %@", newValue)
+                recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
             })
             .navigationTitle("Search here!")
             .toolbar {
@@ -36,7 +36,7 @@ struct SearchView: View {
                             dismiss()
                         } label: {
                             Label("Back", systemImage: "arrowshape.turn.up.backward.circle.fill")
-                                .foregroundStyle(.orange)
+                                .foregroundStyle(.red)
                         }
                     }
                 }
