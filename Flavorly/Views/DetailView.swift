@@ -21,7 +21,8 @@ struct DetailView: View {
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .font(.title2)
-                .foregroundColor(.secondary)
+                .foregroundColor(.cyan)
+                .bold()
             Text(recipe.author ?? "Unknown author")
                 .lineLimit(2)
                 .font(.headline)
@@ -32,7 +33,7 @@ struct DetailView: View {
                     .fontWeight(.black)
                     .padding(8)
                     .foregroundColor(.white)
-                    .background(.black.opacity(0.75))
+                    .background(.cyan.opacity(0.75))
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
                 Text(recipe.occasion?.uppercased() ?? "Unknown occasion")
@@ -40,7 +41,7 @@ struct DetailView: View {
                     .fontWeight(.black)
                     .padding(8)
                     .foregroundColor(.white)
-                    .background(.black.opacity(0.75))
+                    .background(.cyan.opacity(0.75))
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
                 Text(recipe.diet?.uppercased() ?? "Unknown diet")
@@ -48,7 +49,7 @@ struct DetailView: View {
                     .fontWeight(.black)
                     .padding(8)
                     .foregroundColor(.white)
-                    .background(.black.opacity(0.75))
+                    .background(.cyan.opacity(0.75))
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
             }
@@ -73,13 +74,13 @@ struct DetailView: View {
                         showingDeleteAlert = true
                     } label: {
                         Label("Delete this recipe", systemImage: "trash.circle.fill")
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(.red)
                     }
                     NavigationLink {
                         AddEditRecipeView (recipe: recipe)
                     } label: {
                         Label("Edit this recipe", systemImage: "square.and.pencil.circle.fill")
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(.green)
                     }
                 }
         }

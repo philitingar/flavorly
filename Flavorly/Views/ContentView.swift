@@ -43,13 +43,13 @@ struct ContentView: View {
                             self.showingAddScreen.toggle()
                         } label: {
                             Label("Add Recipe", systemImage: "plus.circle.fill")
-                                .foregroundStyle(.orange)
+                                .foregroundStyle(.green)
                         }
                         Button {
                             self.showingSearchScreen.toggle()
                         } label: {
                             Label("Search", systemImage: "magnifyingglass.circle.fill")
-                                .foregroundStyle(.orange)
+                                .foregroundStyle(.blue)
                         }
                     }
                 }

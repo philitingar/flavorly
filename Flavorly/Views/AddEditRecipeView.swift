@@ -110,7 +110,7 @@ struct AddEditRecipeView: View {
                             dismiss()
                         } label: {
                             Label("Back", systemImage: "x.circle.fill")
-                                .foregroundStyle(.orange)
+                                .foregroundStyle(.red)
                         }
                         Text("Add recipe".uppercased())
                             .padding(95)
