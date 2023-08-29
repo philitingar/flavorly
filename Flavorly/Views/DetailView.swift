@@ -54,9 +54,6 @@ struct DetailView: View {
                     .foregroundColor(.secondary)
                     .padding()
             
-            HardnessView(hardness: .constant(Int(recipe.hardness)))
-                .font(.caption)
-            
                 .navigationTitle(recipe.title?.uppercased() ?? "Unknown Recipe")
                 .navigationBarTitleDisplayMode(.inline)
                 .alert("Delete recipe", isPresented: $showingDeleteAlert) {
