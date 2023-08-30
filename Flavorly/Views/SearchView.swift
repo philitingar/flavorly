@@ -37,7 +37,7 @@ struct SearchView: View {
                             dismiss()
                         } label: {
                             Label("Back", systemImage: "arrowshape.turn.up.backward.circle.fill")
-                                .foregroundStyle(.red)
+                                .foregroundStyle(Color.backgroundRed)
                         }
                     }
                 }

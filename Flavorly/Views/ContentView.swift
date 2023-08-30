@@ -45,13 +45,13 @@ struct ContentView: View {
                             self.showingAddScreen.toggle()
                         } label: {
                             Label("Add Recipe", systemImage: "plus.circle.fill")
-                                .foregroundStyle(.green)
+                                .foregroundStyle(Color.backgroundGreen)
                         }
                         Button {
                             self.showingSearchScreen.toggle()
                         } label: {
                             Label("Search", systemImage: "magnifyingglass.circle.fill")
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(Color.textBackgroundBlue)
                         }
                     }
                 }
@@ -79,7 +79,10 @@ struct ContentView: View {
 }
 extension Color {
     static let backgroundBeige = Color("BackgroundBeige")
-    
+    static let backgroundGreen = Color("ButtonBackgroundGreen")
+    static let backgroundRed = Color("BackgroundColorRed")
+    static let backgroundBlue = Color("ButtonBackgroundBlue")
+    static let textBackgroundBlue = Color("TextBackgroundBlue")
 }
 
 struct ContentView_Previews: PreviewProvider {

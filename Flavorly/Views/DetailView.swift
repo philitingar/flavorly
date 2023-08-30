@@ -21,7 +21,7 @@ struct DetailView: View {
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .font(.title2)
-                .foregroundColor(.cyan)
+                .foregroundColor(Color.textBackgroundBlue)
                 .bold()
             Text(recipe.author ?? "Unknown author")
                 .lineLimit(2)
@@ -32,27 +32,27 @@ struct DetailView: View {
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
-                    .foregroundColor(.white)
-                    .background(.cyan.opacity(0.75))
+                    .foregroundColor(.primary)
+                    .background(Color.backgroundBlue)
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
                 Text(recipe.occasion?.uppercased() ?? "Unknown occasion")
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
-                    .foregroundColor(.white)
-                    .background(.cyan.opacity(0.75))
+                    .foregroundColor(.primary)
+                    .background(Color.backgroundBlue)
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
                 Text(recipe.diet?.uppercased() ?? "Unknown diet")
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
-                    .foregroundColor(.white)
-                    .background(.cyan.opacity(0.75))
+                    .foregroundColor(.primary)
+                    .background(Color.backgroundBlue)
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
-            }
+            }.padding(5)
                 Text(recipe.ingredients ?? "Unknown ingredients")
                     .foregroundColor(.secondary)
                     .padding()
@@ -74,18 +74,18 @@ struct DetailView: View {
                         showingDeleteAlert = true
                     } label: {
                         Label("Delete this recipe", systemImage: "trash.circle.fill")
-                            .foregroundStyle(.red)
+                            .foregroundStyle(Color.backgroundRed)
                     }
                     NavigationLink {
                         AddEditRecipeView (recipe: recipe)
                     } label: {
                         Label("Edit this recipe", systemImage: "square.and.pencil.circle.fill")
-                            .foregroundStyle(.green)
+                            .foregroundStyle(Color.backgroundGreen)
                     }
                 }
         }
-        .frame(maxWidth: .infinity)
-        .background(Color.backgroundBeige)
+        
+        
     }
     func deleteRecipe() {
         moc.delete(recipe)
