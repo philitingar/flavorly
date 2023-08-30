@@ -112,8 +112,13 @@ struct AddEditRecipeView: View {
                             Label("Back", systemImage: "x.circle.fill")
                                 .foregroundStyle(Color.backgroundRed)
                         }
-                        Text("Add recipe".uppercased())
+                        if newRecipe == true {
+                            Text("Add recipe".uppercased())
                             .padding(95)
+                        } else {
+                            Text("Edit recipe".uppercased())
+                            .padding(95)
+                        }
                             
                     }
                 }.onAppear {
