@@ -25,6 +25,7 @@ struct DetailView: View {
                 .bold()
             HStack {
                 Text("By:")
+                    .font(.subheadline)
                 Text(recipe.author ?? "Unknown author")
                     .lineLimit(2)
                     .font(.headline)
@@ -57,11 +58,11 @@ struct DetailView: View {
                     .offset(x: -5, y: -5)
             }.padding(5)
                 Text(recipe.ingredients ?? "Unknown ingredients")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.primary)
                     .padding()
                 
                 Text(recipe.text ?? "No recipe text")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.primary)
                     .padding()
             
                 .navigationTitle("Recipe")

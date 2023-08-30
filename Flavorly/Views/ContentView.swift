@@ -29,6 +29,7 @@ struct ContentView: View {
                                     .font(.headline)
                                 HStack {
                                     Text("By:")
+                                        .font(.subheadline)
                                     Text(recipe.author ?? "Unknown Author")
                                         .foregroundColor(.secondary)
                                 }
