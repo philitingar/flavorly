@@ -23,10 +23,13 @@ struct DetailView: View {
                 .font(.title2)
                 .foregroundColor(Color.textBackgroundBlue)
                 .bold()
-            Text(recipe.author ?? "Unknown author")
-                .lineLimit(2)
-                .font(.headline)
-                .foregroundColor(.secondary)
+            HStack {
+                Text("By:")
+                Text(recipe.author ?? "Unknown author")
+                    .lineLimit(2)
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+            }
             HStack(alignment: .center) {
                 Text(recipe.type?.uppercased() ?? "SOUP")
                     .font(.caption)

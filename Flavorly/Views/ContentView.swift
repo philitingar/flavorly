@@ -27,8 +27,11 @@ struct ContentView: View {
                             VStack(alignment: .leading) {
                                 Text(recipe.title ?? "Unknown Title")
                                     .font(.headline)
-                                Text(recipe.author ?? "Unknown Author")
-                                    .foregroundColor(.secondary)
+                                HStack {
+                                    Text("By:")
+                                    Text(recipe.author ?? "Unknown Author")
+                                        .foregroundColor(.secondary)
+                                }
                             }
                         }
                     }
