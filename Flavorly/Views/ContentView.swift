@@ -34,7 +34,9 @@ struct ContentView: View {
                     }
                 }
                 .onDelete(perform: deleteRecipe)
+                .listRowBackground(Color.backgroundBeige)
             }
+            
                 .navigationTitle("Flavorly")
                 .toolbar {
                     
@@ -59,7 +61,8 @@ struct ContentView: View {
                 .sheet(isPresented: $showingSearchScreen) {
                     SearchView()
                 }
-        }
+        }.frame(maxWidth: .infinity)
+            .background(Color("BackgroundBeige"))
     }
     func deleteRecipe(at offsets: IndexSet) {
         for offset in offsets {
@@ -73,6 +76,10 @@ struct ContentView: View {
         // save the context
         try? moc.save()
     }
+}
+extension Color {
+    static let backgroundBeige = Color("BackgroundBeige")
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

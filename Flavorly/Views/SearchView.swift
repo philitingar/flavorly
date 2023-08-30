@@ -14,24 +14,25 @@ struct SearchView: View {
     private var recipes: FetchedResults<Recipe>
     
     @State private var searchText = ""
-    
+
     var body: some View {
         NavigationView {
-            List {
-                ForEach(recipes, id: \.self) { recipe in
-                    NavigationLink(destination: DetailView(recipe: recipe)) {
-                        Text(recipe.title!)
-
-                    }
+            ZStack {
+                List {
+                    ForEach(recipes, id: \.self) { recipe in
+                        NavigationLink(destination: DetailView(recipe: recipe)) {
+                            Text(recipe.title!)
+                            
+                        }
+                    }.listRowBackground(Color.backgroundBeige)
                 }
-            }
-            .searchable(text: $searchText, prompt: "Look for something")
-            .onChange(of: searchText, perform: { newValue in
-                recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
-            })
-            .navigationTitle("Search here!")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                .searchable(text: $searchText, prompt: "Look for something")
+                .onChange(of: searchText, perform: { newValue in
+                    recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
+                })
+                .navigationTitle("Search here!")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
                         Button {
                             dismiss()
                         } label: {
@@ -40,7 +41,9 @@ struct SearchView: View {
                         }
                     }
                 }
+            }
         }
+        
     }
 }
 

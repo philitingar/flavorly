@@ -134,8 +134,10 @@ struct AddEditRecipeView: View {
                         occasion = occasions[0]
                     }
                 }
-            }
+            }.frame(maxWidth: .infinity)
+            .background(Color("BackgrounBeige"))
         }
+        
     
     
 }

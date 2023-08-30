@@ -84,6 +84,8 @@ struct DetailView: View {
                     }
                 }
         }
+        .frame(maxWidth: .infinity)
+        .background(Color.backgroundBeige)
     }
     func deleteRecipe() {
         moc.delete(recipe)
