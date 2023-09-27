@@ -26,7 +26,7 @@ struct SearchView: View {
                         }
                     }.listRowBackground(Color.backgroundBeige)
                 }
-                .searchable(text: $searchText, prompt: "Look for something")
+                .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: "Look for something")
                 .onChange(of: searchText, perform: { newValue in
                     recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
                 })
