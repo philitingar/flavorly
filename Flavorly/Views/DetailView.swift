@@ -84,7 +84,8 @@ struct DetailView: View {
                         AddEditRecipeView (recipe: recipe)
                     } label: {
                         Image(systemName: "pencil.tip.crop.circle.badge.plus.fill")
-                            .foregroundStyle(Color.backgroundGreen)
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
                     }
                 }
         }
