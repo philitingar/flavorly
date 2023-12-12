@@ -49,8 +49,9 @@ struct ContentView: View {
                             self.showingAddScreen.toggle()
                         } label: {
                             Label("Add Recipe", systemImage: "plus.circle.fill")
-                                .foregroundStyle(Color.backgroundGreen)
                         }
+                        
+                        
                         Button {
                             self.showingSearchScreen.toggle()
                         } label: {
@@ -66,7 +67,7 @@ struct ContentView: View {
                     SearchView()
                 }
         }.frame(maxWidth: .infinity)
-            .background(Color("BackgroundBeige"))
+            
     }
     func deleteRecipe(at offsets: IndexSet) {
         for offset in offsets {

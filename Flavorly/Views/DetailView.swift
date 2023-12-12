@@ -78,13 +78,13 @@ struct DetailView: View {
                         showingDeleteAlert = true
                     } label: {
                         Label("Delete this recipe", systemImage: "trash.circle.fill")
-                            .foregroundStyle(Color.backgroundRed)
+                            .foregroundColor(Color.backgroundRed)
                     }
                     NavigationLink {
                         AddEditRecipeView (recipe: recipe)
                     } label: {
                         Label("Edit this recipe", systemImage: "square.and.pencil.circle.fill")
-                            .foregroundStyle(Color.backgroundGreen)
+                            .foregroundColor(Color.backgroundGreen)
                     }
                 }
         }

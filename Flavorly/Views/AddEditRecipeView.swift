@@ -16,12 +16,12 @@ struct AddEditRecipeView: View {
     @State private var newRecipe = false
     
     @State private var title = ""
-    @State private var type = ""
+    @State private var type = "Soup"
     @State private var ingredients = ""
     @State private var text = ""
     @State private var author = ""
-    @State private var diet = ""
-    @State private var occasion = ""
+    @State private var diet = "Vegetarian"
+    @State private var occasion = "Everyday"
     
     let diets = ["Vegetarian", "Vegan", "Gluten free",  "Dairy free", "Pescatarian", "Omnivore", "Nut free"]
     let types = ["Soup", "Salad", "Main", "Dessert", "Side", "Breakfast", "Lunch", "Dinner", "Juice"]
@@ -44,21 +44,19 @@ struct AddEditRecipeView: View {
                         
                         Picker("Diet", selection: $diet) {
                             ForEach(diets, id: \.self) {
-                                Text($0)
+                                Text($0).tag($0)
                             }
                         }
-                            
                         Picker("Type", selection: $type) {
                             ForEach(types, id: \.self) {
-                                Text($0)
+                                Text($0).tag($0)
                             }
                         }
                         Picker("Occasion", selection: $occasion) {
                             ForEach(occasions, id: \.self) {
-                                Text($0)
+                                Text($0).tag($0)
                             }
                         }
-                        
                     }
                     
                     Section {
@@ -110,7 +108,7 @@ struct AddEditRecipeView: View {
                             dismiss()
                         } label: {
                             Label("Back", systemImage: "x.circle.fill")
-                                .foregroundStyle(Color.backgroundRed)
+                               .foregroundStyle(Color.backgroundRed)
                         }
                         if newRecipe == true {
                             Text("Add recipe".uppercased())

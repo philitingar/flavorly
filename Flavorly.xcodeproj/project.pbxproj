@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
 		26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */; };
 		26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF52A93A92600E8F9A8 /* ContentView.swift */; };
 		26710DF82A93A92700E8F9A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF72A93A92700E8F9A8 /* Assets.xcassets */; };
@@ -16,7 +17,6 @@
 		26710E082A93AA9200E8F9A8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E072A93AA9200E8F9A8 /* SearchView.swift */; };
 		26710E0A2A93ABE000E8F9A8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E092A93ABE000E8F9A8 /* DetailView.swift */; };
 		26710E0E2A93AC5800E8F9A8 /* AddEditRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */; };
-		26C29FB02AA8CAAD00DE0690 /* FlavorlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C29FAF2AA8CAAD00DE0690 /* FlavorlyTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavorly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavorly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
 		26710DF52A93A92600E8F9A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		26710E092A93ABE000E8F9A8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeView.swift; sourceTree = "<group>"; };
 		26C29FAD2AA8CAAD00DE0690 /* FlavorlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26C29FAF2AA8CAAD00DE0690 /* FlavorlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyTests.swift; sourceTree = "<group>"; };
 		26DAAF302AA0E8B5009B2456 /* Flavorly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flavorly.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +117,7 @@
 		26C29FAE2AA8CAAD00DE0690 /* FlavorlyTests */ = {
 			isa = PBXGroup;
 			children = (
-				26C29FAF2AA8CAAD00DE0690 /* FlavorlyTests.swift */,
+				265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */,
 			);
 			path = FlavorlyTests;
 			sourceTree = "<group>";
@@ -175,6 +175,7 @@
 					};
 					26C29FAC2AA8CAAD00DE0690 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1500;
 						TestTargetID = 26710DEF2A93A92600E8F9A8;
 					};
 				};
@@ -236,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26C29FB02AA8CAAD00DE0690 /* FlavorlyTests.swift in Sources */,
+				265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V6R32R32N9;
@@ -437,6 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.FlavorlyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flavorly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Flavorly";
@@ -447,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V6R32R32N9;
