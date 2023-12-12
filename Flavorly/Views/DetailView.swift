@@ -77,14 +77,14 @@ struct DetailView: View {
                     Button {
                         showingDeleteAlert = true
                     } label: {
-                        Label("Delete this recipe", systemImage: "trash.circle.fill")
-                            .foregroundColor(Color.backgroundRed)
+                        Image(systemName: "trash.circle.fill")
+                            .foregroundStyle(Color.backgroundRed)
                     }
                     NavigationLink {
                         AddEditRecipeView (recipe: recipe)
                     } label: {
-                        Label("Edit this recipe", systemImage: "square.and.pencil.circle.fill")
-                            .foregroundColor(Color.backgroundGreen)
+                        Image(systemName: "pencil.tip.crop.circle.badge.plus.fill")
+                            .foregroundStyle(Color.backgroundGreen)
                     }
                 }
         }

@@ -107,7 +107,7 @@ struct AddEditRecipeView: View {
                         Button {
                             dismiss()
                         } label: {
-                            Label("Back", systemImage: "x.circle.fill")
+                            Image(systemName: "x.circle.fill")
                                .foregroundStyle(Color.backgroundRed)
                         }
                         if newRecipe == true {
