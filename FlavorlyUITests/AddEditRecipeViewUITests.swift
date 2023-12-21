@@ -55,15 +55,20 @@ final class AddEditRecipeViewUITests: XCTestCase {
     func testThisIfWorks() {
         let app = XCUIApplication()
         app.launch()
-                              
-        
+        let collectionViewsQuery = app.collectionViews
+        collectionViewsQuery.buttons["Recipename, By:, Recipeauthor"].swipeLeft()
+        collectionViewsQuery.buttons["Delete"].tap()
+        collectionViewsQuery.buttons["Add, By:, New"].tap()
+        app.navigationBars["Recipe"]/*@START_MENU_TOKEN@*/.buttons["Trash"]/*[[".otherElements[\"Trash\"].buttons[\"Trash\"]",".buttons[\"Trash\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.alerts["Delete recipe"].scrollViews.otherElements.buttons["Delete"].tap()
+   
     }
     func testListRowDeleteActionWorks() {
         let app = XCUIApplication()
         app.launch()
       
         let collectionViewsQuery = XCUIApplication().collectionViews
-        collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["Name, By:, Author"]/*[[".cells.buttons[\"Name, By:, Author\"]",".buttons[\"Name, By:, Author\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeLeft(velocity: XCUIGestureVelocity.slow)
+        collectionViewsQuery.staticTexts["Best ever chocolate brownies recipe, By: Orlando Murrin"].swipeLeft(velocity: XCUIGestureVelocity.slow)
         collectionViewsQuery.children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 0).buttons["Delete"].tap()
                 
     }

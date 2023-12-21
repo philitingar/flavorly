@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26164C252B34844A0041B2EF /* FlavorlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C242B34844A0041B2EF /* FlavorlyUITests.swift */; };
 		26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */; };
 		26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */; };
 		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
@@ -41,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26164C242B34844A0041B2EF /* FlavorlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITests.swift; sourceTree = "<group>"; };
 		26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewUITests.swift; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		26164C232B34844A0041B2EF /* FlavorlyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				26164C242B34844A0041B2EF /* FlavorlyUITests.swift */,
 				26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */,
 				26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */,
 			);
@@ -288,7 +285,6 @@
 			files = (
 				26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */,
 				26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */,
-				26164C252B34844A0041B2EF /* FlavorlyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
