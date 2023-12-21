@@ -40,6 +40,17 @@
                ReferencedContainer = "container:Flavorly.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "26164C212B34844A0041B2EF"
+               BuildableName = "FlavorlyUITests.xctest"
+               BlueprintName = "FlavorlyUITests"
+               ReferencedContainer = "container:Flavorly.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

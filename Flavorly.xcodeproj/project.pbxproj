@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26164C252B34844A0041B2EF /* FlavorlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C242B34844A0041B2EF /* FlavorlyUITests.swift */; };
+		26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */; };
+		26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */; };
 		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
 		26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */; };
 		26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF52A93A92600E8F9A8 /* ContentView.swift */; };
@@ -20,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		26164C282B34844A0041B2EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26710DE82A93A92600E8F9A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26710DEF2A93A92600E8F9A8;
+			remoteInfo = Flavorly;
+		};
 		26C29FB12AA8CAAD00DE0690 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 26710DE82A93A92600E8F9A8 /* Project object */;
@@ -30,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26164C242B34844A0041B2EF /* FlavorlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITests.swift; sourceTree = "<group>"; };
+		26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewUITests.swift; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavorly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavorly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
@@ -46,6 +60,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		26164C1F2B34844A0041B2EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26710DED2A93A92600E8F9A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,11 +84,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26164C232B34844A0041B2EF /* FlavorlyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				26164C242B34844A0041B2EF /* FlavorlyUITests.swift */,
+				26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */,
+				26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */,
+			);
+			path = FlavorlyUITests;
+			sourceTree = "<group>";
+		};
 		26710DE72A93A92600E8F9A8 = {
 			isa = PBXGroup;
 			children = (
 				26710DF22A93A92600E8F9A8 /* Flavorly */,
 				26C29FAE2AA8CAAD00DE0690 /* FlavorlyTests */,
+				26164C232B34844A0041B2EF /* FlavorlyUITests */,
 				26710DF12A93A92600E8F9A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +109,7 @@
 			children = (
 				26710DF02A93A92600E8F9A8 /* Flavorly.app */,
 				26C29FAD2AA8CAAD00DE0690 /* FlavorlyTests.xctest */,
+				26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +158,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		26164C212B34844A0041B2EF /* FlavorlyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26164C2A2B34844A0041B2EF /* Build configuration list for PBXNativeTarget "FlavorlyUITests" */;
+			buildPhases = (
+				26164C1E2B34844A0041B2EF /* Sources */,
+				26164C1F2B34844A0041B2EF /* Frameworks */,
+				26164C202B34844A0041B2EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26164C292B34844A0041B2EF /* PBXTargetDependency */,
+			);
+			name = FlavorlyUITests;
+			productName = FlavorlyUITests;
+			productReference = 26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		26710DEF2A93A92600E8F9A8 /* Flavorly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26710DFE2A93A92700E8F9A8 /* Build configuration list for PBXNativeTarget "Flavorly" */;
@@ -167,9 +218,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					26164C212B34844A0041B2EF = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 26710DEF2A93A92600E8F9A8;
+					};
 					26710DEF2A93A92600E8F9A8 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -195,11 +250,19 @@
 			targets = (
 				26710DEF2A93A92600E8F9A8 /* Flavorly */,
 				26C29FAC2AA8CAAD00DE0690 /* FlavorlyTests */,
+				26164C212B34844A0041B2EF /* FlavorlyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		26164C202B34844A0041B2EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26710DEE2A93A92600E8F9A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +282,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		26164C1E2B34844A0041B2EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */,
+				26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */,
+				26164C252B34844A0041B2EF /* FlavorlyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26710DEC2A93A92600E8F9A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,6 +317,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		26164C292B34844A0041B2EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26710DEF2A93A92600E8F9A8 /* Flavorly */;
+			targetProxy = 26164C282B34844A0041B2EF /* PBXContainerItemProxy */;
+		};
 		26C29FB22AA8CAAD00DE0690 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 26710DEF2A93A92600E8F9A8 /* Flavorly */;
@@ -252,6 +330,51 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		26164C2B2B34844A0041B2EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.FlavorlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flavorly;
+			};
+			name = Debug;
+		};
+		26164C2C2B34844A0041B2EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.FlavorlyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flavorly;
+			};
+			name = Release;
+		};
 		26710DFC2A93A92700E8F9A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -468,6 +591,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		26164C2A2B34844A0041B2EF /* Build configuration list for PBXNativeTarget "FlavorlyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26164C2B2B34844A0041B2EF /* Debug */,
+				26164C2C2B34844A0041B2EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		26710DEB2A93A92600E8F9A8 /* Build configuration list for PBXProject "Flavorly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

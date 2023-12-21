@@ -5,6 +5,7 @@
 //  Created by Timea Bartha on 21/8/23.
 //
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
@@ -12,10 +13,10 @@ struct ContentView: View {
         SortDescriptor(\.title),
         SortDescriptor(\.author)
     ]) var recipes: FetchedResults<Recipe>
-    
     @State private var showingAddScreen = false
     @State private var showingSearchScreen = false
     
+  
     var body: some View {
         NavigationView {
             List {
@@ -27,6 +28,7 @@ struct ContentView: View {
                             VStack(alignment: .leading) {
                                 Text(recipe.title ?? "Unknown Title")
                                     .font(.headline)
+                                    .foregroundColor(Color.textBackgroundBlue)
                                 HStack {
                                     Text("By:")
                                         .font(.subheadline)
@@ -38,51 +40,48 @@ struct ContentView: View {
                     }
                 }
                 .onDelete(perform: deleteRecipe)
-                .listRowBackground(Color.backgroundBeige)
+                .listRowBackground(Color.secondary.opacity(0.3))
             }
-            
-                .navigationTitle("Flavorly")
-                .toolbar {
-                    
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button {
-                            self.showingAddScreen.toggle()
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundStyle(Color.backgroundGreen)
-                        }
-                        
-                        
-                        Button {
-                            self.showingSearchScreen.toggle()
-                        } label: {
-                            Image(systemName: "magnifyingglass.circle.fill")
-                                .foregroundStyle(Color.textBackgroundBlue)
-                        }
+            .navigationTitle("Flavorly")
+            .toolbar {
+                
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button {
+                        self.showingAddScreen.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundStyle(Color.backgroundGreen)
+                    }
+                    .accessibilityIdentifier("Add Recipe")
+                    Button {
+                        self.showingSearchScreen.toggle()
+                    } label: {
+                        Image(systemName: "magnifyingglass.circle.fill")
+                            .foregroundStyle(Color.textBackgroundBlue)
                     }
                 }
-                .sheet(isPresented: $showingAddScreen) {
-                    AddEditRecipeView(recipe: nil)
-                }
-                .sheet(isPresented: $showingSearchScreen) {
-                    SearchView()
-                }
+            }
+            .sheet(isPresented: $showingAddScreen) {
+                AddEditRecipeView(recipe: nil)
+            }
+            .sheet(isPresented: $showingSearchScreen) {
+                SearchView()
+            }
         }.frame(maxWidth: .infinity)
-            
     }
     func deleteRecipe(at offsets: IndexSet) {
-        for offset in offsets {
-            // find this book in our fetch request
-            let recipe = recipes[offset]
-
-            // delete it from the context
-            moc.delete(recipe)
+            for offset in offsets {
+                // find this book in our fetch request
+                let recipe = recipes[offset]
+                // delete it from the context
+                moc.delete(recipe)
+            }
+            // save the context
+            try? moc.save()
         }
-
-        // save the context
-        try? moc.save()
-    }
 }
+
+
 extension Color {
     static let backgroundBeige = Color("BackgroundBeige")
     static let backgroundGreen = Color("ButtonBackgroundGreen")

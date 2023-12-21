@@ -12,9 +12,8 @@ struct SearchView: View {
     @Environment(\.dismiss) var dismiss
     @FetchRequest(sortDescriptors: [])
     private var recipes: FetchedResults<Recipe>
-    
     @State private var searchText = ""
-
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -22,7 +21,6 @@ struct SearchView: View {
                     ForEach(recipes, id: \.self) { recipe in
                         NavigationLink(destination: DetailView(recipe: recipe)) {
                             Text(recipe.title!)
-                            
                         }
                     }.listRowBackground(Color.backgroundBeige)
                 }
@@ -39,12 +37,10 @@ struct SearchView: View {
                             Image(systemName: "arrowshape.turn.up.backward.circle.fill")
                                 .foregroundStyle(Color.backgroundRed)
                         }
-                        
                     }
                 }
             }
         }
-        
     }
 }
 

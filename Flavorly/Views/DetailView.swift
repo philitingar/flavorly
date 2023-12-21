@@ -9,11 +9,9 @@ import SwiftUI
 
 struct DetailView: View {
     @State var recipe: Recipe
-    
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
-    
     
     var body: some View {
         ScrollView {
@@ -57,13 +55,13 @@ struct DetailView: View {
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
             }.padding(5)
-                Text(recipe.ingredients ?? "Unknown ingredients")
-                    .foregroundColor(.primary)
-                    .padding()
-                
-                Text(recipe.text ?? "No recipe text")
-                    .foregroundColor(.primary)
-                    .padding()
+            Text(recipe.ingredients ?? "Unknown ingredients")
+                .foregroundColor(.primary)
+                .padding()
+            
+            Text(recipe.text ?? "No recipe text")
+                .foregroundColor(.primary)
+                .padding()
             
                 .navigationTitle("Recipe")
                 .navigationBarTitleDisplayMode(.inline)
@@ -89,14 +87,11 @@ struct DetailView: View {
                     }
                 }
         }
-        
-        
     }
     func deleteRecipe() {
         moc.delete(recipe)
-
         //comment this line if you want to make the deletion permanent
-         try? moc.save()
+        try? moc.save()
         dismiss()
     }
 }

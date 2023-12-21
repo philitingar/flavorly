@@ -40,7 +40,9 @@ struct AddEditRecipeView: View {
                 Form {
                     Section {
                         TextField("Recipe name", text: $title)
+                            .accessibilityIdentifier("recipeNameTextField")
                         TextField("Author's name", text: $author)
+                            .accessibilityIdentifier("authorsNameTextField")
                         
                         Picker("Diet", selection: $diet) {
                             ForEach(diets, id: \.self) {
@@ -58,47 +60,27 @@ struct AddEditRecipeView: View {
                             }
                         }
                     }
-                    
                     Section {
                         TextEditor(text: $ingredients)
+                            .accessibilityIdentifier("ingredientsTextField")
                     } header: {
                         Text("Write the ingredients")
                     }
                     Section {
                         TextEditor(text: $text)
+                            .accessibilityIdentifier("recipeTextField")
                     } header: {
                         Text("recipe")
                     }
                     Section {
                         Button(newRecipe ? "Add" : "Update") {
                             if newRecipe {
-                                let newRecipe = Recipe(context: moc)
-                                newRecipe.id = UUID()
-                                newRecipe.title = title
-                                newRecipe.author = author
-                                newRecipe.diet = diet
-                                newRecipe.occasion = occasion
-                                newRecipe.ingredients = ingredients
-                                newRecipe.type = type
-                                newRecipe.text = text
-                                
-                                try? moc.save()
-                                dismiss()
+                                addNewRecipe(title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: moc)
                             } else {
-                                recipe?.title = title
-                                recipe?.author = author
-                                recipe?.diet = diet
-                                recipe?.occasion = occasion
-                                recipe?.ingredients = ingredients
-                                recipe?.type = type
-                                recipe?.text = text
-                                
-                                try? moc.save()
-                                dismiss()
+                                editSavedRecipe(recipe: recipe, title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: moc)
                             }
-                            
+                            dismiss()
                         }
-
                     }
                     .disabled(hasValidName == false)
                 }
@@ -117,12 +99,10 @@ struct AddEditRecipeView: View {
                             Text("Edit recipe".uppercased())
                             .padding(95)
                         }
-                            
                     }
                 }.onAppear {
                     newRecipe = (recipe == nil) // here we check if we passed recipe to this view
                     // and if there is recipe that you are passing you assign those properties of recipe to your view fields
-                        
                     if newRecipe == false {
                         title = recipe?.title ?? ""
                         author = recipe?.author ?? ""
@@ -139,8 +119,6 @@ struct AddEditRecipeView: View {
                 }
             }
         }
-        
-    
     
 }
 
@@ -148,4 +126,28 @@ struct AddRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         AddEditRecipeView(recipe: nil)
     }
+}
+func addNewRecipe (title: String, author: String, diet: String, occasion: String, ingredients: String, type: String, text: String, moc: NSManagedObjectContext) {
+    let newRecipe = Recipe(context: moc)
+    newRecipe.id = UUID()
+    newRecipe.title = title
+    newRecipe.author = author
+    newRecipe.diet = diet
+    newRecipe.occasion = occasion
+    newRecipe.ingredients = ingredients
+    newRecipe.type = type
+    newRecipe.text = text
+    
+    try? moc.save()
+}
+func editSavedRecipe (recipe: Recipe?, title: String, author: String, diet: String, occasion: String, ingredients: String, type: String, text: String, moc: NSManagedObjectContext) {
+    recipe?.title = title
+    recipe?.author = author
+    recipe?.diet = diet
+    recipe?.occasion = occasion
+    recipe?.ingredients = ingredients
+    recipe?.type = type
+    recipe?.text = text
+    
+    try? moc.save()
 }
