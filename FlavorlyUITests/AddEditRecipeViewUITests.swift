@@ -60,7 +60,7 @@ final class AddEditRecipeViewUITests: XCTestCase {
         collectionViewsQuery.buttons["Delete"].tap()
         collectionViewsQuery.buttons["Add, By:, New"].tap()// add is recipe title and New is recipe author
         app.navigationBars["Recipe"]/*@START_MENU_TOKEN@*/.buttons["Trash"]/*[[".otherElements[\"Trash\"].buttons[\"Trash\"]",".buttons[\"Trash\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.alerts["Delete recipe"].scrollViews.otherElements.buttons["Delete"].tap()
+        app.alerts["recipe.delete"].scrollViews.otherElements.buttons["Delete"].tap()
   
     }
    

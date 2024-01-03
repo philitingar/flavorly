@@ -24,11 +24,11 @@ struct SearchView: View {
                         }
                     }.listRowBackground(Color.backgroundBeige)
                 }
-                .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("Look for something"))
+                .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt"))
                 .onChange(of: searchText, perform: { newValue in
                     recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
                 })
-                .navigationTitle(LocalizedStringKey("Search here!"))
+                .navigationTitle(LocalizedStringKey("recipe.search"))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
