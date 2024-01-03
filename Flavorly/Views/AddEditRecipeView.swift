@@ -16,36 +16,36 @@ struct AddEditRecipeView: View {
     @State private var newRecipe = false
     
     @State private var title = ""
-    @State private var type = NSLocalizedString("Main", comment: "")
+    @State private var type = NSLocalizedString("type.main", comment: "")
     @State private var ingredients = ""
     @State private var text = ""
     @State private var author = ""
-    @State private var diet = NSLocalizedString("Omnivore", comment: "")
-    @State private var occasion = NSLocalizedString("Everyday", comment: "")
+    @State private var diet = NSLocalizedString("diet.omnivore", comment: "")
+    @State private var occasion = NSLocalizedString("occasion.everyday", comment: "")
     
-    let diets = [NSLocalizedString("Vegetarian", comment: ""),
-                 NSLocalizedString("Vegan", comment: ""),
-                 NSLocalizedString("Gluten free", comment: ""),
-                 NSLocalizedString("Dairy free", comment: ""),
-                 NSLocalizedString("Pescatarian", comment: ""),
-                 NSLocalizedString("Omnivore", comment: ""),
-                 NSLocalizedString("Nut free", comment: ""),
+    let diets = ["diet.vegetarian",
+                 "diet.vegan",
+                 "diet.noGluten",
+                 "diet.noDairy",
+                 "diet.pescatarian",
+                 "diet.omnivore",
+                 "diet.noNut",
                 ]
-    let types = [NSLocalizedString("Soup", comment: ""),
-                 NSLocalizedString("Salad", comment: ""),
-                 NSLocalizedString("Main", comment: ""),
-                 NSLocalizedString("Dessert", comment: ""),
-                 NSLocalizedString("Side", comment: ""),
-                 NSLocalizedString("Breakfast", comment: ""),
-                 NSLocalizedString("Lunch", comment: ""),
-                 NSLocalizedString("Dinner", comment: ""),
-                 NSLocalizedString("Juice", comment: ""),
+    let types = ["type.soup",
+                 "type.salad",
+                 "type.main",
+                 "type.dessert",
+                 "type.side",
+                 "type.breakfast",
+                 "type.lunch",
+                 "type.dinner",
+                 "type.juice",
                  ]
-    let occasions = [NSLocalizedString("Christmas", comment: ""),
-                     NSLocalizedString("New Years", comment: ""),
-                     NSLocalizedString("Birthday", comment: ""),
-                     NSLocalizedString("Easter", comment: ""),
-                     NSLocalizedString("Everyday", comment: ""),
+    let occasions = ["occasion.christmas",
+                     "occasion.newYear",
+                     "occasion.birthday",
+                     "occasion.easter",
+                     "occasion.everyday",
                     ]
     
     var hasValidName: Bool {
@@ -60,24 +60,27 @@ struct AddEditRecipeView: View {
         NavigationView {
                 Form {
                     Section {
-                        TextField(LocalizedStringKey("Recipe name"), text: $title)
+                        TextField(LocalizedStringKey("recipe.name"), text: $title)
                             .accessibilityIdentifier("recipeNameTextField")
-                        TextField(LocalizedStringKey("Author's name"), text: $author)
+                        TextField(LocalizedStringKey("author.name"), text: $author)
                             .accessibilityIdentifier("authorsNameTextField")
                         
                         Picker(NSLocalizedString("Diet", comment: ""), selection: $diet) {
                             ForEach(diets, id: \.self) {
-                                Text($0).tag($0)
+                                let localzedString = NSLocalizedString($0, comment: "")
+                                Text(localzedString).tag($0)
                             }
                         }
                         Picker(NSLocalizedString("Type", comment: ""), selection: $type) {
                             ForEach(types, id: \.self) {
-                                Text($0).tag($0)
+                                let localzedString = NSLocalizedString($0, comment: "")
+                                Text(localzedString).tag($0)
                             }
                         }
                         Picker(NSLocalizedString("Occasion", comment: ""), selection: $occasion) {
                             ForEach(occasions, id: \.self) {
-                                Text($0).tag($0)
+                                let localzedString = NSLocalizedString($0, comment: "")
+                                Text(localzedString).tag($0)
                             }
                         }
                     }
@@ -85,7 +88,7 @@ struct AddEditRecipeView: View {
                         TextEditor(text: $ingredients)
                             .accessibilityIdentifier("ingredientsTextField")
                     } header: {
-                        Text(LocalizedStringKey("Write the ingredients"))
+                        Text(LocalizedStringKey("ingredients"))
                     }
                     Section {
                         TextEditor(text: $text)
@@ -114,10 +117,10 @@ struct AddEditRecipeView: View {
                                .foregroundStyle(Color.backgroundRed)
                         }
                         if newRecipe == true {
-                            Text(NSLocalizedString("Add Recipe", comment: "").uppercased())
+                            Text(NSLocalizedString("recipe.add", comment: "").uppercased())
                             .padding(95)
                         } else {
-                            Text(NSLocalizedString("Edit Recipe", comment: "").uppercased())
+                            Text(NSLocalizedString("recipe.edit", comment: "").uppercased())
                             .padding(95)
                         }
                     }
