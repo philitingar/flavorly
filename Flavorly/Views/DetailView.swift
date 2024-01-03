@@ -22,7 +22,7 @@ struct DetailView: View {
                 .foregroundColor(Color.textBackgroundBlue)
                 .bold()
             HStack {
-                Text("By:")
+                Text(LocalizedStringKey("By:"))
                     .font(.subheadline)
                 Text(recipe.author ?? "Unknown author")
                     .lineLimit(2)
@@ -30,7 +30,8 @@ struct DetailView: View {
                     .foregroundColor(.secondary)
             }
             HStack(alignment: .center) {
-                Text(recipe.type?.uppercased() ?? "SOUP")
+                Text(NSLocalizedString(recipe.type!, comment: ""))
+                    .textCase(.uppercase)
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
@@ -38,7 +39,8 @@ struct DetailView: View {
                     .background(Color.backgroundBlue)
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
-                Text(recipe.occasion?.uppercased() ?? "Unknown occasion")
+                Text(NSLocalizedString(recipe.occasion!, comment: ""))
+                    .textCase(.uppercase)
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
@@ -46,7 +48,8 @@ struct DetailView: View {
                     .background(Color.backgroundBlue)
                     .clipShape(Capsule())
                     .offset(x: -5, y: -5)
-                Text(recipe.diet?.uppercased() ?? "Unknown diet")
+                Text(NSLocalizedString(recipe.diet!, comment: ""))
+                    .textCase(.uppercase)
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
@@ -63,13 +66,13 @@ struct DetailView: View {
                 .foregroundColor(.primary)
                 .padding()
             
-                .navigationTitle("Recipe")
+                .navigationTitle(LocalizedStringKey("Recipe"))
                 .navigationBarTitleDisplayMode(.inline)
-                .alert("Delete recipe", isPresented: $showingDeleteAlert) {
-                    Button("Delete", role: .destructive, action: deleteRecipe)
-                    Button("Cancel", role: .cancel) { }
+                .alert(LocalizedStringKey("Delete recipe"), isPresented: $showingDeleteAlert) {
+                    Button(LocalizedStringKey("Delete"), role: .destructive, action: deleteRecipe)
+                    Button(LocalizedStringKey("Cancel"), role: .cancel) { }
                 } message: {
-                    Text("Are you sure?")
+                    Text(LocalizedStringKey("Are you sure?"))
                 }
                 .toolbar {
                     Button {

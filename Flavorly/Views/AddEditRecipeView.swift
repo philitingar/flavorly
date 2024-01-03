@@ -16,12 +16,12 @@ struct AddEditRecipeView: View {
     @State private var newRecipe = false
     
     @State private var title = ""
-    @State private var type = "Soup"
+    @State private var type = NSLocalizedString("Main", comment: "")
     @State private var ingredients = ""
     @State private var text = ""
     @State private var author = ""
-    @State private var diet = NSLocalizedString("Vegetarian", comment: "")
-    @State private var occasion = "Everyday"
+    @State private var diet = NSLocalizedString("Omnivore", comment: "")
+    @State private var occasion = NSLocalizedString("Everyday", comment: "")
     
     let diets = [NSLocalizedString("Vegetarian", comment: ""),
                  NSLocalizedString("Vegan", comment: ""),
@@ -31,8 +31,22 @@ struct AddEditRecipeView: View {
                  NSLocalizedString("Omnivore", comment: ""),
                  NSLocalizedString("Nut free", comment: ""),
                 ]
-    let types = ["Soup", "Salad", "Main", "Dessert", "Side", "Breakfast", "Lunch", "Dinner", "Juice"]
-    let occasions = ["Christmas", "New Years", "Birthday", "Easter", "Everyday"]
+    let types = [NSLocalizedString("Soup", comment: ""),
+                 NSLocalizedString("Salad", comment: ""),
+                 NSLocalizedString("Main", comment: ""),
+                 NSLocalizedString("Dessert", comment: ""),
+                 NSLocalizedString("Side", comment: ""),
+                 NSLocalizedString("Breakfast", comment: ""),
+                 NSLocalizedString("Lunch", comment: ""),
+                 NSLocalizedString("Dinner", comment: ""),
+                 NSLocalizedString("Juice", comment: ""),
+                 ]
+    let occasions = [NSLocalizedString("Christmas", comment: ""),
+                     NSLocalizedString("New Years", comment: ""),
+                     NSLocalizedString("Birthday", comment: ""),
+                     NSLocalizedString("Easter", comment: ""),
+                     NSLocalizedString("Everyday", comment: ""),
+                    ]
     
     var hasValidName: Bool {
         if title.isEmpty || author.isEmpty {
@@ -46,22 +60,22 @@ struct AddEditRecipeView: View {
         NavigationView {
                 Form {
                     Section {
-                        TextField("Recipe name", text: $title)
+                        TextField(LocalizedStringKey("Recipe name"), text: $title)
                             .accessibilityIdentifier("recipeNameTextField")
-                        TextField("Author's name", text: $author)
+                        TextField(LocalizedStringKey("Author's name"), text: $author)
                             .accessibilityIdentifier("authorsNameTextField")
                         
-                        Picker("Diet", selection: $diet) {
+                        Picker(NSLocalizedString("Diet", comment: ""), selection: $diet) {
                             ForEach(diets, id: \.self) {
                                 Text($0).tag($0)
                             }
                         }
-                        Picker("Type", selection: $type) {
+                        Picker(NSLocalizedString("Type", comment: ""), selection: $type) {
                             ForEach(types, id: \.self) {
                                 Text($0).tag($0)
                             }
                         }
-                        Picker("Occasion", selection: $occasion) {
+                        Picker(NSLocalizedString("Occasion", comment: ""), selection: $occasion) {
                             ForEach(occasions, id: \.self) {
                                 Text($0).tag($0)
                             }
@@ -71,16 +85,16 @@ struct AddEditRecipeView: View {
                         TextEditor(text: $ingredients)
                             .accessibilityIdentifier("ingredientsTextField")
                     } header: {
-                        Text("Write the ingredients")
+                        Text(LocalizedStringKey("Write the ingredients"))
                     }
                     Section {
                         TextEditor(text: $text)
                             .accessibilityIdentifier("recipeTextField")
                     } header: {
-                        Text("recipe")
+                        Text(LocalizedStringKey("recipe"))
                     }
                     Section {
-                        Button(newRecipe ? "Add" : "Update") {
+                        Button(newRecipe ? LocalizedStringKey("Add") : LocalizedStringKey("Update")) {
                             if newRecipe {
                                 addNewRecipe(title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: moc)
                             } else {
@@ -100,10 +114,10 @@ struct AddEditRecipeView: View {
                                .foregroundStyle(Color.backgroundRed)
                         }
                         if newRecipe == true {
-                            Text("Add recipe".uppercased())
+                            Text(NSLocalizedString("Add Recipe", comment: "").uppercased())
                             .padding(95)
                         } else {
-                            Text("Edit recipe".uppercased())
+                            Text(NSLocalizedString("Edit Recipe", comment: "").uppercased())
                             .padding(95)
                         }
                     }

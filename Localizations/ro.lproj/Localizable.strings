@@ -4,4 +4,43 @@
 
   Created by Timea Bartha on 3/1/24.
   
-*/
+*/"By:" = "Făcut de:";
+"Add Recipe" = "Adaugă rețetă";
+"Vegetarian" = "Vegetarian";
+"Vegan" = "Vegan";
+"Gluten free" = "Fără gluten";
+"Dairy free" = "Fără lactate";
+"Pescatarian" = "Pescatarian";
+"Omnivore" = "Omnivor";
+"Nut free" = "Fără nuci";
+"Soup" = "Supă";
+"Salad" = "Salată";
+"Main" = "Fel principal";
+"Dessert" = "Desert";
+"Side" = "Aperitiv";
+"Breakfast" = "Mic dejun";
+"Lunch" = "Prânz";
+"Dinner" = "Cină";
+"Juice" = "Sucuri";
+"Recipe name" = "Numele rețetei";
+"Author's name" = "Numele autorului";
+"Diet" = "Dieta";
+"Type" = "Tipul";
+"Occasion" = "Ocazia";
+"Write the ingredients" = "Lista ingredientelor";
+"recipe" = "rețeta";
+"Add" = "Adauga";
+"Update" = "Actualizează";
+"Edit recipe" = "Editează rețeta";
+"Look for something" = "Caută ceva";
+"Search here!" = "Caută aici!";
+"Recipe" = "Rețeta";
+"Delete recipe" = "Șterge rețeta";
+"Delete" = "Șterge";
+"Cancel" = "Anulează";
+"Are you sure?" = "Ești sigur?";
+"Christmas" = "Crăciun";
+"New Years" = "Anul Nou";
+"Birthday" = "Zi de naștere";
+"Easter" = "Paște";
+"Everyday" = "De zi cu zi";

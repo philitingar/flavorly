@@ -7,8 +7,8 @@
 */
 "By:" = "By:";
 "Add Recipe" = "Add Recipe";
-"Vegetarian" = "Vegetarian";
-"Vegan" = "Vegan";
+"diet.vegetarian" = "Vegetarian";
+"diet.vegan" = "Vegan";
 "Gluten free" = "Gluten free";
 "Dairy free" = "Dairy free";
 "Pescatarian" = "Pescatarian";
@@ -23,4 +23,25 @@
 "Lunch" = "Lunch";
 "Dinner" = "Dinner";
 "Juice" = "Juice";
-
+"Recipe name" = "Recipe name";
+"Author's name" = "Author's name";
+"Diet" = "Diet";
+"Type" = "Type";
+"Occasion" = "Occasion";
+"Write the ingredients" = "Write the ingredients";
+"recipe" = "recipe";
+"Add" = "Add";
+"Update" = "Update";
+"Edit recipe" = "Edit recipe";
+"Look for something" = "Look for something";
+"recipe.search" = "Search here";
+"Recipe" = "Recipe";
+"Delete recipe" = "Delete recipe";
+"Delete" = "Delete";
+"Cancel" = "Cancel";
+"Are you sure?" = "Are you sure?";
+"Christmas" = "Christmas";
+"New Years" = "New Years";
+"Birthday" = "Birthday";
+"Easter" = "Easter";
+"Everyday" = "Everyday";

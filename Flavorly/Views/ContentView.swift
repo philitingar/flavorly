@@ -30,7 +30,7 @@ struct ContentView: View {
                                     .font(.headline)
                                     .foregroundColor(Color.textBackgroundBlue)
                                 HStack {
-                                    Text(LocalizedStringKey("By:"))
+                                    Text(LocalizedStringKey ("By:"))
                                         .font(.subheadline)
                                     Text(recipe.author ?? "Unknown Author")
                                         .foregroundColor(.secondary)
