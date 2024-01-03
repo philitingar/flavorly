@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */; };
 		26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */; };
+		2629F15D2B455E7D0099FB96 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2629F15F2B455E7D0099FB96 /* Localizable.strings */; };
 		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
 		26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */; };
 		26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF52A93A92600E8F9A8 /* ContentView.swift */; };
@@ -42,6 +43,10 @@
 		26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewUITests.swift; sourceTree = "<group>"; };
+		2629F15E2B455E7D0099FB96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2629F1602B455E7F0099FB96 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2629F1612B455E7F0099FB96 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2629F1622B455E800099FB96 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavorly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavorly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
@@ -91,9 +96,18 @@
 			path = FlavorlyUITests;
 			sourceTree = "<group>";
 		};
+		2629F15C2B455E4E0099FB96 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				2629F15F2B455E7D0099FB96 /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
 		26710DE72A93A92600E8F9A8 = {
 			isa = PBXGroup;
 			children = (
+				2629F15C2B455E4E0099FB96 /* Localizations */,
 				26710DF22A93A92600E8F9A8 /* Flavorly */,
 				26C29FAE2AA8CAAD00DE0690 /* FlavorlyTests */,
 				26164C232B34844A0041B2EF /* FlavorlyUITests */,
@@ -216,7 +230,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					26164C212B34844A0041B2EF = {
 						CreatedOnToolsVersion = 15.1;
@@ -239,6 +253,9 @@
 			knownRegions = (
 				en,
 				Base,
+				ro,
+				hu,
+				es,
 			);
 			mainGroup = 26710DE72A93A92600E8F9A8;
 			productRefGroup = 26710DF12A93A92600E8F9A8 /* Products */;
@@ -265,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26710DFB2A93A92700E8F9A8 /* Preview Assets.xcassets in Resources */,
+				2629F15D2B455E7D0099FB96 /* Localizable.strings in Resources */,
 				26710DF82A93A92700E8F9A8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +343,20 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		2629F15F2B455E7D0099FB96 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2629F15E2B455E7D0099FB96 /* en */,
+				2629F1602B455E7F0099FB96 /* hu */,
+				2629F1612B455E7F0099FB96 /* ro */,
+				2629F1622B455E800099FB96 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		26164C2B2B34844A0041B2EF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -375,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -435,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

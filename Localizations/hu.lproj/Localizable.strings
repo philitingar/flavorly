@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  Flavorly
+
+  Created by Timea Bartha on 3/1/24.
+  
+*/"By:" = "Készítette:";
+"Add Recipe" = "Adja hozzá egy receptet";
+"Vegetarian" = "Vegetáriánus";
+"Vegan" = "Vegán";
+"Gluten free" = "Gluténmentes";
+"Dairy free" = "Tejmentes";
+"Pescatarian" = "Peszkatariánus";
+"Omnivore" = "Mindenevő";
+"Nut free" = "Diómentes";
+"Soup" = "Soup";
+"Salad" = "Salad";
+"Main" = "Main";
+"Dessert" = "Dessert";
+"Side" = "Side";
+"Breakfast" = "Breakfast";
+"Lunch" = "Lunch";
+"Dinner" = "Dinner";
+"Juice" = "Juice";
+

@@ -20,10 +20,17 @@ struct AddEditRecipeView: View {
     @State private var ingredients = ""
     @State private var text = ""
     @State private var author = ""
-    @State private var diet = "Vegetarian"
+    @State private var diet = NSLocalizedString("Vegetarian", comment: "")
     @State private var occasion = "Everyday"
     
-    let diets = ["Vegetarian", "Vegan", "Gluten free",  "Dairy free", "Pescatarian", "Omnivore", "Nut free"]
+    let diets = [NSLocalizedString("Vegetarian", comment: ""),
+                 NSLocalizedString("Vegan", comment: ""),
+                 NSLocalizedString("Gluten free", comment: ""),
+                 NSLocalizedString("Dairy free", comment: ""),
+                 NSLocalizedString("Pescatarian", comment: ""),
+                 NSLocalizedString("Omnivore", comment: ""),
+                 NSLocalizedString("Nut free", comment: ""),
+                ]
     let types = ["Soup", "Salad", "Main", "Dessert", "Side", "Breakfast", "Lunch", "Dinner", "Juice"]
     let occasions = ["Christmas", "New Years", "Birthday", "Easter", "Everyday"]
     

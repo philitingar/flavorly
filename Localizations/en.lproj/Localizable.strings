@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  Flavorly
+
+  Created by Timea Bartha on 3/1/24.
+  
+*/
+"By:" = "By:";
+"Add Recipe" = "Add Recipe";
+"Vegetarian" = "Vegetarian";
+"Vegan" = "Vegan";
+"Gluten free" = "Gluten free";
+"Dairy free" = "Dairy free";
+"Pescatarian" = "Pescatarian";
+"Omnivore" = "Omnivore";
+"Nut free" = "Nut free";
+"Soup" = "Soup";
+"Salad" = "Salad";
+"Main" = "Main";
+"Dessert" = "Dessert";
+"Side" = "Side";
+"Breakfast" = "Breakfast";
+"Lunch" = "Lunch";
+"Dinner" = "Dinner";
+"Juice" = "Juice";
+
