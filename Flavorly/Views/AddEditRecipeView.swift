@@ -65,19 +65,19 @@ struct AddEditRecipeView: View {
                         TextField(LocalizedStringKey("author.name"), text: $author)
                             .accessibilityIdentifier("authorsNameTextField")
                         
-                        Picker(NSLocalizedString("Diet", comment: ""), selection: $diet) {
+                        Picker(NSLocalizedString("diet.picker", comment: ""), selection: $diet) {
                             ForEach(diets, id: \.self) {
                                 let localzedString = NSLocalizedString($0, comment: "")
                                 Text(localzedString).tag($0)
                             }
                         }
-                        Picker(NSLocalizedString("Type", comment: ""), selection: $type) {
+                        Picker(NSLocalizedString("type.picker", comment: ""), selection: $type) {
                             ForEach(types, id: \.self) {
                                 let localzedString = NSLocalizedString($0, comment: "")
                                 Text(localzedString).tag($0)
                             }
                         }
-                        Picker(NSLocalizedString("Occasion", comment: ""), selection: $occasion) {
+                        Picker(NSLocalizedString("occasion.picker", comment: ""), selection: $occasion) {
                             ForEach(occasions, id: \.self) {
                                 let localzedString = NSLocalizedString($0, comment: "")
                                 Text(localzedString).tag($0)
@@ -88,16 +88,16 @@ struct AddEditRecipeView: View {
                         TextEditor(text: $ingredients)
                             .accessibilityIdentifier("ingredientsTextField")
                     } header: {
-                        Text(LocalizedStringKey("ingredients"))
+                        Text(LocalizedStringKey("ingredient.list"))
                     }
                     Section {
                         TextEditor(text: $text)
                             .accessibilityIdentifier("recipeTextField")
                     } header: {
-                        Text(LocalizedStringKey("recipe"))
+                        Text(LocalizedStringKey("recipe.text"))
                     }
                     Section {
-                        Button(newRecipe ? LocalizedStringKey("Add") : LocalizedStringKey("Update")) {
+                        Button(newRecipe ? LocalizedStringKey("add.button") : LocalizedStringKey("update.button")) {
                             if newRecipe {
                                 addNewRecipe(title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: moc)
                             } else {

@@ -66,11 +66,11 @@ struct DetailView: View {
                 .foregroundColor(.primary)
                 .padding()
             
-                .navigationTitle(LocalizedStringKey("Recipe"))
+                .navigationTitle(LocalizedStringKey("recipe.title"))
                 .navigationBarTitleDisplayMode(.inline)
                 .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
-                    Button(LocalizedStringKey("Delete"), role: .destructive, action: deleteRecipe)
-                    Button(LocalizedStringKey("Cancel"), role: .cancel) { }
+                    Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteRecipe)
+                    Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
                 } message: {
                     Text(LocalizedStringKey("delete.reassurance"))
                 }
