@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  Flavorly
+
+  Created by Timea Bartha on 3/1/24.
+  
+*/
+"By:" = "By:";
+"recipe.add" = "Add Recipe";
+"diet.vegetarian" = "Vegetarian";
+"diet.vegan" = "Vegan";
+"diet.noGluten" = "Gluten free";
+"diet.noDairy" = "Dairy free";
+"diet.pescatarian" = "Pescatarian";
+"diet.omnivore" = "Omnivore";
+"diet.noNut" = "Nut free";
+"type.soup" = "Soup";
+"type.salad" = "Salad";
+"type.main" = "Main";
+"type.dessert" = "Dessert";
+"type.side" = "Side";
+"type.breakfast" = "Breakfast";
+"type.lunch" = "Lunch";
+"type.dinner" = "Dinner";
+"type.juice" = "Juice";
+"recipe.name" = "Recipe name";
+"author.name" = "Author's name";
+"diet.picker" = "Diet";
+"type.picker" = "Type";
+"occasion.picker" = "Occasion";
+"ingredient.list" = "Write the ingredients";
+"recipe.text" = "recipe";
+"add.button" = "Add";
+"update.button" = "Update";
+"recipe.edit" = "Edit recipe";
+"search.prompt" = "Look for something";
+"recipe.search" = "Search here";
+"recipe.title" = "Recipe";
+"recipe.delete" = "Delete recipe";
+"delete.button" = "Delete";
+"cancel.button" = "Cancel";
+"delete.reassurance" = "Are you sure?";
+"occasion.christmas" = "Christmas";
+"occasion.newYear" = "New Years";
+"occasion.birthday" = "Birthday";
+"occasion.easter" = "Easter";
+"occasion.everyday" = "Everyday";
