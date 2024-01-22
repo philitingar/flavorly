@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
+    <entity name="Recipe" representedClassName=".Recipe" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="diet" optional="YES" attributeType="String"/>
         <attribute name="hardness" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -8,7 +8,14 @@
         <attribute name="ingredients" optional="YES" attributeType="String"/>
         <attribute name="occasion" optional="YES" attributeType="String"/>
         <attribute name="text" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="recipeToTag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="tagToRecipe" inverseEntity="Tag"/>
+    </entity>
+    <entity name="Tag" representedClassName=".Tag" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="tagToRecipe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="recipeToTag" inverseEntity="Recipe"/>
     </entity>
 </model>

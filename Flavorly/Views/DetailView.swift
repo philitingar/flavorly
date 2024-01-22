@@ -13,9 +13,10 @@ struct DetailView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
     
+    
     var body: some View {
         ScrollView {
-            Text(recipe.title ?? "Unknown Recipe")
+            Text(recipe.title ?? "You have no recipes available")
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .font(.title2)
@@ -24,47 +25,28 @@ struct DetailView: View {
             HStack {
                 Text(LocalizedStringKey("By:"))
                     .font(.subheadline)
-                Text(recipe.author ?? "Unknown author")
+                Text(recipe.author ?? "You have not yet saved any recipe")
                     .lineLimit(2)
                     .font(.headline)
                     .foregroundColor(.secondary)
             }
-            HStack(alignment: .center) {
-                Text(NSLocalizedString(recipe.type!, comment: ""))
-                    .textCase(.uppercase)
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.primary)
-                    .background(Color.backgroundBlue)
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
-                Text(NSLocalizedString(recipe.occasion!, comment: ""))
-                    .textCase(.uppercase)
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.primary)
-                    .background(Color.backgroundBlue)
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
-                Text(NSLocalizedString(recipe.diet!, comment: ""))
-                    .textCase(.uppercase)
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.primary)
-                    .background(Color.backgroundBlue)
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
-            }.padding(5)
-            Text(recipe.ingredients ?? "Unknown ingredients")
+            Text(recipe.ingredients ?? "")
                 .foregroundColor(.primary)
                 .padding()
             
-            Text(recipe.text ?? "No recipe text")
+            Text(recipe.text ?? "")
                 .foregroundColor(.primary)
                 .padding()
+            
+            ForEach(recipe.tagArray) { tag in
+                Text(tag.title ?? "")
+                    .foregroundColor(.primary)
+                    .padding()
+            }
+            
+            HStack(alignment: .center) {
+                
+            }.padding(5)
             
                 .navigationTitle(LocalizedStringKey("recipe.title"))
                 .navigationBarTitleDisplayMode(.inline)

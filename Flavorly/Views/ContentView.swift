@@ -7,6 +7,7 @@
 import SwiftUI
 import CoreData
 
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [
@@ -16,7 +17,8 @@ struct ContentView: View {
     @State private var showingAddScreen = false
     @State private var showingSearchScreen = false
     
-  
+ //   @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Tag.title, ascending: true)]) var tags: FetchedResults<Tag>
+    
     var body: some View {
         NavigationView {
             List {
@@ -26,7 +28,7 @@ struct ContentView: View {
                     } label: {
                         HStack {
                             VStack(alignment: .leading) {
-                                Text(recipe.title ?? "Unknown Title")
+                                Text(recipe.title ?? "You have no recipes")
                                     .font(.headline)
                                     .foregroundColor(Color.textBackgroundBlue)
                                 HStack {
