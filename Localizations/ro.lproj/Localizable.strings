@@ -6,27 +6,10 @@
   
 */"By:" = "Făcut de:";
 "recipe.add" = "Adaugă rețetă";
-"diet.vegetarian" = "Vegetarian";
-"diet.vegan" = "Vegan";
-"diet.noGluten" = "Fără gluten";
-"diet.noDairy" = "Fără lactate";
-"diet.pescatarian" = "Pescatarian";
-"diet.omnivore" = "Omnivor";
-"diet.noNut" = "Fără nuci";
-"type.soup" = "Supă";
-"type.salad" = "Salată";
-"type.main" = "Fel principal";
-"type.dessert" = "Desert";
-"type.side" = "Aperitiv";
-"type.breakfast" = "Mic dejun";
-"type.lunch" = "Prânz";
-"type.dinner" = "Cină";
-"type.juice" = "Sucuri";
+
 "recipe.name" = "Numele rețetei";
 "author.name" = "Numele autorului";
-"diet.picker" = "Dieta";
-"type.picker" = "Tipul";
-"occasion.picker" = "Ocazia";
+
 "ingredient.list" = "Lista ingredientelor";
 "recipe.text" = "rețeta";
 "add.button" = "Adauga";
@@ -39,8 +22,3 @@
 "delete.button" = "Șterge";
 "cancel.button" = "Anulează";
 "delete.reassurance" = "Ești sigur?";
-"occasion.christmas" = "Crăciun";
-"occasion.newYear" = "Anul Nou";
-"occasion.birthday" = "Zi de naștere";
-"occasion.easter" = "Paște";
-"occasion.everyday" = "De zi cu zi";

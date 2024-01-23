@@ -7,27 +7,10 @@
 */
 "By:" = "Hergestellt von:";
 "recipe.add" = "Rezept hinzufügen";
-"diet.vegetarian" = "Vegetarisch";
-"diet.vegan" = "Vegan";
-"diet.noGluten" = "Glutenfrei";
-"diet.noDairy" = "Molkereifrei";
-"diet.pescatarian" = "Fleischfresser";
-"diet.omnivore" = "Allesfresser";
-"diet.noNut" = "Nussfrei";
-"type.soup" = "Suppe";
-"type.salad" = "Salat";
-"type.main" = "Hauptgericht";
-"type.dessert" = "Nachspeise";
-"type.side" = "Beilage";
-"type.breakfast" = "Frühstück";
-"type.lunch" = "Mittagessen";
-"type.dinner" = "Abendessen";
-"type.juice" = "Saft";
+
 "recipe.name" = "Name des Rezepts";
 "author.name" = "Name des Autors";
-"diet.picker" = "Diät";
-"type.picker" = "Typ";
-"occasion.picker" = "Anlass";
+
 "ingredient.list" = "Zutaten";
 "recipe.text" = "Rezept";
 "add.button" = "Hinzufügen";
@@ -40,9 +23,4 @@
 "delete.button" = "Löschen ";
 "cancel.button" = "Abbrechen";
 "delete.reassurance" = "Sind Sie sicher?";
-"occasion.christmas" = "Weihnachten";
-"occasion.newYear" = "Neujahr";
-"occasion.birthday" = "Geburtstag";
-"occasion.easter" = "Ostern";
-"occasion.everyday" = "Alltägliches";
 

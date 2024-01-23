@@ -7,27 +7,10 @@
 */
 "By:" = "Tarafından yapıldı:";
 "recipe.add" = "Tarif ekle";
-"diet.vegetarian" = "Vejetaryen";
-"diet.vegan" = "Vegan";
-"diet.noGluten" = "Glutensiz";
-"diet.noDairy" = "Süt Ürünleri İçermez";
-"diet.pescatarian" = "Pesketaryen";
-"diet.omnivore" = "Hepçil";
-"diet.noNut" = "Fındıksız";
-"type.soup" = "Çorba";
-"type.salad" = "Salata";
-"type.main" = "Ana yemek";
-"type.dessert" = "Tatlı";
-"type.side" = "Garnitür";
-"type.breakfast" = "Kahvaltı";
-"type.lunch" = "Öğle Yemeği";
-"type.dinner" = "Akşam Yemeği";
-"type.juice" = "Meyve Suyu";
+
 "recipe.name" = "Tarif adı";
 "author.name" = "Yazarın adı";
-"diet.picker" = "Diyet";
-"type.picker" = "Tip";
-"occasion.picker" = "Fırsat";
+
 "ingredient.list" = "İçindekiler";
 "recipe.text" = "Yemek Tarifi";
 "add.button" = "Ekle";
@@ -40,8 +23,3 @@
 "delete.button" = "Silme";
 "cancel.button" = "İptal";
 "delete.reassurance" = "Emin misiniz?";
-"occasion.christmas" = "Noel";
-"occasion.newYear" = "Yeni yıl";
-"occasion.birthday" = "Doğum Günü";
-"occasion.easter" = "Paskalya";
-"occasion.everyday" = "Her gün";

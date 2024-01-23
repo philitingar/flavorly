@@ -4,30 +4,14 @@
 
   Created by Timea Bartha on 3/1/24.
   
-*/"By:" = "Készítette:";
+*/
+"By:" = "Készítette:";
 "recipe.add" = "Adj receptet";
-"diet.vegetarian" = "Vegetáriánus";
-"diet.vegan" = "Vegán";
-"diet.noGluten" = "Gluténmentes";
-"diet.noDairy" = "Tejmentes";
-"diet.pescatarian" = "Peszkatariánus";
-"diet.omnivore" = "Mindenevő";
-"diet.noNut" = "Diómentes";
-"type.soup" = "Leves";
-"type.salad" = "Saláta";
-"type.main" = "Főétel";
-"type.dessert" = "Desszert";
-"type.side" = "Mellékétel";
-"type.breakfast" = "Reggeli";
-"type.lunch" = "Ebéd";
-"type.dinner" = "Vacsora";
-"type.juice" = "Gyümölcslé";
+
 "recipe.name" = "Recept neve";
 "author.name" = "A szerző neve";
-"diet.picker" = "Diéta";
-"type.picker" = "Típus";
-"occasion.picker" = "Alkalom";
-"ingredient.list" = " Írd az összetevőket";
+
+"ingredient.list" = "";
 "recipe.text" = "recept";
 "add.button" = "Add hozzá";
 "update.button" = "Frissítés";
@@ -39,8 +23,3 @@
 "delete.button" = "Törlés";
 "cancel.button" = "Mégsem";
 "delete.reassurance" = "Biztos vagy benne?";
-"occasion.christmas" = "Karácsony";
-"occasion.newYear" = "Új év";
-"occasion.birthday" = "Születésnap";
-"occasion.easter" = "Húsvét";
-"occasion.everyday" = "Hétköznapi";

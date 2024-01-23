@@ -7,27 +7,10 @@
 */
 "By:" = "Приготовлено по:";
 "recipe.add" = "Добавить рецепт";
-"diet.vegetarian" = "Вегетарианский";
-"diet.vegan" = "Веган";
-"diet.noGluten" = "Без глютена";
-"diet.noDairy" = "Безмолочный";
-"diet.pescatarian" = "Пескетарианский";
-"diet.omnivore" = "Всеядный";
-"diet.noNut" = "Без орехов";
-"type.soup" = "Суп";
-"type.salad" = "Салат";
-"type.main" = "Основное блюдо";
-"type.dessert" = "Десерт";
-"type.side" = "Гарнир";
-"type.breakfast" = "Завтрак";
-"type.lunch" = "обед";
-"type.dinner" = "Ужин";
-"type.juice" = "Джус";
+
 "recipe.name" = "Название рецепта";
 "author.name" = "Имя автора";
-"diet.picker" = "Диета";
-"type.picker" = "Тип";
-"occasion.picker" = "Повод";
+
 "ingredient.list" = "Ингредиенты";
 "recipe.text" = "Рецепт";
 "add.button" = "Добавить";
@@ -40,8 +23,3 @@
 "delete.button" = "Удалить";
 "cancel.button" = "Отменить";
 "delete.reassurance" = "Вы уверены?";
-"occasion.christmas" = "Рождество";
-"occasion.newYear" = "Новый год";
-"occasion.birthday" = "День рождения";
-"occasion.easter" = "Пасха";
-"occasion.everyday" = "Каждый день";

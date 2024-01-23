@@ -7,27 +7,10 @@
 */
 "By:" = "Κατασκευασμένο από:";
 "recipe.add" = "Προσθέστε τη συνταγή";
-"diet.vegetarian" = "Χορτοφαγική";
-"diet.vegan" = "βίγκαν";
-"diet.noGluten" = "Χωρίς γλουτένη";
-"diet.noDairy" = "Χωρίς γαλακτοκομικά";
-"diet.pescatarian" = "Κρέας ψαριού";
-"diet.omnivore" = "Παμφάγο";
-"diet.noNut" = "Χωρίς καρύδια";
-"type.soup" = "Σούπα";
-"type.salad" = "Σαλάτα";
-"type.main" = "Κύριο γεύμα";
-"type.dessert" = "Επιδόρπιο";
-"type.side" = "Συνοδευτικό πιάτο";
-"type.breakfast" = "Πρωινό";
-"type.lunch" = "Γεύμα";
-"type.dinner" = "Δείπνο";
-"type.juice" = "Χυμός";
+
 "recipe.name" = "Όνομα συνταγής";
 "author.name" = "Όνομα συγγραφέα";
-"diet.picker" = "Διατροφή";
-"type.picker" = "Τύπος";
-"occasion.picker" = "Περίσταση";
+
 "ingredient.list" = "Συστατικά";
 "recipe.text" = "Συνταγή";
 "add.button" = "Προσθήκη";
@@ -40,8 +23,3 @@
 "delete.button" = "Διαγραφή";
 "cancel.button" = "Ακύρωση";
 "delete.reassurance" = "Είστε σίγουροι;";
-"occasion.christmas" = "Χριστούγεννα";
-"occasion.newYear" = "Πρωτοχρονιά";
-"occasion.birthday" = "Γενέθλια";
-"occasion.easter" = "Πάσχα";
-"occasion.everyday" = "Καθημερινά";
