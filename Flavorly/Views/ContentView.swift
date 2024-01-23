@@ -46,7 +46,7 @@ struct ContentView: View {
             }
             .navigationTitle("Flavorly")
             .toolbar {
-                
+          //MARK: Toolbar items
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
                         self.showingAddScreen.toggle()
@@ -71,6 +71,7 @@ struct ContentView: View {
             }
         }.frame(maxWidth: .infinity)
     }
+    //MARK: func DeleteRecipe
     func deleteRecipe(at offsets: IndexSet) {
             for offset in offsets {
                 // find this book in our fetch request
@@ -83,7 +84,7 @@ struct ContentView: View {
         }
 }
 
-
+//MARK: Extension custom color
 extension Color {
     static let backgroundBeige = Color("BackgroundBeige")
     static let backgroundGreen = Color("ButtonBackgroundGreen")

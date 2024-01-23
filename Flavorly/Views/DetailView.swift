@@ -37,11 +37,15 @@ struct DetailView: View {
             Text(recipe.text ?? "")
                 .foregroundColor(.primary)
                 .padding()
-            
-            ForEach(recipe.tagArray) { tag in
-                Text(tag.title ?? "")
-                    .foregroundColor(.primary)
-                    .padding()
+            //MARK: TagView
+            TagView(alignment: .center, spacing: 10) {
+                ForEach(recipe.tagArray) { tag in
+                    Text(tag.title ?? "")
+                        .buttonStyle(.bordered)
+                        .tint(.primary)
+                        .foregroundColor(.primary)
+                        .padding()
+                }
             }
             
             HStack(alignment: .center) {
@@ -56,6 +60,7 @@ struct DetailView: View {
                 } message: {
                     Text(LocalizedStringKey("delete.reassurance"))
                 }
+            //MARK: Toolbars
                 .toolbar {
                     Button {
                         showingDeleteAlert = true
@@ -73,6 +78,7 @@ struct DetailView: View {
                 }
         }
     }
+    //MARK: func deleteRecipe
     func deleteRecipe() {
         moc.delete(recipe)
         //comment this line if you want to make the deletion permanent

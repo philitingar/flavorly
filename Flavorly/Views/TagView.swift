@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/*
 struct TagView: View {
     @State var tags: [ThisTag] = rawtags.compactMap { tag -> ThisTag? in
         return .init(name: tag)
@@ -18,8 +18,7 @@ struct TagView: View {
                 ThisTagView(alignment: .center, spacing: 10) {
                     ForEach($tags) { $tag in
                         //MARK: New Toggle API
-                        Toggle(tag.name, isOn: $tag.isSelected)
-                            .toggleStyle(.button)
+                        Button(tag.name)
                             .buttonStyle(.bordered)
                             .tint(.primary)
                     }
@@ -54,53 +53,55 @@ struct TagView: View {
 #Preview {
     TagView()
 }
+ */
 //MARK: Building Custom layout with the new layout API
-struct ThisTagView: Layout {
-    var alignment: Alignment = .center
-    var spacing: CGFloat = 10
-    
-    init(alignment: Alignment, spacing: CGFloat) {
-        self.alignment = alignment
-        self.spacing = spacing
-    }
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        //Returning Default Proposal Size
-        return .init(width: proposal.width ?? 0, height: proposal.height ?? 0)
-    }
-    
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        //Note: Use Origin since Origin will start from Applied Padding from Parent View
-        var origin = bounds.origin
-        var maxWidth = bounds.width
-        // this is where the tags start showing up on top left corner
-        subviews.forEach { view in
-            let viewSize = view.sizeThatFits(proposal)
-            // checking is View is going over maxwidth
-            if (origin.x + viewSize.width + spacing) > maxWidth {
-                //updating Origin for next element in vertical order
-                origin.y += (viewSize.height +  spacing)
-                //resetting horizontal axis
-                origin.x = bounds.origin.x
-                //next view
-                view.place(at: origin, proposal: proposal)
-                //Updating Origin for next View placemet
-                //Adding Spacing
-                origin.x += (viewSize.width + spacing)
+
+    struct TagView: Layout {
+        var alignment: Alignment = .center
+        var spacing: CGFloat = 10
+        
+        init(alignment: Alignment, spacing: CGFloat) {
+            self.alignment = alignment
+            self.spacing = spacing
+        }
+        func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+            //Returning Default Proposal Size
+            return .init(width: proposal.width ?? 0, height: proposal.height ?? 0)
+        }
+        
+        func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+            //Note: Use Origin since Origin will start from Applied Padding from Parent View
+            var origin = bounds.origin
+            var maxWidth = bounds.width
+            // this is where the tags start showing up on top left corner
+            subviews.forEach { view in
+                let viewSize = view.sizeThatFits(proposal)
+                // checking is View is going over maxwidth
+                if (origin.x + viewSize.width + spacing) > maxWidth {
+                    //updating Origin for next element in vertical order
+                    origin.y += (viewSize.height +  spacing)
+                    //resetting horizontal axis
+                    origin.x = bounds.origin.x
+                    //next view
+                    view.place(at: origin, proposal: proposal)
+                    //Updating Origin for next View placemet
+                    //Adding Spacing
+                    origin.x += (viewSize.width + spacing)
+                    
+                } else {
+                    view.place(at: origin, proposal: proposal)
+                    //Updating Origin for next View placemet
+                    //Adding Spacing
+                    origin.x += (viewSize.width + spacing)
+                }
                 
-            } else {
-                view.place(at: origin, proposal: proposal)
-                //Updating Origin for next View placemet
-                //Adding Spacing
-                origin.x += (viewSize.width + spacing)
             }
             
         }
         
     }
-    
-    
-}
 
+/*
 // MARK: String Tags
 var rawtags:[String] = ["christmas", "soup", "vegan", "sausages", "nut free", "dairy free", "ice-cream", "beans", "pankakes", "low fat mozarella"]
 
@@ -109,5 +110,6 @@ var rawtags:[String] = ["christmas", "soup", "vegan", "sausages", "nut free", "d
 struct ThisTag: Identifiable {
     var id = UUID().uuidString
     var name: String
-    var isSelected: Bool = false
+   
 }
+*/
