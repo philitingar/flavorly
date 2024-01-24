@@ -19,9 +19,11 @@ struct SearchView: View {
             ZStack {
                 List {
                     ForEach(recipes, id: \.self) { recipe in
-                        NavigationLink(destination: DetailView(recipe: recipe)) {
+                        NavigationLink(destination: DetailView(recipe: recipe))
+                        {
                             Text(recipe.title!)
                         }
+                        
                     }.listRowBackground(Color.backgroundBeige)
                 }
                 .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt"))

@@ -86,7 +86,7 @@ struct AddEditRecipeView: View {
                     }
                     
                 } header: {
-                    Text("add tags to your recie")
+                    Text("add tags to your recipe")
                 }
                 //MARK: ADD/EDIT button
                 Section {

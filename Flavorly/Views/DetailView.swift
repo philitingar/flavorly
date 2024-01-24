@@ -38,19 +38,24 @@ struct DetailView: View {
                 .foregroundColor(.primary)
                 .padding()
             //MARK: TagView
-            TagView(alignment: .center, spacing: 10) {
-                ForEach(recipe.tagArray) { tag in
-                    Text(tag.title ?? "")
-                        .buttonStyle(.bordered)
-                        .tint(.primary)
-                        .foregroundColor(.primary)
-                        .padding()
+            VStack {
+                Text("Tags associated with the recipe:")
+                    .padding()
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(Color.backgroundGreen)
+                    .multilineTextAlignment(.center)
+                
+                TagView(alignment: .center, spacing: 10) {
+                    ForEach(recipe.tagArray) { tag in
+                        Text(tag.title ?? "")
+                            .buttonStyle(.bordered)
+                            .tint(.primary)
+                            .foregroundColor(.primary)
+                            .padding()
+                    }
                 }
             }
-            
-            HStack(alignment: .center) {
-                
-            }.padding(5)
             
                 .navigationTitle(LocalizedStringKey("recipe.title"))
                 .navigationBarTitleDisplayMode(.inline)
