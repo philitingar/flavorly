@@ -21,117 +21,130 @@ struct AddEditRecipeView: View {
     @State private var author = ""
     @State private var tags: [Tag] = []
     @State private var tagTitle = ""
+    @State var showTagInfoSheet:Bool = false
+    @State var showTAddEditInfoSheet:Bool = false
     
     var hasValidName: Bool {
-        if title.isEmpty || author.isEmpty {
+        if title.isEmpty || author.isEmpty || ingredients.isEmpty || text.isEmpty {
             return false
         }
         
         return true
     }
     
+    @AppStorage("didLaunchBefore") private var onboardingDone = false
+    
+    
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    TextField(LocalizedStringKey("recipe.name"), text: $title)
-                        .accessibilityIdentifier("recipeNameTextField")
-                    TextField(LocalizedStringKey("author.name"), text: $author)
-                        .accessibilityIdentifier("authorsNameTextField")
+        Group {
+            if !onboardingDone {
+                OnboardingView {
+                    self.onboardingDone = true
                 }
-                
-                Section {
-                    TextEditor(text: $ingredients)
-                        .accessibilityIdentifier("ingredientsTextField")
-                } header: {
-                    Text(LocalizedStringKey("ingredient.list"))
-                }
-                
-                Section {
-                    TextEditor(text: $text)
-                        .accessibilityIdentifier("recipeTextField")
-                } header: {
-                    Text(LocalizedStringKey("recipe.text"))
-                }
-                //MARK: TagView
-                
-                List {
-                    ForEach($tags) { $tag in
-                        Button(tag.title!) {
-                            if recipe != nil {
-                                 removeTagFromRecipe(recipe: recipe!, tag: tag)
-                            }
-                            tags.removeAll { $0.title == tag.title }
+            } else {
+                NavigationView {
+                    Form {
+                        Section {
+                            TextField(LocalizedStringKey("recipe.name"), text: $title)
+                                .accessibilityIdentifier("recipeNameTextField")
+                            TextField(LocalizedStringKey("author.name"), text: $author)
+                                .accessibilityIdentifier("authorsNameTextField")
                         }
-                        .buttonStyle(.bordered)
-                        .tint(.primary)
-                    }
-                }
-                
-                Section {
-                    HStack {
-                        TextField("Add them one by one", text:$tagTitle)
-                        //MARK: Add TAG button
-                        Button {
-                            addTagItem(tagTitle: tagTitle)
-                            tagTitle = ""
-                            //hides keyboard after each add
-                            self.endEditing()
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .foregroundStyle(Color.backgroundGreen)
-                                .font(.title2)
-                        }.disabled(tagTitle == "")
                         
-                    }
-                    
-                } header: {
-                    Text("add tags to your recipe")
-                }
-                //MARK: ADD/EDIT button
-                Section {
-                    Button(newRecipe ? LocalizedStringKey("add.button") : LocalizedStringKey("update.button")) {
-                        if newRecipe {
-                            addNewRecipe(title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
-                        } else {
-                            editSavedRecipe(recipe: recipe, title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                        Section {
+                            TextEditor(text: $ingredients)
+                                .accessibilityIdentifier("ingredientsTextField")
+                        } header: {
+                            Text(LocalizedStringKey("ingredient.list"))
                         }
-                        dismiss()
+                        
+                        Section {
+                            TextEditor(text: $text)
+                                .accessibilityIdentifier("recipeTextField")
+                        } header: {
+                            Text(LocalizedStringKey("recipe.text"))
+                        }
+                        //MARK: TagView
+                        
+                        List {
+                            ForEach($tags) { $tag in
+                                Button(tag.title!) {
+                                    if recipe != nil {
+                                        removeTagFromRecipe(recipe: recipe!, tag: tag)
+                                    }
+                                    tags.removeAll { $0.title == tag.title }
+                                }
+                                .buttonStyle(.bordered)
+                                .tint(.primary)
+                            }
+                        }
+                        
+                        Section {
+                            HStack{
+                                TextField("Add them one by one", text:$tagTitle)
+                                //MARK: Add TAG button
+                                Button {
+                                    addTagItem(tagTitle: tagTitle)
+                                    tagTitle = ""
+                                    //hides keyboard after each add
+                                    self.endEditing()
+                                } label: {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundStyle(Color.backgroundGreen)
+                                        .font(.title2)
+                                }.disabled(tagTitle == "")
+                            }
+                        } header: {
+                            Text("add tags to your recipe")
+                        }
+                        //MARK: ADD/EDIT button
+                        Section {
+                            Button(newRecipe ? LocalizedStringKey("add.button") : LocalizedStringKey("update.button")) {
+                                if newRecipe {
+                                    addNewRecipe(title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                                } else {
+                                    editSavedRecipe(recipe: recipe, title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                                }
+                                dismiss()
+                                
+                            }
+                            
+                        }
+                        .disabled(hasValidName == false)
+                    }
+                    .toolbar {
+                        ToolbarItemGroup(placement: .navigationBarLeading) {
+                            //MARK: Toolbar buttons
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "x.circle.fill")
+                                    .foregroundStyle(Color.backgroundRed)
+                            }
+                            if newRecipe == true {
+                                Text(NSLocalizedString("recipe.add", comment: "").uppercased())
+                                    .padding(95)
+                            } else {
+                                Text(NSLocalizedString("recipe.edit", comment: "").uppercased())
+                                    .padding(95)
+                            }
+                        }
+                    }.onAppear {
+                        //MARK: OnAppear NewRecipe ?? UpdatedRecipe
+                        newRecipe = (recipe == nil) // here we check if we passed recipe to this view
+                        // and if there is recipe that you are passing you assign those properties of recipe to your view fields
+                        if newRecipe == false {
+                            title = recipe?.title ?? ""
+                            author = recipe?.author ?? ""
+                            ingredients = recipe?.ingredients ?? ""
+                            text = recipe?.text ?? ""
+                            tags = recipe?.tagArray ?? []
+                        }
                     }
                 }
-                .disabled(hasValidName == false)
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    //MARK: Toolbar buttons
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "x.circle.fill")
-                            .foregroundStyle(Color.backgroundRed)
-                    }
-                    if newRecipe == true {
-                        Text(NSLocalizedString("recipe.add", comment: "").uppercased())
-                            .padding(95)
-                    } else {
-                        Text(NSLocalizedString("recipe.edit", comment: "").uppercased())
-                            .padding(95)
-                    }
-                }
-            }.onAppear {
-                //MARK: OnAppear NewRecipe ?? UpdatedRecipe
-                newRecipe = (recipe == nil) // here we check if we passed recipe to this view
-                // and if there is recipe that you are passing you assign those properties of recipe to your view fields
-                if newRecipe == false {
-                    title = recipe?.title ?? ""
-                    author = recipe?.author ?? ""
-                    ingredients = recipe?.ingredients ?? ""
-                    text = recipe?.text ?? ""
-                    tags = recipe?.tagArray ?? []
-                }
+                .navigationViewStyle(StackNavigationViewStyle())
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
     //MARK: Add Tag func
     private func addTagItem(tagTitle: String) {
@@ -184,5 +197,34 @@ extension AddEditRecipeView {
     //hides keyboard
     func endEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    //MARK: Info sheet buttons
+    private var TagInfoButton:some View {
+        HStack {
+            Button {
+            } label: {
+                Image(systemName: "info.circle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:20)
+                    .foregroundColor(Color.textBackgroundBlue)
+            }.simultaneousGesture(TapGesture().onEnded({
+                showTagInfoSheet.toggle()
+            }))
+        }
+    }
+    private var AddEditInfoButton:some View {
+        HStack {
+            Button {
+            } label: {
+                Image(systemName: "info.bubble")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:30)
+                    .foregroundColor(.primary)
+            }.simultaneousGesture(TapGesture().onEnded({
+                showTAddEditInfoSheet.toggle()
+            }))
+        }
     }
 }

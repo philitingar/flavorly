@@ -15,6 +15,7 @@
 		2650EE982B5E71FA00493679 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE942B5E71FA00493679 /* Tag+CoreDataProperties.swift */; };
 		2650EE992B5E71FA00493679 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE952B5E71FA00493679 /* Recipe+CoreDataClass.swift */; };
 		2650EE9A2B5E71FA00493679 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */; };
+		2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE9F2B615EAC00493679 /* OnboardingView.swift */; };
 		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
 		26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */; };
 		26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF52A93A92600E8F9A8 /* ContentView.swift */; };
@@ -67,6 +68,7 @@
 		2650EE942B5E71FA00493679 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2650EE952B5E71FA00493679 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2650EE9F2B615EAC00493679 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavorly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavorly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				26710DF52A93A92600E8F9A8 /* ContentView.swift */,
 				26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */,
 				26710E072A93AA9200E8F9A8 /* SearchView.swift */,
+				2650EE9F2B615EAC00493679 /* OnboardingView.swift */,
 				2650EE912B5979B600493679 /* TagView.swift */,
 				26710E092A93ABE000E8F9A8 /* DetailView.swift */,
 			);
@@ -348,6 +351,7 @@
 				26710E082A93AA9200E8F9A8 /* SearchView.swift in Sources */,
 				26710E0A2A93ABE000E8F9A8 /* DetailView.swift in Sources */,
 				26710E0E2A93AC5800E8F9A8 /* AddEditRecipeView.swift in Sources */,
+				2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */,
 				26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */,
 				2650EE972B5E71FA00493679 /* Tag+CoreDataClass.swift in Sources */,
 				2650EE992B5E71FA00493679 /* Recipe+CoreDataClass.swift in Sources */,

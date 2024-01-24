@@ -13,8 +13,8 @@
 
 "ingredient.list" = "Write the ingredients";
 "recipe.text" = "recipe";
-"add.button" = "Add";
-"update.button" = "Update";
+"add.button" = "Add Recipe";
+"update.button" = "Update Recipe";
 "recipe.edit" = "Edit recipe";
 "search.prompt" = "Look for something";
 "recipe.search" = "Search here";
