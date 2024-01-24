@@ -12,7 +12,7 @@ struct DetailView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
-    
+   
     
     var body: some View {
         ScrollView {
@@ -45,15 +45,21 @@ struct DetailView: View {
                     .bold()
                     .foregroundColor(Color.backgroundGreen)
                     .multilineTextAlignment(.center)
-                
-                TagView(alignment: .center, spacing: 10) {
-                    ForEach(recipe.tagArray) { tag in
-                        Text(tag.title ?? "")
-                            .buttonStyle(.bordered)
+               
+                    HStack {
+                        Text(
+                            recipe.tagArray
+                                .map({ tag in
+                                    tag.title!
+                                })
+                                .joined(separator:", ")
+                        )
+                        .buttonStyle(.bordered)
                             .tint(.primary)
                             .foregroundColor(.primary)
-                            .padding()
-                    }
+                            .padding(10)
+                       
+                    
                 }
             }
             

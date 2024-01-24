@@ -6,54 +6,7 @@
 //
 
 import SwiftUI
-/*
-struct TagView: View {
-    @State var tags: [ThisTag] = rawtags.compactMap { tag -> ThisTag? in
-        return .init(name: tag)
-    }
-    @State var text:String = ""
-    
-    var body: some View {
-            VStack {
-                ThisTagView(alignment: .center, spacing: 10) {
-                    ForEach($tags) { $tag in
-                        //MARK: New Toggle API
-                        Button(tag.name)
-                            .buttonStyle(.bordered)
-                            .tint(.primary)
-                    }
-                }
-                HStack {
-                    //MARK: New API
-                    //multi line textfield
-                    TextField("Tag", text: $text,axis: .vertical)
-                        .textFieldStyle(.roundedBorder)
-                    //Line Limit
-                    //If it exceeds then it will enable scrollView
-                        .lineLimit(1...5)
-                    
-                    Button("Add") {
-                        withAnimation(.spring()) {
-                            tags.append(ThisTag(name: text))
-                            text = ""
-                        }
-                    }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.roundedRectangle(radius: 4))
-                    .tint(.green)
-                    .disabled(text == "")
-                }
-               
-            }
-            .padding(15)
-            .navigationTitle(Text("Layout"))
-        }
-}
 
-#Preview {
-    TagView()
-}
- */
 //MARK: Building Custom layout with the new layout API
 
     struct TagView: Layout {
@@ -101,15 +54,3 @@ struct TagView: View {
         
     }
 
-/*
-// MARK: String Tags
-var rawtags:[String] = ["christmas", "soup", "vegan", "sausages", "nut free", "dairy free", "ice-cream", "beans", "pankakes", "low fat mozarella"]
-
-
-// MARK: Tag model
-struct ThisTag: Identifiable {
-    var id = UUID().uuidString
-    var name: String
-   
-}
-*/
