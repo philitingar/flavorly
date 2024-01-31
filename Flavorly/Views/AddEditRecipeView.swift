@@ -47,16 +47,16 @@ struct AddEditRecipeView: View {
                         Section {
                             TextField(LocalizedStringKey("recipe.name"), text: $title)
                                 .accessibilityIdentifier("recipeNameTextField")
-                                .background(Color.red.opacity(title == "" ? 0.2 : 0.0))
+                                .background(Color.backgroundRed.opacity(title == "" ? 0.15 : 0.0))
                             TextField(LocalizedStringKey("author.name"), text: $author)
                                 .accessibilityIdentifier("authorsNameTextField")
-                                .background(Color.red.opacity(author == "" ? 0.2 : 0.0))
+                                .background(Color.backgroundRed.opacity(author == "" ? 0.15 : 0.0))
                         }
                         
                         Section {
                             TextEditor(text: $ingredients)
                                 .accessibilityIdentifier("ingredientsTextField")
-                                .background(Color.red.opacity(ingredients == "" ? 0.2 : 0.0))
+                                .background(Color.backgroundRed.opacity(ingredients == "" ? 0.15 : 0.0))
                         } header: {
                             Text(LocalizedStringKey("ingredient.list"))
                         }
@@ -64,7 +64,7 @@ struct AddEditRecipeView: View {
                         Section {
                             TextEditor(text: $text)
                                 .accessibilityIdentifier("recipeTextField")
-                                .background(Color.red.opacity(text == "" ? 0.2 : 0.0))
+                                .background(Color.backgroundRed.opacity(text == "" ? 0.15 : 0.0))
                         } header: {
                             Text(LocalizedStringKey("recipe.text"))
                         }
@@ -72,14 +72,17 @@ struct AddEditRecipeView: View {
                         
                         List {
                             ForEach($tags) { $tag in
-                                Button(tag.title!) {
-                                    if recipe != nil {
-                                        removeTagFromRecipe(recipe: recipe!, tag: tag)
+                                if tag.title != nil { // when deduplicating in core data the tag intance in the tags array becomes null
+                                    Button(tag.title!) {
+                                        if recipe != nil {
+                                            removeTagFromRecipe(recipe: recipe!, tag: tag)
+                                        }
+                                        tags.removeAll { $0.title == tag.title }
                                     }
-                                    tags.removeAll { $0.title == tag.title }
+                                    .buttonStyle(.bordered)
+                                    .tint(.primary)
                                 }
-                                .buttonStyle(.bordered)
-                                .tint(.primary)
+
                             }
                         }
                         
@@ -153,6 +156,10 @@ struct AddEditRecipeView: View {
     }
     //MARK: Add Tag func
     private func addTagItem(tagTitle: String) {
+        // try to find Tags
+        //if exists
+          // tags.append(exisintg)
+        //else
         let tag = Tag(using: moc)
         tag.id = UUID()
         tag.title = tagTitle
