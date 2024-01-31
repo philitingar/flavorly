@@ -37,7 +37,7 @@ struct DetailView: View {
             Text(recipe.text ?? "")
                 .foregroundColor(.primary)
                 .padding()
-            //MARK: TagView
+            
             VStack {
                 Text("Tags associated with the recipe:")
                     .padding()

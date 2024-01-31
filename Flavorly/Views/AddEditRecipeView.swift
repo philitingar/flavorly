@@ -148,7 +148,7 @@ struct AddEditRecipeView: View {
     }
     //MARK: Add Tag func
     private func addTagItem(tagTitle: String) {
-        let tag = Tag(context: moc)
+        let tag = Tag(using: moc)
         tag.id = UUID()
         tag.title = tagTitle
         tags.append(tag)
@@ -162,7 +162,7 @@ struct AddRecipeView_Previews: PreviewProvider {
 }
 //MARK: Add recipe func
 func addNewRecipe (title: String, author: String, ingredients: String, text: String, newTags: [Tag], moc: NSManagedObjectContext) {
-    let newRecipe = Recipe(context: moc)
+    let newRecipe = Recipe(using: moc)
     newRecipe.id = UUID()
     newRecipe.title = title
     newRecipe.author = author
@@ -198,33 +198,5 @@ extension AddEditRecipeView {
     func endEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    //MARK: Info sheet buttons
-    private var TagInfoButton:some View {
-        HStack {
-            Button {
-            } label: {
-                Image(systemName: "info.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:20)
-                    .foregroundColor(Color.textBackgroundBlue)
-            }.simultaneousGesture(TapGesture().onEnded({
-                showTagInfoSheet.toggle()
-            }))
-        }
-    }
-    private var AddEditInfoButton:some View {
-        HStack {
-            Button {
-            } label: {
-                Image(systemName: "info.bubble")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:30)
-                    .foregroundColor(.primary)
-            }.simultaneousGesture(TapGesture().onEnded({
-                showTAddEditInfoSheet.toggle()
-            }))
-        }
-    }
+    
 }

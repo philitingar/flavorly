@@ -67,7 +67,7 @@ struct ContentView: View {
                 AddEditRecipeView(recipe: nil)
             }
             .sheet(isPresented: $showingSearchScreen) {
-                SearchView()
+                SearchView(recipe: nil)
             }
         }.frame(maxWidth: .infinity)
     }
