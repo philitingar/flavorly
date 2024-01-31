@@ -12,6 +12,10 @@ struct SearchView: View {
     @Environment(\.dismiss) var dismiss
     @FetchRequest(sortDescriptors: [])
     private var recipes: FetchedResults<Recipe>
+    
+    @FetchRequest(sortDescriptors: [])
+    private var tags: FetchedResults<Tag>
+    
     let recipe: Recipe?
     @State private var searchText = ""
     //Segment value for picker
@@ -36,6 +40,15 @@ struct SearchView: View {
                                 .foregroundStyle(Color.backgroundRed)
                         }
                     }
+                    if alignmentValue == 1 {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                
+                            } label: {
+                                Text("Search")
+                            }
+                        }
+                    }
                 }
             
             if alignmentValue == 0 {
@@ -49,31 +62,34 @@ struct SearchView: View {
                             
                         }.listRowBackground(Color.backgroundBeige)
                     }
-                    .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt"))
+                    .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.title"))
                     .onChange(of: searchText, perform: { newValue in
                         recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
                     })
                 }
             } else {
-                ZStack {
-                    List {
-                        ForEach(recipe?.tagArray ?? [], id: \.self) { tag in
-                            NavigationLink(destination: DetailView(recipe: recipe!))
-                            {
+                
+                VStack {
+                    Section {
+                        List {
+                            ForEach(tags, id: \.self) { tag in
                                 Text(tag.title!)
-                            }
-                            
-                        }.listRowBackground(Color.backgroundBeige)
+                                
+                            }.listRowBackground(Color.backgroundBeige)
+                        }
+                        .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
+                        .onChange(of: searchText, perform: { newValue in
+                            tags.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
+                        })
+                    } header: {
+                        Text("Select tags to search")
+                        
                     }
-                    .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt"))
-                    .onChange(of: searchText, perform: { newValue in
-                        recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
-                    })
-                    
                 }
             }
         }
-       
+        
+        
     }
 }
 

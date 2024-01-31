@@ -16,7 +16,8 @@
 "add.button" = "Add Recipe";
 "update.button" = "Update Recipe";
 "recipe.edit" = "Edit recipe";
-"search.prompt" = "Look for something";
+"search.prompt.title" = "Search a title";
+"search.prompt.tag" = "Search for tags";
 "recipe.search" = "Search here";
 "recipe.title" = "Recipe";
 "recipe.delete" = "Delete recipe";
