@@ -26,10 +26,6 @@ struct OnboardingView: View {
                 .font(.headline)
                 .foregroundColor(.primary)
                 .padding()
-            Text("NOTE: The Add/Update button will not work unless you write a Recipe name, the Author's name, Ingredients list and the Recipe itself. The Tags are not necessary, but useful.")
-                .font(.headline)
-                .foregroundColor(.red)
-                .padding()
             Spacer()
             Spacer()
             

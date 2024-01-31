@@ -47,13 +47,16 @@ struct AddEditRecipeView: View {
                         Section {
                             TextField(LocalizedStringKey("recipe.name"), text: $title)
                                 .accessibilityIdentifier("recipeNameTextField")
+                                .background(Color.red.opacity(title == "" ? 0.2 : 0.0))
                             TextField(LocalizedStringKey("author.name"), text: $author)
                                 .accessibilityIdentifier("authorsNameTextField")
+                                .background(Color.red.opacity(author == "" ? 0.2 : 0.0))
                         }
                         
                         Section {
                             TextEditor(text: $ingredients)
                                 .accessibilityIdentifier("ingredientsTextField")
+                                .background(Color.red.opacity(ingredients == "" ? 0.2 : 0.0))
                         } header: {
                             Text(LocalizedStringKey("ingredient.list"))
                         }
@@ -61,6 +64,7 @@ struct AddEditRecipeView: View {
                         Section {
                             TextEditor(text: $text)
                                 .accessibilityIdentifier("recipeTextField")
+                                .background(Color.red.opacity(text == "" ? 0.2 : 0.0))
                         } header: {
                             Text(LocalizedStringKey("recipe.text"))
                         }
@@ -120,6 +124,7 @@ struct AddEditRecipeView: View {
                             } label: {
                                 Image(systemName: "x.circle.fill")
                                     .foregroundStyle(Color.backgroundRed)
+                                    .font(.title3)
                             }
                             if newRecipe == true {
                                 Text(NSLocalizedString("recipe.add", comment: "").uppercased())

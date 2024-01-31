@@ -53,13 +53,15 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .foregroundStyle(Color.backgroundGreen)
+                            .font(.title3)
                     }
                     .accessibilityIdentifier("Add Recipe")
                     Button {
                         self.showingSearchScreen.toggle()
                     } label: {
                         Image(systemName: "magnifyingglass.circle.fill")
-                            .foregroundStyle(Color.textBackgroundBlue)
+                            .foregroundStyle(Color.backgroundBlue)
+                            .font(.title3)
                     }
                 }
             }

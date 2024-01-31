@@ -29,7 +29,7 @@ struct SearchView: View {
                     Text("By tag")
                         .tag(1)
                 }.pickerStyle(.segmented)
-                    .padding(.bottom, 15)
+                    .padding(.bottom, 10)
             } .navigationTitle(LocalizedStringKey("recipe.search"))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -38,6 +38,7 @@ struct SearchView: View {
                         } label: {
                             Image(systemName: "arrowshape.turn.up.backward.circle.fill")
                                 .foregroundStyle(Color.backgroundRed)
+                                .font(.title3)
                         }
                     }
                     if alignmentValue == 1 {

@@ -78,13 +78,15 @@ struct DetailView: View {
                     } label: {
                         Image(systemName: "trash.circle.fill")
                             .foregroundStyle(Color.backgroundRed)
+                            .font(.title3)
                     }
                     NavigationLink {
                         AddEditRecipeView (recipe: recipe)
                     } label: {
                         Image(systemName: "pencil.tip.crop.circle.badge.plus.fill")
                             .symbolRenderingMode(.palette)
-                            .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
+                            .foregroundStyle(Color.backgroundBlue, Color.backgroundGreen)
+                            .font(.title3)
                     }
                 }
         }
