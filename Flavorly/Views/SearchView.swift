@@ -16,6 +16,9 @@ struct SearchView: View {
     @FetchRequest(sortDescriptors: [])
     private var tags: FetchedResults<Tag>
     
+    @State private var multiSelection = Set<Tag>()
+    @State private var isEditMode: EditMode = .active
+    
     let recipe: Recipe?
     @State private var searchText = ""
     //Segment value for picker
@@ -29,7 +32,7 @@ struct SearchView: View {
                     Text("By tag")
                         .tag(1)
                 }.pickerStyle(.segmented)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 15)
             } .navigationTitle(LocalizedStringKey("recipe.search"))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -54,14 +57,14 @@ struct SearchView: View {
             
             if alignmentValue == 0 {
                 ZStack {
-                    List {
+                    List{
                         ForEach(recipes, id: \.self) { recipe in
                             NavigationLink(destination: DetailView(recipe: recipe))
                             {
                                 Text(recipe.title!)
                             }
                             
-                        }.listRowBackground(Color.backgroundBeige)
+                        }.listRowBackground(Color.backgroundBlue.opacity(0.4))
                     }
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.title"))
                     .onChange(of: searchText, perform: { newValue in
@@ -72,16 +75,17 @@ struct SearchView: View {
                 
                 VStack {
                     Section {
-                        List {
+                        List(selection: $multiSelection) {
                             ForEach(tags, id: \.self) { tag in
                                 Text(tag.title!)
                                 
-                            }.listRowBackground(Color.backgroundBeige)
+                            }.listRowBackground(Color.backgroundGreen.opacity(0.4))
                         }
                         .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
                         .onChange(of: searchText, perform: { newValue in
                             tags.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
                         })
+                        .environment(\.editMode, self.$isEditMode)
                     } header: {
                         Text("Select tags to search")
                         

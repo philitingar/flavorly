@@ -38,14 +38,17 @@ struct DetailView: View {
                 .foregroundColor(.primary)
                 .padding()
             
-            VStack {
-                Text("Tags associated with the recipe:")
-                    .padding()
-                    .font(.title3)
-                    .bold()
-                    .foregroundColor(Color.backgroundGreen)
-                    .multilineTextAlignment(.center)
-               
+                VStack {
+                    if recipe.tagArray == [] {
+                        
+                    } else {
+                        Text("Tags associated with the recipe:")
+                            .padding()
+                            .font(.title3)
+                            .bold()
+                            .foregroundColor(Color.backgroundGreen)
+                            .multilineTextAlignment(.center)
+                    }
                     HStack {
                         Text(
                             recipe.tagArray
@@ -55,12 +58,13 @@ struct DetailView: View {
                                 .joined(separator:", ")
                         )
                         .buttonStyle(.bordered)
-                            .tint(.primary)
-                            .foregroundColor(.primary)
-                            .padding(10)
-                       
-                    
-                }
+                        .tint(.primary)
+                        .foregroundColor(.primary)
+                        .padding(10)
+                        
+                        
+                    }
+                
             }
             
                 .navigationTitle(LocalizedStringKey("recipe.title"))

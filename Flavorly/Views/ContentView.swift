@@ -60,7 +60,7 @@ struct ContentView: View {
                         self.showingSearchScreen.toggle()
                     } label: {
                         Image(systemName: "magnifyingglass.circle.fill")
-                            .foregroundStyle(Color.backgroundBlue)
+                            .foregroundStyle(Color.textBackgroundBlue)
                             .font(.title3)
                     }
                 }
