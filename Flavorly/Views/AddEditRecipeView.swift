@@ -21,8 +21,7 @@ struct AddEditRecipeView: View {
     @State private var author = ""
     @State private var tags: [Tag] = []
     @State private var tagTitle = ""
-    @State var showTagInfoSheet:Bool = false
-    @State var showTAddEditInfoSheet:Bool = false
+    
     
     var hasValidName: Bool {
         if title.isEmpty || author.isEmpty || ingredients.isEmpty || text.isEmpty {
@@ -88,7 +87,7 @@ struct AddEditRecipeView: View {
                         
                         Section {
                             HStack{
-                                TextField("Add them one by one", text:$tagTitle)
+                                TextField("add.tags.separately", text:$tagTitle)
                                 //MARK: Add TAG button
                                 Button {
                                     addTagItem(tagTitle: tagTitle)
@@ -102,7 +101,7 @@ struct AddEditRecipeView: View {
                                 }.disabled(tagTitle == "")
                             }
                         } header: {
-                            Text("add tags to your recipe")
+                            Text("add.tagToRecipe")
                         }
                         //MARK: ADD/EDIT button
                         Section {
