@@ -28,13 +28,13 @@ struct ContentView: View {
                     } label: {
                         HStack {
                             VStack(alignment: .leading) {
-                                Text(recipe.title ?? "You have no recipes")
+                                Text(recipe.title ?? "no.recipes")
                                     .font(.headline)
                                     .foregroundColor(Color.textBackgroundBlue)
                                 HStack {
                                     Text(LocalizedStringKey ("By:"))
                                         .font(.subheadline)
-                                    Text(recipe.author ?? "Unknown Author")
+                                    Text(recipe.author ?? "unknown.author")
                                         .foregroundColor(.secondary)
                                 }
                             }

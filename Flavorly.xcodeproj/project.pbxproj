@@ -26,6 +26,7 @@
 		26710E082A93AA9200E8F9A8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E072A93AA9200E8F9A8 /* SearchView.swift */; };
 		26710E0A2A93ABE000E8F9A8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E092A93ABE000E8F9A8 /* DetailView.swift */; };
 		26710E0E2A93AC5800E8F9A8 /* AddEditRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */; };
+		267D2F572B6C03DC004C840D /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D2F562B6C03DC004C840D /* RecipeListView.swift */; };
 		26A039762B694FD000B84F9D /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		26710E072A93AA9200E8F9A8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		26710E092A93ABE000E8F9A8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeView.swift; sourceTree = "<group>"; };
+		267D2F562B6C03DC004C840D /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
+		267D2F592B73C6A0004C840D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
 		26C29FAD2AA8CAAD00DE0690 /* FlavorlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DAAF302AA0E8B5009B2456 /* Flavorly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flavorly.entitlements; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 				26710DF52A93A92600E8F9A8 /* ContentView.swift */,
 				26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */,
 				26710E072A93AA9200E8F9A8 /* SearchView.swift */,
+				267D2F562B6C03DC004C840D /* RecipeListView.swift */,
 				2650EE9F2B615EAC00493679 /* OnboardingView.swift */,
 				2650EE912B5979B600493679 /* TagView.swift */,
 				26710E092A93ABE000E8F9A8 /* DetailView.swift */,
@@ -297,6 +301,7 @@
 				el,
 				tr,
 				ar,
+				"zh-Hans",
 			);
 			mainGroup = 26710DE72A93A92600E8F9A8;
 			productRefGroup = 26710DF12A93A92600E8F9A8 /* Products */;
@@ -363,6 +368,7 @@
 				2650EE982B5E71FA00493679 /* Tag+CoreDataProperties.swift in Sources */,
 				26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */,
 				2650EE9A2B5E71FA00493679 /* Recipe+CoreDataProperties.swift in Sources */,
+				267D2F572B6C03DC004C840D /* RecipeListView.swift in Sources */,
 				26710E062A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld in Sources */,
 				2650EE922B5979B700493679 /* TagView.swift in Sources */,
 			);
@@ -409,6 +415,7 @@
 				2629F16A2B46F1F10099FB96 /* el */,
 				2629F16B2B4845B70099FB96 /* tr */,
 				2629F16C2B4845D40099FB96 /* ar */,
+				267D2F592B73C6A0004C840D /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

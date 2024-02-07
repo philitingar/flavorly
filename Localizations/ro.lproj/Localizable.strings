@@ -15,10 +15,32 @@
 "add.button" = "Adauga";
 "update.button" = "Actualizează";
 "recipe.edit" = "Editează rețeta";
-"search.prompt" = "Caută ceva";
+
 "recipe.search" = "Caută aici!";
 "recipe.title" = "Rețeta";
 "recipe.delete" = "Șterge rețeta";
 "delete.button" = "Șterge";
 "cancel.button" = "Anulează";
 "delete.reassurance" = "Ești sigur?";
+
+"search.prompt.title" = "Caută un titlu";
+"search.prompt.tag" = "Caută etichete";
+
+"no.recipes" = "Nu ai rețete";
+"add.tags.separately" = "Adaugă-le una câte una";
+"add.tagToRecipe" = "Adaugă etichete la rețetă";
+"pick.by.name" = "După nume";
+"pick.by.tag" = "După etichetă";
+"no.tags.saved" = "Nu ai nicio etichetă salvată";
+"select.tags" = "Selectează etichete pentru căutare";
+"no.recipe.saved" = "Nu ai salvat încă nicio rețetă";
+"tags.in.recipe" = "Etichete asociate cu rețeta:";
+"unknown.author"  = "Autor necunoscut";
+
+"feature.onboarding" = "Caracteristici";
+"onboarding.tags.explained" = "Găsește-ți ușor rețetele adăugând etichete precum vegan, fără lactate, Crăciun, prăjituri și etichete personale precum bunica. Cu ajutorul etichetelor, poți căuta cu ușurință exact ceea ce dorești, cum ar fi acele rețete speciale de la bunica ta care sunt de asemenea vegane.";
+"onboarding.tags.alternative.usage" = "Încearcă asta: Salvează-ți rețetele cu toate ingredientele(morcov, ouă, făină, pui etc.) ca etichete. Apoi, când te uiți în frigider întrebându-te ce să mănânci, caută doar ingredientele pe care le ai. Vei găsi instantaneu rețete pe care le poți face cu ceea ce ai deja! Ușor și convenabil.";
+"onboarding.consent" = "Am înțeles.";
+
+
+                          

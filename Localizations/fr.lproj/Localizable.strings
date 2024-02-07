@@ -16,10 +16,32 @@
 "add.button" = "Ajout";
 "update.button" = "Actualisation";
 "recipe.edit" = "Modifier";
-"search.prompt" = "Chercher quelque chose";
+
 "recipe.search" = "Rechercher ici";
 "recipe.title" = "Recette";
 "recipe.delete" = "Supprimer la recette";
 "delete.button" = "Supprimer";
 "cancel.button" = "Annuler";
 "delete.reassurance" = "Êtes-vous sûr ?";
+
+"search.prompt.title" = "Rechercher un titre";
+"search.prompt.tag" = "Recherche de tags";
+
+"no.recipes" = "Vous n'avez pas de recettes";
+"add.tags.separately" = "Ajoutez-les une à une";
+"add.tagToRecipe" = "ajoutez des tags à votre recette";
+"pick.by.name" = "Par nom";
+"pick.by.tag" = "Par étiquette";
+"no.tags.saved" = "Vous n'avez pas de tags enregistrés";
+"select.tags" = "Sélectionner les tags à rechercher";
+"no.recipe.saved" = "Vous n'avez pas encore enregistré de recette.";
+"tags.in.recipe" = "Tags associés à la recette :";
+"unknown.author"  = "Auteur inconnu";
+
+"feature.onboarding" = "Fonctionnalités";
+"onboarding.tags.explained" = "Facilitez la recherche de vos recettes en ajoutant des étiquettes telles que végétalien, sans produits laitiers, Noël, gâteau, et des étiquettes personnelles telles que grand-mère. Grâce aux étiquettes, vous pouvez facilement rechercher exactement ce que vous voulez, comme les recettes spéciales de votre grand-mère qui sont également végétaliennes.";
+"onboarding.tags.alternative.usage" = "
+Essayez ceci : Étiquetez vos recettes avec tous les ingrédients (carotte, œufs, farine, poulet, etc.) sous forme d'étiquettes. Ensuite, lorsque vous regardez le réfrigérateur en vous demandant quoi manger, recherchez simplement les ingrédients que vous avez. Vous trouverez instantanément des recettes à réaliser avec ce que vous avez déjà ! Facile et pratique.";
+"onboarding.consent" = "Je comprends";
+
+

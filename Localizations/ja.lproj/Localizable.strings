@@ -16,10 +16,31 @@
 "add.button" = "追加";
 "update.button" = "更新";
 "recipe.edit" = "レシピを編集する";
-"search.prompt" = "何かを探す";
+
 "recipe.search" = "ここで検索";
 "recipe.title" = "レシピ";
 "recipe.delete" = "レシピの削除";
 "delete.button" = "削除する";
 "cancel.button" = "キャンセル";
 "delete.reassurance" = "本当ですか?";
+
+"search.prompt.title" = "タイトル検索";
+"search.prompt.tag" = "タグを検索";
+
+"no.recipes" = "レシピがありません";
+"add.tags.separately" = "一つずつ追加する";
+"add.tagToRecipe" = "レシピにタグを追加する";
+"pick.by.name" = "名前で検索";
+"pick.by.tag" = "タグで";
+"no.tags.saved" = "タグが保存されていません";
+"select.tags" = "検索するタグを選択";
+"no.recipe.saved" = "まだレシピを保存していません";
+"tags.in.recipe" = "レシピに関連するタグ";
+"unknown.author"  = "作者不明";
+
+"feature.onboarding" = "特徴";
+"onboarding.tags.explained" = "ビーガン、乳製品不使用、クリスマス、ケーキ、おばあちゃんのような個人的なタグを追加することで、レシピを簡単に見つけることができます。タグを使えば、おばあちゃんからの特別なレシピやビーガンレシピなど、欲しいレシピを簡単に検索できます。";
+"onboarding.tags.alternative.usage" = "ぜひ試してみてください： レシピの材料（ニンジン、卵、小麦粉、鶏肉など）をすべてタグとしてラベル付けします。そうすれば、何を食べようかと冷蔵庫を見つめているときに、今ある食材を検索するだけ。すでにある材料で作れるレシピがすぐに見つかります！簡単で便利。";
+"onboarding.consent" = "なるほど";
+
+

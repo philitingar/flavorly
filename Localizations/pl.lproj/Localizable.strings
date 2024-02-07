@@ -16,10 +16,31 @@
 "add.button" = "Dodaj";
 "update.button" = "Aktualizacja";
 "recipe.edit" = "Edytuj przepis";
-"search.prompt" = "Szukaj czegoś";
+
 "recipe.search" = "Wyszukaj tutaj";
 "recipe.title" = "Przepis";
 "recipe.delete" = "Usuń przepis";
 "delete.button" = "Usuń";
 "cancel.button" = "Anuluj";
 "delete.reassurance" = "Czy na pewno?";
+
+"search.prompt.title" = "Wyszukiwanie tytułu";
+"search.prompt.tag" = "Wyszukaj tagi";
+
+"no.recipes" = "Nie masz przepisów";
+"add.tags.separately" = "Dodaj je jeden po drugim";
+"add.tagToRecipe" = "Dodaj tagi do swojego przepisu";
+"pick.by.name" = "Według nazwy";
+"pick.by.tag" = "Według tagu";
+"no.tags.saved" = "Nie zapisano żadnych tagów";
+"select.tags" = "Wybierz tagi do wyszukania";
+"no.recipe.saved" = "Nie zapisałeś jeszcze żadnego przepisu.";
+"tags.in.recipe" = "Tagi powiązane z przepisem:";
+"unknown.author"  = "Nieznany autor";
+
+"feature.onboarding" = "Funkcje";
+"onboarding.tags.explained" = "Spraw, by znajdowanie przepisów było dziecinnie proste, dodając tagi, takie jak wegańskie, bez nabiału, świąteczne, ciasta i osobiste, takie jak babcia. Dzięki tagom możesz łatwo wyszukiwać dokładnie to, czego chcesz, na przykład specjalne przepisy od babci, które są również wegańskie.";
+"onboarding.tags.alternative.usage" = "Spróbuj tego: Oznacz swoje przepisy wszystkimi składnikami (marchewka, jajka, mąka, kurczak itp.) jako tagi. Następnie, gdy wpatrujesz się w lodówkę, zastanawiając się, co zjeść, po prostu wyszukaj składniki, które masz. Natychmiast znajdziesz przepisy, które możesz przygotować z rzeczy, które już masz! Łatwe i wygodne.";
+"onboarding.consent" = "Rozumiem";
+
+

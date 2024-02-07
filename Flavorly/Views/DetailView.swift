@@ -16,7 +16,7 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            Text(recipe.title ?? "You have no recipes available")
+            Text(recipe.title ?? "no.recipes")
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .font(.title2)
@@ -25,7 +25,7 @@ struct DetailView: View {
             HStack {
                 Text(LocalizedStringKey("By:"))
                     .font(.subheadline)
-                Text(recipe.author ?? "You have not yet saved any recipe")
+                Text(recipe.author ?? "no.recipe.saved")
                     .lineLimit(2)
                     .font(.headline)
                     .foregroundColor(.secondary)
@@ -42,7 +42,7 @@ struct DetailView: View {
                     if recipe.tagArray == [] {
                         
                     } else {
-                        Text("Tags associated with the recipe:")
+                        Text("tags.in.recipe")
                             .padding()
                             .font(.title3)
                             .bold()

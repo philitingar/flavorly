@@ -16,10 +16,31 @@
 "add.button" = "Ekle";
 "update.button" = "Güncelleme";
 "recipe.edit" = "Tarifi Düzenle";
-"search.prompt" = "Bir şeyler arayın";
+
 "recipe.search" = "Burada arama yapın";
 "recipe.title" = "Yemek Tarifi";
 "recipe.delete" = "Tarifi Sil";
 "delete.button" = "Silme";
 "cancel.button" = "İptal";
 "delete.reassurance" = "Emin misiniz?";
+
+"search.prompt.title" = "Bir başlık arayın";
+"search.prompt.tag" = "Etiketler için arama";
+
+"no.recipes" = "Tarifiniz yok";
+"add.tags.separately" = "Teker teker ekleyin";
+"add.tagToRecipe" = "tarifinize etiket ekleyin";
+"pick.by.name" = "İsme göre";
+"pick.by.tag" = "Etiket tarafından";
+"no.tags.saved" = "Kayıtlı etiketiniz yok";
+"select.tags" = "Aranacak etiketleri seçin";
+"no.recipe.saved" = "Henüz herhangi bir tarif kaydetmediniz.";
+"tags.in.recipe" = "Tarif ile ilişkili etiketler:";
+"unknown.author"  = "Bilinmeyen Yazar";
+
+"feature.onboarding" = "Özellikler";
+"onboarding.tags.explained" = "Vegan, sütsüz, Noel, kek ve büyükanne gibi kişisel etiketler ekleyerek tariflerinizi bulmayı kolaylaştırın. Etiketlerle, büyükannenizin vegan olan özel tarifleri gibi tam olarak istediğiniz şeyi kolayca arayabilirsiniz.";
+"onboarding.tags.alternative.usage" = "Bunu deneyin: Tariflerinizi tüm malzemelerle birlikte (havuç, yumurta, un, tavuk vb.) etiketleyin. Daha sonra, ne yiyeceğinizi merak ederek buzdolabına baktığınızda, sadece sahip olduğunuz malzemeleri arayın. Zaten sahip olduğunuz malzemelerle yapabileceğiniz tarifleri anında bulacaksınız! Kolay ve kullanışlı.";
+"onboarding.consent" = "Anlıyorum";
+
+

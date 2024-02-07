@@ -21,15 +21,16 @@ struct SearchView: View {
     
     let recipe: Recipe?
     @State private var searchText = ""
+    @State private var showingRecipeListScreen = false
     //Segment value for picker
     @State var alignmentValue: Int = 1
     var body: some View {
         NavigationStack {
             VStack {
                 Picker("", selection: $alignmentValue) {
-                    Text("By name")
+                    Text("pick.by.name")
                         .tag(0)
-                    Text("By tag")
+                    Text("pick.by.tag")
                         .tag(1)
                 }.pickerStyle(.segmented)
                     .padding(.bottom, 15)
@@ -47,13 +48,20 @@ struct SearchView: View {
                     if alignmentValue == 1 {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                
-                            } label: {
-                                Text("Search")
-                            }
+                                self.showingRecipeListScreen.toggle()
+                                  } label: {
+                                    Image(systemName: "hand.point.up.left.and.text.fill")
+                                        .symbolRenderingMode(.palette)
+                                        .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
+                                        .font(.title3)
+                                }
                         }
                     }
                 }
+                .sheet(isPresented: $showingRecipeListScreen) {
+                    RecipeListView(tags: multiSelection)
+                }
+            
             
             if alignmentValue == 0 {
                 ZStack {
@@ -87,8 +95,7 @@ struct SearchView: View {
                         })
                         .environment(\.editMode, self.$isEditMode)
                     } header: {
-                        Text("Select tags to search")
-                        
+                        Text(recipe?.id == nil ? "no.tags.saved" : "select.tags")
                     }
                 }
             }
