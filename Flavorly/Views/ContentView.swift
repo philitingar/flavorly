@@ -16,9 +16,7 @@ struct ContentView: View {
     ]) var recipes: FetchedResults<Recipe>
     @State private var showingAddScreen = false
     @State private var showingSearchScreen = false
-    
- //   @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Tag.title, ascending: true)]) var tags: FetchedResults<Tag>
-    
+        
     var body: some View {
         NavigationView {
             List {

@@ -40,7 +40,6 @@ struct OnboardingView: View {
                     .background(Color.backgroundGreen)
                     .cornerRadius(12)
                     .padding()
-                
             }
             Spacer()
         }

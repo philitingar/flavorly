@@ -49,19 +49,18 @@ struct SearchView: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
                                 self.showingRecipeListScreen.toggle()
-                                  } label: {
-                                    Image(systemName: "hand.point.up.left.and.text.fill")
-                                        .symbolRenderingMode(.palette)
-                                        .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
-                                        .font(.title3)
-                                }
+                            } label: {
+                                Image(systemName: "hand.point.up.left.and.text.fill")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
+                                    .font(.title3)
+                            }
                         }
                     }
                 }
                 .sheet(isPresented: $showingRecipeListScreen) {
                     RecipeListView(tags: multiSelection)
                 }
-            
             
             if alignmentValue == 0 {
                 ZStack {
@@ -71,37 +70,41 @@ struct SearchView: View {
                             {
                                 Text(recipe.title!)
                             }
-                            
                         }.listRowBackground(Color.backgroundBlue.opacity(0.4))
                     }
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.title"))
                     .onChange(of: searchText, perform: { newValue in
                         recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
                     })
+                    .overlay(Group {
+                        if recipes.isEmpty {
+                            Text("no.recipe.saved")
+                        }
+                    })
                 }
             } else {
-                
-                VStack {
-                    Section {
-                        List(selection: $multiSelection) {
-                            ForEach(tags, id: \.self) { tag in
-                                Text(tag.title!)
-                                
-                            }.listRowBackground(Color.backgroundGreen.opacity(0.4))
-                        }
-                        .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
-                        .onChange(of: searchText, perform: { newValue in
-                            tags.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
-                        })
-                        .environment(\.editMode, self.$isEditMode)
-                    } header: {
-                        Text(recipe?.id == nil ? "no.tags.saved" : "select.tags")
+                Section {
+                    List(selection: $multiSelection) {
+                        ForEach(tags, id: \.self) { tag in
+                            Text(tag.title!)
+                            
+                        }.listRowBackground(Color.backgroundGreen.opacity(0.4))
                     }
+                    .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
+                    .onChange(of: searchText, perform: { newValue in
+                        tags.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
+                    })
+                    .environment(\.editMode, self.$isEditMode)
+                    .overlay(Group {
+                        if tags.isEmpty {
+                            Text("no.tags.saved")
+                        }
+                    })
+                } header: {
+                    Text("select.tags")
                 }
             }
         }
-        
-        
     }
 }
 

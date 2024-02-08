@@ -4,7 +4,8 @@
 
   Created by Timea Bartha on 3/1/24.
   
-*/"By:" = "Făcut de:";
+*/
+"By:" = "Făcut de:";
 "recipe.add" = "Adaugă rețetă";
 
 "recipe.name" = "Numele rețetei";
@@ -41,6 +42,8 @@
 "onboarding.tags.explained" = "Găsește-ți ușor rețetele adăugând etichete precum vegan, fără lactate, Crăciun, prăjituri și etichete personale precum bunica. Cu ajutorul etichetelor, poți căuta cu ușurință exact ceea ce dorești, cum ar fi acele rețete speciale de la bunica ta care sunt de asemenea vegane.";
 "onboarding.tags.alternative.usage" = "Încearcă asta: Salvează-ți rețetele cu toate ingredientele(morcov, ouă, făină, pui etc.) ca etichete. Apoi, când te uiți în frigider întrebându-te ce să mănânci, caută doar ingredientele pe care le ai. Vei găsi instantaneu rețete pe care le poți face cu ceea ce ai deja! Ușor și convenabil.";
 "onboarding.consent" = "Am înțeles.";
+
+"no.recipe.to.tag.message" = "Se pare că nu ai nicio rețetă care corespunde căutării etichetelor. De ce nu încerci să selectezi mai puține etichete și vezi dacă te ajută? Gătit ușor!";
 
 
                           

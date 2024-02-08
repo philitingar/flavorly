@@ -39,9 +39,10 @@
 "unknown.author"  = "Autor desconocido";
 
 "feature.onboarding" = "Características";
-"onboarding.tags.explained" = "
-Encuentra tus recetas fácilmente añadiendo etiquetas como vegano, sin lácteos, Navidad, tarta o personales como abuela. Con las etiquetas, puedes buscar fácilmente exactamente lo que quieres, como esas recetas especiales de tu abuela que también son veganas.";
+"onboarding.tags.explained" = "Encuentra tus recetas fácilmente añadiendo etiquetas como vegano, sin lácteos, Navidad, tarta o personales como abuela. Con las etiquetas, puedes buscar fácilmente exactamente lo que quieres, como esas recetas especiales de tu abuela que también son veganas.";
 "onboarding.tags.alternative.usage" = "Prueba esto: Etiqueta tus recetas con todos los ingredientes (zanahoria, huevos, harina, pollo, etc.) como etiquetas. Luego, cuando estés mirando la nevera preguntándote qué comer, sólo tienes que buscar los ingredientes que tienes. Al instante encontrarás recetas que puedes hacer con lo que ya tienes. Fácil y práctico.";
 "onboarding.consent" = "Comprendo";
+
+"no.recipe.to.tag.message" = "Parece que no tienes ninguna receta que coincida con tu búsqueda de etiquetas. ¿Por qué no pruebas a seleccionar menos etiquetas y ves si eso te ayuda? ¡Feliz cocina!";
 
 

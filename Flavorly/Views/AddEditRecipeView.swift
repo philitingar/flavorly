@@ -22,17 +22,14 @@ struct AddEditRecipeView: View {
     @State private var tags: [Tag] = []
     @State private var tagTitle = ""
     
-    
     var hasValidName: Bool {
         if title.isEmpty || author.isEmpty || ingredients.isEmpty || text.isEmpty {
             return false
         }
-        
         return true
     }
     
     @AppStorage("didLaunchBefore") private var onboardingDone = false
-    
     
     var body: some View {
         Group {
@@ -81,7 +78,6 @@ struct AddEditRecipeView: View {
                                     .buttonStyle(.bordered)
                                     .tint(.primary)
                                 }
-
                             }
                         }
                         
@@ -112,9 +108,7 @@ struct AddEditRecipeView: View {
                                     editSavedRecipe(recipe: recipe, title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
                                 }
                                 dismiss()
-                                
                             }
-                            
                         }
                         .disabled(hasValidName == false)
                     }
@@ -157,7 +151,7 @@ struct AddEditRecipeView: View {
     private func addTagItem(tagTitle: String) {
         // try to find Tags
         //if exists
-          // tags.append(exisintg)
+        // tags.append(exisintg)
         //else
         let tag = Tag(using: moc)
         tag.id = UUID()

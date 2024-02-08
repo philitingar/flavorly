@@ -43,4 +43,6 @@
 "onboarding.tags.alternative.usage" = "Provate a farlo: Etichettate le vostre ricette con tutti gli ingredienti (carota, uova, farina, pollo, ecc.) come tag. Poi, quando guardate il frigorifero e vi chiedete cosa mangiare, cercate gli ingredienti che avete. Troverete immediatamente le ricette che potete realizzare con gli ingredienti che avete già! Facile e conveniente.";
 "onboarding.consent" = "Capisco";
 
+"no.recipe.to.tag.message" = "Sembra che non ci siano ricette corrispondenti alla ricerca dei tag. Perché non provare a selezionare un numero minore di tag e vedere se questo aiuta? Buona cucina!";
+
 

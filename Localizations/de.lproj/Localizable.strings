@@ -43,4 +43,6 @@
 "onboarding.tags.alternative.usage" = "Probieren Sie dies aus: Beschriften Sie Ihre Rezepte mit allen Zutaten (Karotten, Eier, Mehl, Huhn usw.) als Tags. Wenn du dann in den Kühlschrank starrst und dich fragst, was du essen sollst, suche einfach nach den Zutaten, die du hast. Sie finden sofort Rezepte, die Sie mit den bereits vorhandenen Zutaten zubereiten können! Einfach und praktisch.";
 "onboarding.consent" = "Ich verstehe";
 
+"no.recipe.to.tag.message" = "Es scheint, dass Sie keine Rezepte haben, die Ihrer Stichwortsuche entsprechen. Versuchen Sie doch mal, weniger Schlagwörter auszuwählen und zu sehen, ob das hilft. Viel Spaß beim Kochen!";
+
 

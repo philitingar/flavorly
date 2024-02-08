@@ -43,4 +43,6 @@
 "onboarding.tags.alternative.usage" = "Spróbuj tego: Oznacz swoje przepisy wszystkimi składnikami (marchewka, jajka, mąka, kurczak itp.) jako tagi. Następnie, gdy wpatrujesz się w lodówkę, zastanawiając się, co zjeść, po prostu wyszukaj składniki, które masz. Natychmiast znajdziesz przepisy, które możesz przygotować z rzeczy, które już masz! Łatwe i wygodne.";
 "onboarding.consent" = "Rozumiem";
 
+"no.recipe.to.tag.message" = "Wygląda na to, że nie masz żadnych przepisów pasujących do wyszukiwanych tagów. Spróbuj wybrać mniej tagów i sprawdź, czy to pomoże. Szczęśliwego gotowania!";
+
 

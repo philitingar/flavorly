@@ -43,4 +43,6 @@
 "onboarding.tags.alternative.usage" = "Próbáld ki ezt: Rakd fel a receptjeidet az összes hozzávalóval (sárgarépa, tojás, liszt, csirke stb.) címkeként. Ezután, amikor a hűtőszekrénybe bámulsz, hogy mit is egyél, csak keresd ki a hozzávalókat, amik vannak otthonodban. Azonnal találni fogsz olyan recepteket, amelyeket elkészíthetsz azokból a dolgokból, amik már megvannak! Egyszerű és kényelmes.";
 "onboarding.consent" = "Megértettem";
 
+"no.recipe.to.tag.message" = "Úgy tűnik, nincs a címke keresésednek megfelelő recepted. Miért nem próbálsz kevesebb címkét kiválasztani, hátha az segít? Jó főzést!";
+
 

@@ -43,4 +43,6 @@
 "onboarding.tags.alternative.usage" = "Bunu deneyin: Tariflerinizi tüm malzemelerle birlikte (havuç, yumurta, un, tavuk vb.) etiketleyin. Daha sonra, ne yiyeceğinizi merak ederek buzdolabına baktığınızda, sadece sahip olduğunuz malzemeleri arayın. Zaten sahip olduğunuz malzemelerle yapabileceğiniz tarifleri anında bulacaksınız! Kolay ve kullanışlı.";
 "onboarding.consent" = "Anlıyorum";
 
+"no.recipe.to.tag.message" = "Etiket aramanızla eşleşen herhangi bir tarifiniz yok gibi görünüyor. Neden daha az etiket seçmeyi denemiyorsunuz ve bunun yardımcı olup olmayacağını görmüyorsunuz? Mutlu yemekler!";
+
 

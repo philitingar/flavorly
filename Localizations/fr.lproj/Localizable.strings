@@ -40,8 +40,9 @@
 
 "feature.onboarding" = "Fonctionnalités";
 "onboarding.tags.explained" = "Facilitez la recherche de vos recettes en ajoutant des étiquettes telles que végétalien, sans produits laitiers, Noël, gâteau, et des étiquettes personnelles telles que grand-mère. Grâce aux étiquettes, vous pouvez facilement rechercher exactement ce que vous voulez, comme les recettes spéciales de votre grand-mère qui sont également végétaliennes.";
-"onboarding.tags.alternative.usage" = "
-Essayez ceci : Étiquetez vos recettes avec tous les ingrédients (carotte, œufs, farine, poulet, etc.) sous forme d'étiquettes. Ensuite, lorsque vous regardez le réfrigérateur en vous demandant quoi manger, recherchez simplement les ingrédients que vous avez. Vous trouverez instantanément des recettes à réaliser avec ce que vous avez déjà ! Facile et pratique.";
+"onboarding.tags.alternative.usage" = "Essayez ceci : Étiquetez vos recettes avec tous les ingrédients (carotte, œufs, farine, poulet, etc.) sous forme d'étiquettes. Ensuite, lorsque vous regardez le réfrigérateur en vous demandant quoi manger, recherchez simplement les ingrédients que vous avez. Vous trouverez instantanément des recettes à réaliser avec ce que vous avez déjà ! Facile et pratique.";
 "onboarding.consent" = "Je comprends";
+
+"no.recipe.to.tag.message" = "Il semble que vous n'ayez pas de recettes correspondant à votre recherche de tags. Pourquoi ne pas essayer de sélectionner moins de tags et voir si cela vous aide ? Bonne cuisine!";
 
 
