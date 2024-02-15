@@ -15,7 +15,7 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            Text(recipe.title ?? "Unknown Recipe")
+            Text(recipe.title ?? "no.recipes")
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .font(.title2)
@@ -24,73 +24,73 @@ struct DetailView: View {
             HStack {
                 Text(LocalizedStringKey("By:"))
                     .font(.subheadline)
-                Text(recipe.author ?? "Unknown author")
+                Text(recipe.author ?? "no.recipe.saved")
                     .lineLimit(2)
                     .font(.headline)
                     .foregroundColor(.secondary)
             }
-            HStack(alignment: .center) {
-                Text(NSLocalizedString(recipe.type!, comment: ""))
-                    .textCase(.uppercase)
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.primary)
-                    .background(Color.backgroundBlue)
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
-                Text(NSLocalizedString(recipe.occasion!, comment: ""))
-                    .textCase(.uppercase)
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.primary)
-                    .background(Color.backgroundBlue)
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
-                Text(NSLocalizedString(recipe.diet!, comment: ""))
-                    .textCase(.uppercase)
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.primary)
-                    .background(Color.backgroundBlue)
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
-            }.padding(5)
-            Text(recipe.ingredients ?? "Unknown ingredients")
+            Text(recipe.ingredients ?? "")
                 .foregroundColor(.primary)
                 .padding()
             
-            Text(recipe.text ?? "No recipe text")
+            Text(recipe.text ?? "")
                 .foregroundColor(.primary)
                 .padding()
             
-                .navigationTitle(LocalizedStringKey("recipe.title"))
-                .navigationBarTitleDisplayMode(.inline)
-                .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
-                    Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteRecipe)
-                    Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
-                } message: {
-                    Text(LocalizedStringKey("delete.reassurance"))
+            VStack {
+                if recipe.tagArray == [] {
+                    
+                } else {
+                    Text("tags.in.recipe")
+                        .padding()
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(Color.backgroundGreen)
+                        .multilineTextAlignment(.center)
                 }
-                .toolbar {
-                    Button {
-                        showingDeleteAlert = true
-                    } label: {
-                        Image(systemName: "trash.circle.fill")
-                            .foregroundStyle(Color.backgroundRed)
-                    }
-                    NavigationLink {
-                        AddEditRecipeView (recipe: recipe)
-                    } label: {
-                        Image(systemName: "pencil.tip.crop.circle.badge.plus.fill")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
-                    }
+                HStack {
+                    Text(
+                        recipe.tagArray
+                            .map({ tag in
+                                tag.title!
+                            })
+                            .joined(separator:", ")
+                    )
+                    .buttonStyle(.bordered)
+                    .tint(.primary)
+                    .foregroundColor(.primary)
+                    .padding(10)
                 }
+            }
+            .navigationTitle(LocalizedStringKey("recipe.title"))
+            .navigationBarTitleDisplayMode(.inline)
+            .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
+                Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteRecipe)
+                Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
+            } message: {
+                Text(LocalizedStringKey("delete.reassurance"))
+            }
+            //MARK: Toolbars
+            .toolbar {
+                Button {
+                    showingDeleteAlert = true
+                } label: {
+                    Image(systemName: "trash.circle.fill")
+                        .foregroundStyle(Color.backgroundRed)
+                        .font(.title3)
+                }
+                NavigationLink {
+                    AddEditRecipeView (recipe: recipe)
+                } label: {
+                    Image(systemName: "pencil.tip.crop.circle.badge.plus.fill")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(Color.backgroundBlue, Color.backgroundGreen)
+                        .font(.title3)
+                }
+            }
         }
     }
+    //MARK: func deleteRecipe
     func deleteRecipe() {
         moc.delete(recipe)
         //comment this line if you want to make the deletion permanent

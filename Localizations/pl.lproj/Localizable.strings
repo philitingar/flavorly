@@ -7,41 +7,42 @@
 */
 "By:" = "Wykonane przez:";
 "recipe.add" = "Dodaj przepis";
-"diet.vegetarian" = "Wegetariańskie";
-"diet.vegan" = "Wegański";
-"diet.noGluten" = "Bezglutenowy";
-"diet.noDairy" = "Bez nabiału";
-"diet.pescatarian" = "Pescetarianin";
-"diet.omnivore" = "Wszystkożerny";
-"diet.noNut" = "Bez orzechów";
-"type.soup" = "Zupa";
-"type.salad" = "Sałatka";
-"type.main" = "Główny posiłek";
-"type.dessert" = "Deser";
-"type.side" = "Dodatek";
-"type.breakfast" = "Śniadanie";
-"type.lunch" = "Obiad";
-"type.dinner" = "Kolacja";
-"type.juice" = "Sok";
+
 "recipe.name" = "Nazwa przepisu";
 "author.name" = "Nazwisko autora";
-"diet.picker" = "Dieta";
-"type.picker" = "Rodzaj";
-"occasion.picker" = "Okazja";
+
 "ingredient.list" = "Składniki";
 "recipe.text" = "Przepis";
 "add.button" = "Dodaj";
 "update.button" = "Aktualizacja";
 "recipe.edit" = "Edytuj przepis";
-"search.prompt" = "Szukaj czegoś";
+
 "recipe.search" = "Wyszukaj tutaj";
 "recipe.title" = "Przepis";
 "recipe.delete" = "Usuń przepis";
 "delete.button" = "Usuń";
 "cancel.button" = "Anuluj";
 "delete.reassurance" = "Czy na pewno?";
-"occasion.christmas" = "Boże Narodzenie";
-"occasion.newYear" = "Nowy Rok";
-"occasion.birthday" = "Urodziny";
-"occasion.easter" = "Wielkanoc";
-"occasion.everyday" = "Codziennie";
+
+"search.prompt.title" = "Wyszukiwanie tytułu";
+"search.prompt.tag" = "Wyszukaj tagi";
+
+"no.recipes" = "Nie masz przepisów";
+"add.tags.separately" = "Dodaj je jeden po drugim";
+"add.tagToRecipe" = "Dodaj tagi do swojego przepisu";
+"pick.by.name" = "Według nazwy";
+"pick.by.tag" = "Według tagu";
+"no.tags.saved" = "Nie zapisano żadnych tagów";
+"select.tags" = "Wybierz tagi do wyszukania";
+"no.recipe.saved" = "Nie zapisałeś jeszcze żadnego przepisu.";
+"tags.in.recipe" = "Tagi powiązane z przepisem:";
+"unknown.author"  = "Nieznany autor";
+
+"feature.onboarding" = "Funkcje";
+"onboarding.tags.explained" = "Spraw, by znajdowanie przepisów było dziecinnie proste, dodając tagi, takie jak wegańskie, bez nabiału, świąteczne, ciasta i osobiste, takie jak babcia. Dzięki tagom możesz łatwo wyszukiwać dokładnie to, czego chcesz, na przykład specjalne przepisy od babci, które są również wegańskie.";
+"onboarding.tags.alternative.usage" = "Spróbuj tego: Oznacz swoje przepisy wszystkimi składnikami (marchewka, jajka, mąka, kurczak itp.) jako tagi. Następnie, gdy wpatrujesz się w lodówkę, zastanawiając się, co zjeść, po prostu wyszukaj składniki, które masz. Natychmiast znajdziesz przepisy, które możesz przygotować z rzeczy, które już masz! Łatwe i wygodne.";
+"onboarding.consent" = "Rozumiem";
+
+"no.recipe.to.tag.message" = "Wygląda na to, że nie masz żadnych przepisów pasujących do wyszukiwanych tagów. Spróbuj wybrać mniej tagów i sprawdź, czy to pomoże. Szczęśliwego gotowania!";
+
+

@@ -4,43 +4,45 @@
 
   Created by Timea Bartha on 3/1/24.
   
-*/"By:" = "Készítette:";
-"recipe.add" = "Adj receptet";
-"diet.vegetarian" = "Vegetáriánus";
-"diet.vegan" = "Vegán";
-"diet.noGluten" = "Gluténmentes";
-"diet.noDairy" = "Tejmentes";
-"diet.pescatarian" = "Peszkatariánus";
-"diet.omnivore" = "Mindenevő";
-"diet.noNut" = "Diómentes";
-"type.soup" = "Leves";
-"type.salad" = "Saláta";
-"type.main" = "Főétel";
-"type.dessert" = "Desszert";
-"type.side" = "Mellékétel";
-"type.breakfast" = "Reggeli";
-"type.lunch" = "Ebéd";
-"type.dinner" = "Vacsora";
-"type.juice" = "Gyümölcslé";
+*/
+"By:" = "Készítette:";
+"recipe.add" = "Adj egy receptet";
+
 "recipe.name" = "Recept neve";
 "author.name" = "A szerző neve";
-"diet.picker" = "Diéta";
-"type.picker" = "Típus";
-"occasion.picker" = "Alkalom";
-"ingredient.list" = " Írd az összetevőket";
+
+"ingredient.list" = "Írd le az összetevőket";
 "recipe.text" = "recept";
 "add.button" = "Add hozzá";
 "update.button" = "Frissítés";
 "recipe.edit" = "Recept szerkesztése";
-"search.prompt" = "Keress valamit";
+
 "recipe.search" = "Keress itt!";
 "recipe.title" = "Recept";
 "recipe.delete" = "Recept törlése";
 "delete.button" = "Törlés";
 "cancel.button" = "Mégsem";
 "delete.reassurance" = "Biztos vagy benne?";
-"occasion.christmas" = "Karácsony";
-"occasion.newYear" = "Új év";
-"occasion.birthday" = "Születésnap";
-"occasion.easter" = "Húsvét";
-"occasion.everyday" = "Hétköznapi";
+
+"search.prompt.title" = "Recept cím keresése";
+"search.prompt.tag" = "Címkék keresése";
+
+"no.recipes" = "Nincsenek receptjeid";
+"add.tags.separately" = "Add őket egyenként";
+"add.tagToRecipe" = "címkéket adhatsz a receptedhez";
+"pick.by.name" = "Név szerint";
+"pick.by.tag" = "Címke szerint";
+"no.tags.saved" = "Nincsenek mentett címkéid";
+"select.tags" = "Válaszd ki a keresni kívánt címkéket";
+"no.recipe.saved" = "Még nem mentettél el egyetlen receptet sem.";
+"tags.in.recipe" = "A recepthez tartozó címkék:";
+"unknown.author"  = "Ismeretlen szerző";
+
+"feature.onboarding" = "Tulajdonságok";
+"onboarding.tags.explained" = "A receptek megtalálását megkönnyítheted, ha olyan címkéket adsz hozzá, mint vegán, tejmentes, karácsony, torta, vagy személyes címkéket, mint a nagyi. A címkékkel könnyedén rákereshetsz pontosan arra, amire szeretnél, például a nagymamád különleges receptjeire, amelyek ráadásul vegánok.";
+"onboarding.tags.alternative.usage" = "Próbáld ki ezt: Rakd fel a receptjeidet az összes hozzávalóval (sárgarépa, tojás, liszt, csirke stb.) címkeként. Ezután, amikor a hűtőszekrénybe bámulsz, hogy mit is egyél, csak keresd ki a hozzávalókat, amik vannak otthonodban. Azonnal találni fogsz olyan recepteket, amelyeket elkészíthetsz azokból a dolgokból, amik már megvannak! Egyszerű és kényelmes.";
+"onboarding.consent" = "Megértettem";
+
+"no.recipe.to.tag.message" = "Úgy tűnik, nincs a címke keresésednek megfelelő recepted. Miért nem próbálsz kevesebb címkét kiválasztani, hátha az segít? Jó főzést!";
+
+

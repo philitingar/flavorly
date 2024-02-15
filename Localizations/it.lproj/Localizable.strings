@@ -7,41 +7,42 @@
 */
 "By:" = "Realizzata da:";
 "recipe.add" = "Aggiungi ricetta";
-"diet.vegetarian" = "Vegetariano";
-"diet.vegan" = "Vegano";
-"diet.noGluten" = "Senza glutine";
-"diet.noDairy" = "Senza latticini";
-"diet.pescatarian" = "Pescatore";
-"diet.omnivore" = "Onnivoro";
-"diet.noNut" = "Senza noci";
-"type.soup" = "Zuppa";
-"type.salad" = "Insalata";
-"type.main" = "Pasto principale";
-"type.dessert" = "Dessert";
-"type.side" = "Contorno";
-"type.breakfast" = "Colazione";
-"type.lunch" = "Pranzo";
-"type.dinner" = "Cena";
-"type.juice" = "Succo";
+
 "recipe.name" = "Nome della ricetta";
 "author.name" = "Nome dell'autore";
-"diet.picker" = "Dieta";
-"type.picker" = "Tipo";
-"occasion.picker" = "Occasione";
+
 "ingredient.list" = "Ingredienti";
 "recipe.text" = "Ricetta";
 "add.button" = "Aggiungi";
 "update.button" = "Aggiornamento";
 "recipe.edit" = "Modifica";
-"search.prompt" = "Cercare qualcosa";
+
 "recipe.search" = "Cerca qui";
 "recipe.title" = "Ricetta";
 "recipe.delete" = "Eliminare ricetta";
 "delete.button" = "Eliminare";
 "cancel.button" = "Annullare";
 "delete.reassurance" = "Sei sicuro?";
-"occasion.christmas" = "Natale";
-"occasion.newYear" = "Anno nuovo";
-"occasion.birthday" = "Compleanno";
-"occasion.easter" = "Pasqua";
-"occasion.everyday" = "Tutti i giorni";
+
+"search.prompt.title" = "Cerca un titolo";
+"search.prompt.tag" = "Ricerca per tag";
+
+"no.recipes" = "Non ci sono ricette";
+"add.tags.separately" = "Aggiungile una per una";
+"add.tagToRecipe" = "aggiungi i tag alla tua ricetta";
+"pick.by.name" = "Per nome";
+"pick.by.tag" = "Per tag";
+"no.tags.saved" = "Non ci sono tag salvati";
+"select.tags" = "Selezionare i tag da cercare";
+"no.recipe.saved" = "Non hai ancora salvato nessuna ricetta.";
+"tags.in.recipe" = "Tag associati alla ricetta:";
+"unknown.author"  = "Autore sconosciuto";
+
+"feature.onboarding" = "Caratteristiche";
+"onboarding.tags.explained" = "Per trovare le ricette è sufficiente aggiungere tag come vegano, senza latticini, Natale, torta e tag personali come nonna. Con i tag, potete facilmente cercare esattamente ciò che volete, come le ricette speciali di vostra nonna che sono anche vegane.";
+"onboarding.tags.alternative.usage" = "Provate a farlo: Etichettate le vostre ricette con tutti gli ingredienti (carota, uova, farina, pollo, ecc.) come tag. Poi, quando guardate il frigorifero e vi chiedete cosa mangiare, cercate gli ingredienti che avete. Troverete immediatamente le ricette che potete realizzare con gli ingredienti che avete già! Facile e conveniente.";
+"onboarding.consent" = "Capisco";
+
+"no.recipe.to.tag.message" = "Sembra che non ci siano ricette corrispondenti alla ricerca dei tag. Perché non provare a selezionare un numero minore di tag e vedere se questo aiuta? Buona cucina!";
+
+

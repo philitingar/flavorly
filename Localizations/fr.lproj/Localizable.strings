@@ -7,41 +7,42 @@
 */
 "By:" = "Réalisé par:";
 "recipe.add" = "Ajouter une recette";
-"diet.vegetarian" = "Végétarien";
-"diet.vegan" = "Végétalien";
-"diet.noGluten" = "Sans gluten";
-"diet.noDairy" = "Sans lait";
-"diet.pescatarian" = "Pescaire";
-"diet.omnivore" = "Omnivore";
-"diet.noNut" = "Pas d'écrous";
-"type.soup" = "Soupe";
-"type.salad" = "Salade";
-"type.main" = "Plat principal";
-"type.dessert" = "Dessert";
-"type.side" = "Accompagnement";
-"type.breakfast" = "Petit déjeuner";
-"type.lunch" = "Déjeuner";
-"type.dinner" = "Dîner";
-"type.juice" = "Jus";
+
 "recipe.name" = "Nom de la recette";
 "author.name" = "Nom de l'auteur";
 "diet.picker" = "Régime alimentaire";
-"type.picker" = "Type";
-"occasion.picker" = "Occasions";
-"ingredient.list" = "Ingrédients";
+
 "recipe.text" = "recette";
 "add.button" = "Ajout";
 "update.button" = "Actualisation";
 "recipe.edit" = "Modifier";
-"search.prompt" = "Chercher quelque chose";
+
 "recipe.search" = "Rechercher ici";
 "recipe.title" = "Recette";
 "recipe.delete" = "Supprimer la recette";
 "delete.button" = "Supprimer";
 "cancel.button" = "Annuler";
 "delete.reassurance" = "Êtes-vous sûr ?";
-"occasion.christmas" = "Noël";
-"occasion.newYear" = "Nouvelle année";
-"occasion.birthday" = "Anniversaire";
-"occasion.easter" = "Pâques";
-"occasion.everyday" = "Tous les jours";
+
+"search.prompt.title" = "Rechercher un titre";
+"search.prompt.tag" = "Recherche de tags";
+
+"no.recipes" = "Vous n'avez pas de recettes";
+"add.tags.separately" = "Ajoutez-les une à une";
+"add.tagToRecipe" = "ajoutez des tags à votre recette";
+"pick.by.name" = "Par nom";
+"pick.by.tag" = "Par étiquette";
+"no.tags.saved" = "Vous n'avez pas de tags enregistrés";
+"select.tags" = "Sélectionner les tags à rechercher";
+"no.recipe.saved" = "Vous n'avez pas encore enregistré de recette.";
+"tags.in.recipe" = "Tags associés à la recette :";
+"unknown.author"  = "Auteur inconnu";
+
+"feature.onboarding" = "Fonctionnalités";
+"onboarding.tags.explained" = "Facilitez la recherche de vos recettes en ajoutant des étiquettes telles que végétalien, sans produits laitiers, Noël, gâteau, et des étiquettes personnelles telles que grand-mère. Grâce aux étiquettes, vous pouvez facilement rechercher exactement ce que vous voulez, comme les recettes spéciales de votre grand-mère qui sont également végétaliennes.";
+"onboarding.tags.alternative.usage" = "Essayez ceci : Étiquetez vos recettes avec tous les ingrédients (carotte, œufs, farine, poulet, etc.) sous forme d'étiquettes. Ensuite, lorsque vous regardez le réfrigérateur en vous demandant quoi manger, recherchez simplement les ingrédients que vous avez. Vous trouverez instantanément des recettes à réaliser avec ce que vous avez déjà ! Facile et pratique.";
+"onboarding.consent" = "Je comprends";
+
+"no.recipe.to.tag.message" = "Il semble que vous n'ayez pas de recettes correspondant à votre recherche de tags. Pourquoi ne pas essayer de sélectionner moins de tags et voir si cela vous aide ? Bonne cuisine!";
+
+

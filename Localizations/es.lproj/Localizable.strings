@@ -7,41 +7,42 @@
 */
 "By:" = "Escrito por:";
 "recipe.add" = "Añadir receta";
-"diet.vegetarian" = "Vegetariano";
-"diet.vegan" = "Vegano";
-"diet.noGluten" = "Sin gluten";
-"diet.noDairy" = "Sin lácteos";
-"diet.pescatarian" = "Pescadores";
-"diet.omnivore" = "Omnívoro";
-"diet.noNut" = "Sin nueces";
-"type.soup" = "Sopa";
-"type.salad" = "Ensalada";
-"type.main" = "Plato principal";
-"type.dessert" = "Postre";
-"type.side" = "Guarnición";
-"type.breakfast" = "Desayuno";
-"type.lunch" = "Almuerzo";
-"type.dinner" = "Cena";
-"type.juice" = "Zumo";
+
 "recipe.name" = "Nombre de receta";
 "author.name" = "Nombre del autor/a";
-"diet.picker" = "Dieta";
-"type.picker" = "Tipo";
-"occasion.picker" = "Ocasión";
+
 "ingredient.list" = "Ingredientes";
 "recipe.text" = "receta";
 "add.button" = "Añadir";
 "update.button" = "Actualizar";
 "recipe.edit" = "Editar";
-"search.prompt" = "Buscar algo";
+
 "recipe.search" = "Buscar aquí";
 "recipe.title" = "Receta";
 "recipe.delete" = "Eliminar receta";
 "delete.button" = "Eliminar";
 "cancel.button" = "Anular";
 "delete.reassurance" = "¿Seguro?";
-"occasion.christmas" = "Navidad";
-"occasion.newYear" = "Año nuevo";
-"occasion.birthday" = "Cumpleaños";
-"occasion.easter" = "Semana Santa";
-"occasion.everyday" = "Todos los días";
+
+"search.prompt.title" = "Buscar un título";
+"search.prompt.tag" = "Buscar etiquetas";
+
+"no.recipes" = "No tienes recetas";
+"add.tags.separately" = "Añádelas una a una";
+"add.tagToRecipe" = "añade etiquetas a tu receta";
+"pick.by.name" = "Por nombre";
+"pick.by.tag" = "Por etiqueta";
+"no.tags.saved" = "No tienes etiquetas guardadas";
+"select.tags" = "Seleccionar etiquetas para buscar";
+"no.recipe.saved" = "Aún no has guardado ninguna receta.";
+"tags.in.recipe" = "Etiquetas asociadas a la receta:";
+"unknown.author"  = "Autor desconocido";
+
+"feature.onboarding" = "Características";
+"onboarding.tags.explained" = "Encuentra tus recetas fácilmente añadiendo etiquetas como vegano, sin lácteos, Navidad, tarta o personales como abuela. Con las etiquetas, puedes buscar fácilmente exactamente lo que quieres, como esas recetas especiales de tu abuela que también son veganas.";
+"onboarding.tags.alternative.usage" = "Prueba esto: Etiqueta tus recetas con todos los ingredientes (zanahoria, huevos, harina, pollo, etc.) como etiquetas. Luego, cuando estés mirando la nevera preguntándote qué comer, sólo tienes que buscar los ingredientes que tienes. Al instante encontrarás recetas que puedes hacer con lo que ya tienes. Fácil y práctico.";
+"onboarding.consent" = "Comprendo";
+
+"no.recipe.to.tag.message" = "Parece que no tienes ninguna receta que coincida con tu búsqueda de etiquetas. ¿Por qué no pruebas a seleccionar menos etiquetas y ves si eso te ayuda? ¡Feliz cocina!";
+
+

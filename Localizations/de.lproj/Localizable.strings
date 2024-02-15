@@ -7,42 +7,42 @@
 */
 "By:" = "Hergestellt von:";
 "recipe.add" = "Rezept hinzufügen";
-"diet.vegetarian" = "Vegetarisch";
-"diet.vegan" = "Vegan";
-"diet.noGluten" = "Glutenfrei";
-"diet.noDairy" = "Molkereifrei";
-"diet.pescatarian" = "Fleischfresser";
-"diet.omnivore" = "Allesfresser";
-"diet.noNut" = "Nussfrei";
-"type.soup" = "Suppe";
-"type.salad" = "Salat";
-"type.main" = "Hauptgericht";
-"type.dessert" = "Nachspeise";
-"type.side" = "Beilage";
-"type.breakfast" = "Frühstück";
-"type.lunch" = "Mittagessen";
-"type.dinner" = "Abendessen";
-"type.juice" = "Saft";
+
 "recipe.name" = "Name des Rezepts";
 "author.name" = "Name des Autors";
-"diet.picker" = "Diät";
-"type.picker" = "Typ";
-"occasion.picker" = "Anlass";
+
 "ingredient.list" = "Zutaten";
 "recipe.text" = "Rezept";
 "add.button" = "Hinzufügen";
 "update.button" = "Aktualisieren";
 "recipe.edit" = "Bearbeiten";
-"search.prompt" = "Suche nach etwas";
+
 "recipe.search" = "Suche hier";
 "recipe.title" = "Rezept";
 "recipe.delete" = "Rezept löschen";
 "delete.button" = "Löschen ";
 "cancel.button" = "Abbrechen";
 "delete.reassurance" = "Sind Sie sicher?";
-"occasion.christmas" = "Weihnachten";
-"occasion.newYear" = "Neujahr";
-"occasion.birthday" = "Geburtstag";
-"occasion.easter" = "Ostern";
-"occasion.everyday" = "Alltägliches";
+
+"search.prompt.title" = "Einen Titel suchen";
+"search.prompt.tag" = "Suche nach Tags";
+
+"no.recipes" = "Sie haben keine Rezepte";
+"add.tags.separately" = "Fügen Sie eines nach dem anderen hinzu";
+"add.tagToRecipe" = "Tags zu Ihrem Rezept hinzufügen";
+"pick.by.name" = "Nach Name";
+"pick.by.tag" = "Nach Tag";
+"no.tags.saved" = "Sie haben keine Tags gespeichert";
+"select.tags" = "Tags für die Suche auswählen";
+"no.recipe.saved" = "Sie haben noch kein Rezept gespeichert.";
+"tags.in.recipe" = "Mit dem Rezept verbundene Tags:";
+"unknown.author"  = "Unbekannter Autor";
+
+"feature.onboarding" = "Funktionen";
+"onboarding.tags.explained" = "Machen Sie die Suche nach Ihren Rezepten zum Kinderspiel, indem Sie Tags wie vegan, milchfrei, Weihnachten, Kuchen und persönliche Tags wie Oma hinzufügen. Mit Tags können Sie ganz einfach nach genau dem suchen, was Sie wollen, z. B. nach den besonderen Rezepten Ihrer Oma, die auch vegan sind.";
+"onboarding.tags.alternative.usage" = "Probieren Sie dies aus: Beschriften Sie Ihre Rezepte mit allen Zutaten (Karotten, Eier, Mehl, Huhn usw.) als Tags. Wenn du dann in den Kühlschrank starrst und dich fragst, was du essen sollst, suche einfach nach den Zutaten, die du hast. Sie finden sofort Rezepte, die Sie mit den bereits vorhandenen Zutaten zubereiten können! Einfach und praktisch.";
+"onboarding.consent" = "Ich verstehe";
+
+"no.recipe.to.tag.message" = "Es scheint, dass Sie keine Rezepte haben, die Ihrer Stichwortsuche entsprechen. Versuchen Sie doch mal, weniger Schlagwörter auszuwählen und zu sehen, ob das hilft. Viel Spaß beim Kochen!";
+
 

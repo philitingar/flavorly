@@ -5,43 +5,44 @@
   Created by Timea Bartha on 3/1/24.
   
 */
-"By:" = "By:";
-"recipe.add" = "Add Recipe";
-"diet.vegetarian" = "Vegetarian";
-"diet.vegan" = "Vegan";
-"diet.noGluten" = "Gluten free";
-"diet.noDairy" = "Dairy free";
-"diet.pescatarian" = "Pescatarian";
-"diet.omnivore" = "Omnivore";
-"diet.noNut" = "Nut free";
-"type.soup" = "Soup";
-"type.salad" = "Salad";
-"type.main" = "Main";
-"type.dessert" = "Dessert";
-"type.side" = "Side";
-"type.breakfast" = "Breakfast";
-"type.lunch" = "Lunch";
-"type.dinner" = "Dinner";
-"type.juice" = "Juice";
-"recipe.name" = "Recipe name";
-"author.name" = "Author's name";
-"diet.picker" = "Diet";
-"type.picker" = "Type";
-"occasion.picker" = "Occasion";
-"ingredient.list" = "Write the ingredients";
-"recipe.text" = "recipe";
-"add.button" = "Add";
-"update.button" = "Update";
-"recipe.edit" = "Edit recipe";
-"search.prompt" = "Look for something";
-"recipe.search" = "Search here";
-"recipe.title" = "Recipe";
-"recipe.delete" = "Delete recipe";
-"delete.button" = "Delete";
-"cancel.button" = "Cancel";
-"delete.reassurance" = "Are you sure?";
-"occasion.christmas" = "Christmas";
-"occasion.newYear" = "New Years";
-"occasion.birthday" = "Birthday";
-"occasion.easter" = "Easter";
-"occasion.everyday" = "Everyday";
+"By:" = "صُنع بواسطة:";
+"recipe.add" = "إضافة وصفة";
+
+"recipe.name" = "اسم الوصفة";
+"author.name" = "اسم المؤلف";
+
+"ingredient.list" = "اكتب المكونات";
+"recipe.text" = "الوصفة";
+"add.button" = "إضافة وصفة";
+"update.button" = "تحديث الوصفة";
+"recipe.edit" = "تعديل الوصفة";
+
+"recipe.search" = "ابحث هنا";
+"recipe.title" = "الوصفة";
+"recipe.delete" = "حذف الوصفة";
+"delete.button" = "حذف";
+"cancel.button" = "إلغاء";
+"delete.reassurance" = "هل أنت متأكد؟";
+
+"search.prompt.title" = "البحث عن عنوان";
+"search.prompt.tag" = "البحث عن العلامات";
+
+"no.recipes" = "ليس لديك وصفات";
+"add.tags.separately" = "أضفها واحدة تلو الأخرى";
+"add.tagToRecipe" = "إضافة علامات إلى وصفتك";
+"pick.by.name" = "حسب الاسم";
+"pick.by.tag" = "حسب العلامة";
+"no.tags.saved" = "ليس لديك علامات محفوظة";
+"select.tags" = "حدد العلامات للبحث";
+"no.recipe.saved" = "لم تقم بحفظ أي وصفة بعد.";
+"tags.in.recipe" = "العلامات المرتبطة بالوصفة:";
+"unknown.author"  = "مؤلف غير معروف";
+
+"feature.onboarding" = "الميزات";
+"onboarding.tags.explained" = "اجعل العثور على وصفاتك أمرًا سهلاً عن طريق إضافة علامات مثل نباتي، وخالي من منتجات الألبان، وعيد الميلاد، وكعكة، وعلامات شخصية مثل الجدة. باستخدام العلامات، يمكنك البحث بسهولة عن ما تريده بالضبط، مثل تلك الوصفات الخاصة من جدتك التي تكون نباتية أيضًا..";
+"onboarding.tags.alternative.usage" = "جرب هذا: قم بتسمية وصفاتك بجميع المكونات (الجزر والبيض والدقيق والدجاج والدجاج وغيرها) كعلامات. بعد ذلك، عندما تحدق في الثلاجة وأنت تتساءل ماذا ستأكل، فقط ابحث عن المكونات التي لديك. ستجد على الفور وصفات يمكنك إعدادها بالأشياء التي لديك بالفعل! سهل ومريح.";
+"onboarding.consent" = "أنا أفهم";
+
+"no.recipe.to.tag.message" = "يبدو أنه ليس لديك أي وصفات مطابقة لبحثك عن العلامات. لماذا لا تحاول اختيار عدد أقل من العلامات ومعرفة ما إذا كان ذلك يساعد؟ طبخ سعيد!";
+
+

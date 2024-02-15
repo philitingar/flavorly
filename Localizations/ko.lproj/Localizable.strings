@@ -7,41 +7,42 @@
 */
 "By:" = "만든 사람:";
 "recipe.add" = "레시피 추가";
-"diet.vegetarian" = "채식주의자";
-"diet.vegan" = "비건";
-"diet.noGluten" = "글루텐 프리";
-"diet.noDairy" = "유제품 무함유";
-"diet.pescatarian" = "페세테리언";
-"diet.omnivore" = "옴니보어";
-"diet.noNut" = "견과류 무함유";
-"type.soup" = "수프";
-"type.salad" = "샐러드";
-"type.main" = "메인 식사";
-"type.dessert" = "디저트";
-"type.side" = "사이드 디쉬";
-"type.breakfast" = "조식";
-"type.lunch" = "점심";
-"type.dinner" = "저녁 식사";
-"type.juice" = "주스";
+
 "recipe.name" = "레시피 이름";
 "author.name" = "작성자 이름";
-"diet.picker" = "다이어트";
-"type.picker" = "유형";
-"occasion.picker" = "행사";
+
 "ingredient.list" = "재료";
 "recipe.text" = "레시피";
 "add.button" = "추가";
 "update.button" = "업데이트";
 "recipe.edit" = "레시피 편집";
-"search.prompt" = "무언가 찾기";
+
 "recipe.search" = "여기에서 검색";
 "recipe.title" = "레시피";
 "recipe.delete" = "레시피 삭제";
 "delete.button" = "삭제";
 "cancel.button" = "취소";
 "delete.reassurance" = "확실하신가요?";
-"occasion.christmas" = "크리스마스";
-"occasion.newYear" = "새해";
-"occasion.birthday" = "생일";
-"occasion.easter" = "부활절";
-"occasion.everyday" = "매일";
+
+"search.prompt.title" = "제목 검색";
+"search.prompt.tag" = "태그 검색";
+
+"no.recipes" = "레시피가 없습니다.";
+"add.tags.separately" = "하나씩 추가하기";
+"add.tagToRecipe" = "레시피에 태그 추가하기";
+"pick.by.name" = "이름 기준";
+"pick.by.tag" = "태그 기준";
+"no.tags.saved" = "저장된 태그가 없습니다.";
+"select.tags" = "검색할 태그 선택";
+"no.recipe.saved" = "아직 레시피를 저장하지 않았습니다.";
+"tags.in.recipe" = "레시피와 연결된 태그입니다:";
+"unknown.author"  = "작성자 미상";
+
+"feature.onboarding" = "특징";
+"onboarding.tags.explained" = "비건, 유제품, 크리스마스, 케이크, 할머니와 같은 개인 레시피와 같은 태그를 추가하여 레시피를 쉽게 찾을 수 있습니다. 태그를 사용하면 비건 채식주의자인 할머니의 특별한 레시피처럼 원하는 것을 정확하게 검색할 수 있습니다.";
+"onboarding.tags.alternative.usage" = "이렇게 해보세요: 레시피에 당근, 달걀, 밀가루, 닭고기 등 모든 재료를 태그로 표시하세요. 그런 다음 냉장고를 들여다보며 무엇을 먹을까 고민할 때 가지고 있는 재료를 검색하기만 하면 됩니다. 이미 가지고 있는 재료로 만들 수 있는 레시피를 바로 찾을 수 있습니다! 쉽고 편리하죠.";
+"onboarding.consent" = "이해합니다";
+
+"no.recipe.to.tag.message" = "태그 검색과 일치하는 레시피가 없는 것 같습니다. 태그를 더 적게 선택해보고 도움이 되는지 확인해보는 건 어떨까요? 행복한 요리하세요!";
+
+

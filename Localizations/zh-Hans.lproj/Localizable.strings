@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  Flavorly
+
+  Created by Timea Bartha on 3/1/24.
+  
+*/
+"By:" = "制作：";
+"recipe.add" = "添加食谱";
+
+"recipe.name" = "食谱名称";
+"author.name" = "作者姓名";
+
+"ingredient.list" = "写下配料";
+"recipe.text" = "食谱";
+"add.button" = "添加食谱";
+"update.button" = "更新食谱";
+"recipe.edit" = "编辑食谱";
+
+"recipe.search" = "在此搜索";
+"recipe.title" = "食谱";
+"recipe.delete" = "删除食谱";
+"delete.button" = "删除";
+"cancel.button" = "取消";
+"delete.reassurance" = "您确定吗？";
+
+"search.prompt.title" = "搜索标题";
+"search.prompt.tag" = "搜索标签";
+
+"no.recipes" = "您没有菜谱";
+"add.tags.separately" = "逐一添加";
+"add.tagToRecipe" = "为食谱添加标签";
+"pick.by.name" = "按名称";
+"pick.by.tag" = "按标签";
+"no.tags.saved" = "您没有保存标签";
+"select.tags" = "选择标签进行搜索";
+"no.recipe.saved" = "您尚未保存任何食谱。";
+"tags.in.recipe" = "与食谱相关的标签：";
+"unknown.author"  = "未知作者";
+
+"feature.onboarding" = "功能";
+"onboarding.tags.explained" = "通过添加素食、无乳制品、圣诞节、蛋糕等标签以及祖母等个人标签，让查找食谱变得轻而易举。有了标签，您就可以轻松搜索到您想要的内容，比如您奶奶的素食食谱。";
+"onboarding.tags.alternative.usage" = "试试这个： 在食谱上标注所有配料（胡萝卜、鸡蛋、面粉、鸡肉等）作为标签。然后，当你盯着冰箱不知道该吃什么时，只需搜索你所拥有的配料。你马上就能找到用现有食材制作的食谱！简单方便。";
+"onboarding.consent" = "我明白";
+
+"no.recipe.to.tag.message" = "看来您没有任何菜谱符合您的标签搜索。为什么不尝试选择更少的标签，看看是否有帮助？烹饪愉快";
+
+

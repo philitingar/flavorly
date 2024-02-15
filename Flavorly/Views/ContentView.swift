@@ -7,6 +7,7 @@
 import SwiftUI
 import CoreData
 
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [
@@ -15,8 +16,7 @@ struct ContentView: View {
     ]) var recipes: FetchedResults<Recipe>
     @State private var showingAddScreen = false
     @State private var showingSearchScreen = false
-    
-  
+        
     var body: some View {
         NavigationView {
             List {
@@ -26,13 +26,13 @@ struct ContentView: View {
                     } label: {
                         HStack {
                             VStack(alignment: .leading) {
-                                Text(recipe.title ?? "Unknown Title")
+                                Text(recipe.title ?? "no.recipes")
                                     .font(.headline)
                                     .foregroundColor(Color.textBackgroundBlue)
                                 HStack {
                                     Text(LocalizedStringKey ("By:"))
                                         .font(.subheadline)
-                                    Text(recipe.author ?? "Unknown Author")
+                                    Text(recipe.author ?? "unknown.author")
                                         .foregroundColor(.secondary)
                                 }
                             }
@@ -44,13 +44,14 @@ struct ContentView: View {
             }
             .navigationTitle("Flavorly")
             .toolbar {
-                
+          //MARK: Toolbar items
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
                         self.showingAddScreen.toggle()
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .foregroundStyle(Color.backgroundGreen)
+                            .font(.title3)
                     }
                     .accessibilityIdentifier("Add Recipe")
                     Button {
@@ -58,6 +59,7 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "magnifyingglass.circle.fill")
                             .foregroundStyle(Color.textBackgroundBlue)
+                            .font(.title3)
                     }
                 }
             }
@@ -65,10 +67,11 @@ struct ContentView: View {
                 AddEditRecipeView(recipe: nil)
             }
             .sheet(isPresented: $showingSearchScreen) {
-                SearchView()
+                SearchView(recipe: nil)
             }
         }.frame(maxWidth: .infinity)
     }
+    //MARK: func DeleteRecipe
     func deleteRecipe(at offsets: IndexSet) {
             for offset in offsets {
                 // find this book in our fetch request
@@ -81,7 +84,7 @@ struct ContentView: View {
         }
 }
 
-
+//MARK: Extension custom color
 extension Color {
     static let backgroundBeige = Color("BackgroundBeige")
     static let backgroundGreen = Color("ButtonBackgroundGreen")

@@ -16,134 +16,148 @@ struct AddEditRecipeView: View {
     @State private var newRecipe = false
     
     @State private var title = ""
-    @State private var type = NSLocalizedString("type.main", comment: "")
     @State private var ingredients = ""
     @State private var text = ""
     @State private var author = ""
-    @State private var diet = NSLocalizedString("diet.omnivore", comment: "")
-    @State private var occasion = NSLocalizedString("occasion.everyday", comment: "")
-    
-    let diets = ["diet.vegetarian",
-                 "diet.vegan",
-                 "diet.noGluten",
-                 "diet.noDairy",
-                 "diet.pescatarian",
-                 "diet.omnivore",
-                 "diet.noNut",
-                ]
-    let types = ["type.soup",
-                 "type.salad",
-                 "type.main",
-                 "type.dessert",
-                 "type.side",
-                 "type.breakfast",
-                 "type.lunch",
-                 "type.dinner",
-                 "type.juice",
-                 ]
-    let occasions = ["occasion.christmas",
-                     "occasion.newYear",
-                     "occasion.birthday",
-                     "occasion.easter",
-                     "occasion.everyday",
-                    ]
+    @State private var tags: [Tag] = []
+    @State private var tagTitle = ""
     
     var hasValidName: Bool {
-        if title.isEmpty || author.isEmpty {
+        if title.isEmpty || author.isEmpty || ingredients.isEmpty || text.isEmpty {
             return false
         }
-        
         return true
     }
     
+    @AppStorage("didLaunchBefore") private var onboardingDone = false
+    
     var body: some View {
-        NavigationView {
-                Form {
-                    Section {
-                        TextField(LocalizedStringKey("recipe.name"), text: $title)
-                            .accessibilityIdentifier("recipeNameTextField")
-                        TextField(LocalizedStringKey("author.name"), text: $author)
-                            .accessibilityIdentifier("authorsNameTextField")
+        Group {
+            if !onboardingDone {
+                OnboardingView {
+                    self.onboardingDone = true
+                }
+            } else {
+                NavigationView {
+                    Form {
+                        Section {
+                            TextField(LocalizedStringKey("recipe.name"), text: $title)
+                                .accessibilityIdentifier("recipeNameTextField")
+                                .background(Color.backgroundRed.opacity(title == "" ? 0.15 : 0.0))
+                            TextField(LocalizedStringKey("author.name"), text: $author)
+                                .accessibilityIdentifier("authorsNameTextField")
+                                .background(Color.backgroundRed.opacity(author == "" ? 0.15 : 0.0))
+                        }
                         
-                        Picker(NSLocalizedString("diet.picker", comment: ""), selection: $diet) {
-                            ForEach(diets, id: \.self) {
-                                let localzedString = NSLocalizedString($0, comment: "")
-                                Text(localzedString).tag($0)
+                        Section {
+                            TextEditor(text: $ingredients)
+                                .accessibilityIdentifier("ingredientsTextField")
+                                .background(Color.backgroundRed.opacity(ingredients == "" ? 0.15 : 0.0))
+                        } header: {
+                            Text(LocalizedStringKey("ingredient.list"))
+                        }
+                        
+                        Section {
+                            TextEditor(text: $text)
+                                .accessibilityIdentifier("recipeTextField")
+                                .background(Color.backgroundRed.opacity(text == "" ? 0.15 : 0.0))
+                        } header: {
+                            Text(LocalizedStringKey("recipe.text"))
+                        }
+                        //MARK: TagView
+                        
+                        List {
+                            ForEach($tags) { $tag in
+                                if tag.title != nil { // when deduplicating in core data the tag intance in the tags array becomes null
+                                    Button(tag.title!) {
+                                        if recipe != nil {
+                                            removeTagFromRecipe(recipe: recipe!, tag: tag)
+                                        }
+                                        tags.removeAll { $0.title == tag.title }
+                                    }
+                                    .buttonStyle(.bordered)
+                                    .tint(.primary)
+                                }
                             }
                         }
-                        Picker(NSLocalizedString("type.picker", comment: ""), selection: $type) {
-                            ForEach(types, id: \.self) {
-                                let localzedString = NSLocalizedString($0, comment: "")
-                                Text(localzedString).tag($0)
+                        
+                        Section {
+                            HStack{
+                                TextField("add.tags.separately", text:$tagTitle)
+                                //MARK: Add TAG button
+                                Button {
+                                    addTagItem(tagTitle: tagTitle)
+                                    tagTitle = ""
+                                    //hides keyboard after each add
+                                    self.endEditing()
+                                } label: {
+                                    Image(systemName: "plus.circle.fill")
+                                        .foregroundStyle(Color.backgroundGreen)
+                                        .font(.title2)
+                                }.disabled(tagTitle == "")
+                            }
+                        } header: {
+                            Text("add.tagToRecipe")
+                        }
+                        //MARK: ADD/EDIT button
+                        Section {
+                            Button(newRecipe ? LocalizedStringKey("add.button") : LocalizedStringKey("update.button")) {
+                                if newRecipe {
+                                    addNewRecipe(title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                                } else {
+                                    editSavedRecipe(recipe: recipe, title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                                }
+                                dismiss()
                             }
                         }
-                        Picker(NSLocalizedString("occasion.picker", comment: ""), selection: $occasion) {
-                            ForEach(occasions, id: \.self) {
-                                let localzedString = NSLocalizedString($0, comment: "")
-                                Text(localzedString).tag($0)
+                        .disabled(hasValidName == false)
+                    }
+                    .toolbar {
+                        ToolbarItemGroup(placement: .navigationBarLeading) {
+                            //MARK: Toolbar buttons
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "x.circle.fill")
+                                    .foregroundStyle(Color.backgroundRed)
+                                    .font(.title3)
                             }
-                        }
-                    }
-                    Section {
-                        TextEditor(text: $ingredients)
-                            .accessibilityIdentifier("ingredientsTextField")
-                    } header: {
-                        Text(LocalizedStringKey("ingredient.list"))
-                    }
-                    Section {
-                        TextEditor(text: $text)
-                            .accessibilityIdentifier("recipeTextField")
-                    } header: {
-                        Text(LocalizedStringKey("recipe.text"))
-                    }
-                    Section {
-                        Button(newRecipe ? LocalizedStringKey("add.button") : LocalizedStringKey("update.button")) {
-                            if newRecipe {
-                                addNewRecipe(title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: moc)
+                            if newRecipe == true {
+                                Text(NSLocalizedString("recipe.add", comment: "").uppercased())
+                                    .padding(95)
                             } else {
-                                editSavedRecipe(recipe: recipe, title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: moc)
+                                Text(NSLocalizedString("recipe.edit", comment: "").uppercased())
+                                    .padding(95)
                             }
-                            dismiss()
                         }
-                    }
-                    .disabled(hasValidName == false)
-                }
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarLeading) {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Image(systemName: "x.circle.fill")
-                               .foregroundStyle(Color.backgroundRed)
+                    }.onAppear {
+                        //MARK: OnAppear NewRecipe ?? UpdatedRecipe
+                        newRecipe = (recipe == nil) // here we check if we passed recipe to this view
+                        // and if there is recipe that you are passing you assign those properties of recipe to your view fields
+                        if newRecipe == false {
+                            title = recipe?.title ?? ""
+                            author = recipe?.author ?? ""
+                            ingredients = recipe?.ingredients ?? ""
+                            text = recipe?.text ?? ""
+                            tags = recipe?.tagArray ?? []
                         }
-                        if newRecipe == true {
-                            Text(NSLocalizedString("recipe.add", comment: "").uppercased())
-                            .padding(95)
-                        } else {
-                            Text(NSLocalizedString("recipe.edit", comment: "").uppercased())
-                            .padding(95)
-                        }
-                    }
-                }.onAppear {
-                    newRecipe = (recipe == nil) // here we check if we passed recipe to this view
-                    // and if there is recipe that you are passing you assign those properties of recipe to your view fields
-                    if newRecipe == false {
-                        title = recipe?.title ?? ""
-                        author = recipe?.author ?? ""
-                        diet = recipe?.diet ?? diets[0]
-                        type = recipe?.type ?? types[0]
-                        occasion = recipe?.occasion ?? occasions[0]
-                        ingredients = recipe?.ingredients ?? ""
-                        text = recipe?.text ?? ""
-                    } else {
-                        diet = diets[0]
-                        type = types[0]
-                        occasion = occasions[0]
                     }
                 }
+                .navigationViewStyle(StackNavigationViewStyle())
             }
         }
-    
+    }
+    //MARK: Add Tag func
+    private func addTagItem(tagTitle: String) {
+        // try to find Tags
+        //if exists
+        // tags.append(exisintg)
+        //else
+        let tag = Tag(using: moc)
+        tag.id = UUID()
+        tag.title = tagTitle
+        tags.append(tag)
+    }
 }
 
 struct AddRecipeView_Previews: PreviewProvider {
@@ -151,27 +165,43 @@ struct AddRecipeView_Previews: PreviewProvider {
         AddEditRecipeView(recipe: nil)
     }
 }
-func addNewRecipe (title: String, author: String, diet: String, occasion: String, ingredients: String, type: String, text: String, moc: NSManagedObjectContext) {
-    let newRecipe = Recipe(context: moc)
+//MARK: Add recipe func
+func addNewRecipe (title: String, author: String, ingredients: String, text: String, newTags: [Tag], moc: NSManagedObjectContext) {
+    let newRecipe = Recipe(using: moc)
     newRecipe.id = UUID()
     newRecipe.title = title
     newRecipe.author = author
-    newRecipe.diet = diet
-    newRecipe.occasion = occasion
     newRecipe.ingredients = ingredients
-    newRecipe.type = type
     newRecipe.text = text
+    
+    newTags.forEach { tag in
+        newRecipe.addToRecipeToTag(tag)
+    }
     
     try? moc.save()
 }
-func editSavedRecipe (recipe: Recipe?, title: String, author: String, diet: String, occasion: String, ingredients: String, type: String, text: String, moc: NSManagedObjectContext) {
+
+func removeTagFromRecipe (recipe: Recipe, tag: Tag) {
+    recipe.removeFromRecipeToTag(tag)
+}
+//MARK: Edit recipe func
+func editSavedRecipe (recipe: Recipe?, title: String, author: String, ingredients: String, text: String, newTags: [Tag], moc: NSManagedObjectContext) {
     recipe?.title = title
     recipe?.author = author
-    recipe?.diet = diet
-    recipe?.occasion = occasion
     recipe?.ingredients = ingredients
-    recipe?.type = type
     recipe?.text = text
     
+    newTags.forEach { tag in
+        recipe?.addToRecipeToTag(tag)
+    }
+    
     try? moc.save()
+}
+//MARK: Hides keyboard func
+extension AddEditRecipeView {
+    //hides keyboard
+    func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
 }

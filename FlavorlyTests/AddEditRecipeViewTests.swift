@@ -40,14 +40,11 @@ final class AddEditRecipeViewTests: XCTestCase {
     
     func testSaveRecipeToManagedObjectContext() {
         do {
-            let newRecipe = Recipe(context: managedObjectContext)
+            let newRecipe = Recipe(using: managedObjectContext)
             newRecipe.id = UUID()
             newRecipe.title = "title"
             newRecipe.author = "author"
-            newRecipe.diet = "diet"
-            newRecipe.occasion = "occasion"
             newRecipe.ingredients = "ingredients"
-            newRecipe.type = "type"
             newRecipe.text = "text"
             try managedObjectContext.save()
         } catch {
@@ -59,30 +56,25 @@ final class AddEditRecipeViewTests: XCTestCase {
     func testAddNewRecipeFunction() {
         let title = "new title"
         let author = "new author"
-        let diet = "new diet"
-        let occasion = "new occasion"
         let ingredients = "new ingredients"
-        let type = "new type"
         let text = "new text"
+        let newTags: [Tag] = []
         
-        addNewRecipe(title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: managedObjectContext)
-        
+        addNewRecipe(title: title, author: author, ingredients: ingredients, text: text, newTags: newTags, moc: managedObjectContext)
         let fetchReq: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         let results = try? managedObjectContext.fetch(fetchReq)
         let resultsArr = results ?? [Recipe]()
         let firstResult = resultsArr[0]
         XCTAssertEqual(firstResult.title, title, "The new title should have been saved, but it didn't")
         XCTAssertEqual(firstResult.author, author, "The new author should have been saved, but it didn't")
-        XCTAssertEqual(firstResult.diet, diet, "The new diet have been saved, but it didn't")
-        XCTAssertEqual(firstResult.occasion, occasion, "The new occasion should have been saved, but it didn't")
         XCTAssertEqual(firstResult.ingredients, ingredients, "The new ingredients should have been saved, but they didn't")
-        XCTAssertEqual(firstResult.type, type, "The new type should have been saved, but it didn't")
         XCTAssertEqual(firstResult.text, text, "The new text should have been saved, but it didn't")
+ 
     }
     
     func testEditSavedRecipeFunction () {
         // create initial record for the recipe
-        let recipe = Recipe(context: managedObjectContext)
+        let recipe = Recipe(using: managedObjectContext)
         recipe.id = UUID()
         recipe.title = "some title"
         recipe.author = "some author"
@@ -92,13 +84,11 @@ final class AddEditRecipeViewTests: XCTestCase {
         // define the new values for updating
         let title = "edited title"
         let author = "edited author"
-        let diet = "edited diet"
-        let occasion = "edited occasion"
         let ingredients = "edited ingredients"
-        let type = "edited type"
         let text = "edited text"
+        let newTags: [Tag] = []
         
-        editSavedRecipe(recipe: recipe, title: title, author: author, diet: diet, occasion: occasion, ingredients: ingredients, type: type, text: text, moc: managedObjectContext)
+        editSavedRecipe(recipe: recipe, title: title, author: author, ingredients: ingredients, text: text,newTags: newTags, moc: managedObjectContext)
         
         // reload the recipe record to check if it was updated correctly
         let fetchReq: NSFetchRequest<Recipe> = Recipe.fetchRequest()
@@ -107,10 +97,7 @@ final class AddEditRecipeViewTests: XCTestCase {
         let firstResult = resultsArr[0]
         XCTAssertEqual(firstResult.title, title, "The edited title should have been saved, but it didn't")
         XCTAssertEqual(firstResult.author, author, "The edited author should have been saved, but it didn't")
-        XCTAssertEqual(firstResult.diet, diet, "The edited diet should have been saved, but it didn't")
-        XCTAssertEqual(firstResult.occasion, occasion, "The edited occasion should have been saved, but it didn't")
         XCTAssertEqual(firstResult.ingredients, ingredients, "The edited ingredients should have been saved, but they didn't")
-        XCTAssertEqual(firstResult.type, type, "The edited type should have been saved, but it didn't")
         XCTAssertEqual(firstResult.text, text, "The edited text should have been saved, but it didn't")
     }
     

@@ -34,7 +34,7 @@
 "pick.by.tag" = "By tag";
 "no.tags.saved" = "You have no tags saved";
 "select.tags" = "Select tags to search";
-"no.recipe.saved" = "You have not yet saved any recipes.";
+"no.recipe.saved" = "You have not yet saved any recipe.";
 "tags.in.recipe" = "Tags associated with the recipe:";
 "unknown.author"  = "Unknown Author";
 
@@ -42,7 +42,5 @@
 "onboarding.tags.explained" = "Make finding your recipes a breeze by adding tags like vegan, dairy-free, Christmas, cake, and personal ones like grandma. With tags, you can easily search for exactly what you want, like those special recipes from your grandma that are also vegan.";
 "onboarding.tags.alternative.usage" = "Try this: Label your recipes with all the ingredients (carrot, eggs, flour, chicken, etc.) as tags. Then, when you're staring into the fridge wondering what to eat, just search for the ingredients you have. You'll instantly find recipes you can make with the stuff you already have! Easy and convenient.";
 "onboarding.consent" = "I understand";
-
-"no.recipe.to.tag.message" = "Uh-oh! It seems you don't have any recipes matching your tag search. Why not try selecting fewer tags and see if that helps? Happy cooking!";
 
 
