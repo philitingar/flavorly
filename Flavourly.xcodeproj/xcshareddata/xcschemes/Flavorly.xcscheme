@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26710DEF2A93A92600E8F9A8"
-               BuildableName = "Flavorly.app"
-               BlueprintName = "Flavorly"
-               ReferencedContainer = "container:Flavorly.xcodeproj">
+               BuildableName = "Flavourly.app"
+               BlueprintName = "Flavourly"
+               ReferencedContainer = "container:Flavourly.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,9 +35,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26C29FAC2AA8CAAD00DE0690"
-               BuildableName = "FlavorlyTests.xctest"
-               BlueprintName = "FlavorlyTests"
-               ReferencedContainer = "container:Flavorly.xcodeproj">
+               BuildableName = "FlavourlyTests.xctest"
+               BlueprintName = "FlavourlyTests"
+               ReferencedContainer = "container:Flavourly.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,9 +46,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26164C212B34844A0041B2EF"
-               BuildableName = "FlavorlyUITests.xctest"
-               BlueprintName = "FlavorlyUITests"
-               ReferencedContainer = "container:Flavorly.xcodeproj">
+               BuildableName = "FlavourlyUITests.xctest"
+               BlueprintName = "FlavourlyUITests"
+               ReferencedContainer = "container:Flavourly.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26710DEF2A93A92600E8F9A8"
-            BuildableName = "Flavorly.app"
-            BlueprintName = "Flavorly"
-            ReferencedContainer = "container:Flavorly.xcodeproj">
+            BuildableName = "Flavourly.app"
+            BlueprintName = "Flavourly"
+            ReferencedContainer = "container:Flavourly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -87,9 +87,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26710DEF2A93A92600E8F9A8"
-            BuildableName = "Flavorly.app"
-            BlueprintName = "Flavorly"
-            ReferencedContainer = "container:Flavorly.xcodeproj">
+            BuildableName = "Flavourly.app"
+            BlueprintName = "Flavourly"
+            ReferencedContainer = "container:Flavourly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -47,7 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26164C222B34844A0041B2EF /* FlavourlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavourlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewUITests.swift; sourceTree = "<group>"; };
 		2629F15E2B455E7D0099FB96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2650EE9F2B615EAC00493679 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
-		26710DF02A93A92600E8F9A8 /* Flavorly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavorly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26710DF02A93A92600E8F9A8 /* Flavourly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavourly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
 		26710DF52A93A92600E8F9A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26710DF72A93A92700E8F9A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		267D2F562B6C03DC004C840D /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
 		267D2F592B73C6A0004C840D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
-		26C29FAD2AA8CAAD00DE0690 /* FlavorlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C29FAD2AA8CAAD00DE0690 /* FlavourlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavourlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DAAF302AA0E8B5009B2456 /* Flavorly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flavorly.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,9 +148,9 @@
 		26710DF12A93A92600E8F9A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26710DF02A93A92600E8F9A8 /* Flavorly.app */,
-				26C29FAD2AA8CAAD00DE0690 /* FlavorlyTests.xctest */,
-				26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */,
+				26710DF02A93A92600E8F9A8 /* Flavourly.app */,
+				26C29FAD2AA8CAAD00DE0690 /* FlavourlyTests.xctest */,
+				26164C222B34844A0041B2EF /* FlavourlyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		26164C212B34844A0041B2EF /* FlavorlyUITests */ = {
+		26164C212B34844A0041B2EF /* FlavourlyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26164C2A2B34844A0041B2EF /* Build configuration list for PBXNativeTarget "FlavorlyUITests" */;
+			buildConfigurationList = 26164C2A2B34844A0041B2EF /* Build configuration list for PBXNativeTarget "FlavourlyUITests" */;
 			buildPhases = (
 				26164C1E2B34844A0041B2EF /* Sources */,
 				26164C1F2B34844A0041B2EF /* Frameworks */,
@@ -214,14 +214,14 @@
 			dependencies = (
 				26164C292B34844A0041B2EF /* PBXTargetDependency */,
 			);
-			name = FlavorlyUITests;
+			name = FlavourlyUITests;
 			productName = FlavorlyUITests;
-			productReference = 26164C222B34844A0041B2EF /* FlavorlyUITests.xctest */;
+			productReference = 26164C222B34844A0041B2EF /* FlavourlyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		26710DEF2A93A92600E8F9A8 /* Flavorly */ = {
+		26710DEF2A93A92600E8F9A8 /* Flavourly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26710DFE2A93A92700E8F9A8 /* Build configuration list for PBXNativeTarget "Flavorly" */;
+			buildConfigurationList = 26710DFE2A93A92700E8F9A8 /* Build configuration list for PBXNativeTarget "Flavourly" */;
 			buildPhases = (
 				26710DEC2A93A92600E8F9A8 /* Sources */,
 				26710DED2A93A92600E8F9A8 /* Frameworks */,
@@ -231,14 +231,14 @@
 			);
 			dependencies = (
 			);
-			name = Flavorly;
+			name = Flavourly;
 			productName = Flavorly;
-			productReference = 26710DF02A93A92600E8F9A8 /* Flavorly.app */;
+			productReference = 26710DF02A93A92600E8F9A8 /* Flavourly.app */;
 			productType = "com.apple.product-type.application";
 		};
-		26C29FAC2AA8CAAD00DE0690 /* FlavorlyTests */ = {
+		26C29FAC2AA8CAAD00DE0690 /* FlavourlyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26C29FB32AA8CAAD00DE0690 /* Build configuration list for PBXNativeTarget "FlavorlyTests" */;
+			buildConfigurationList = 26C29FB32AA8CAAD00DE0690 /* Build configuration list for PBXNativeTarget "FlavourlyTests" */;
 			buildPhases = (
 				26C29FA92AA8CAAD00DE0690 /* Sources */,
 				26C29FAA2AA8CAAD00DE0690 /* Frameworks */,
@@ -249,9 +249,9 @@
 			dependencies = (
 				26C29FB22AA8CAAD00DE0690 /* PBXTargetDependency */,
 			);
-			name = FlavorlyTests;
+			name = FlavourlyTests;
 			productName = FlavorlyTests;
-			productReference = 26C29FAD2AA8CAAD00DE0690 /* FlavorlyTests.xctest */;
+			productReference = 26C29FAD2AA8CAAD00DE0690 /* FlavourlyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -278,7 +278,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 26710DEB2A93A92600E8F9A8 /* Build configuration list for PBXProject "Flavorly" */;
+			buildConfigurationList = 26710DEB2A93A92600E8F9A8 /* Build configuration list for PBXProject "Flavourly" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -305,9 +305,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				26710DEF2A93A92600E8F9A8 /* Flavorly */,
-				26C29FAC2AA8CAAD00DE0690 /* FlavorlyTests */,
-				26164C212B34844A0041B2EF /* FlavorlyUITests */,
+				26710DEF2A93A92600E8F9A8 /* Flavourly */,
+				26C29FAC2AA8CAAD00DE0690 /* FlavourlyTests */,
+				26164C212B34844A0041B2EF /* FlavourlyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,12 +383,12 @@
 /* Begin PBXTargetDependency section */
 		26164C292B34844A0041B2EF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 26710DEF2A93A92600E8F9A8 /* Flavorly */;
+			target = 26710DEF2A93A92600E8F9A8 /* Flavourly */;
 			targetProxy = 26164C282B34844A0041B2EF /* PBXContainerItemProxy */;
 		};
 		26C29FB22AA8CAAD00DE0690 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 26710DEF2A93A92600E8F9A8 /* Flavorly */;
+			target = 26710DEF2A93A92600E8F9A8 /* Flavourly */;
 			targetProxy = 26C29FB12AA8CAAD00DE0690 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -656,7 +656,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flavorly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Flavorly";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flavourly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Flavourly";
 			};
 			name = Debug;
 		};
@@ -675,14 +675,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flavorly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Flavorly";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flavourly.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Flavourly";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		26164C2A2B34844A0041B2EF /* Build configuration list for PBXNativeTarget "FlavorlyUITests" */ = {
+		26164C2A2B34844A0041B2EF /* Build configuration list for PBXNativeTarget "FlavourlyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26164C2B2B34844A0041B2EF /* Debug */,
@@ -691,7 +691,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26710DEB2A93A92600E8F9A8 /* Build configuration list for PBXProject "Flavorly" */ = {
+		26710DEB2A93A92600E8F9A8 /* Build configuration list for PBXProject "Flavourly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26710DFC2A93A92700E8F9A8 /* Debug */,
@@ -700,7 +700,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26710DFE2A93A92700E8F9A8 /* Build configuration list for PBXNativeTarget "Flavorly" */ = {
+		26710DFE2A93A92700E8F9A8 /* Build configuration list for PBXNativeTarget "Flavourly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26710DFF2A93A92700E8F9A8 /* Debug */,
@@ -709,7 +709,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26C29FB32AA8CAAD00DE0690 /* Build configuration list for PBXNativeTarget "FlavorlyTests" */ = {
+		26C29FB32AA8CAAD00DE0690 /* Build configuration list for PBXNativeTarget "FlavourlyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26C29FB42AA8CAAD00DE0690 /* Debug */,
