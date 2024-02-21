@@ -87,7 +87,6 @@ struct SearchView: View {
                     List(selection: $multiSelection) {
                         ForEach(tags, id: \.self) { tag in
                             Text(tag.title!)
-                            
                         }.listRowBackground(Color.backgroundGreen.opacity(0.4))
                     }
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))

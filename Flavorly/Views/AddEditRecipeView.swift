@@ -149,32 +149,26 @@ struct AddEditRecipeView: View {
     }
     //MARK: Add Tag func
     private func addTagItem(tagTitle: String) {
-        var tag = Tag(using: moc)
+        var tag: Tag = Tag()
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "title == %@", tagTitle as NSString)
-        var tags: [Tag] = []
-        do {
-            print("fetching")
-            tags = try moc.fetch(fetchRequest)
-            if !tags.isEmpty {
-                print("using first")
 
-                tag = tags.first!
+        var foundTags: [Tag] = []
+        do {
+            foundTags = try moc.fetch(fetchRequest)
+            print(foundTags)
+            if let firstTag = foundTags.first {
+                tag = firstTag
             }
         } catch {
-            print("sumthing broke")
-
+            // no-op
         }
-
-        if tags.isEmpty {
-            print("setting values")
+        if foundTags.isEmpty {
             tag = Tag(using: moc)
             tag.id = UUID()
             tag.title = tagTitle
         }
-        
-        print("setting adding to set")
         tags.append(tag)
     }
 }
