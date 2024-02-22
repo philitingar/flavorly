@@ -157,14 +157,14 @@ struct AddEditRecipeView: View {
         var foundTags: [Tag] = []
         do {
             foundTags = try moc.fetch(fetchRequest)
-            print(foundTags)
-            if let firstTag = foundTags.first {
-                tag = firstTag
-            }
         } catch {
             // no-op
         }
-        if foundTags.isEmpty {
+        if !foundTags.isEmpty {
+            if let firstTag = foundTags.first {
+                tag = firstTag
+            }
+        } else {
             tag = Tag(using: moc)
             tag.id = UUID()
             tag.title = tagTitle
