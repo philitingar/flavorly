@@ -69,6 +69,7 @@
 		2650EE952B5E71FA00493679 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2650EE9F2B615EAC00493679 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2655CB022B7E20BB00867A1E /* Flavourly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flavourly-Info.plist"; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavourly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavourly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		26710DE72A93A92600E8F9A8 = {
 			isa = PBXGroup;
 			children = (
+				2655CB022B7E20BB00867A1E /* Flavourly-Info.plist */,
 				26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */,
 				2650EE932B5E71FA00493679 /* Tag+CoreDataClass.swift */,
 				2650EE942B5E71FA00493679 /* Tag+CoreDataProperties.swift */,
@@ -262,7 +264,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					26164C212B34844A0041B2EF = {
 						CreatedOnToolsVersion = 15.1;
@@ -592,9 +594,9 @@
 				DEVELOPMENT_TEAM = V6R32R32N9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Flavourly-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -622,9 +624,9 @@
 				DEVELOPMENT_TEAM = V6R32R32N9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Flavourly-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

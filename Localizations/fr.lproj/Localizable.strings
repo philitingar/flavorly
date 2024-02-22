@@ -45,4 +45,5 @@
 
 "no.recipe.to.tag.message" = "Il semble que vous n'ayez pas de recettes correspondant à votre recherche de tags. Pourquoi ne pas essayer de sélectionner moins de tags et voir si cela vous aide ? Bonne cuisine!";
 
+"wellcome.message" = "Bienvenue sur Flavourly! Commencez par ajouter des recettes!";
 

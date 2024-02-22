@@ -42,7 +42,12 @@ struct ContentView: View {
                 .onDelete(perform: deleteRecipe)
                 .listRowBackground(Color.secondary.opacity(0.3))
             }
-            .navigationTitle("Flavorly")
+            .overlay(Group {
+                if recipes.isEmpty {
+                    Text("wellcome.message").padding(5)
+                }
+            })
+            .navigationTitle("Flavourly")
             .toolbar {
           //MARK: Toolbar items
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -70,6 +75,7 @@ struct ContentView: View {
                 SearchView(recipe: nil)
             }
         }.frame(maxWidth: .infinity)
+            .navigationViewStyle(.stack)
     }
     //MARK: func DeleteRecipe
     func deleteRecipe(at offsets: IndexSet) {
