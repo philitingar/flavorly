@@ -102,6 +102,7 @@ struct AddEditRecipeView: View {
                         Section {
                             HStack{
                                 TextField("add.tags.separately", text:$tagTitle)
+                                    .textCase(.lowercase)
                                 //MARK: Add TAG button
                                 Button {
                                     addTagItem(tagTitle: tagTitle)
