@@ -78,7 +78,7 @@ struct SearchView: View {
                     })
                     .overlay(Group {
                         if recipes.isEmpty {
-                            Text("no.recipe.saved")
+                            Text("no.recipe.saved").padding(5)
                         }
                     })
                 }
@@ -96,7 +96,7 @@ struct SearchView: View {
                     .environment(\.editMode, self.$isEditMode)
                     .overlay(Group {
                         if tags.isEmpty {
-                            Text("no.tags.saved")
+                            Text("no.tags.saved").padding(5)
                         }
                     })
                 } header: {

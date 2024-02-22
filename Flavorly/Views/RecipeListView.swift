@@ -53,7 +53,7 @@ struct RecipeListView: View {
             }
             .overlay(Group {
                 if recipes.isEmpty {
-                    Text("no.recipe.to.tag.message")
+                    Text("no.recipe.to.tag.message").padding(5)
                 }
             })
         }

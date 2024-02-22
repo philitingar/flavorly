@@ -44,7 +44,7 @@ struct ContentView: View {
             }
             .overlay(Group {
                 if recipes.isEmpty {
-                    Text("wellcome.message")
+                    Text("wellcome.message").padding(5)
                 }
             })
             .navigationTitle("Flavourly")

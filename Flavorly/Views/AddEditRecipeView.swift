@@ -43,16 +43,30 @@ struct AddEditRecipeView: View {
                         Section {
                             TextField(LocalizedStringKey("recipe.name"), text: $title)
                                 .accessibilityIdentifier("recipeNameTextField")
-                                .background(Color.backgroundRed.opacity(title == "" ? 0.15 : 0.0))
+                                .padding(5)
+                                .overlay(
+                                       RoundedRectangle(cornerRadius: 14)
+                                           .stroke(Color.backgroundRed.opacity(title == "" ? 0.50 : 0.0), lineWidth: 2)
+                                   )
+                                
                             TextField(LocalizedStringKey("author.name"), text: $author)
                                 .accessibilityIdentifier("authorsNameTextField")
-                                .background(Color.backgroundRed.opacity(author == "" ? 0.15 : 0.0))
+                                .padding(5)
+                                .overlay(
+                                       RoundedRectangle(cornerRadius: 14)
+                                           .stroke(Color.backgroundRed.opacity(author == "" ? 0.50 : 0.0), lineWidth: 2)
+                                   )
+                                
                         }
                         
                         Section {
                             TextEditor(text: $ingredients)
                                 .accessibilityIdentifier("ingredientsTextField")
-                                .background(Color.backgroundRed.opacity(ingredients == "" ? 0.15 : 0.0))
+                                .padding(5)
+                                .overlay(
+                                       RoundedRectangle(cornerRadius: 14)
+                                           .stroke(Color.backgroundRed.opacity(ingredients == "" ? 0.50 : 0.0), lineWidth: 2)
+                                   )
                         } header: {
                             Text(LocalizedStringKey("ingredient.list"))
                         }
@@ -60,7 +74,11 @@ struct AddEditRecipeView: View {
                         Section {
                             TextEditor(text: $text)
                                 .accessibilityIdentifier("recipeTextField")
-                                .background(Color.backgroundRed.opacity(text == "" ? 0.15 : 0.0))
+                                .padding(5)
+                                .overlay(
+                                       RoundedRectangle(cornerRadius: 14)
+                                           .stroke(Color.backgroundRed.opacity(text == "" ? 0.50 : 0.0), lineWidth: 2)
+                                   )
                         } header: {
                             Text(LocalizedStringKey("recipe.text"))
                         }
