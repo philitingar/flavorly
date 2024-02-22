@@ -45,4 +45,5 @@
 
 "no.recipe.to.tag.message" = "看来您没有任何菜谱符合您的标签搜索。为什么不尝试选择更少的标签，看看是否有帮助？烹饪愉快";
 
+"wellcome.message" = "欢迎来到 Flavourly！从添加食谱开始";
 

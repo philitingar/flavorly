@@ -45,4 +45,6 @@
 
 "no.recipe.to.tag.message" = "Uh-oh! It seems you don't have any recipes matching your tag search. Why not try selecting fewer tags and see if that helps? Happy cooking!";
 
+"wellcome.message" = "Welcome to Flavourly! Start by ading some recipes!";
+
 

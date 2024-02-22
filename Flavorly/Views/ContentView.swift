@@ -42,7 +42,12 @@ struct ContentView: View {
                 .onDelete(perform: deleteRecipe)
                 .listRowBackground(Color.secondary.opacity(0.3))
             }
-            .navigationTitle("Flavorly")
+            .overlay(Group {
+                if recipes.isEmpty {
+                    Text("wellcome.message")
+                }
+            })
+            .navigationTitle("Flavourly")
             .toolbar {
           //MARK: Toolbar items
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
