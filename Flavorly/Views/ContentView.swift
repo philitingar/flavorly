@@ -70,6 +70,7 @@ struct ContentView: View {
                 SearchView(recipe: nil)
             }
         }.frame(maxWidth: .infinity)
+            .navigationViewStyle(.stack)
     }
     //MARK: func DeleteRecipe
     func deleteRecipe(at offsets: IndexSet) {
