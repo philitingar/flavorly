@@ -72,7 +72,7 @@ struct ContentView: View {
                 AddEditRecipeView(recipe: nil)
             }
             .sheet(isPresented: $showingSearchScreen) {
-                SearchView(recipe: nil)
+                SearchView(tag: Tag(), recipe: nil, deletableTagIndexes: IndexSet())
             }
         }.frame(maxWidth: .infinity)
             .navigationViewStyle(.stack)

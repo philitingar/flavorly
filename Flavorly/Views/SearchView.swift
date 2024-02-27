@@ -8,8 +8,11 @@ import CoreData
 import SwiftUI
 
 struct SearchView: View {
+    @State var tag: Tag
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @State private var showingDeleteAlert = false
+    
     @FetchRequest(sortDescriptors: [])
     private var recipes: FetchedResults<Recipe>
     
@@ -24,6 +27,9 @@ struct SearchView: View {
     @State private var showingRecipeListScreen = false
     //Segment value for picker
     @State var alignmentValue: Int = 1
+    
+    @State var deletableTagIndexes: IndexSet
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -87,7 +93,16 @@ struct SearchView: View {
                     List(selection: $multiSelection) {
                         ForEach(tags, id: \.self) { tag in
                             Text(tag.title!)
-                        }.listRowBackground(Color.backgroundGreen.opacity(0.4))
+                        }
+                        .onDelete(perform: deletePrompt)
+                        .listRowBackground(Color.backgroundGreen.opacity(0.4))
+                        .alert(LocalizedStringKey("WARNING!"), isPresented: $showingDeleteAlert) {
+                            Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteTags)
+                            Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
+                        } message: {
+                            Text(LocalizedStringKey("If you delete this tag, it will be removed from all the recipes. None of your recipes will have this tag anymore!"))
+                        }
+
                     }
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
                     .onChange(of: searchText, perform: { newValue in
@@ -105,10 +120,26 @@ struct SearchView: View {
             }
         }
     }
+    func deleteTags() {
+        for offset in deletableTagIndexes {
+            // find this book in our fetch request
+            let tag = tags[offset]
+            // delete it from the context
+            moc.delete(tag)
+        }
+        // save the context
+        try? moc.save()
+        
+        deletableTagIndexes = IndexSet()
+    }
+    func deletePrompt(at offsets: IndexSet) {
+        showingDeleteAlert = true
+        deletableTagIndexes = offsets
+    }
 }
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(recipe: nil)
+        SearchView(tag: Tag(), recipe: nil, deletableTagIndexes: IndexSet())
     }
 }
