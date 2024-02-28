@@ -47,3 +47,5 @@
 
 "wellcome.message" = "Witamy na Flavourly! Zacznij od dodania przepisów!";
 
+"warning.alert" = "OSTRZEŻENIE!";
+"delete.tag.warning.text" = "Jeśli usuniesz ten tag, zostanie on usunięty ze wszystkich przepisów. Żaden z Twoich przepisów nie będzie już zawierał tego tagu!";

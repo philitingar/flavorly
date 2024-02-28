@@ -8,7 +8,7 @@ import CoreData
 import SwiftUI
 
 struct SearchView: View {
-    @State var tag: Tag
+    @State var tag: Tag?
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
@@ -28,11 +28,10 @@ struct SearchView: View {
     //Segment value for picker
     @State var alignmentValue: Int = 1
     
-    @State var deletableTagIndexes: IndexSet
-    
     var body: some View {
         NavigationStack {
             VStack {
+                //MARK: Picker
                 Picker("", selection: $alignmentValue) {
                     Text("pick.by.name")
                         .tag(0)
@@ -41,6 +40,7 @@ struct SearchView: View {
                 }.pickerStyle(.segmented)
                     .padding(.bottom, 15)
             } .navigationTitle(LocalizedStringKey("recipe.search"))
+        //MARK: Toolbar Items
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -52,7 +52,7 @@ struct SearchView: View {
                         }
                     }
                     if alignmentValue == 1 {
-                        ToolbarItem(placement: .navigationBarTrailing) {
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
                             Button {
                                 self.showingRecipeListScreen.toggle()
                             } label: {
@@ -61,14 +61,21 @@ struct SearchView: View {
                                     .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
                                     .font(.title3)
                             }
+                            Button {
+                                deletePrompt()
+                            } label: {
+                                Image(systemName: "trash.circle.fill")
+                                    .foregroundStyle(Color.backgroundRed)
+                                    .font(.title3)
+                            }
                         }
                     }
                 }
                 .sheet(isPresented: $showingRecipeListScreen) {
                     RecipeListView(tags: multiSelection)
                 }
-            
             if alignmentValue == 0 {
+                //MARK: Recipe List
                 ZStack {
                     List{
                         ForEach(recipes, id: \.self) { recipe in
@@ -89,20 +96,19 @@ struct SearchView: View {
                     })
                 }
             } else {
+                //MARK: Tag List
                 Section {
                     List(selection: $multiSelection) {
                         ForEach(tags, id: \.self) { tag in
                             Text(tag.title!)
                         }
-                        .onDelete(perform: deletePrompt)
                         .listRowBackground(Color.backgroundGreen.opacity(0.4))
-                        .alert(LocalizedStringKey("WARNING!"), isPresented: $showingDeleteAlert) {
+                        .alert(LocalizedStringKey("warning.alert"), isPresented: $showingDeleteAlert) {
                             Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteTags)
                             Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
                         } message: {
-                            Text(LocalizedStringKey("If you delete this tag, it will be removed from all the recipes. None of your recipes will have this tag anymore!"))
+                            Text(LocalizedStringKey("delete.tag.warning.text"))
                         }
-
                     }
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
                     .onChange(of: searchText, perform: { newValue in
@@ -120,26 +126,22 @@ struct SearchView: View {
             }
         }
     }
+    //MARK: Delete Tags Function
     func deleteTags() {
-        for offset in deletableTagIndexes {
-            // find this book in our fetch request
-            let tag = tags[offset]
+        for tag in multiSelection {
             // delete it from the context
             moc.delete(tag)
         }
         // save the context
         try? moc.save()
-        
-        deletableTagIndexes = IndexSet()
     }
-    func deletePrompt(at offsets: IndexSet) {
+    func deletePrompt() {
         showingDeleteAlert = true
-        deletableTagIndexes = offsets
     }
 }
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(tag: Tag(), recipe: nil, deletableTagIndexes: IndexSet())
+        SearchView(tag: Tag(), recipe: nil)
     }
 }

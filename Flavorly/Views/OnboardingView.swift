@@ -28,7 +28,6 @@ struct OnboardingView: View {
                 .padding()
             Spacer()
             Spacer()
-            
             Button {
                 self.doneFunction()
             } label: {

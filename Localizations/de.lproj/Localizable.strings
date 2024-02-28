@@ -47,3 +47,5 @@
 
 "wellcome.message" = "Willkommen bei Flavourly! Beginnen Sie mit dem Einstellen einiger Rezepte!";
 
+"warning.alert" = "WARNUNG!";
+"delete.tag.warning.text" = "Wenn Sie diese Markierung löschen, wird sie aus allen Rezepten entfernt. Keines Ihrer Rezepte wird dieses Tag mehr haben!";

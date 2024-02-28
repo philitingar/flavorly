@@ -47,3 +47,5 @@
 
 "wellcome.message" = "Flavourly에 오신 것을 환영합니다! 레시피를 추가하는 것부터 시작하세요!";
 
+"warning.alert" = "경고!";
+"delete.tag.warning.text" = "이 태그를 삭제하면 모든 레시피에서 삭제됩니다. 더 이상 어떤 레시피에도 이 태그가 표시되지 않습니다!";

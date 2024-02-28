@@ -39,51 +39,47 @@ struct AddEditRecipeView: View {
                 }
             } else {
                 NavigationView {
+                    //MARK: View
                     Form {
                         Section {
                             TextField(LocalizedStringKey("recipe.name"), text: $title)
-                                .accessibilityIdentifier("recipeNameTextField")
+                                .accessibilityIdentifier("recipe.name")
                                 .padding(5)
                                 .overlay(
-                                       RoundedRectangle(cornerRadius: 14)
-                                           .stroke(Color.backgroundRed.opacity(title == "" ? 0.50 : 0.0), lineWidth: 2)
-                                   )
-                                
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(Color.backgroundRed.opacity(title == "" ? 0.50 : 0.0), lineWidth: 2)
+                                )
                             TextField(LocalizedStringKey("author.name"), text: $author)
-                                .accessibilityIdentifier("authorsNameTextField")
+                                .accessibilityIdentifier("author.name")
                                 .padding(5)
                                 .overlay(
-                                       RoundedRectangle(cornerRadius: 14)
-                                           .stroke(Color.backgroundRed.opacity(author == "" ? 0.50 : 0.0), lineWidth: 2)
-                                   )
-                                
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(Color.backgroundRed.opacity(author == "" ? 0.50 : 0.0), lineWidth: 2)
+                                )
                         }
-                        
                         Section {
                             TextEditor(text: $ingredients)
-                                .accessibilityIdentifier("ingredientsTextField")
+                                .accessibilityIdentifier("ingredient.list")
                                 .padding(5)
                                 .overlay(
-                                       RoundedRectangle(cornerRadius: 14)
-                                           .stroke(Color.backgroundRed.opacity(ingredients == "" ? 0.50 : 0.0), lineWidth: 2)
-                                   )
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(Color.backgroundRed.opacity(ingredients == "" ? 0.50 : 0.0), lineWidth: 2)
+                                )
                         } header: {
                             Text(LocalizedStringKey("ingredient.list"))
                         }
-                        
                         Section {
                             TextEditor(text: $text)
-                                .accessibilityIdentifier("recipeTextField")
+                                .accessibilityIdentifier("recipe.text")
                                 .padding(5)
                                 .overlay(
-                                       RoundedRectangle(cornerRadius: 14)
-                                           .stroke(Color.backgroundRed.opacity(text == "" ? 0.50 : 0.0), lineWidth: 2)
-                                   )
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(Color.backgroundRed.opacity(text == "" ? 0.50 : 0.0), lineWidth: 2)
+                                )
                         } header: {
                             Text(LocalizedStringKey("recipe.text"))
                         }
                         //MARK: TagView
-                        
                         List {
                             ForEach($tags) { $tag in
                                 if tag.title != nil { // when deduplicating in core data the tag intance in the tags array becomes null
@@ -98,7 +94,6 @@ struct AddEditRecipeView: View {
                                 }
                             }
                         }
-                        
                         Section {
                             HStack{
                                 TextField("add.tags.separately", text:$tagTitle)
@@ -172,7 +167,7 @@ struct AddEditRecipeView: View {
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
         fetchRequest.fetchLimit = 1
         fetchRequest.predicate = NSPredicate(format: "title == %@", tagTitle as NSString)
-
+        
         var foundTags: [Tag] = []
         do {
             foundTags = try moc.fetch(fetchRequest)
@@ -209,7 +204,6 @@ func addNewRecipe (title: String, author: String, ingredients: String, text: Str
     newTags.forEach { tag in
         newRecipe.addToRecipeToTag(tag)
     }
-    
     try? moc.save()
 }
 
@@ -226,7 +220,6 @@ func editSavedRecipe (recipe: Recipe?, title: String, author: String, ingredient
     newTags.forEach { tag in
         recipe?.addToRecipeToTag(tag)
     }
-    
     try? moc.save()
 }
 //MARK: Hides keyboard func

@@ -47,4 +47,5 @@
 
 "wellcome.message" = "Welcome to Flavourly! Start by ading some recipes!";
 
-
+"warning.alert" = "WARNING!";
+"delete.tag.warning.text" = "If you delete this tag(s), it will be removed from all the recipes. None of your recipes will have this tag anymore!";

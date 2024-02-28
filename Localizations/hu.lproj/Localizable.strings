@@ -47,4 +47,6 @@
 
 "wellcome.message" = "Üdvözölünk a Flavourly-nál! Kezd néhány recept feladásával!";
 
+"warning.alert" = "FIGYELEM!";
+"delete.tag.warning.text" = "Ha le törlöd ezt a címkét (címkéket), az összes receptből eltávolítod. Egyik recepted sem fogja többé ezt a címkét tartalmazni!";
 

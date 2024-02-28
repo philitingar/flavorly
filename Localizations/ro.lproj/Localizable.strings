@@ -47,4 +47,6 @@
 
 "wellcome.message" = "Bine ai venit la Flavourly! Începe prin a adăuga câteva rețete!";
 
-                          
+"warning.alert" = "ATENȚIE!";
+"delete.tag.warning.text" = "Dacă ștergi această etichetă, ea va fi eliminată din toate rețetele. Niciuna dintre rețetele tale nu va mai avea această etichetă!";
+

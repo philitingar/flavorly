@@ -16,9 +16,10 @@ struct ContentView: View {
     ]) var recipes: FetchedResults<Recipe>
     @State private var showingAddScreen = false
     @State private var showingSearchScreen = false
-        
+    
     var body: some View {
         NavigationView {
+            //MARK: View
             List {
                 ForEach(recipes) { recipe in
                     NavigationLink {
@@ -49,7 +50,7 @@ struct ContentView: View {
             })
             .navigationTitle("Flavourly")
             .toolbar {
-          //MARK: Toolbar items
+                //MARK: Toolbar items
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
                         self.showingAddScreen.toggle()
@@ -58,7 +59,7 @@ struct ContentView: View {
                             .foregroundStyle(Color.backgroundGreen)
                             .font(.title3)
                     }
-                    .accessibilityIdentifier("Add Recipe")
+                    .accessibilityIdentifier("recipe.add")
                     Button {
                         self.showingSearchScreen.toggle()
                     } label: {
@@ -72,22 +73,22 @@ struct ContentView: View {
                 AddEditRecipeView(recipe: nil)
             }
             .sheet(isPresented: $showingSearchScreen) {
-                SearchView(tag: Tag(), recipe: nil, deletableTagIndexes: IndexSet())
+                SearchView(tag: Tag(), recipe: nil)
             }
         }.frame(maxWidth: .infinity)
             .navigationViewStyle(.stack)
     }
     //MARK: func DeleteRecipe
     func deleteRecipe(at offsets: IndexSet) {
-            for offset in offsets {
-                // find this book in our fetch request
-                let recipe = recipes[offset]
-                // delete it from the context
-                moc.delete(recipe)
-            }
-            // save the context
-            try? moc.save()
+        for offset in offsets {
+            // find this book in our fetch request
+            let recipe = recipes[offset]
+            // delete it from the context
+            moc.delete(recipe)
         }
+        // save the context
+        try? moc.save()
+    }
 }
 
 //MARK: Extension custom color

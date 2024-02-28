@@ -32,7 +32,6 @@ struct DetailView: View {
             Text(recipe.ingredients ?? "")
                 .foregroundColor(.primary)
                 .padding()
-            
             Text(recipe.text ?? "")
                 .foregroundColor(.primary)
                 .padding()

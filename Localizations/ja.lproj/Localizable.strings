@@ -47,3 +47,5 @@
 
 "wellcome.message" = "Flavourlyへようこそ！まずはレシピを追加してみましょう！";
 
+"warning.alert" = "警告だ!";
+"delete.tag.warning.text" = "このタグを削除すると、すべてのレシピから削除されます。どのレシピにもこのタグはなくなります！";

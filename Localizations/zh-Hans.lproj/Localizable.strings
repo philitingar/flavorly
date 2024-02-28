@@ -47,3 +47,5 @@
 
 "wellcome.message" = "欢迎来到 Flavourly！从添加食谱开始";
 
+"warning.alert" = "警告!";
+"delete.tag.warning.text" = "如果删除此标签，它将从所有食谱中删除。您的所有食谱都不会再有这个标签！";

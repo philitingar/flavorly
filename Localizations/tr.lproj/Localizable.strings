@@ -47,3 +47,5 @@
 
 "wellcome.message" = "Flavourly'ye hoş geldiniz! Bazı tarifler ekleyerek başlayın!";
 
+"warning.alert" = "UYARI!";
+"delete.tag.warning.text" = "Bu etiketi silerseniz, tüm tariflerden kaldırılacaktır. Tariflerinizin hiçbirinde artık bu etiket olmayacak!";
