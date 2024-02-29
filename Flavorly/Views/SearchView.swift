@@ -54,20 +54,20 @@ struct SearchView: View {
                     if alignmentValue == 1 {
                         ToolbarItemGroup(placement: .navigationBarTrailing) {
                             Button {
-                                self.showingRecipeListScreen.toggle()
-                            } label: {
-                                Image(systemName: "hand.point.up.left.and.text.fill")
-                                    .symbolRenderingMode(.palette)
-                                    .foregroundStyle(Color.textBackgroundBlue, Color.backgroundGreen)
-                                    .font(.title3)
-                            }
-                            Button {
                                 deletePrompt()
                             } label: {
                                 Image(systemName: "trash.circle.fill")
                                     .foregroundStyle(Color.backgroundRed)
                                     .font(.title3)
                             }
+                            Button {
+                                self.showingRecipeListScreen.toggle()
+                            } label: {
+                                Image(systemName: "magnifyingglass.circle.fill")
+                                    .foregroundStyle(Color.textBackgroundBlue)
+                                    .font(.title3)
+                            }
+                            
                         }
                     }
                 }
