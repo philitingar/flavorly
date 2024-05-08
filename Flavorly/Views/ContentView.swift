@@ -43,6 +43,8 @@ struct ContentView: View {
                 .onDelete(perform: deleteRecipe)
                 .listRowBackground(Color.secondary.opacity(0.3))
             }
+           // .background(Color.backgroundUniversal)
+          //  .scrollContentBackground(.hidden)
             .overlay(Group {
                 if recipes.isEmpty {
                     Text("wellcome.message").padding(5)
@@ -98,6 +100,7 @@ extension Color {
     static let backgroundRed = Color("BackgroundColorRed")
     static let backgroundBlue = Color("ButtonBackgroundBlue")
     static let textBackgroundBlue = Color("TextBackgroundBlue")
+    static let backgroundUniversal = Color("BackgroundUniversal")
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -120,9 +120,7 @@ struct SearchView: View {
                             Text("no.tags.saved").padding(5)
                         }
                     })
-                } header: {
-                    Text("select.tags")
-                }
+                } 
             }
         }
     }
