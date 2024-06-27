@@ -31,16 +31,16 @@ struct SearchView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                //MARK: Picker
+                // MARK: Picker
                 Picker("", selection: $alignmentValue) {
-                    Text("pick.by.name")
+                    Text(LocalizedStringKey("pick.by.name"))
                         .tag(0)
-                    Text("pick.by.tag")
+                    Text(LocalizedStringKey("pick.by.tag"))
                         .tag(1)
                 }.pickerStyle(.segmented)
                     .padding(.bottom, 15)
             } .navigationTitle(LocalizedStringKey("recipe.search"))
-        //MARK: Toolbar Items
+        // MARK: Toolbar Items
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -75,7 +75,7 @@ struct SearchView: View {
                     RecipeListView(tags: multiSelection)
                 }
             if alignmentValue == 0 {
-                //MARK: Recipe List
+                // MARK: Recipe List
                 ZStack {
                     List{
                         ForEach(recipes, id: \.self) { recipe in
@@ -83,7 +83,8 @@ struct SearchView: View {
                             {
                                 Text(recipe.title!)
                             }
-                        }.listRowBackground(Color.backgroundBlue.opacity(0.4))
+                        }
+                        .listRowBackground(Color.backgroundBlue.opacity(0.4))
                     }
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.title"))
                     .onChange(of: searchText, perform: { newValue in
@@ -91,12 +92,13 @@ struct SearchView: View {
                     })
                     .overlay(Group {
                         if recipes.isEmpty {
-                            Text("no.recipe.saved").padding(5)
+                            Text(LocalizedStringKey("no.recipe.saved"))
+                                .padding(5)
                         }
                     })
                 }
             } else {
-                //MARK: Tag List
+                // MARK: Tag List
                 Section {
                     List(selection: $multiSelection) {
                         ForEach(tags, id: \.self) { tag in
@@ -117,14 +119,15 @@ struct SearchView: View {
                     .environment(\.editMode, self.$isEditMode)
                     .overlay(Group {
                         if tags.isEmpty {
-                            Text("no.tags.saved").padding(5)
+                            Text(LocalizedStringKey("no.tags.saved"))
+                                .padding(5)
                         }
                     })
                 } 
             }
         }
     }
-    //MARK: Delete Tags Function
+    // MARK: Delete Tags Function
     func deleteTags() {
         for tag in multiSelection {
             // delete it from the context
@@ -143,3 +146,21 @@ struct SearchView_Previews: PreviewProvider {
         SearchView(tag: Tag(), recipe: nil)
     }
 }
+/*
+ NavigationView {
+ }
+ .navigationBarTitle("")
+     .toolbar {
+         customToolBarTitle(text: "Past Participants")
+     }
+ 
+ -----------------------
+ //This is not in body, but it is in struct
+ @ToolbarContentBuilder
+ func customToolBarTitle(text: String) -> some ToolbarContent {
+     ToolbarItem(placement: .principal) {
+         Text(text)
+             .font(.headline) // this makes it look like a navigation title type of font
+     }
+ }
+ */

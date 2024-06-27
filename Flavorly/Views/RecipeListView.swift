@@ -20,12 +20,13 @@ struct RecipeListView: View {
         NavigationView {
             List {
                 ForEach(recipes, id: \.self) { recipe in
-                    NavigationLink(destination: DetailView(recipe: recipe))
-                    {
+                    NavigationLink(destination: DetailView(recipe: recipe)) {
                         Text(recipe.title!)
                     }
-                }.listRowBackground(Color.backgroundBlue.opacity(0.4))
-            }.onAppear {
+                }
+                .listRowBackground(Color.backgroundBlue.opacity(0.4))
+            }
+            .onAppear {
                 let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
                 var tagPredicates = [NSPredicate]()
                 tags.forEach { tag in
@@ -53,7 +54,8 @@ struct RecipeListView: View {
             }
             .overlay(Group {
                 if recipes.isEmpty {
-                    Text("no.recipe.to.tag.message").padding(5)
+                    Text(LocalizedStringKey("no.recipe.to.tag.message"))
+                        .padding(5)
                 }
             })
         }

@@ -33,24 +33,21 @@ struct AddEditRecipeView: View {
     
     var body: some View {
         Group {
-            if !onboardingDone {
-                OnboardingView {
-                    self.onboardingDone = true
-                }
-            } else {
+            if onboardingDone {
+                
                 NavigationView {
                     //MARK: View
                     Form {
                         Section {
                             TextField(LocalizedStringKey("recipe.name"), text: $title)
-                                .accessibilityIdentifier("recipe.name")
+                                .accessibilityIdentifier(NSLocalizedString("recipe.name", comment: ""))
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
                                         .stroke(Color.backgroundRed.opacity(title == "" ? 0.50 : 0.0), lineWidth: 2)
                                 )
                             TextField(LocalizedStringKey("author.name"), text: $author)
-                                .accessibilityIdentifier("author.name")
+                                .accessibilityIdentifier(NSLocalizedString("author.name", comment: ""))
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
@@ -59,7 +56,7 @@ struct AddEditRecipeView: View {
                         }
                         Section {
                             TextEditor(text: $ingredients)
-                                .accessibilityIdentifier("ingredient.list")
+                                .accessibilityIdentifier(NSLocalizedString("ingredient.list", comment: ""))
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
@@ -70,7 +67,7 @@ struct AddEditRecipeView: View {
                         }
                         Section {
                             TextEditor(text: $text)
-                                .accessibilityIdentifier("recipe.text")
+                                .accessibilityIdentifier(NSLocalizedString("recipe.text", comment: ""))
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
@@ -96,7 +93,7 @@ struct AddEditRecipeView: View {
                         }
                         Section {
                             HStack{
-                                TextField("add.tags.separately", text:$tagTitle)
+                                TextField(LocalizedStringKey("add.tags.separately"), text:$tagTitle)
                                     .textCase(.lowercase)
                                 //MARK: Add TAG button
                                 Button {
@@ -111,7 +108,7 @@ struct AddEditRecipeView: View {
                                 }.disabled(tagTitle == "")
                             }
                         } header: {
-                            Text("add.tagToRecipe")
+                            Text(LocalizedStringKey("add.tagToRecipe"))
                         }
                         //MARK: ADD/EDIT button
                         Section {
@@ -158,6 +155,10 @@ struct AddEditRecipeView: View {
                     }
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
+            } else {
+                OnboardingView {
+                    self.onboardingDone = true
+                }
             }
         }
     }
@@ -228,5 +229,4 @@ extension AddEditRecipeView {
     func endEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    
 }

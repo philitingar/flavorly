@@ -27,13 +27,13 @@ struct ContentView: View {
                     } label: {
                         HStack {
                             VStack(alignment: .leading) {
-                                Text(recipe.title ?? "no.recipes")
+                                Text(recipe.title ?? NSLocalizedString("no.recipes", comment: ""))
                                     .font(.headline)
                                     .foregroundColor(Color.textBackgroundBlue)
                                 HStack {
                                     Text(LocalizedStringKey ("By:"))
                                         .font(.subheadline)
-                                    Text(recipe.author ?? "unknown.author")
+                                    Text(recipe.author ?? NSLocalizedString("unknown.author", comment: ""))
                                         .foregroundColor(.secondary)
                                 }
                             }
@@ -47,7 +47,8 @@ struct ContentView: View {
           //  .scrollContentBackground(.hidden)
             .overlay(Group {
                 if recipes.isEmpty {
-                    Text("wellcome.message").padding(5)
+                    Text(NSLocalizedString("wellcome.message", comment: ""))
+                        .padding(5)
                 }
             })
             .navigationTitle("Flavourly")
@@ -61,7 +62,7 @@ struct ContentView: View {
                             .foregroundStyle(Color.backgroundGreen)
                             .font(.title3)
                     }
-                    .accessibilityIdentifier("recipe.add")
+                    .accessibilityIdentifier(NSLocalizedString("recipe.add", comment: ""))
                     Button {
                         self.showingSearchScreen.toggle()
                     } label: {
