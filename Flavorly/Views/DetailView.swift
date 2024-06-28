@@ -11,6 +11,7 @@ struct DetailView: View {
     @State var recipe: Recipe
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var showingDeleteAlert = false
     
     var body: some View {
@@ -19,7 +20,7 @@ struct DetailView: View {
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
                 .font(.title2)
-                .foregroundColor(Color.textBackgroundBlue)
+                .foregroundColor(themeManager.currentTheme.searchIconColor)
                 .bold()
             HStack {
                 Text(LocalizedStringKey("By:"))
@@ -27,13 +28,13 @@ struct DetailView: View {
                 Text(recipe.author ?? "no.recipe.saved")
                     .lineLimit(2)
                     .font(.headline)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(themeManager.currentTheme.secondaryColor)
             }
             Text(recipe.ingredients ?? "")
-                .foregroundColor(.primary)
+                .foregroundColor(themeManager.currentTheme.textColor)
                 .padding()
             Text(recipe.text ?? "")
-                .foregroundColor(.primary)
+                .foregroundColor(themeManager.currentTheme.textColor)
                 .padding()
             
             VStack {
@@ -44,7 +45,7 @@ struct DetailView: View {
                         .padding()
                         .font(.title3)
                         .bold()
-                        .foregroundColor(Color.backgroundGreen)
+                        .foregroundColor(themeManager.currentTheme.addIconColor)
                         .multilineTextAlignment(.center)
                 }
                 HStack {
@@ -75,7 +76,7 @@ struct DetailView: View {
                     showingDeleteAlert = true
                 } label: {
                     Image(systemName: "trash.circle.fill")
-                        .foregroundStyle(Color.backgroundRed)
+                        .foregroundStyle(themeManager.currentTheme.deleteIconColor)
                         .font(.title3)
                 }
                 NavigationLink {
@@ -83,7 +84,7 @@ struct DetailView: View {
                 } label: {
                     Image(systemName: "pencil.tip.crop.circle.badge.plus.fill")
                         .symbolRenderingMode(.palette)
-                        .foregroundStyle(Color.backgroundBlue, Color.backgroundGreen)
+                        .foregroundStyle(themeManager.currentTheme.searchIconColor, themeManager.currentTheme.addIconColor)
                         .font(.title3)
                 }
             }

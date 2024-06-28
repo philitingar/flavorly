@@ -8,7 +8,7 @@ import CoreData
 import SwiftUI
 
 struct AddEditRecipeView: View {
-    
+    @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
     @Environment(\.dismiss) var dismiss
     
@@ -39,7 +39,6 @@ struct AddEditRecipeView: View {
                 }
             } else {
                 NavigationView {
-                    //MARK: View
                     Form {
                         Section {
                             TextField(LocalizedStringKey("recipe.name"), text: $title)
@@ -47,14 +46,14 @@ struct AddEditRecipeView: View {
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
-                                        .stroke(Color.backgroundRed.opacity(title == "" ? 0.50 : 0.0), lineWidth: 2)
+                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(title == "" ? 0.30 : 0.0), lineWidth: 2)
                                 )
                             TextField(LocalizedStringKey("author.name"), text: $author)
                                 .accessibilityIdentifier("author.name")
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
-                                        .stroke(Color.backgroundRed.opacity(author == "" ? 0.50 : 0.0), lineWidth: 2)
+                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(author == "" ? 0.30 : 0.0), lineWidth: 2)
                                 )
                         }
                         Section {
@@ -63,7 +62,7 @@ struct AddEditRecipeView: View {
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
-                                        .stroke(Color.backgroundRed.opacity(ingredients == "" ? 0.50 : 0.0), lineWidth: 2)
+                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(ingredients == "" ? 0.30 : 0.0), lineWidth: 2)
                                 )
                         } header: {
                             Text(LocalizedStringKey("ingredient.list"))
@@ -74,7 +73,7 @@ struct AddEditRecipeView: View {
                                 .padding(5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 14)
-                                        .stroke(Color.backgroundRed.opacity(text == "" ? 0.50 : 0.0), lineWidth: 2)
+                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(text == "" ? 0.30 : 0.0), lineWidth: 2)
                                 )
                         } header: {
                             Text(LocalizedStringKey("recipe.text"))
@@ -106,7 +105,7 @@ struct AddEditRecipeView: View {
                                     self.endEditing()
                                 } label: {
                                     Image(systemName: "plus.circle.fill")
-                                        .foregroundStyle(Color.backgroundGreen)
+                                        .foregroundStyle(themeManager.currentTheme.addIconColor)
                                         .font(.title2)
                                 }.disabled(tagTitle == "")
                             }
@@ -133,7 +132,7 @@ struct AddEditRecipeView: View {
                                 dismiss()
                             } label: {
                                 Image(systemName: "x.circle.fill")
-                                    .foregroundStyle(Color.backgroundRed)
+                                    .foregroundStyle(themeManager.currentTheme.deleteIconColor)
                                     .font(.title3)
                             }
                             if newRecipe == true {

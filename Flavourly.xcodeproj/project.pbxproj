@@ -16,6 +16,8 @@
 		2650EE9A2B5E71FA00493679 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */; };
 		2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE9F2B615EAC00493679 /* OnboardingView.swift */; };
 		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
+		266BB1902C2ED433003F956C /* FlavourlyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266BB18F2C2ED433003F956C /* FlavourlyColor.swift */; };
+		266BB1922C2EF06A003F956C /* FlavourlyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266BB1912C2EF06A003F956C /* FlavourlyTheme.swift */; };
 		26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */; };
 		26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF52A93A92600E8F9A8 /* ContentView.swift */; };
 		26710DF82A93A92700E8F9A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF72A93A92700E8F9A8 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		2650EE9F2B615EAC00493679 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2655CB022B7E20BB00867A1E /* Flavourly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flavourly-Info.plist"; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
+		266BB18F2C2ED433003F956C /* FlavourlyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavourlyColor.swift; sourceTree = "<group>"; };
+		266BB1912C2EF06A003F956C /* FlavourlyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavourlyTheme.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavourly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavourly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
 		26710DF52A93A92600E8F9A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,6 +134,15 @@
 			path = Localizations;
 			sourceTree = "<group>";
 		};
+		266BB18E2C2ED420003F956C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				266BB18F2C2ED433003F956C /* FlavourlyColor.swift */,
+				266BB1912C2EF06A003F956C /* FlavourlyTheme.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		26710DE72A93A92600E8F9A8 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +173,7 @@
 		26710DF22A93A92600E8F9A8 /* Flavorly */ = {
 			isa = PBXGroup;
 			children = (
+				266BB18E2C2ED420003F956C /* Model */,
 				26DAAF302AA0E8B5009B2456 /* Flavorly.entitlements */,
 				26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */,
 				26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */,
@@ -361,7 +375,9 @@
 				2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */,
 				26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */,
 				26A039762B694FD000B84F9D /* NSManagedObjectExtension.swift in Sources */,
+				266BB1922C2EF06A003F956C /* FlavourlyTheme.swift in Sources */,
 				2650EE972B5E71FA00493679 /* Tag+CoreDataClass.swift in Sources */,
+				266BB1902C2ED433003F956C /* FlavourlyColor.swift in Sources */,
 				2650EE992B5E71FA00493679 /* Recipe+CoreDataClass.swift in Sources */,
 				26710E032A93A96A00E8F9A8 /* DataController.swift in Sources */,
 				2650EE982B5E71FA00493679 /* Tag+CoreDataProperties.swift in Sources */,

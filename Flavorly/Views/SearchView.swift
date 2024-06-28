@@ -11,6 +11,7 @@ struct SearchView: View {
     @State var tag: Tag?
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var showingDeleteAlert = false
     
     @FetchRequest(sortDescriptors: [])
@@ -47,7 +48,7 @@ struct SearchView: View {
                             dismiss()
                         } label: {
                             Image(systemName: "arrowshape.turn.up.backward.circle.fill")
-                                .foregroundStyle(Color.backgroundRed)
+                                .foregroundStyle(themeManager.currentTheme.deleteIconColor)
                                 .font(.title3)
                         }
                     }
@@ -57,14 +58,14 @@ struct SearchView: View {
                                 deletePrompt()
                             } label: {
                                 Image(systemName: "trash.circle.fill")
-                                    .foregroundStyle(Color.backgroundRed)
+                                    .foregroundStyle(themeManager.currentTheme.deleteIconColor)
                                     .font(.title3)
                             }
                             Button {
                                 self.showingRecipeListScreen.toggle()
                             } label: {
                                 Image(systemName: "magnifyingglass.circle.fill")
-                                    .foregroundStyle(Color.textBackgroundBlue)
+                                    .foregroundStyle(themeManager.currentTheme.searchIconColor)
                                     .font(.title3)
                             }
                             
@@ -83,7 +84,7 @@ struct SearchView: View {
                             {
                                 Text(recipe.title!)
                             }
-                        }.listRowBackground(Color.backgroundBlue.opacity(0.4))
+                        }.listRowBackground(themeManager.currentTheme.listBackgroundColor)
                     }
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.title"))
                     .onChange(of: searchText, perform: { newValue in
@@ -92,6 +93,7 @@ struct SearchView: View {
                     .overlay(Group {
                         if recipes.isEmpty {
                             Text("no.recipe.saved").padding(5)
+                                .foregroundColor(themeManager.currentTheme.textColor)
                         }
                     })
                 }
@@ -102,7 +104,7 @@ struct SearchView: View {
                         ForEach(tags, id: \.self) { tag in
                             Text(tag.title!)
                         }
-                        .listRowBackground(Color.backgroundGreen.opacity(0.4))
+                        .listRowBackground(themeManager.currentTheme.listBackgroundColor)
                         .alert(LocalizedStringKey("warning.alert"), isPresented: $showingDeleteAlert) {
                             Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteTags)
                             Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
@@ -118,6 +120,7 @@ struct SearchView: View {
                     .overlay(Group {
                         if tags.isEmpty {
                             Text("no.tags.saved").padding(5)
+                                .foregroundColor(themeManager.currentTheme.textColor)
                         }
                     })
                 } header: {

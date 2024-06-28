@@ -10,6 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var themeManager: ThemeManager
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title),
         SortDescriptor(\.author)
@@ -19,7 +20,6 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            //MARK: View
             List {
                 ForEach(recipes) { recipe in
                     NavigationLink {
@@ -29,23 +29,25 @@ struct ContentView: View {
                             VStack(alignment: .leading) {
                                 Text(recipe.title ?? "no.recipes")
                                     .font(.headline)
-                                    .foregroundColor(Color.textBackgroundBlue)
+                                    .foregroundColor(themeManager.currentTheme.titleColor)
                                 HStack {
                                     Text(LocalizedStringKey ("By:"))
                                         .font(.subheadline)
+                                        .foregroundColor(themeManager.currentTheme.textColor)
                                     Text(recipe.author ?? "unknown.author")
-                                        .foregroundColor(.secondary)
+                                        .foregroundColor(themeManager.currentTheme.secondaryColor)
                                 }
                             }
                         }
                     }
                 }
                 .onDelete(perform: deleteRecipe)
-                .listRowBackground(Color.secondary.opacity(0.3))
+                .listRowBackground(themeManager.currentTheme.listBackgroundColor)
             }
             .overlay(Group {
                 if recipes.isEmpty {
                     Text("wellcome.message").padding(5)
+                        .foregroundColor(themeManager.currentTheme.textColor)
                 }
             })
             .navigationTitle("Flavourly")
@@ -56,7 +58,7 @@ struct ContentView: View {
                         self.showingAddScreen.toggle()
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundStyle(Color.backgroundGreen)
+                            .foregroundStyle(themeManager.currentTheme.addIconColor)
                             .font(.title3)
                     }
                     .accessibilityIdentifier("recipe.add")
@@ -64,7 +66,7 @@ struct ContentView: View {
                         self.showingSearchScreen.toggle()
                     } label: {
                         Image(systemName: "magnifyingglass.circle.fill")
-                            .foregroundStyle(Color.textBackgroundBlue)
+                            .foregroundStyle(themeManager.currentTheme.searchIconColor)
                             .font(.title3)
                     }
                 }
@@ -89,15 +91,6 @@ struct ContentView: View {
         // save the context
         try? moc.save()
     }
-}
-
-//MARK: Extension custom color
-extension Color {
-    static let backgroundBeige = Color("BackgroundBeige")
-    static let backgroundGreen = Color("ButtonBackgroundGreen")
-    static let backgroundRed = Color("BackgroundColorRed")
-    static let backgroundBlue = Color("ButtonBackgroundBlue")
-    static let textBackgroundBlue = Color("TextBackgroundBlue")
 }
 
 struct ContentView_Previews: PreviewProvider {

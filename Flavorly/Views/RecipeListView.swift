@@ -12,7 +12,7 @@ import CoreData
 struct RecipeListView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
-    
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var recipes: [Recipe] = []
     @State var tags: Set<Tag>
     
@@ -24,7 +24,7 @@ struct RecipeListView: View {
                     {
                         Text(recipe.title!)
                     }
-                }.listRowBackground(Color.backgroundBlue.opacity(0.4))
+                }.listRowBackground(themeManager.currentTheme.listBackgroundColor)
             }.onAppear {
                 let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
                 var tagPredicates = [NSPredicate]()
@@ -46,7 +46,7 @@ struct RecipeListView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "arrowshape.turn.up.backward.circle.fill")
-                            .foregroundStyle(Color.backgroundRed)
+                            .foregroundStyle(themeManager.currentTheme.deleteIconColor)
                             .font(.title3)
                     }
                 }
@@ -54,6 +54,7 @@ struct RecipeListView: View {
             .overlay(Group {
                 if recipes.isEmpty {
                     Text("no.recipe.to.tag.message").padding(5)
+                        .foregroundColor(themeManager.currentTheme.textColor)
                 }
             })
         }
