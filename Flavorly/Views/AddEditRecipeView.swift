@@ -39,92 +39,108 @@ struct AddEditRecipeView: View {
                 }
             } else {
                 NavigationView {
-                    Form {
-                        Section {
-                            TextField(LocalizedStringKey("recipe.name"), text: $title)
-                                .accessibilityIdentifier("recipe.name")
-                                .padding(5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 14)
-                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(title == "" ? 0.30 : 0.0), lineWidth: 2)
-                                )
-                            TextField(LocalizedStringKey("author.name"), text: $author)
-                                .accessibilityIdentifier("author.name")
-                                .padding(5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 14)
-                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(author == "" ? 0.30 : 0.0), lineWidth: 2)
-                                )
-                        }
-                        Section {
-                            TextEditor(text: $ingredients)
-                                .accessibilityIdentifier("ingredient.list")
-                                .padding(5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 14)
-                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(ingredients == "" ? 0.30 : 0.0), lineWidth: 2)
-                                )
-                        } header: {
-                            Text(LocalizedStringKey("ingredient.list"))
-                        }
-                        Section {
-                            TextEditor(text: $text)
-                                .accessibilityIdentifier("recipe.text")
-                                .padding(5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 14)
-                                        .stroke(themeManager.currentTheme.deleteIconColor.opacity(text == "" ? 0.30 : 0.0), lineWidth: 2)
-                                )
-                        } header: {
-                            Text(LocalizedStringKey("recipe.text"))
-                        }
-                        //MARK: TagView
-                        List {
-                            ForEach($tags) { $tag in
-                                if tag.title != nil { // when deduplicating in core data the tag intance in the tags array becomes null
-                                    Button(tag.title!) {
-                                        if recipe != nil {
-                                            removeTagFromRecipe(recipe: recipe!, tag: tag)
+                    ZStack {
+                        // Apply background color
+                        themeManager.currentTheme.backgroundColor
+                            .edgesIgnoringSafeArea(.all)
+                        Form {
+                            Section {
+                                TextField(LocalizedStringKey("recipe.name"), text: $title)
+                                    .accessibilityIdentifier("recipe.name")
+                                    .padding(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(themeManager.currentTheme.deleteIconColor.opacity(title == "" ? 0.30 : 0.0), lineWidth: 2)
+                                    )
+                                    .background(Color.clear)
+                                    .scrollContentBackground(.hidden)
+                                
+                                TextField(LocalizedStringKey("author.name"), text: $author)
+                                    .accessibilityIdentifier("author.name")
+                                    .padding(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(themeManager.currentTheme.deleteIconColor.opacity(author == "" ? 0.30 : 0.0), lineWidth: 2)
+                                    )
+                            }
+                            .background(Color.clear)
+                            .scrollContentBackground(.hidden)
+                            Section {
+                                TextEditor(text: $ingredients)
+                                    .accessibilityIdentifier("ingredient.list")
+                                    .padding(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(themeManager.currentTheme.deleteIconColor.opacity(ingredients == "" ? 0.30 : 0.0), lineWidth: 2)
+                                    )
+                            } header: {
+                                Text(LocalizedStringKey("ingredient.list"))
+                                    .foregroundColor(themeManager.currentTheme.textColor)
+                            }
+                            Section {
+                                TextEditor(text: $text)
+                                    .accessibilityIdentifier("recipe.text")
+                                    .padding(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(themeManager.currentTheme.deleteIconColor.opacity(text == "" ? 0.30 : 0.0), lineWidth: 2)
+                                    )
+                            } header: {
+                                Text(LocalizedStringKey("recipe.text"))
+                                    .foregroundColor(themeManager.currentTheme.textColor)
+                            }
+                            //MARK: TagView
+                            List {
+                                ForEach($tags) { $tag in
+                                    if tag.title != nil { // when deduplicating in core data the tag intance in the tags array becomes null
+                                        Button(tag.title!) {
+                                            if recipe != nil {
+                                                removeTagFromRecipe(recipe: recipe!, tag: tag)
+                                            }
+                                            tags.removeAll { $0.title == tag.title }
                                         }
-                                        tags.removeAll { $0.title == tag.title }
+                                        .buttonStyle(.bordered)
+                                        .tint(.primary)
                                     }
-                                    .buttonStyle(.bordered)
-                                    .tint(.primary)
                                 }
                             }
-                        }
-                        Section {
-                            HStack{
-                                TextField("add.tags.separately", text:$tagTitle)
-                                    .textCase(.lowercase)
-                                //MARK: Add TAG button
-                                Button {
-                                    addTagItem(tagTitle: tagTitle)
-                                    tagTitle = ""
-                                    //hides keyboard after each add
-                                    self.endEditing()
-                                } label: {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundStyle(themeManager.currentTheme.addIconColor)
-                                        .font(.title2)
-                                }.disabled(tagTitle == "")
-                            }
-                        } header: {
-                            Text("add.tagToRecipe")
-                        }
-                        //MARK: ADD/EDIT button
-                        Section {
-                            Button(newRecipe ? LocalizedStringKey("add.button") : LocalizedStringKey("update.button")) {
-                                if newRecipe {
-                                    addNewRecipe(title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
-                                } else {
-                                    editSavedRecipe(recipe: recipe, title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                            Section {
+                                HStack{
+                                    TextField("add.tags.separately", text:$tagTitle)
+                                        .textCase(.lowercase)
+                                    //MARK: Add TAG button
+                                    Button {
+                                        addTagItem(tagTitle: tagTitle)
+                                        tagTitle = ""
+                                        //hides keyboard after each add
+                                        self.endEditing()
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill")
+                                            .foregroundStyle(themeManager.currentTheme.addIconColor)
+                                            .font(.title2)
+                                    }.disabled(tagTitle == "")
                                 }
-                                dismiss()
+                            } header: {
+                                Text("add.tagToRecipe")
+                                    .foregroundColor(themeManager.currentTheme.textColor)
                             }
+                            //MARK: ADD/EDIT button
+                            Section {
+                                Button(newRecipe ? LocalizedStringKey("add.button") : LocalizedStringKey("update.button")) {
+                                    if newRecipe {
+                                        addNewRecipe(title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                                    } else {
+                                        editSavedRecipe(recipe: recipe, title: title, author: author, ingredients: ingredients, text: text, newTags: tags, moc: moc)
+                                    }
+                                    dismiss()
+                                }
+                            }
+                            .disabled(hasValidName == false)
                         }
-                        .disabled(hasValidName == false)
+                      //  .background(Color.clear)
+                        //.scrollContentBackground(.hidden)
                     }
+                    .preferredColorScheme(themeManager.currentTheme.preferredColorScheme)
                     .toolbar {
                         ToolbarItemGroup(placement: .navigationBarLeading) {
                             //MARK: Toolbar buttons
@@ -137,13 +153,16 @@ struct AddEditRecipeView: View {
                             }
                             if newRecipe == true {
                                 Text(NSLocalizedString("recipe.add", comment: "").uppercased())
+                                    .foregroundColor(themeManager.currentTheme.textColor)
                                     .padding(95)
                             } else {
                                 Text(NSLocalizedString("recipe.edit", comment: "").uppercased())
+                                    .foregroundColor(themeManager.currentTheme.textColor)
                                     .padding(95)
                             }
                         }
-                    }.onAppear {
+                    }
+                    .onAppear {
                         //MARK: OnAppear NewRecipe ?? UpdatedRecipe
                         newRecipe = (recipe == nil) // here we check if we passed recipe to this view
                         // and if there is recipe that you are passing you assign those properties of recipe to your view fields
@@ -187,6 +206,7 @@ struct AddEditRecipeView: View {
 }
 
 struct AddRecipeView_Previews: PreviewProvider {
+    @EnvironmentObject var themeManager: ThemeManager
     static var previews: some View {
         AddEditRecipeView(recipe: nil)
     }

@@ -36,11 +36,27 @@ struct SearchView: View {
                 Picker("", selection: $alignmentValue) {
                     Text("pick.by.name")
                         .tag(0)
+                        .foregroundColor(themeManager.currentTheme.textColor)
                     Text("pick.by.tag")
                         .tag(1)
-                }.pickerStyle(.segmented)
-                    .padding(.bottom, 15)
-            } .navigationTitle(LocalizedStringKey("recipe.search"))
+                        .foregroundColor(themeManager.currentTheme.textColor)
+                }
+                .pickerStyle(.segmented)
+                .padding(.bottom, 15)
+                .background(themeManager.currentTheme.backgroundColor)
+                .foregroundColor(.white)
+            }
+            .preferredColorScheme(themeManager.currentTheme.preferredColorScheme)
+            .navigationTitle("")
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(LocalizedStringKey("recipe.search"))
+                        .font(.title)
+                        .foregroundColor(themeManager.currentTheme.textColor)
+                }
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            
         //MARK: Toolbar Items
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -78,14 +94,19 @@ struct SearchView: View {
             if alignmentValue == 0 {
                 //MARK: Recipe List
                 ZStack {
-                    List{
+                    themeManager.currentTheme.backgroundColor
+                        .edgesIgnoringSafeArea(.all)
+                    List {
                         ForEach(recipes, id: \.self) { recipe in
                             NavigationLink(destination: DetailView(recipe: recipe))
                             {
                                 Text(recipe.title!)
+                                    .foregroundColor(themeManager.currentTheme.textColor)
                             }
                         }.listRowBackground(themeManager.currentTheme.listBackgroundColor)
                     }
+                    .background(Color.clear)
+                    .scrollContentBackground(.hidden)
                     .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.title"))
                     .onChange(of: searchText, perform: { newValue in
                         recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
@@ -97,34 +118,44 @@ struct SearchView: View {
                         }
                     })
                 }
+                .preferredColorScheme(themeManager.currentTheme.preferredColorScheme)
             } else {
                 //MARK: Tag List
                 Section {
-                    List(selection: $multiSelection) {
-                        ForEach(tags, id: \.self) { tag in
-                            Text(tag.title!)
+                    ZStack {
+                        themeManager.currentTheme.backgroundColor
+                            .edgesIgnoringSafeArea(.all)
+                        List(selection: $multiSelection) {
+                            ForEach(tags, id: \.self) { tag in
+                                Text(tag.title!)
+                                    .foregroundColor(themeManager.currentTheme.textColor)
+                            }
+                            .listRowBackground(themeManager.currentTheme.listBackgroundColor)
+                            .alert(LocalizedStringKey("warning.alert"), isPresented: $showingDeleteAlert) {
+                                Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteTags)
+                                Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
+                            } message: {
+                                Text(LocalizedStringKey("delete.tag.warning.text"))
+                            }
                         }
-                        .listRowBackground(themeManager.currentTheme.listBackgroundColor)
-                        .alert(LocalizedStringKey("warning.alert"), isPresented: $showingDeleteAlert) {
-                            Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteTags)
-                            Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
-                        } message: {
-                            Text(LocalizedStringKey("delete.tag.warning.text"))
-                        }
+                        .background(Color.clear)
+                        .scrollContentBackground(.hidden)
+                        .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
+                        .onChange(of: searchText, perform: { newValue in
+                            tags.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
+                        })
+                        .environment(\.editMode, self.$isEditMode)
+                        .overlay(Group {
+                            if tags.isEmpty {
+                                Text("no.tags.saved").padding(5)
+                                    .foregroundColor(themeManager.currentTheme.textColor)
+                            }
+                        })
                     }
-                    .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
-                    .onChange(of: searchText, perform: { newValue in
-                        tags.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
-                    })
-                    .environment(\.editMode, self.$isEditMode)
-                    .overlay(Group {
-                        if tags.isEmpty {
-                            Text("no.tags.saved").padding(5)
-                                .foregroundColor(themeManager.currentTheme.textColor)
-                        }
-                    })
+                    .preferredColorScheme(themeManager.currentTheme.preferredColorScheme)
                 } header: {
                     Text("select.tags")
+                        .foregroundColor(themeManager.currentTheme.textColor)
                 }
             }
         }
@@ -144,6 +175,7 @@ struct SearchView: View {
 }
 
 struct SearchView_Previews: PreviewProvider {
+    @EnvironmentObject var themeManager: ThemeManager
     static var previews: some View {
         SearchView(tag: Tag(), recipe: nil)
     }

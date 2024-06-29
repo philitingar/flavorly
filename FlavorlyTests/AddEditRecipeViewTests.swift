@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreData
-@testable import Flavorly
+@testable import Flavourly
 
 
 final class AddEditRecipeViewTests: XCTestCase {
