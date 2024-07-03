@@ -13,6 +13,7 @@ struct RecipeListView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.customColorPalette) var customColorPalette
     @State private var recipes: [Recipe] = []
     @State var tags: Set<Tag>
     
