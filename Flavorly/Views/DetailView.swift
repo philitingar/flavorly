@@ -12,6 +12,7 @@ struct DetailView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.customColorPalette) var customColorPalette
     @State private var showingDeleteAlert = false
     
     var body: some View {
@@ -66,8 +67,15 @@ struct DetailView: View {
                         .padding(10)
                     }
                 }
-                .navigationTitle(LocalizedStringKey("recipe.title"))
+                .navigationTitle("")
                 .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text(LocalizedStringKey("recipe.title"))
+                            .font(.title2)
+                            .foregroundColor(themeManager.currentTheme.textColor)
+                    }
+                }
                 .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
                     Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteRecipe)
                     Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
@@ -76,19 +84,19 @@ struct DetailView: View {
                 }
                 //MARK: Toolbars
                 .toolbar {
-                    Button {
-                        showingDeleteAlert = true
-                    } label: {
-                        Image(systemName: "trash.circle.fill")
-                            .foregroundStyle(themeManager.currentTheme.deleteIconColor)
-                            .font(.title3)
-                    }
                     NavigationLink {
                         AddEditRecipeView (recipe: recipe)
                     } label: {
                         Image(systemName: "pencil.tip.crop.circle.badge.plus.fill")
                             .symbolRenderingMode(.palette)
                             .foregroundStyle(themeManager.currentTheme.searchIconColor, themeManager.currentTheme.addIconColor)
+                            .font(.title3)
+                    }
+                    Button {
+                        showingDeleteAlert = true
+                    } label: {
+                        Image(systemName: "trash.circle.fill")
+                            .foregroundStyle(themeManager.currentTheme.deleteIconColor)
                             .font(.title3)
                     }
                 }
@@ -99,7 +107,12 @@ struct DetailView: View {
     func deleteRecipe() {
         moc.delete(recipe)
         //comment this line if you want to make the deletion permanent
-        try? moc.save()
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Error saving CoreData context: \(error), \(error.userInfo)")
+            // Handle specific CoreData errors here
+        }
         dismiss()
     }
 }

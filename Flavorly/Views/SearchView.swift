@@ -12,6 +12,7 @@ struct SearchView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.customColorPalette) var customColorPalette
     @State private var showingDeleteAlert = false
     
     @FetchRequest(sortDescriptors: [])
@@ -46,8 +47,9 @@ struct SearchView: View {
                 .background(themeManager.currentTheme.backgroundColor)
                 .foregroundColor(.white)
             }
-            .preferredColorScheme(themeManager.currentTheme.preferredColorScheme)
+            .preferredColorScheme(themeManager.currentTheme.preferredColorScheme?.toColorScheme())
             .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(LocalizedStringKey("recipe.search"))
@@ -71,20 +73,19 @@ struct SearchView: View {
                     if alignmentValue == 1 {
                         ToolbarItemGroup(placement: .navigationBarTrailing) {
                             Button {
-                                deletePrompt()
-                            } label: {
-                                Image(systemName: "trash.circle.fill")
-                                    .foregroundStyle(themeManager.currentTheme.deleteIconColor)
-                                    .font(.title3)
-                            }
-                            Button {
                                 self.showingRecipeListScreen.toggle()
                             } label: {
                                 Image(systemName: "magnifyingglass.circle.fill")
                                     .foregroundStyle(themeManager.currentTheme.searchIconColor)
                                     .font(.title3)
                             }
-                            
+                            Button {
+                                deletePrompt()
+                            } label: {
+                                Image(systemName: "trash.circle.fill")
+                                    .foregroundStyle(themeManager.currentTheme.deleteIconColor)
+                                    .font(.title3)
+                            }
                         }
                     }
                 }
@@ -118,7 +119,7 @@ struct SearchView: View {
                         }
                     })
                 }
-                .preferredColorScheme(themeManager.currentTheme.preferredColorScheme)
+                .preferredColorScheme(themeManager.currentTheme.preferredColorScheme?.toColorScheme())
             } else {
                 //MARK: Tag List
                 Section {
@@ -152,7 +153,7 @@ struct SearchView: View {
                             }
                         })
                     }
-                    .preferredColorScheme(themeManager.currentTheme.preferredColorScheme)
+                    .preferredColorScheme(themeManager.currentTheme.preferredColorScheme?.toColorScheme())
                 } header: {
                     Text("select.tags")
                         .foregroundColor(themeManager.currentTheme.textColor)
@@ -167,7 +168,12 @@ struct SearchView: View {
             moc.delete(tag)
         }
         // save the context
-        try? moc.save()
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Error saving CoreData context: \(error), \(error.userInfo)")
+            // Handle specific CoreData errors here
+        }
     }
     func deletePrompt() {
         showingDeleteAlert = true

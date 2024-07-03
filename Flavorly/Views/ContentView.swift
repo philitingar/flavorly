@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.customColorPalette) var customColorPalette
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title),
         SortDescriptor(\.author)
@@ -61,6 +62,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Flavourly")
@@ -114,10 +116,10 @@ struct ContentView: View {
                             Label("Colorful Theme", systemImage: "paintpalette.fill")
                         }
                     } label: {
-                        Image(systemName: "paintbrush.fill")
-                            .symbolRenderingMode(.palette)
-                            .foregroundStyle(themeManager.currentTheme.searchIconColor, themeManager.currentTheme.addIconColor)
-                            .font(.title2)
+                        Image(systemName: "rainbow")
+                            .symbolRenderingMode(.multicolor)
+                            .foregroundStyle(.yellow, .orange, .pink)
+                            .font(.headline)
                     }
                 }
             }
@@ -139,7 +141,12 @@ struct ContentView: View {
             moc.delete(recipe)
         }
         // save the context
-        try? moc.save()
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Error saving CoreData context: \(error), \(error.userInfo)")
+            // Handle specific CoreData errors here
+        }
     }
 }
 

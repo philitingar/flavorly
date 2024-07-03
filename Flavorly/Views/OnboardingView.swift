@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     var doneFunction: () -> Void
     @EnvironmentObject var themeManager: ThemeManager
+    @Environment(\.customColorPalette) var customColorPalette
     var body: some View {
         ZStack {
             themeManager.currentTheme.backgroundColor

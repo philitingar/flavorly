@@ -20,6 +20,7 @@ class DataController: ObservableObject {
         })
 
         return container
+        
     }()
     
 }
