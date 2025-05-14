@@ -15,6 +15,7 @@ struct FlavorlyApp: App {
         WindowGroup {
             TabBarView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                .accentColor(Color.blue)
         }
     }
 }

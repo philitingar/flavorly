@@ -89,9 +89,13 @@ struct SearchView: View {
                         NavigationLink(destination: DetailView(recipe: recipe)) {
                             Text(recipe.title ?? "Untitled Recipe")
                         }
-                        .listRowBackground(Color.backgroundBlue.opacity(0.4))
                     }
+                    .listRowSeparatorTint(Color.backgroundBlue)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
+                    .padding(4)
                 }
+                .scrollContentBackground(.hidden)
+                .listStyle(PlainListStyle())
                 .searchable(text: $searchText,
                            placement: .navigationBarDrawer(displayMode: .always),
                            prompt: "search.prompt.title")
@@ -136,9 +140,13 @@ struct SearchView: View {
                         ForEach(tags, id: \.self) { tag in
                             Text(tag.title ?? "Untitled Tag")
                         }
-                        .listRowBackground(Color.backgroundGreen.opacity(0.4))
                     }
+                    .listRowSeparatorTint(Color.backgroundBlue)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
+                    .padding(4)
                 }
+                .scrollContentBackground(.hidden)
+                .listStyle(PlainListStyle())
                 .searchable(text: $searchText,
                            placement: .navigationBarDrawer(displayMode: .always),
                            prompt: "search.prompt.tag")

@@ -46,13 +46,15 @@ struct HomeView: View {
                                 RecipeRow(recipe: recipe)
                             }
                             
-                            .listRowBackground(Color(.secondarySystemGroupedBackground))
-                            .listRowSeparator(.hidden)
-                            
                         }
                         .onDelete(perform: deleteRecipe)
+                        .listRowSeparatorTint(Color.backgroundBlue)
+                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
+                        .padding(4)
                     }
                     .scrollContentBackground(.hidden)
+                    .padding(.top)
+                    .listStyle(PlainListStyle())
                 }
             }
             .navigationTitle("Flavourly")
@@ -98,8 +100,8 @@ struct HomeView: View {
                     }
                 }
             }
-            .padding(.vertical, 8)
-            .padding(.horizontal, 8)
+            .padding(.vertical, 2)
+            .padding(.horizontal, 2)
         }
     }
     
