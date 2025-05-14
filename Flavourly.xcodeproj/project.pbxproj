@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20B3D8032DD4CFCC000BE672 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B3D8022DD4CFCC000BE672 /* SettingsView.swift */; };
 		26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */; };
 		26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */; };
 		2629F15D2B455E7D0099FB96 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2629F15F2B455E7D0099FB96 /* Localizable.strings */; };
@@ -18,15 +17,10 @@
 		2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE9F2B615EAC00493679 /* OnboardingView.swift */; };
 		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
 		26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */; };
-		26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF52A93A92600E8F9A8 /* ContentView.swift */; };
 		26710DF82A93A92700E8F9A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF72A93A92700E8F9A8 /* Assets.xcassets */; };
 		26710DFB2A93A92700E8F9A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */; };
 		26710E032A93A96A00E8F9A8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E022A93A96A00E8F9A8 /* DataController.swift */; };
 		26710E062A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */; };
-		26710E082A93AA9200E8F9A8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E072A93AA9200E8F9A8 /* SearchView.swift */; };
-		26710E0A2A93ABE000E8F9A8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E092A93ABE000E8F9A8 /* DetailView.swift */; };
-		26710E0E2A93AC5800E8F9A8 /* AddEditRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */; };
-		267D2F572B6C03DC004C840D /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267D2F562B6C03DC004C840D /* RecipeListView.swift */; };
 		26A039762B694FD000B84F9D /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		20B3D8022DD4CFCC000BE672 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		26164C222B34844A0041B2EF /* FlavourlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavourlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewUITests.swift; sourceTree = "<group>"; };
@@ -75,15 +68,10 @@
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavourly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavourly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
-		26710DF52A93A92600E8F9A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		26710DF72A93A92700E8F9A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		26710E022A93A96A00E8F9A8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		26710E052A93A99F00E8F9A8 /* RecipeDesign.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDesign.xcdatamodel; sourceTree = "<group>"; };
-		26710E072A93AA9200E8F9A8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		26710E092A93ABE000E8F9A8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeView.swift; sourceTree = "<group>"; };
-		267D2F562B6C03DC004C840D /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
 		267D2F592B73C6A0004C840D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
 		26C29FAD2AA8CAAD00DE0690 /* FlavourlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavourlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +80,9 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		20B3D7FC2DD4CF78000BE672 /* Tab Bar */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Tab Bar"; sourceTree = "<group>"; };
+		20B3D8042DD4D084000BE672 /* Home */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Home; sourceTree = "<group>"; };
+		20B3D8052DD4D0A1000BE672 /* Search */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Search; sourceTree = "<group>"; };
+		20B3D8062DD4D0B2000BE672 /* Settings */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Settings; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,13 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				20B3D7FC2DD4CF78000BE672 /* Tab Bar */,
-				26710DF52A93A92600E8F9A8 /* ContentView.swift */,
-				26710E0D2A93AC5800E8F9A8 /* AddEditRecipeView.swift */,
-				26710E072A93AA9200E8F9A8 /* SearchView.swift */,
-				267D2F562B6C03DC004C840D /* RecipeListView.swift */,
+				20B3D8042DD4D084000BE672 /* Home */,
+				20B3D8052DD4D0A1000BE672 /* Search */,
 				2650EE9F2B615EAC00493679 /* OnboardingView.swift */,
-				26710E092A93ABE000E8F9A8 /* DetailView.swift */,
-				20B3D8022DD4CFCC000BE672 /* SettingsView.swift */,
+				20B3D8062DD4D0B2000BE672 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +231,9 @@
 			);
 			fileSystemSynchronizedGroups = (
 				20B3D7FC2DD4CF78000BE672 /* Tab Bar */,
+				20B3D8042DD4D084000BE672 /* Home */,
+				20B3D8052DD4D0A1000BE672 /* Search */,
+				20B3D8062DD4D0B2000BE672 /* Settings */,
 			);
 			name = Flavourly;
 			productName = Flavorly;
@@ -366,20 +357,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26710E082A93AA9200E8F9A8 /* SearchView.swift in Sources */,
-				26710E0A2A93ABE000E8F9A8 /* DetailView.swift in Sources */,
-				26710E0E2A93AC5800E8F9A8 /* AddEditRecipeView.swift in Sources */,
 				2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */,
-				26710DF62A93A92600E8F9A8 /* ContentView.swift in Sources */,
 				26A039762B694FD000B84F9D /* NSManagedObjectExtension.swift in Sources */,
 				2650EE972B5E71FA00493679 /* Tag+CoreDataClass.swift in Sources */,
 				2650EE992B5E71FA00493679 /* Recipe+CoreDataClass.swift in Sources */,
-				20B3D8032DD4CFCC000BE672 /* SettingsView.swift in Sources */,
 				26710E032A93A96A00E8F9A8 /* DataController.swift in Sources */,
 				2650EE982B5E71FA00493679 /* Tag+CoreDataProperties.swift in Sources */,
 				26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */,
 				2650EE9A2B5E71FA00493679 /* Recipe+CoreDataProperties.swift in Sources */,
-				267D2F572B6C03DC004C840D /* RecipeListView.swift in Sources */,
 				26710E062A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

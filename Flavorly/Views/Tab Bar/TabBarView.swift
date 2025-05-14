@@ -4,7 +4,6 @@
 //
 //  Created by Timea Bartha on 14/5/25.
 //
-
 import SwiftUI
 import CoreData
 
@@ -19,6 +18,7 @@ struct TabBarView: View {
     let tabBarBottomPadding: CGFloat = 20
     
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack {
@@ -64,8 +64,8 @@ struct TabBarView: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 70)
                 .background(
-                    Color.white
-                        .ignoresSafeArea()
+                    Color(.secondarySystemBackground) // Adapts to light/dark mode
+                                            .ignoresSafeArea()
                 )
                 .opacity(isTabBarHidden ? 0 : 1)
                 .animation(.easeInOut, value: isTabBarHidden)
@@ -74,6 +74,40 @@ struct TabBarView: View {
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .ignoresSafeArea(.container, edges: .bottom)
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    let horizontalAmount = value.translation.width
+                    // Only allow tab switching swipe if current tab's navigation path is empty (root)
+                    let isAtSettingsRoot = settingsNavigationPath.isEmpty
+                    if horizontalAmount < -50 {
+                        // Swipe left
+                        if selectedTab == .settings && !isAtSettingsRoot {
+                            // In settings subview, so do NOT switch tab
+                            return
+                        }
+                        else {
+                            if let currentIndex = Tab.allCases.firstIndex(of: selectedTab),
+                               currentIndex < Tab.allCases.count - 1 {
+                                selectedTab = Tab.allCases[currentIndex + 1]
+                            }
+                        }
+                    }
+                    else if horizontalAmount > 50 {
+                        // Swipe right
+                        if selectedTab == .settings && !isAtSettingsRoot {
+                            // In settings subview, so do NOT switch tab
+                            return
+                        }
+                        else {
+                            if let currentIndex = Tab.allCases.firstIndex(of: selectedTab),
+                               currentIndex > 0 {
+                                selectedTab = Tab.allCases[currentIndex - 1]
+                            }
+                        }
+                    }
+                }
+        )
     }
 }
 
