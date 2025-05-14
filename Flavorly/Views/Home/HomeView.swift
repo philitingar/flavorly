@@ -26,24 +26,16 @@ struct HomeView: View {
                     if #available(iOS 17.0, *) {
                         if #available(iOS 18.0, *) {
                             ContentUnavailableView {
-                                Label {
-                                    Text("No Recipes Yet")
-                                } icon: {
-                                    Image(systemName: "plus")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 20, height: 20)
-                                }
+                                Label("No Recipes Yet", systemImage: "book.closed.fill")
                             } description: {
                                 Text("Add your first recipe to get started")
-                                    .foregroundColor(.secondary)
                             }
                             .symbolEffect(.bounce, options: .repeating)
                         } else {
                             // Fallback on earlier versions
                         }
                     } else {
-                        // Fallback on earlier versions
+                        Text("No recipes available")
                     }
                 } else {
                     List {
@@ -53,7 +45,10 @@ struct HomeView: View {
                             } label: {
                                 RecipeRow(recipe: recipe)
                             }
+                            
                             .listRowBackground(Color(.secondarySystemGroupedBackground))
+                            .listRowSeparator(.hidden)
+                            
                         }
                         .onDelete(perform: deleteRecipe)
                     }
@@ -62,12 +57,14 @@ struct HomeView: View {
             }
             .navigationTitle("Flavourly")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar { // Explicit toolbar content builder
+            .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         showingAddScreen.toggle()
                     } label: {
                         Image(systemName: "plus.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.headline)
                     }
                 }
             }
@@ -75,7 +72,6 @@ struct HomeView: View {
                 AddEditRecipeView(recipe: nil)
             }
         }
-        
     }
     
     private struct RecipeRow: View {
@@ -84,12 +80,13 @@ struct HomeView: View {
         var body: some View {
             HStack(spacing: 12) {
                 Image(systemName: "book.closed.fill")
-                    .foregroundColor(.blue)
+                    .foregroundColor(.backgroundBlue)
                     .frame(width: 30)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(recipe.title ?? "no.recipes")
                         .font(.headline)
+                        .foregroundColor(.textBackgroundBlue)
                     
                     HStack(spacing: 4) {
                         Text("By:")
@@ -102,6 +99,7 @@ struct HomeView: View {
                 }
             }
             .padding(.vertical, 8)
+            .padding(.horizontal, 8)
         }
     }
     
