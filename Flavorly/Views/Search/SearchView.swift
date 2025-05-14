@@ -4,142 +4,194 @@
 //
 //  Created by Timea Bartha on 21/8/23.
 //
-import CoreData
 import SwiftUI
+import CoreData
 
 struct SearchView: View {
     @State var tag: Tag?
     @Environment(\.managedObjectContext) var moc
-    @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
-    
-    @FetchRequest(sortDescriptors: [])
-    private var recipes: FetchedResults<Recipe>
-    
-    @FetchRequest(sortDescriptors: [])
-    private var tags: FetchedResults<Tag>
-    
+    @FetchRequest(sortDescriptors: []) private var recipes: FetchedResults<Recipe>
+    @FetchRequest(sortDescriptors: []) private var tags: FetchedResults<Tag>
     @State private var multiSelection = Set<Tag>()
     @State private var isEditMode: EditMode = .active
-    
     let recipe: Recipe?
     @State private var searchText = ""
     @State private var showingRecipeListScreen = false
-    //Segment value for picker
     @State var alignmentValue: Int = 1
     
     var body: some View {
         NavigationStack {
             VStack {
-                //MARK: Picker
+                // Segmented Picker
                 Picker("", selection: $alignmentValue) {
-                    Text("pick.by.name")
-                        .tag(0)
-                    Text("pick.by.tag")
-                        .tag(1)
-                }.pickerStyle(.segmented)
-                    .padding(.bottom, 15)
-            } .navigationTitle(LocalizedStringKey("recipe.search"))
-        //MARK: Toolbar Items
-                .toolbar {
+                    Text("pick.by.name").tag(0)
+                    Text("pick.by.tag").tag(1)
+                }
+                .pickerStyle(.segmented)
+                .padding(.bottom, 15)
+                
+                // Main Content
+                if alignmentValue == 0 {
+                    recipeListView
+                } else {
+                    tagListView
+                }
+            }
+            .navigationTitle("recipe.search")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                if alignmentValue == 1 {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        deleteButton
+                    }
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Image(systemName: "arrowshape.turn.up.backward.circle.fill")
-                                .foregroundStyle(Color.backgroundRed)
-                                .font(.title3)
-                        }
-                    }
-                    if alignmentValue == 1 {
-                        ToolbarItemGroup(placement: .navigationBarTrailing) {
-                            Button {
-                                deletePrompt()
-                            } label: {
-                                Image(systemName: "trash.circle.fill")
-                                    .foregroundStyle(Color.backgroundRed)
-                                    .font(.title3)
-                            }
-                            Button {
-                                self.showingRecipeListScreen.toggle()
-                            } label: {
-                                Image(systemName: "magnifyingglass.circle.fill")
-                                    .foregroundStyle(Color.textBackgroundBlue)
-                                    .font(.title3)
-                            }
-                            
-                        }
+                        searchButton
                     }
                 }
-                .sheet(isPresented: $showingRecipeListScreen) {
-                    RecipeListView(tags: multiSelection)
-                }
-            if alignmentValue == 0 {
-                //MARK: Recipe List
-                ZStack {
-                    List{
-                        ForEach(recipes, id: \.self) { recipe in
-                            NavigationLink(destination: DetailView(recipe: recipe))
-                            {
-                                Text(recipe.title!)
+            }
+            .sheet(isPresented: $showingRecipeListScreen) {
+                RecipeListView(tags: multiSelection)
+            }
+        }
+    }
+    
+    // MARK: - Subviews
+    
+    private var recipeListView: some View {
+        Group {
+            if recipes.isEmpty {
+                if #available(iOS 17.0, *) {
+                    if #available(iOS 18.0, *) {
+                        ContentUnavailableView {
+                            Label {
+                                Text("No Recipes Found")
+                                    .font(.headline)
+                            } icon: {
+                                Image(systemName: "book.pages")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 30)
                             }
-                        }.listRowBackground(Color.backgroundBlue.opacity(0.4))
-                    }
-                    .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.title"))
-                    .onChange(of: searchText, perform: { newValue in
-                        recipes.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
-                    })
-                    .overlay(Group {
-                        if recipes.isEmpty {
-                            Text("no.recipe.saved").padding(5)
+                        } description: {
+                            Text("Try a different search term")
                         }
-                    })
+                        .symbolEffect(.wiggle, options: .repeating)
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                } else {
+                    // Fallback on earlier versions
                 }
             } else {
-                //MARK: Tag List
-                Section {
-                    List(selection: $multiSelection) {
-                        ForEach(tags, id: \.self) { tag in
-                            Text(tag.title!)
+                List {
+                    ForEach(recipes, id: \.self) { recipe in
+                        NavigationLink(destination: DetailView(recipe: recipe)) {
+                            Text(recipe.title ?? "Untitled Recipe")
                         }
-                        .listRowBackground(Color.backgroundGreen.opacity(0.4))
-                        .alert(LocalizedStringKey("warning.alert"), isPresented: $showingDeleteAlert) {
-                            Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteTags)
-                            Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
-                        } message: {
-                            Text(LocalizedStringKey("delete.tag.warning.text"))
-                        }
+                        .listRowBackground(Color.backgroundBlue.opacity(0.4))
                     }
-                    .searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("search.prompt.tag"))
-                    .onChange(of: searchText, perform: { newValue in
-                        tags.nsPredicate = newValue.isEmpty ? nil : NSPredicate(format: "title CONTAINS[c] %@", newValue)
-                    })
-                    .environment(\.editMode, self.$isEditMode)
-                    .overlay(Group {
-                        if tags.isEmpty {
-                            Text("no.tags.saved").padding(5)
-                        }
-                    })
-                } header: {
-                    Text("select.tags")
+                }
+                .searchable(text: $searchText,
+                           placement: .navigationBarDrawer(displayMode: .always),
+                           prompt: "search.prompt.title")
+                .onChange(of: searchText) { newValue in
+                    recipes.nsPredicate = newValue.isEmpty ? nil :
+                        NSPredicate(format: "title CONTAINS[c] %@", newValue)
                 }
             }
         }
     }
-    //MARK: Delete Tags Function
+    
+    private var tagListView: some View {
+        Group {
+            if tags.isEmpty {
+                if #available(iOS 17.0, *) {
+                    if #available(iOS 18.0, *) {
+                        ContentUnavailableView {
+                           
+                                Label {
+                                    Text("No Tags Found")
+                                        .font(.headline)
+                                } icon: {
+                                    Image(systemName: "tag")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30, height: 30)
+                                }
+
+                        } description: {
+                            Text("Create tags to organize recipes")
+                        }
+                        .symbolEffect(.wiggle, options: .repeating)
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                } else {
+                    // Fallback on earlier versions
+                }
+            } else {
+                List(selection: $multiSelection) {
+                    Section("select.tags") {
+                        ForEach(tags, id: \.self) { tag in
+                            Text(tag.title ?? "Untitled Tag")
+                        }
+                        .listRowBackground(Color.backgroundGreen.opacity(0.4))
+                    }
+                }
+                .searchable(text: $searchText,
+                           placement: .navigationBarDrawer(displayMode: .always),
+                           prompt: "search.prompt.tag")
+                .onChange(of: searchText) { newValue in
+                    tags.nsPredicate = newValue.isEmpty ? nil :
+                        NSPredicate(format: "title CONTAINS[c] %@", newValue)
+                }
+                .environment(\.editMode, $isEditMode)
+                .alert("warning.alert", isPresented: $showingDeleteAlert) {
+                    Button("delete.button", role: .destructive, action: deleteTags)
+                    Button("cancel.button", role: .cancel) { }
+                } message: {
+                    Text("delete.tag.warning.text")
+                }
+            }
+        }
+    }
+    
+    private var deleteButton: some View {
+        Button {
+            deletePrompt()
+        } label: {
+            Image(systemName: "trash.circle.fill")
+                .symbolRenderingMode(.hierarchical)
+                .font(.title2)
+                .foregroundColor(.red)
+        }
+    }
+    
+    private var searchButton: some View {
+        Button {
+            showingRecipeListScreen.toggle()
+        } label: {
+            Image(systemName: "magnifyingglass.circle.fill")
+                .symbolRenderingMode(.hierarchical)
+                .font(.title2)
+                .foregroundColor(.blue)
+        }
+    }
+    
+    // MARK: - Functions
+    
     func deleteTags() {
         for tag in multiSelection {
-            // delete it from the context
             moc.delete(tag)
         }
-        // save the context
         try? moc.save()
     }
+    
     func deletePrompt() {
         showingDeleteAlert = true
     }
 }
-
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView(tag: Tag(), recipe: nil)
