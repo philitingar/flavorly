@@ -3,25 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 73;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */; };
 		26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */; };
 		2629F15D2B455E7D0099FB96 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2629F15F2B455E7D0099FB96 /* Localizable.strings */; };
-		2650EE972B5E71FA00493679 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE932B5E71FA00493679 /* Tag+CoreDataClass.swift */; };
-		2650EE982B5E71FA00493679 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE942B5E71FA00493679 /* Tag+CoreDataProperties.swift */; };
-		2650EE992B5E71FA00493679 /* Recipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE952B5E71FA00493679 /* Recipe+CoreDataClass.swift */; };
-		2650EE9A2B5E71FA00493679 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */; };
-		2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2650EE9F2B615EAC00493679 /* OnboardingView.swift */; };
 		265962152AE2985200AE40CA /* AddEditRecipeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */; };
-		26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */; };
-		26710DF82A93A92700E8F9A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DF72A93A92700E8F9A8 /* Assets.xcassets */; };
-		26710DFB2A93A92700E8F9A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */; };
-		26710E032A93A96A00E8F9A8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26710E022A93A96A00E8F9A8 /* DataController.swift */; };
-		26710E062A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */; };
-		26A039762B694FD000B84F9D /* NSManagedObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,30 +48,36 @@
 		2629F16A2B46F1F10099FB96 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2629F16B2B4845B70099FB96 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2629F16C2B4845D40099FB96 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2650EE932B5E71FA00493679 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2650EE942B5E71FA00493679 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2650EE952B5E71FA00493679 /* Recipe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2650EE9F2B615EAC00493679 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2655CB022B7E20BB00867A1E /* Flavourly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Flavourly-Info.plist"; sourceTree = "<group>"; };
 		265962142AE2985200AE40CA /* AddEditRecipeViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewTests.swift; sourceTree = "<group>"; };
 		26710DF02A93A92600E8F9A8 /* Flavourly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavourly.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyApp.swift; sourceTree = "<group>"; };
-		26710DF72A93A92700E8F9A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		26710E022A93A96A00E8F9A8 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		26710E052A93A99F00E8F9A8 /* RecipeDesign.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDesign.xcdatamodel; sourceTree = "<group>"; };
 		267D2F592B73C6A0004C840D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectExtension.swift; sourceTree = "<group>"; };
 		26C29FAD2AA8CAAD00DE0690 /* FlavourlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavourlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		26DAAF302AA0E8B5009B2456 /* Flavorly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flavorly.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		20B3D8552DD50CBC000BE672 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				RecipeDesign.xcdatamodeld,
+			);
+			target = 26710DEF2A93A92600E8F9A8 /* Flavourly */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		20B3D8562DD50CBC000BE672 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 26710DEC2A93A92600E8F9A8 /* Sources */;
+			membershipExceptions = (
+				RecipeDesign.xcdatamodeld,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		20B3D7FC2DD4CF78000BE672 /* Tab Bar */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Tab Bar"; sourceTree = "<group>"; };
-		20B3D8042DD4D084000BE672 /* Home */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Home; sourceTree = "<group>"; };
-		20B3D8052DD4D0A1000BE672 /* Search */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Search; sourceTree = "<group>"; };
-		20B3D8062DD4D0B2000BE672 /* Settings */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Settings; sourceTree = "<group>"; };
+		20B3D80B2DD50C75000BE672 /* Coredata */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Coredata; sourceTree = "<group>"; };
+		20B3D8472DD50CBC000BE672 /* Flavorly */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (20B3D8552DD50CBC000BE672 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 20B3D8562DD50CBC000BE672 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Flavorly; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,16 +126,12 @@
 			isa = PBXGroup;
 			children = (
 				2655CB022B7E20BB00867A1E /* Flavourly-Info.plist */,
-				26A039752B694FD000B84F9D /* NSManagedObjectExtension.swift */,
-				2650EE932B5E71FA00493679 /* Tag+CoreDataClass.swift */,
-				2650EE942B5E71FA00493679 /* Tag+CoreDataProperties.swift */,
-				2650EE952B5E71FA00493679 /* Recipe+CoreDataClass.swift */,
-				2650EE962B5E71FA00493679 /* Recipe+CoreDataProperties.swift */,
+				20B3D80B2DD50C75000BE672 /* Coredata */,
 				2629F15C2B455E4E0099FB96 /* Localizations */,
-				26710DF22A93A92600E8F9A8 /* Flavorly */,
 				26C29FAE2AA8CAAD00DE0690 /* FlavorlyTests */,
 				26164C232B34844A0041B2EF /* FlavorlyUITests */,
 				26710DF12A93A92600E8F9A8 /* Products */,
+				20B3D8472DD50CBC000BE672 /* Flavorly */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,40 +143,6 @@
 				26164C222B34844A0041B2EF /* FlavourlyUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		26710DF22A93A92600E8F9A8 /* Flavorly */ = {
-			isa = PBXGroup;
-			children = (
-				26DAAF302AA0E8B5009B2456 /* Flavorly.entitlements */,
-				26710DF32A93A92600E8F9A8 /* FlavorlyApp.swift */,
-				26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */,
-				26710E022A93A96A00E8F9A8 /* DataController.swift */,
-				26710E012A93A94D00E8F9A8 /* Views */,
-				26710DF72A93A92700E8F9A8 /* Assets.xcassets */,
-				26710DF92A93A92700E8F9A8 /* Preview Content */,
-			);
-			path = Flavorly;
-			sourceTree = "<group>";
-		};
-		26710DF92A93A92700E8F9A8 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				26710DFA2A93A92700E8F9A8 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		26710E012A93A94D00E8F9A8 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				20B3D7FC2DD4CF78000BE672 /* Tab Bar */,
-				20B3D8042DD4D084000BE672 /* Home */,
-				20B3D8052DD4D0A1000BE672 /* Search */,
-				2650EE9F2B615EAC00493679 /* OnboardingView.swift */,
-				20B3D8062DD4D0B2000BE672 /* Settings */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		26C29FAE2AA8CAAD00DE0690 /* FlavorlyTests */ = {
@@ -230,10 +187,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				20B3D7FC2DD4CF78000BE672 /* Tab Bar */,
-				20B3D8042DD4D084000BE672 /* Home */,
-				20B3D8052DD4D0A1000BE672 /* Search */,
-				20B3D8062DD4D0B2000BE672 /* Settings */,
+				20B3D80B2DD50C75000BE672 /* Coredata */,
+				20B3D8472DD50CBC000BE672 /* Flavorly */,
 			);
 			name = Flavourly;
 			productName = Flavorly;
@@ -283,7 +238,6 @@
 				};
 			};
 			buildConfigurationList = 26710DEB2A93A92600E8F9A8 /* Build configuration list for PBXProject "Flavourly" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -305,6 +259,7 @@
 				"zh-Hans",
 			);
 			mainGroup = 26710DE72A93A92600E8F9A8;
+			preferredProjectObjectVersion = 56;
 			productRefGroup = 26710DF12A93A92600E8F9A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,9 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26710DFB2A93A92700E8F9A8 /* Preview Assets.xcassets in Resources */,
 				2629F15D2B455E7D0099FB96 /* Localizable.strings in Resources */,
-				26710DF82A93A92700E8F9A8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,15 +310,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2650EEA02B615EAC00493679 /* OnboardingView.swift in Sources */,
-				26A039762B694FD000B84F9D /* NSManagedObjectExtension.swift in Sources */,
-				2650EE972B5E71FA00493679 /* Tag+CoreDataClass.swift in Sources */,
-				2650EE992B5E71FA00493679 /* Recipe+CoreDataClass.swift in Sources */,
-				26710E032A93A96A00E8F9A8 /* DataController.swift in Sources */,
-				2650EE982B5E71FA00493679 /* Tag+CoreDataProperties.swift in Sources */,
-				26710DF42A93A92600E8F9A8 /* FlavorlyApp.swift in Sources */,
-				2650EE9A2B5E71FA00493679 /* Recipe+CoreDataProperties.swift in Sources */,
-				26710E062A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,19 +662,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		26710E042A93A99F00E8F9A8 /* RecipeDesign.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				26710E052A93A99F00E8F9A8 /* RecipeDesign.xcdatamodel */,
-			);
-			currentVersion = 26710E052A93A99F00E8F9A8 /* RecipeDesign.xcdatamodel */;
-			path = RecipeDesign.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 26710DE82A93A92600E8F9A8 /* Project object */;
 }
