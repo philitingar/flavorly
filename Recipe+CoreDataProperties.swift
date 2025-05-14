@@ -17,7 +17,6 @@ extension Recipe {
     }
 
     @NSManaged public var author: String?
-    @NSManaged public var hardness: Int16
     @NSManaged public var id: UUID?
     @NSManaged public var ingredients: String?
     @NSManaged public var text: String?
