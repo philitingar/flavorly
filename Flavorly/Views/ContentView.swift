@@ -8,7 +8,7 @@ import SwiftUI
 import CoreData
 
 
-struct ContentView: View {
+struct HomeView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title),
@@ -100,10 +100,3 @@ extension Color {
     static let textBackgroundBlue = Color("TextBackgroundBlue")
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            ContentView()
-        }
-    }
-}

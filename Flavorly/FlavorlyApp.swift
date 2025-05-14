@@ -10,9 +10,10 @@ import SwiftUI
 @main
 struct FlavorlyApp: App {
     @StateObject private var dataController = DataController()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabBarView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
