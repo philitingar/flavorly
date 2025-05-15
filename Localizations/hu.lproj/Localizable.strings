@@ -9,9 +9,9 @@
 "recipe.add" = "Adj egy receptet";
 
 "recipe.name" = "Recept neve";
-"author.name" = "A szerző neve";
+"author.name" = "Szerző";
 
-"ingredient.list" = "Írd le az összetevőket";
+"ingredient.list" = "Hozzávalók";
 "recipe.text" = "recept";
 "add.button" = "Add hozzá";
 "update.button" = "Frissítés";
@@ -27,7 +27,7 @@
 "search.prompt.title" = "Recept cím keresése";
 "search.prompt.tag" = "Címkék keresése";
 
-"no.recipes" = "Nincsenek receptjeid";
+"no.recipes" = "Még nincsenek receptek";
 "add.tags.separately" = "Add őket egyenként";
 "add.tagToRecipe" = "címkéket adhatsz a receptedhez";
 "pick.by.name" = "Név szerint";
@@ -37,6 +37,28 @@
 "no.recipe.saved" = "Még nem mentettél el egyetlen receptet sem.";
 "tags.in.recipe" = "A recepthez tartozó címkék:";
 "unknown.author"  = "Ismeretlen szerző";
+
+"created.date" = "Létrehozás dátuma:"; //
+"add.ingredient" = "Hozzávalók hozzáadása...."; //
+"instructions" = "Utasítások"; //
+"new.recipe" = "Új recept"; //
+"back" = "Vissza"; //
+"save" = "Mentés"; //
+"Home" = "Kezdőlap";//
+"Search" = "Keresés";//
+"Settings" = "Beállítások";//
+"tag" = "Címkék"; //
+"add.tag" = "Címke hozzáadása..."; //
+"created" = "Létrehozva:"; //
+"add.first.recipe" = "Add hozzá az első receptedet a kezdéshez"; //
+"no.recipe.found" = "Nincsenek receptek"; //
+"try.diff.search" = "Próbálj ki egy másik keresési elemet"; //
+"create.tags" = "Hozz létre címkéket a receptek rendszerezéséhez"; //
+"no.recipe.found" = "Nincsenek receptek"; //
+"try.diff.search" = "Próbálj ki egy másik keresési kifejezést"; //
+"no.tag.found" = "Nincsenek címkék";//
+"create.tag.organise" = "Hozz létre címkéket a receptek rendszerezéséhez"; //
+
 
 "feature.onboarding" = "Tulajdonságok";
 "onboarding.tags.explained" = "A receptek megtalálását megkönnyítheted, ha olyan címkéket adsz hozzá, mint vegán, tejmentes, karácsony, torta, vagy személyes címkéket, mint a nagyi. A címkékkel könnyedén rákereshetsz pontosan arra, amire szeretnél, például a nagymamád különleges receptjeire, amelyek ráadásul vegánok.";
@@ -49,4 +71,7 @@
 
 "warning.alert" = "FIGYELEM!";
 "delete.tag.warning.text" = "Ha le törlöd ezt a címkét (címkéket), az összes receptből eltávolítod. Egyik recepted sem fogja többé ezt a címkét tartalmazni!";
+
+
+
 

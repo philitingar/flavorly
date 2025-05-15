@@ -21,12 +21,12 @@ struct DetailView: View {
                 
                 // Ingredients Card
                 if let ingredients = recipe.ingredients, !ingredients.isEmpty {
-                    cardView(title: "Ingredients", content: ingredients, icon: "list.bullet")
+                    cardView(title: "ingredient.list", content: ingredients, icon: "list.bullet")
                 }
                 
                 // Instructions Card
                 if let instructions = recipe.text, !instructions.isEmpty {
-                    cardView(title: "Instructions", content: instructions, icon: "text.book.closed")
+                    cardView(title: "instructions", content: instructions, icon: "text.book.closed")
                 }
                 
                 // Tags Section
@@ -46,11 +46,11 @@ struct DetailView: View {
                 }
             }
         }
-        .alert("Delete Recipe", isPresented: $showingDeleteAlert) {
-            Button("Delete", role: .destructive, action: deleteRecipe)
-            Button("Cancel", role: .cancel) { }
+        .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
+            Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteRecipe)
+            Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
         } message: {
-            Text("Are you sure you want to delete this recipe?")
+            Text(LocalizedStringKey("delete.reassurance"))
         }
     }
     
@@ -79,7 +79,7 @@ struct DetailView: View {
             HStack {
                 Image(systemName: icon)
                     .foregroundColor(.backgroundGreen)
-                Text(title)
+                Text(LocalizedStringKey(title))
                     .font(.headline.bold())
                     .foregroundColor(.textBackgroundBlue)
             }
@@ -99,7 +99,7 @@ struct DetailView: View {
     
     private var tagsSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Tags")
+            Text(LocalizedStringKey("tag"))
                 .font(.headline.bold())
                 .foregroundColor(.textBackgroundBlue)
             
@@ -130,7 +130,7 @@ struct DetailView: View {
                if recipe.timestamp != nil {
                    HStack {
                        VStack(alignment: .leading) {
-                           Text("Created:")
+                           Text(LocalizedStringKey("created"))
                                .font(.caption)
                                .foregroundColor(.secondary)
                            Text(recipe.timestamp!, style: .date)  // Using .date style for automatic formatting

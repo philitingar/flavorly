@@ -9,7 +9,7 @@
 "recipe.add" = "Rezept hinzufügen";
 
 "recipe.name" = "Name des Rezepts";
-"author.name" = "Name des Autors";
+"author.name" = "Autors";
 
 "ingredient.list" = "Zutaten";
 "recipe.text" = "Rezept";
@@ -27,7 +27,7 @@
 "search.prompt.title" = "Einen Titel suchen";
 "search.prompt.tag" = "Suche nach Tags";
 
-"no.recipes" = "Sie haben keine Rezepte";
+"no.recipes" = "Noch keine Rezepte";
 "add.tags.separately" = "Fügen Sie eines nach dem anderen hinzu";
 "add.tagToRecipe" = "Tags zu Ihrem Rezept hinzufügen";
 "pick.by.name" = "Nach Name";
@@ -37,6 +37,27 @@
 "no.recipe.saved" = "Sie haben noch kein Rezept gespeichert.";
 "tags.in.recipe" = "Mit dem Rezept verbundene Tags:";
 "unknown.author"  = "Unbekannter Autor";
+
+"created.date" = "Erstellungsdatum:"; //
+"add.ingredient" = "Zutat hinzufügen..."; //
+"instructions" = "Anleitung"; //
+"new.recipe" = "Neues Rezept"; //
+"back" = "Zurück"; //
+"save" = "Speichern"; //
+"Home" = "Startseite";//
+"Search" = "Suchen";//
+"Settings" = "Einstellungen";//
+"tag" = "Tags"; //
+"add.tag" = "Tag hinzufügen..."; //
+"created" = "Erstellt:"; //
+"add.first.recipe" = "Fügen Sie Ihr erstes Rezept hinzu, um loszulegen"; //
+"no.recipe.found" = "Keine Rezepte gefunden"; //
+"try.diff.search" = "Versuchen Sie einen anderen Suchbegriff"; //
+"create.tags" = "Erstellen Sie Tags, um Rezepte zu organisieren"; //
+"no.recipe.found" = "Keine Rezepte gefunden"; //
+"try.diff.search" = "Versuchen Sie einen anderen Suchbegriff"; //
+"no.tag.found" = "Keine Tags gefunden";//
+"create.tag.organise" = "Erstellen Sie Tags, um Rezepte zu organisieren"; //
 
 "feature.onboarding" = "Funktionen";
 "onboarding.tags.explained" = "Machen Sie die Suche nach Ihren Rezepten zum Kinderspiel, indem Sie Tags wie vegan, milchfrei, Weihnachten, Kuchen und persönliche Tags wie Oma hinzufügen. Mit Tags können Sie ganz einfach nach genau dem suchen, was Sie wollen, z. B. nach den besonderen Rezepten Ihrer Oma, die auch vegan sind.";

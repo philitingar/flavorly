@@ -9,9 +9,9 @@
 "recipe.add" = "Ajouter une recette";
 
 "recipe.name" = "Nom de la recette";
-"author.name" = "Nom de l'auteur";
-"diet.picker" = "Régime alimentaire";
+"author.name" = "L'auteur";
 
+"ingredient.list" = "Ingrédients"; //
 "recipe.text" = "recette";
 "add.button" = "Ajout";
 "update.button" = "Actualisation";
@@ -27,7 +27,7 @@
 "search.prompt.title" = "Rechercher un titre";
 "search.prompt.tag" = "Recherche de tags";
 
-"no.recipes" = "Vous n'avez pas de recettes";
+"no.recipes" = "Aucune recette pour le moment";
 "add.tags.separately" = "Ajoutez-les une à une";
 "add.tagToRecipe" = "ajoutez des tags à votre recette";
 "pick.by.name" = "Par nom";
@@ -37,6 +37,27 @@
 "no.recipe.saved" = "Vous n'avez pas encore enregistré de recette.";
 "tags.in.recipe" = "Tags associés à la recette :";
 "unknown.author"  = "Auteur inconnu";
+
+"created.date" = "Date de création :"; //
+"add.ingredient" = "Ajouter un ingrédient…"; //
+"instructions" = "Instructions"; //
+"new.recipe" = "Nouvelle recette"; //
+"back" = "Retour"; //
+"save" = "Enregistrer"; //
+"Home" = "Accueil";//
+"Search" = "Recherche";//
+"Settings" = "Paramètres";//
+"tag" = "Étiquettes"; //
+"add.tag" = "Ajouter une étiquette…"; //
+"created" = "Création:"; //
+"add.first.recipe" = "Ajoutez votre première recette pour commencer"; //
+"no.recipe.found" = "Aucune recette trouvée"; //
+"try.diff.search" = "Essayez un autre terme de recherche"; //
+"create.tags" = "Créez des étiquettes pour organiser les recettes"; //
+"no.recipe.found" = "Aucune recette trouvée"; //
+"try.diff.search" = "Essayez un autre terme de recherche"; //
+"no.tag.found" = "Aucune étiquette trouvée";//
+"create.tag.organise" = "Créez des étiquettes pour organiser les recettes"; //
 
 "feature.onboarding" = "Fonctionnalités";
 "onboarding.tags.explained" = "Facilitez la recherche de vos recettes en ajoutant des étiquettes telles que végétalien, sans produits laitiers, Noël, gâteau, et des étiquettes personnelles telles que grand-mère. Grâce aux étiquettes, vous pouvez facilement rechercher exactement ce que vous voulez, comme les recettes spéciales de votre grand-mère qui sont également végétaliennes.";

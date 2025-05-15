@@ -26,16 +26,16 @@ struct HomeView: View {
                     if #available(iOS 17.0, *) {
                         if #available(iOS 18.0, *) {
                             ContentUnavailableView {
-                                Label("No Recipes Yet", systemImage: "book.closed.fill")
+                                Label(LocalizedStringKey("no.recipes"), systemImage: "book.closed.fill")
                             } description: {
-                                Text("Add your first recipe to get started")
+                                Text(LocalizedStringKey("add.first.recipe"))
                             }
                             .symbolEffect(.bounce, options: .repeating)
                         } else {
                             // Fallback on earlier versions
                         }
                     } else {
-                        Text("No recipes available")
+                        Text(LocalizedStringKey("no.recipes"))
                     }
                 } else {
                     List {

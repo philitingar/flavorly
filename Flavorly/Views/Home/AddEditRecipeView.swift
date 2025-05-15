@@ -35,26 +35,26 @@ struct AddEditRecipeView: View {
                     Form {
                         // Recipe Info Section
                         Section {
-                            TextField("Recipe Name", text: $title)
+                            TextField(LocalizedStringKey("recipe.name"), text: $title)
                                 .textFieldStyle(.roundedBorder)
                             
-                            TextField("Author", text: $author)
+                            TextField(LocalizedStringKey("author.name"), text: $author)
                                 .textFieldStyle(.roundedBorder)
                             
-                            DatePicker("Created Date",
+                            DatePicker(LocalizedStringKey("created.date"),
                                       selection: $timestamp,
                                       displayedComponents: .date)
                         }
                         
                         // Ingredients Section
-                        Section("Ingredients") {
+                        Section(LocalizedStringKey("ingredient.list")) {
                             ForEach(ingredients.indices, id: \.self) { index in
                                 Text(ingredients[index])
                             }
                             .onDelete(perform: deleteIngredient)
                             
                             HStack {
-                                TextField("Add ingredient...", text: $currentIngredient)
+                                TextField(LocalizedStringKey("add.ingredient"), text: $currentIngredient)
                                     .textFieldStyle(.roundedBorder)
                                 
                                 Button {
@@ -68,7 +68,7 @@ struct AddEditRecipeView: View {
                         }
                         
                         // Instructions Section
-                        Section("Instructions") {
+                        Section(LocalizedStringKey("instructions")){
                             TextEditor(text: $text)
                                 .frame(minHeight: 150)
                                 .background(
@@ -78,7 +78,7 @@ struct AddEditRecipeView: View {
                         }
                         
                         // Tags Section (always editable)
-                        Section("Tags") {
+                        Section(LocalizedStringKey("tag")) {
                             // Use indices to ensure proper identification
                             ForEach(Array(zip(tags.indices, tags)), id: \.1.id) { index, tag in
                                 if let title = tag.title {
@@ -103,7 +103,7 @@ struct AddEditRecipeView: View {
                             
                             // Add tag field
                             HStack {
-                                TextField("Add tag...", text: $tagTitle)
+                                TextField(LocalizedStringKey("add.tag"), text: $tagTitle)
                                 Button {
                                     addTagItem(tagTitle: tagTitle)
                                     tagTitle = ""
@@ -114,7 +114,7 @@ struct AddEditRecipeView: View {
                             }
                         }
                     }
-                    .navigationTitle(newRecipe ? "New Recipe" : "Edit Recipe")
+                    .navigationTitle(newRecipe ? LocalizedStringKey("new.recipe") : LocalizedStringKey("recipe.edit"))
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         // Consistent back button for both modes
@@ -124,14 +124,14 @@ struct AddEditRecipeView: View {
                             } label: {
                                 HStack {
                                     Image(systemName: "chevron.left")
-                                    Text("Back")
+                                    Text(LocalizedStringKey("back"))
                                 }
                             }
                         }
                         
                         // Save button
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Save") {
+                            Button(LocalizedStringKey("save")) {
                                 saveRecipe()
                             }
                             .disabled(title.isEmpty || author.isEmpty || ingredients.isEmpty || text.isEmpty)

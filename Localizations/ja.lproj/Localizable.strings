@@ -27,7 +27,7 @@
 "search.prompt.title" = "タイトル検索";
 "search.prompt.tag" = "タグを検索";
 
-"no.recipes" = "レシピがありません";
+"no.recipes" = "まだレシピはありません";
 "add.tags.separately" = "一つずつ追加する";
 "add.tagToRecipe" = "レシピにタグを追加する";
 "pick.by.name" = "名前で検索";
@@ -37,6 +37,27 @@
 "no.recipe.saved" = "まだレシピを保存していません";
 "tags.in.recipe" = "レシピに関連するタグ";
 "unknown.author"  = "作者不明";
+
+"created.date" = "作成日:"; //
+"add.ingredient" = "材料を追加..."; //
+"instructions" = "手順"; //
+"new.recipe" = "新しいレシピ"; //
+"back" = "戻る"; //
+"save" = "保存"; //
+"Home" = "ホーム";//
+"Search" = "検索";//
+"Settings" = "設定";//
+"tag" = "タグ"; //
+"add.tag" = "タグを追加..."; //
+"created" = "作成日:"; //
+"add.first.recipe" = "まずは最初のレシピを追加してください"; //
+"no.recipe.found" = "レシピが見つかりません"; //
+"try.diff.search" = "別の検索項目を試してください"; //
+"create.tags" = "レシピを整理するためにタグを作成してください"; //
+"no.recipe.found" = "レシピが見つかりません"; //
+"try.diff.search" = "別の検索語を試してください"; //
+"no.tag.found" = "タグが見つかりません";//
+"create.tag.organise" = "レシピを整理するためにタグを作成してください"; //
 
 "feature.onboarding" = "特徴";
 "onboarding.tags.explained" = "ビーガン、乳製品不使用、クリスマス、ケーキ、おばあちゃんのような個人的なタグを追加することで、レシピを簡単に見つけることができます。タグを使えば、おばあちゃんからの特別なレシピやビーガンレシピなど、欲しいレシピを簡単に検索できます。";

@@ -65,7 +65,7 @@ struct SearchView: View {
                     if #available(iOS 18.0, *) {
                         ContentUnavailableView {
                             Label {
-                                Text("No Recipes Found")
+                                Text(LocalizedStringKey("no.recipe.found"))
                                     .font(.headline)
                             } icon: {
                                 Image(systemName: "book.pages")
@@ -74,7 +74,7 @@ struct SearchView: View {
                                     .frame(width: 30, height: 30)
                             }
                         } description: {
-                            Text("Try a different search term")
+                            Text(LocalizedStringKey("try.diff.search"))
                         }
                         .symbolEffect(.wiggle, options: .repeating)
                     } else {
@@ -115,7 +115,7 @@ struct SearchView: View {
                         ContentUnavailableView {
                            
                                 Label {
-                                    Text("No Tags Found")
+                                    Text(LocalizedStringKey("no.tag.found"))
                                         .font(.headline)
                                 } icon: {
                                     Image(systemName: "tag")
@@ -125,7 +125,7 @@ struct SearchView: View {
                                 }
 
                         } description: {
-                            Text("Create tags to organize recipes")
+                            Text(LocalizedStringKey("create.tag.organise"))
                         }
                         .symbolEffect(.wiggle, options: .repeating)
                     } else {

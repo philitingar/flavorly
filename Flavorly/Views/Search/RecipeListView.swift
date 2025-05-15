@@ -19,7 +19,7 @@ struct RecipeListView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                Text("Here are the recipes matching your selected tags:")
+                Text(LocalizedStringKey("tags.in.recipe"))
                     .font(.headline)
                     .padding(2)
                 List {

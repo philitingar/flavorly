@@ -9,9 +9,9 @@
 "recipe.add" = "Tarif ekle";
 
 "recipe.name" = "Tarif adı";
-"author.name" = "Yazarın adı";
+"author.name" = "Yazar";
 
-"ingredient.list" = "İçindekiler";
+"ingredient.list" = "Malzemeler";
 "recipe.text" = "Yemek Tarifi";
 "add.button" = "Ekle";
 "update.button" = "Güncelleme";
@@ -27,7 +27,7 @@
 "search.prompt.title" = "Bir başlık arayın";
 "search.prompt.tag" = "Etiketler için arama";
 
-"no.recipes" = "Tarifiniz yok";
+"no.recipes" = "Henüz tarif yok";
 "add.tags.separately" = "Teker teker ekleyin";
 "add.tagToRecipe" = "tarifinize etiket ekleyin";
 "pick.by.name" = "İsme göre";
@@ -37,6 +37,28 @@
 "no.recipe.saved" = "Henüz herhangi bir tarif kaydetmediniz.";
 "tags.in.recipe" = "Tarif ile ilişkili etiketler:";
 "unknown.author"  = "Bilinmeyen Yazar";
+
+"created.date" = "Oluşturulma tarihi:"; //
+"add.ingredient" = "Malzeme ekle..."; //
+"instructions" = "Talimatlar"; //
+"new.recipe" = "Yeni tarif"; //
+"back" = "Geri"; //
+"save" = "Kaydet"; //
+"Home" = "Ana sayfa";//
+"Search" = "Arama";//
+"Settings" = "Ayarlar";//
+"tag" = "Etiketler"; //
+"add.tag" = "Etiket ekle..."; //
+"created" = "Oluşturuldu:"; //
+"add.first.recipe" = "Başlamak için ilk tarifinizi ekleyin"; //
+"no.recipe.found" = "Tarif Bulunamadı"; //
+"try.diff.search" = "Farklı bir arama öğesi deneyin"; //
+"create.tags" = "Tarifleri düzenlemek için etiketler oluşturun"; //
+"no.recipe.found" = "Tarif Bulunamadı"; //
+"try.diff.search" = "Farklı bir arama terimi deneyin"; //
+"no.tag.found" = "Etiket Bulunamadı";//
+"create.tag.organise" = "Tarifleri düzenlemek için etiketler oluşturun"; //
+
 
 "feature.onboarding" = "Özellikler";
 "onboarding.tags.explained" = "Vegan, sütsüz, Noel, kek ve büyükanne gibi kişisel etiketler ekleyerek tariflerinizi bulmayı kolaylaştırın. Etiketlerle, büyükannenizin vegan olan özel tarifleri gibi tam olarak istediğiniz şeyi kolayca arayabilirsiniz.";
