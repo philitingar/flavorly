@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20B3D8882DD6A428000BE672 /* Flavourly_privacy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 20B3D8872DD6A428000BE672 /* Flavourly_privacy.pdf */; };
 		26164C272B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */; };
 		26164C2E2B34851A0041B2EF /* AddEditRecipeViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */; };
 		2629F15D2B455E7D0099FB96 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2629F15F2B455E7D0099FB96 /* Localizable.strings */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20B3D8872DD6A428000BE672 /* Flavourly_privacy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Flavourly_privacy.pdf; sourceTree = "<group>"; };
 		26164C222B34844A0041B2EF /* FlavourlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavourlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26164C262B34844A0041B2EF /* FlavorlyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorlyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		26164C2D2B34851A0041B2EF /* AddEditRecipeViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditRecipeViewUITests.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2655CB022B7E20BB00867A1E /* Flavourly-Info.plist */,
+				20B3D8872DD6A428000BE672 /* Flavourly_privacy.pdf */,
 				20B3D80B2DD50C75000BE672 /* Coredata */,
 				2629F15C2B455E4E0099FB96 /* Localizations */,
 				26C29FAE2AA8CAAD00DE0690 /* FlavorlyTests */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2629F15D2B455E7D0099FB96 /* Localizable.strings in Resources */,
+				20B3D8882DD6A428000BE672 /* Flavourly_privacy.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,42 @@
 import SwiftUI
 
 struct PrivacyView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var themeManager: ThemeManager
 
-#Preview {
-    PrivacyView()
+
+    var body: some View {
+        NavigationView {
+            ZStack {
+                themeManager.currentTheme.appBackgroundColor.edgesIgnoringSafeArea(.all)
+                Group {
+                    if let url = Bundle.main.url(forResource: "Flavourly_privacy", withExtension: "pdf") {
+                        QLDocumentViewer(fileURL: url)
+                            .edgesIgnoringSafeArea(.bottom)
+                    } else {
+                        VStack(spacing: 15) {
+                            Image(systemName: "doc.text.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(.gray)
+                            Text("Privacy Policy Not Found")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                        }
+                        .padding()
+                    }
+                }
+                
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Privacy Policy")
+                        .foregroundColor(themeManager.currentTheme.viewTitleColor)
+                        .font(.title2)
+                        .bold()
+                }
+            }
+        }
+    }
 }

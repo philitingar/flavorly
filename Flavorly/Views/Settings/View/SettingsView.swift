@@ -14,7 +14,7 @@ struct SettingsView: View {
         NavigationStack(path: $navigationPath) {
             ZStack {
                 themeManager.currentTheme.appBackgroundColor.ignoresSafeArea()
-                VStack{
+                VStack {
                     List {
                         Section(header:
                                     Text("PERSONALIZATION")
@@ -24,10 +24,64 @@ struct SettingsView: View {
                         ) {
                             NavigationLink(value: NavigationDestination.themes) {
                                 HStack {
-                                    Image(systemName: "person.circle")
+                                    Image(systemName: "star.circle")
                                         .resizable()
                                         .commonIconStyle()
                                     Text("Themes")
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                        .foregroundStyle(themeManager.currentTheme.primaryTextColor)
+                                }
+                            }.listRowBackground(Color.clear)
+                        }
+                        Section(header:
+                                    Text("CONTACT")
+                            .font(.caption2)
+                            .bold()
+                            .foregroundColor(themeManager.currentTheme.primaryTextColor)
+                        ) {
+                            NavigationLink(value: NavigationDestination.contact) {
+                                HStack {
+                                    Image(systemName: "paperplane.circle")
+                                        .resizable()
+                                        .commonIconStyle()
+                                    Text("Contact")
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                        .foregroundStyle(themeManager.currentTheme.primaryTextColor)
+                                }
+                            }.listRowBackground(Color.clear)
+                        }
+                        Section(header:
+                                    Text("INFORMATION ABOUT THE APP")
+                            .font(.caption2)
+                            .bold()
+                            .foregroundColor(themeManager.currentTheme.primaryTextColor)
+                        ) {
+                            NavigationLink(value: NavigationDestination.information) {
+                                HStack {
+                                    Image(systemName: "info.circle")
+                                        .resizable()
+                                        .commonIconStyle()
+                                    Text("Information")
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                        .foregroundStyle(themeManager.currentTheme.primaryTextColor)
+                                }
+                            }.listRowBackground(Color.clear)
+                        }
+                        Section(header:
+                                    Text("PRIVACY")
+                            .font(.caption2)
+                            .bold()
+                            .foregroundColor(themeManager.currentTheme.primaryTextColor)
+                        ) {
+                            NavigationLink(value: NavigationDestination.privacy) {
+                                HStack {
+                                    Image(systemName: "lock.circle")
+                                        .resizable()
+                                        .commonIconStyle()
+                                    Text("Privacy")
                                         .font(.body)
                                         .fontWeight(.medium)
                                         .foregroundStyle(themeManager.currentTheme.primaryTextColor)
