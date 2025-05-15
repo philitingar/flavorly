@@ -10,47 +10,52 @@ import CoreData
 struct DetailView: View {
     @ObservedObject var recipe: Recipe  // Changed to ObservedObject for CoreData object
     @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject var themeManager: ThemeManager
+    
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                // Header Section
-                headerSection
-                
-                // Ingredients Card
-                if let ingredients = recipe.ingredients, !ingredients.isEmpty {
-                    cardView(title: "ingredient.list", content: ingredients, icon: "list.bullet")
+        ZStack {
+            themeManager.currentTheme.appBackgroundColor.ignoresSafeArea()
+            ScrollView {
+                VStack(spacing: 20) {
+                    // Header Section
+                    headerSection
+                    
+                    // Ingredients Card
+                    if let ingredients = recipe.ingredients, !ingredients.isEmpty {
+                        cardView(title: "ingredient.list", content: ingredients, icon: "list.bullet")
+                    }
+                    
+                    // Instructions Card
+                    if let instructions = recipe.text, !instructions.isEmpty {
+                        cardView(title: "instructions", content: instructions, icon: "text.book.closed")
+                    }
+                    
+                    // Tags Section
+                    if !recipe.tagArray.isEmpty {
+                        tagsSection
+                    }
+                    recipeMetaSection
                 }
-                
-                // Instructions Card
-                if let instructions = recipe.text, !instructions.isEmpty {
-                    cardView(title: "instructions", content: instructions, icon: "text.book.closed")
-                }
-                
-                // Tags Section
-                if !recipe.tagArray.isEmpty {
-                    tagsSection
-                }
-                recipeMetaSection
+                .padding()
             }
-            .padding()
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                HStack(spacing: 16) {
-                    editButton
-                    deleteButton
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    HStack(spacing: 16) {
+                        editButton
+                        deleteButton
+                    }
                 }
             }
-        }
-        .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
-            Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteRecipe)
-            Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
-        } message: {
-            Text(LocalizedStringKey("delete.reassurance"))
+            .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
+                Button(LocalizedStringKey("delete.button"), role: .destructive, action: deleteRecipe)
+                Button(LocalizedStringKey("cancel.button"), role: .cancel) { }
+            } message: {
+                Text(LocalizedStringKey("delete.reassurance"))
+            }
         }
     }
     
@@ -60,14 +65,14 @@ struct DetailView: View {
         VStack(spacing: 8) {
             Text(recipe.title ?? "Untitled Recipe")
                 .font(.headline.bold())
-                .foregroundColor(.textBackgroundBlue)
+                .foregroundColor(themeManager.currentTheme.viewTitleColor)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 2)
             
             if let author = recipe.author, !author.isEmpty {
-                    Text("By: \(author)")
+                Text("By: \(author)")
                     .font(.caption)
-                        .foregroundColor(.secondary)
+                    .foregroundColor(themeManager.currentTheme.secondaryTextColor)
             }
         }
         .padding(.vertical, 5)
@@ -78,22 +83,22 @@ struct DetailView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Image(systemName: icon)
-                    .foregroundColor(.backgroundGreen)
+                    .foregroundColor(themeManager.currentTheme.addButtonColor)
                 Text(LocalizedStringKey(title))
                     .font(.headline.bold())
-                    .foregroundColor(.textBackgroundBlue)
+                    .foregroundColor(themeManager.currentTheme.primaryTextColor)
             }
             
             Text(content)
                 .font(.body)
-                .foregroundColor(.primary)
+                .foregroundColor(themeManager.currentTheme.primaryTextColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white.opacity(0.2))
-                .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2)
+                .fill(themeManager.currentTheme.textFieldBackgroundColor)
+                .shadow(color: themeManager.currentTheme.primaryTextColor.opacity(0.1), radius: 5, x: 0, y: 2)
         )
     }
     
@@ -101,22 +106,23 @@ struct DetailView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(LocalizedStringKey("tag"))
                 .font(.headline.bold())
-                .foregroundColor(.textBackgroundBlue)
+                .foregroundColor(themeManager.currentTheme.primaryTextColor)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     ForEach(recipe.tagArray, id: \.self) { tag in
                         Text(tag.title ?? "Untagged")
                             .font(.caption)
+                            .foregroundColor(themeManager.currentTheme.primaryTextColor)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
                             .background(
                                 Capsule()
-                                    .fill(Color.backgroundGreen.opacity(0.2))
+                                    .fill(themeManager.currentTheme.addButtonColor.opacity(0.2))
                             )
                             .overlay(
                                 Capsule()
-                                    .stroke(Color.backgroundGreen, lineWidth: 1)
+                                    .stroke(themeManager.currentTheme.addButtonColor, lineWidth: 1)
                             )
                     }
                 }
@@ -126,24 +132,24 @@ struct DetailView: View {
     }
     
     private var recipeMetaSection: some View {
-           Group {
-               if recipe.timestamp != nil {
-                   HStack {
-                       VStack(alignment: .leading) {
-                           Text(LocalizedStringKey("created"))
-                               .font(.caption)
-                               .foregroundColor(.secondary)
-                           Text(recipe.timestamp!, style: .date)  // Using .date style for automatic formatting
-                               .font(.caption)
-                               .foregroundColor(.secondary)
-                       }
-                       Spacer()
-                   }
-                   .padding(.top, 20)
-                   .transition(.opacity)  // Add animation if needed
-               }
-           }
-       }
+        Group {
+            if recipe.timestamp != nil {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(LocalizedStringKey("created"))
+                            .font(.caption)
+                            .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+                        Text(recipe.timestamp!, style: .date)  // Using .date style for automatic formatting
+                            .font(.caption)
+                            .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+                    }
+                    Spacer()
+                }
+                .padding(.top, 20)
+                .transition(.opacity)  // Add animation if needed
+            }
+        }
+    }
     
     private var editButton: some View {
         NavigationLink {
@@ -152,7 +158,7 @@ struct DetailView: View {
             Image(systemName: "pencil.circle")
                 .symbolRenderingMode(.hierarchical)
                 .font(.headline)
-                .foregroundColor(.backgroundBlue)
+                .foregroundColor(themeManager.currentTheme.addButtonColor)
         }
     }
     
@@ -163,7 +169,7 @@ struct DetailView: View {
             Image(systemName: "trash.circle")
                 .symbolRenderingMode(.hierarchical)
                 .font(.headline)
-                .foregroundColor(.backgroundRed)
+                .foregroundColor(themeManager.currentTheme.deleteButtonColor)
         }
     }
     

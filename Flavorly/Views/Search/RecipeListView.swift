@@ -12,7 +12,8 @@ import CoreData
 struct RecipeListView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
-    
+    @EnvironmentObject var themeManager: ThemeManager
+
     @State private var recipes: [Recipe] = []
     @State var tags: Set<Tag>
     
@@ -22,14 +23,16 @@ struct RecipeListView: View {
                 Text(LocalizedStringKey("tags.in.recipe"))
                     .font(.headline)
                     .padding(2)
+                    .foregroundColor(themeManager.currentTheme.primaryTextColor)
                 List {
                     ForEach(recipes, id: \.self) { recipe in
                         NavigationLink(destination: DetailView(recipe: recipe))
                         {
                             Text(recipe.title!)
+                                .foregroundColor(themeManager.currentTheme.primaryTextColor)
                         }
                     }
-                    .listRowSeparatorTint(Color.backgroundBlue)
+                    .listRowSeparatorTint(themeManager.currentTheme.dividerColor)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 2, trailing: 0))
                     .padding(4)
                 }
@@ -59,11 +62,13 @@ struct RecipeListView: View {
                                     Label {
                                         Text("no.recipe.to.tag.message")
                                             .font(.headline)
+                                            .foregroundColor(themeManager.currentTheme.primaryTextColor)
                                     } icon: {
                                         Image(systemName: "book.pages")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 30, height: 30)
+                                            .foregroundColor(themeManager.currentTheme.addButtonColor)
                                     }
                                     
                                 } description: {
@@ -72,7 +77,7 @@ struct RecipeListView: View {
                                 .symbolEffect(.bounce, options: .repeating)
                                 
                             } else {
-                                Text("no.recipe.to.tag.message").padding(5)
+                                Text("no.recipe.to.tag.message").padding(5).foregroundColor(themeManager.currentTheme.primaryTextColor)
                             }
                         }
                     }

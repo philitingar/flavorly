@@ -11,7 +11,8 @@ struct AddEditRecipeView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     let recipe: Recipe?
-    
+    @EnvironmentObject var themeManager: ThemeManager
+
     @State private var newRecipe = false
     @State private var title = ""
     @State private var ingredients: [String] = []
@@ -31,114 +32,126 @@ struct AddEditRecipeView: View {
                     self.onboardingDone = true
                 }
             } else {
-                NavigationStack {
-                    Form {
-                        // Recipe Info Section
-                        Section {
-                            TextField(LocalizedStringKey("recipe.name"), text: $title)
-                                .textFieldStyle(.roundedBorder)
-                            
-                            TextField(LocalizedStringKey("author.name"), text: $author)
-                                .textFieldStyle(.roundedBorder)
-                            
-                            DatePicker(LocalizedStringKey("created.date"),
-                                      selection: $timestamp,
-                                      displayedComponents: .date)
-                        }
-                        
-                        // Ingredients Section
-                        Section(LocalizedStringKey("ingredient.list")) {
-                            ForEach(ingredients.indices, id: \.self) { index in
-                                Text(ingredients[index])
-                            }
-                            .onDelete(perform: deleteIngredient)
-                            
-                            HStack {
-                                TextField(LocalizedStringKey("add.ingredient"), text: $currentIngredient)
+                ZStack {
+                    themeManager.currentTheme.appBackgroundColor.ignoresSafeArea()
+                    NavigationStack {
+                        Form {
+                            // Recipe Info Section
+                            Section {
+                                TextField(LocalizedStringKey("recipe.name"), text: $title)
                                     .textFieldStyle(.roundedBorder)
+                                    .background(themeManager.currentTheme.textFieldBackgroundColor)
                                 
-                                Button {
-                                    addIngredient()
-                                } label: {
-                                    Image(systemName: "plus.circle.fill")
-                                        .symbolRenderingMode(.hierarchical)
-                                }
-                                .disabled(currentIngredient.isEmpty)
+                                TextField(LocalizedStringKey("author.name"), text: $author)
+                                    .textFieldStyle(.roundedBorder)
+                                    .background(themeManager.currentTheme.textFieldBackgroundColor)
+                                
+                                DatePicker(LocalizedStringKey("created.date"),
+                                           selection: $timestamp,
+                                           displayedComponents: .date)
+                                .accentColor(Color.accentColor)
                             }
-                        }
-                        
-                        // Instructions Section
-                        Section(LocalizedStringKey("instructions")){
-                            TextEditor(text: $text)
-                                .frame(minHeight: 150)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                                )
-                        }
-                        
-                        // Tags Section (always editable)
-                        Section(LocalizedStringKey("tag")) {
-                            // Use indices to ensure proper identification
-                            ForEach(Array(zip(tags.indices, tags)), id: \.1.id) { index, tag in
-                                if let title = tag.title {
-                                    HStack {
-                                        Text(title)
-                                        Spacer()
-                                        Button {
-                                            // Remove only this specific tag
-                                            removeTag(at: index)
-                                        } label: {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .foregroundColor(.red)
-                                        }
+                            
+                            // Ingredients Section
+                            Section(LocalizedStringKey("ingredient.list")) {
+                                ForEach(ingredients.indices, id: \.self) { index in
+                                    Text(ingredients[index])
+                                }
+                                .onDelete(perform: deleteIngredient)
+                                
+                                HStack {
+                                    TextField(LocalizedStringKey("add.ingredient"), text: $currentIngredient)
+                                        .textFieldStyle(.roundedBorder)
+                                        .background(themeManager.currentTheme.textFieldBackgroundColor)
+                                    Button {
+                                        addIngredient()
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill")
+                                            .symbolRenderingMode(.hierarchical)
+                                            .foregroundStyle(themeManager.currentTheme.addButtonColor)
                                     }
-                                    .padding(8)
+                                    .disabled(currentIngredient.isEmpty)
+                                }
+                            }
+                            
+                            // Instructions Section
+                            Section(LocalizedStringKey("instructions")){
+                                TextEditor(text: $text)
+                                    .frame(minHeight: 150)
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color.blue.opacity(0.1))
+                                            .stroke(themeManager.currentTheme.secondaryTextColor, lineWidth: 1)
                                     )
-                                }
                             }
                             
-                            // Add tag field
-                            HStack {
-                                TextField(LocalizedStringKey("add.tag"), text: $tagTitle)
-                                Button {
-                                    addTagItem(tagTitle: tagTitle)
-                                    tagTitle = ""
-                                } label: {
-                                    Image(systemName: "plus.circle.fill")
+                            // Tags Section (always editable)
+                            Section(LocalizedStringKey("tag")) {
+                                // Use indices to ensure proper identification
+                                ForEach(Array(zip(tags.indices, tags)), id: \.1.id) { index, tag in
+                                    if let title = tag.title {
+                                        HStack {
+                                            Text(title)
+                                                .foregroundStyle(themeManager.currentTheme.primaryTextColor)
+                                            Spacer()
+                                            Button {
+                                                // Remove only this specific tag
+                                                removeTag(at: index)
+                                            } label: {
+                                                Image(systemName: "xmark.circle.fill")
+                                                    .foregroundColor(themeManager.currentTheme.deleteButtonColor)
+                                            }
+                                        }
+                                        .padding(8)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(themeManager.currentTheme.deleteButtonColor.opacity(0.1))
+                                        )
+                                    }
                                 }
-                                .disabled(tagTitle.isEmpty)
-                            }
-                        }
-                    }
-                    .navigationTitle(newRecipe ? LocalizedStringKey("new.recipe") : LocalizedStringKey("recipe.edit"))
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        // Consistent back button for both modes
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
-                                dismiss()
-                            } label: {
+                                
+                                // Add tag field
                                 HStack {
-                                    Image(systemName: "chevron.left")
-                                    Text(LocalizedStringKey("back"))
+                                    TextField(LocalizedStringKey("add.tag"), text: $tagTitle)
+                                    Button {
+                                        addTagItem(tagTitle: tagTitle)
+                                        tagTitle = ""
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill")
+                                            .foregroundColor(themeManager.currentTheme.addButtonColor)
+                                    }
+                                    .disabled(tagTitle.isEmpty)
                                 }
                             }
                         }
-                        
-                        // Save button
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(LocalizedStringKey("save")) {
-                                saveRecipe()
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            // Consistent back button for both modes
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button {
+                                    dismiss()
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "chevron.left")
+                                            .foregroundColor(themeManager.currentTheme.addButtonColor)
+                                    }
+                                }
                             }
-                            .disabled(title.isEmpty || author.isEmpty || ingredients.isEmpty || text.isEmpty)
-                            .bold()
+                            ToolbarItem(placement: .principal) {
+                                Text(newRecipe ? LocalizedStringKey("new.recipe") : LocalizedStringKey("recipe.edit"))
+                                    .foregroundColor(themeManager.currentTheme.viewTitleColor)
+                            }
+                            // Save button
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button(LocalizedStringKey("save")) {
+                                    saveRecipe()
+                                }
+                                .disabled(title.isEmpty || author.isEmpty || ingredients.isEmpty || text.isEmpty)
+                                .bold()
+                                .foregroundColor(themeManager.currentTheme.addButtonColor)
+                            }
                         }
+                        .onAppear { setupInitialValues() }
                     }
-                    .onAppear { setupInitialValues() }
                 }
             }
         }
@@ -146,25 +159,28 @@ struct AddEditRecipeView: View {
     
     // Tag View (removable in all cases)
     private struct TagView: View {
+        @EnvironmentObject var themeManager: ThemeManager
+
         let title: String
         let action: () -> Void
         
         var body: some View {
             HStack(spacing: 4) {
                 Text(title)
+                    .foregroundColor(themeManager.currentTheme.viewTitleColor)
                 Button(action: action) {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.secondary)
+                        .foregroundColor(themeManager.currentTheme.secondaryTextColor)
                 }
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
             .background(
                 Capsule()
-                    .fill(Color.blue.opacity(0.1))
+                    .fill(themeManager.currentTheme.secondaryTextColor.opacity(0.1))
             .overlay(
                 Capsule()
-                    .stroke(Color.blue, lineWidth: 1)
+                    .stroke(themeManager.currentTheme.secondaryTextColor, lineWidth: 1)
             ))
         }
     }

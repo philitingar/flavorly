@@ -16,7 +16,8 @@ struct TabBarView: View {
     let iconSize: CGFloat = 30
     let horizontalPadding: CGFloat = 20
     let tabBarBottomPadding: CGFloat = 20
-    
+    @EnvironmentObject var themeManager: ThemeManager
+
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.colorScheme) var colorScheme
     
@@ -31,44 +32,44 @@ struct TabBarView: View {
                     .tag(Tab.search)
                     .environment(\.managedObjectContext, viewContext)
                 
-                SettingsView()
+                SettingsView(navigationPath: $settingsNavigationPath)
                     .tag(Tab.settings)
             }
             .toolbar(.hidden, for: .tabBar)
             
             VStack(spacing: 0) {
                 Spacer()
-                HStack {
-                    ForEach(Tab.allCases, id: \.rawValue) { tab in
-                        Spacer()
-                        Button {
-                            if selectedTab == tab && tab == .settings {
-                                settingsNavigationPath = NavigationPath()
+                if #available(iOS 17.0, *) {
+                    HStack {
+                        ForEach(Tab.allCases, id: \.rawValue) { tab in
+                            Spacer()
+                            Button {
+                                if selectedTab == tab && tab == .settings {
+                                    settingsNavigationPath = NavigationPath()
+                                }
+                                selectedTab = tab
+                            } label: {
+                                VStack {
+                                    Image(systemName: tab.image)
+                                        .font(.system(size: 25))
+                                        .foregroundColor(selectedTab == tab ? themeManager.currentTheme.bottomTabButtonColorDark : themeManager.currentTheme.bottomTabButtonColorLight)
+                                }
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                             }
-                            selectedTab = tab
-                        } label: {
-                            VStack {
-                                Image(systemName: tab.image)
-                                    .font(.system(size: 25))
-                                    .foregroundColor(selectedTab == tab ? .blue : .gray)
-                                
-                                Text(tab.title)
-                                    .font(.caption2)
-                                    .foregroundColor(selectedTab == tab ? .blue : .gray)
-                            }
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            Spacer()
                         }
-                        Spacer()
                     }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 70)
+                    .background(
+                        Color(themeManager.currentTheme.tabBarBackgroundColor)
+                            .ignoresSafeArea()
+                    )
+                    .opacity(isTabBarHidden ? 0 : 1)
+                    .animation(.easeInOut, value: isTabBarHidden)
+                } else {
+                    // Fallback on earlier versions
                 }
-                .frame(maxWidth: .infinity)
-                .frame(height: 70)
-                .background(
-                    Color(.secondarySystemBackground) // Adapts to light/dark mode
-                                            .ignoresSafeArea()
-                )
-                .opacity(isTabBarHidden ? 0 : 1)
-                .animation(.easeInOut, value: isTabBarHidden)
             }
             .padding(.bottom, tabBarBottomPadding)
         }
@@ -115,14 +116,6 @@ enum Tab: String, CaseIterable {
     case home = "Home"
     case search = "Search"
     case settings = "Settings"
-    
-    var title: String {
-        switch self {
-        case .home: return "Home"
-        case .search: return "Search"
-        case .settings: return "Settings"
-        }
-    }
     
     var image: String {
         switch self {

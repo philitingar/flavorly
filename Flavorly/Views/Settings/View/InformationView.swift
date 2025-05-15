@@ -1,18 +1,18 @@
 //
-//  SettingsView.swift
+//  InformationView.swift
 //  Flavourly
 //
-//  Created by Timea Bartha on 14/5/25.
+//  Created by Timea Bartha on 15/5/25.
 //
 
 import SwiftUI
 
-struct SettingsView: View {
+struct InformationView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    SettingsView()
+    InformationView()
 }

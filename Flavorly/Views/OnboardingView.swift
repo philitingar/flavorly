@@ -9,22 +9,23 @@ import SwiftUI
 
 struct OnboardingView: View {
     var doneFunction: () -> Void
-    
+    @EnvironmentObject var themeManager: ThemeManager
+
     var body: some View {
         VStack {
             Spacer()
             Text("feature.onboarding")
                 .font(.title2)
                 .bold()
-                .foregroundColor(.primary)
+                .foregroundStyle(themeManager.currentTheme.primaryTextColor)
                 .padding()
             Text("onboarding.tags.explained")
                 .font(.headline)
-                .foregroundColor(.primary)
+                .foregroundStyle(themeManager.currentTheme.primaryTextColor)
                 .padding()
             Text("onboarding.tags.alternative.usage")
                 .font(.headline)
-                .foregroundColor(.primary)
+                .foregroundStyle(themeManager.currentTheme.primaryTextColor)
                 .padding()
             Spacer()
             Spacer()
@@ -34,9 +35,8 @@ struct OnboardingView: View {
                 Text("onboarding.consent")
                     .font(.headline)
                     .padding(10)
-                    .foregroundColor(.primary)
+                    .foregroundStyle(themeManager.currentTheme.primaryTextColor)
                     .background(.ultraThinMaterial)
-                    .background(Color.backgroundGreen)
                     .cornerRadius(12)
                     .padding()
             }
