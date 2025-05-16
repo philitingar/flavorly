@@ -42,6 +42,7 @@ struct SearchView: View {
                         tagListView
                     }
                 }
+                .padding()
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     if alignmentValue == 1 {
