@@ -9,7 +9,7 @@
 "recipe.add" = "Dodaj przepis";
 
 "recipe.name" = "Nazwa przepisu";
-"author.name" = "Nazwisko autora";
+"author.name" = "Autora";
 
 "ingredient.list" = "Składniki";
 "recipe.text" = "Przepis";
@@ -27,7 +27,7 @@
 "search.prompt.title" = "Wyszukiwanie tytułu";
 "search.prompt.tag" = "Wyszukaj tagi";
 
-"no.recipes" = "Nie masz przepisów";
+"no.recipes" = "Jeszcze nie ma przepisów";
 "add.tags.separately" = "Dodaj je jeden po drugim";
 "add.tagToRecipe" = "Dodaj tagi do swojego przepisu";
 "pick.by.name" = "Według nazwy";
@@ -37,6 +37,27 @@
 "no.recipe.saved" = "Nie zapisałeś jeszcze żadnego przepisu.";
 "tags.in.recipe" = "Tagi powiązane z przepisem:";
 "unknown.author"  = "Nieznany autor";
+
+"created.date" = "Data utworzenia:"; //
+"add.ingredient" = "Dodaj składnik..."; //
+"instructions" = "Instrukcje"; //
+"new.recipe" = "Nowy przepis"; //
+"back" = "Wstecz"; //
+"save" = "Zapisz"; //
+"Home" = "Strona główna";//
+"Search" = "Szukaj";//
+"Settings" = "Ustawienia";//
+"tag" = "Tagi"; //
+"add.tag" = "Dodaj tag..."; //
+"created" = "Utworzono:"; //
+"add.first.recipe" = "Dodaj swój pierwszy przepis, aby rozpocząć"; //
+"no.recipe.found" = "Nie znaleziono przepisów"; //
+"try.diff.search" = "Wypróbuj inny element wyszukiwania"; //
+"create.tags" = "Utwórz tagi, aby uporządkować przepisy"; //
+"no.recipe.found" = "Nie znaleziono przepisów"; //
+"try.diff.search" = "Wypróbuj inny termin wyszukiwania"; //
+"no.tag.found" = "Nie znaleziono tagów";//
+"create.tag.organise" = "Utwórz tagi, aby uporządkować przepisy"; //
 
 "feature.onboarding" = "Funkcje";
 "onboarding.tags.explained" = "Spraw, by znajdowanie przepisów było dziecinnie proste, dodając tagi, takie jak wegańskie, bez nabiału, świąteczne, ciasta i osobiste, takie jak babcia. Dzięki tagom możesz łatwo wyszukiwać dokładnie to, czego chcesz, na przykład specjalne przepisy od babci, które są również wegańskie.";
@@ -49,3 +70,24 @@
 
 "warning.alert" = "OSTRZEŻENIE!";
 "delete.tag.warning.text" = "Jeśli usuniesz ten tag, zostanie on usunięty ze wszystkich przepisów. Żaden z Twoich przepisów nie będzie już zawierał tego tagu!";
+
+"feedback.suggestion" = "Opinie i sugestie";
+"client.question.text" = "Jeśli masz pytania, uwagi lub zauważysz jakieś nieścisłości, poinformuj nas przez formularz kontaktowy. Twoje uwagi pomagają nam ulepszać Flavourly!";
+"open.form" = "Otwórz formularz opinii";
+"contact.url.invalid" = "Adres URL formularza kontaktowego jest nieprawidłowy.";
+"disclaimer.contact" = "Kontakt i zastrzeżenia prawne";
+"about.flavourly" = "O Flavourly";
+"about.one" = "Flavourly to przyjazna aplikacja dla miłośników gotowania.";
+"about.two" = "Dbamy o Twoją prywatność: brak zbierania danych.";
+"about.three" = "Łatwo zapisuj i przechowuj swoje ulubione przepisy.";
+"about.four" = "Dostępne w 14 różnych językach.";
+"about.flavourly.one" = "Informacje o Flavourly";
+"privacy.view" = "Polityka prywatności";
+"privacy.error" = "Nie znaleziono polityki prywatności";
+"theme" = "Wybierz swój kolor motywu";
+"privacy" = "Prywatność";
+"info" = "Informacje";
+"info.about" = "Informacje o aplikacji";
+"contact" = "Kontakt";
+"themes" = "Motywy";
+"personalization" = "Personalizacja";

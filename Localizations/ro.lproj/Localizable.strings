@@ -9,9 +9,9 @@
 "recipe.add" = "Adaugă rețetă";
 
 "recipe.name" = "Numele rețetei";
-"author.name" = "Numele autorului";
+"author.name" = "Autor";
 
-"ingredient.list" = "Lista ingredientelor";
+"ingredient.list" = "Ingrediente";
 "recipe.text" = "rețeta";
 "add.button" = "Adauga";
 "update.button" = "Actualizează";
@@ -27,7 +27,7 @@
 "search.prompt.title" = "Caută un titlu";
 "search.prompt.tag" = "Caută etichete";
 
-"no.recipes" = "Nu ai rețete";
+"no.recipes" = "Nu s-au găsit încă rețete";
 "add.tags.separately" = "Adaugă-le una câte una";
 "add.tagToRecipe" = "Adaugă etichete la rețetă";
 "pick.by.name" = "După nume";
@@ -37,6 +37,31 @@
 "no.recipe.saved" = "Nu ai salvat încă nicio rețetă";
 "tags.in.recipe" = "Etichete asociate cu rețeta:";
 "unknown.author"  = "Autor necunoscut";
+
+"created.date" = "Data creării:"; //
+"add.ingredient" = "Adăugă ingredient..."; //
+"instructions" = "Instrucțiuni"; //
+"new.recipe" = "Rețetă nouă"; //
+"back" = "Înapoi"; //
+"save" = "Salvați"; //
+"Home" = "Acasă";//
+"Search" = "Căutare";//
+"Settings" = "Setări";//
+"tag" = "Etichete"; //
+"add.tag" = "Adăugați etichetă..."; //
+"created" = "Creat:"; //
+"add.first.recipe" = "Adăugați prima rețetă pentru a începe"; //
+"no.recipe.found" = "Nu s-au găsit rețete"; //
+"try.diff.search" = "Încercați un alt element de căutare"; //
+"create.tags" = "Creați etichete pentru a organiza rețetele"; //
+"no.recipe.found" = "Nu s-au găsit rețete"; //
+"try.diff.search" = "Încercă un alt termen de căutare"; //
+"no.tag.found" = "Nu s-au găsit etichete";//
+"create.tag.organise" = "Crează etichete pentru a organiza rețetele"; //
+
+
+
+
 
 "feature.onboarding" = "Caracteristici";
 "onboarding.tags.explained" = "Găsește-ți ușor rețetele adăugând etichete precum vegan, fără lactate, Crăciun, prăjituri și etichete personale precum bunica. Cu ajutorul etichetelor, poți căuta cu ușurință exact ceea ce dorești, cum ar fi acele rețete speciale de la bunica ta care sunt de asemenea vegane.";
@@ -50,3 +75,24 @@
 "warning.alert" = "ATENȚIE!";
 "delete.tag.warning.text" = "Dacă ștergi această etichetă, ea va fi eliminată din toate rețetele. Niciuna dintre rețetele tale nu va mai avea această etichetă!";
 
+"feedback.suggestion" = "Feedback și sugestii
+";
+"client.question.text" = "Dacă aveți întrebări, feedback sau observați inexactități, vă rugăm să ne anunțați prin intermediul formularului nostru de contact. Contribuția dvs. ne ajută să facem Flavourly mai bun!";
+"open.form" = "Deschideți formularul de feedback";
+"contact.url.invalid" = "URL-ul formularului de contact este invalid.";
+"disclaimer.contact" = "Contact & Disclaimer";
+"about.flavourly" = "Despre Flavourly";
+"about.one" = "Flavourly este o aplicație ușor de utilizat pentru pasionații de gătit.";
+"about.two" = "Prețuim confidențialitatea dvs.: nu colectăm date.";
+"about.three" = "Salvați și stocați cu ușurință rețetele dvs. preferate.";
+"about.four" = "Disponibil în 14 limbi diferite.";
+"about.flavourly.one" = "Informații despre Flavourly";
+"privacy.view" = "Politica de confidențialitate";
+"privacy.error" = "Politica de confidențialitate nu a fost găsită";
+"theme" = "Alegeți tema dvs. de culoare";
+"privacy" = "Confidențialitate";
+"info" = "Informații";
+"info.about" = "Informații despre aplicație";
+"contact" = "Contacte";
+"themes" = "Teme";
+"personalization" = "Personalizare";

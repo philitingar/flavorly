@@ -9,7 +9,7 @@
 "recipe.add" = "Rezept hinzufügen";
 
 "recipe.name" = "Name des Rezepts";
-"author.name" = "Name des Autors";
+"author.name" = "Autors";
 
 "ingredient.list" = "Zutaten";
 "recipe.text" = "Rezept";
@@ -27,7 +27,7 @@
 "search.prompt.title" = "Einen Titel suchen";
 "search.prompt.tag" = "Suche nach Tags";
 
-"no.recipes" = "Sie haben keine Rezepte";
+"no.recipes" = "Noch keine Rezepte";
 "add.tags.separately" = "Fügen Sie eines nach dem anderen hinzu";
 "add.tagToRecipe" = "Tags zu Ihrem Rezept hinzufügen";
 "pick.by.name" = "Nach Name";
@@ -37,6 +37,27 @@
 "no.recipe.saved" = "Sie haben noch kein Rezept gespeichert.";
 "tags.in.recipe" = "Mit dem Rezept verbundene Tags:";
 "unknown.author"  = "Unbekannter Autor";
+
+"created.date" = "Erstellungsdatum:"; //
+"add.ingredient" = "Zutat hinzufügen..."; //
+"instructions" = "Anleitung"; //
+"new.recipe" = "Neues Rezept"; //
+"back" = "Zurück"; //
+"save" = "Speichern"; //
+"Home" = "Startseite";//
+"Search" = "Suchen";//
+"Settings" = "Einstellungen";//
+"tag" = "Tags"; //
+"add.tag" = "Tag hinzufügen..."; //
+"created" = "Erstellt:"; //
+"add.first.recipe" = "Fügen Sie Ihr erstes Rezept hinzu, um loszulegen"; //
+"no.recipe.found" = "Keine Rezepte gefunden"; //
+"try.diff.search" = "Versuchen Sie einen anderen Suchbegriff"; //
+"create.tags" = "Erstellen Sie Tags, um Rezepte zu organisieren"; //
+"no.recipe.found" = "Keine Rezepte gefunden"; //
+"try.diff.search" = "Versuchen Sie einen anderen Suchbegriff"; //
+"no.tag.found" = "Keine Tags gefunden";//
+"create.tag.organise" = "Erstellen Sie Tags, um Rezepte zu organisieren"; //
 
 "feature.onboarding" = "Funktionen";
 "onboarding.tags.explained" = "Machen Sie die Suche nach Ihren Rezepten zum Kinderspiel, indem Sie Tags wie vegan, milchfrei, Weihnachten, Kuchen und persönliche Tags wie Oma hinzufügen. Mit Tags können Sie ganz einfach nach genau dem suchen, was Sie wollen, z. B. nach den besonderen Rezepten Ihrer Oma, die auch vegan sind.";
@@ -49,3 +70,24 @@
 
 "warning.alert" = "WARNUNG!";
 "delete.tag.warning.text" = "Wenn Sie diese Markierung löschen, wird sie aus allen Rezepten entfernt. Keines Ihrer Rezepte wird dieses Tag mehr haben!";
+
+"feedback.suggestion" = "Feedback und Vorschläge";
+"client.question.text" = "Wenn Sie Fragen, Feedback haben oder Ungenauigkeiten feststellen, lassen Sie es uns bitte über unser Kontaktformular wissen. Ihr Input hilft uns, Flavourly zu verbessern!";
+"open.form" = "Feedback-Formular öffnen";
+"contact.url.invalid" = "Die URL des Kontaktformulars ist ungültig.";
+"disclaimer.contact" = "Kontakt & Impressum";
+"about.flavourly" = "Über Flavourly";
+"about.one" = "Flavourly ist eine benutzerfreundliche App für Kochbegeisterte.";
+"about.two" = "Wir legen Wert auf Ihre Privatsphäre: keine Datenerfassung.";
+"about.three" = "Speichern und verwalten Sie Ihre Lieblingsrezepte ganz einfach.";
+"about.four" = "Verfügbar in 14 verschiedenen Sprachen.";
+"about.flavourly.one" = "Informationen zu Flavourly";
+"privacy.view" = "Datenschutzerklärung";
+"privacy.error" = "Datenschutzerklärung nicht gefunden";
+"theme" = "Wählen Sie Ihr Farbthema";
+"privacy" = "Datenschutz";
+"info" = "Information";
+"info.about" = "Informationen über die App";
+"contact" = "Kontakt";
+"themes" = "Themen";
+"personalization" = "Personalisierung";
