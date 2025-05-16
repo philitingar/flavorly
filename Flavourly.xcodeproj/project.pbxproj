@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 73;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -56,29 +56,9 @@
 		26C29FAD2AA8CAAD00DE0690 /* FlavourlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavourlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		20B3D8552DD50CBC000BE672 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				RecipeDesign.xcdatamodeld,
-			);
-			target = 26710DEF2A93A92600E8F9A8 /* Flavourly */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		20B3D8562DD50CBC000BE672 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 26710DEC2A93A92600E8F9A8 /* Sources */;
-			membershipExceptions = (
-				RecipeDesign.xcdatamodeld,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		20B3D80B2DD50C75000BE672 /* Coredata */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Coredata; sourceTree = "<group>"; };
-		20B3D8472DD50CBC000BE672 /* Flavorly */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (20B3D8552DD50CBC000BE672 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 20B3D8562DD50CBC000BE672 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Flavorly; sourceTree = "<group>"; };
+		20B3D8472DD50CBC000BE672 /* Flavorly */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Flavorly; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +220,7 @@
 				};
 			};
 			buildConfigurationList = 26710DEB2A93A92600E8F9A8 /* Build configuration list for PBXProject "Flavourly" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -261,7 +242,6 @@
 				"zh-Hans",
 			);
 			mainGroup = 26710DE72A93A92600E8F9A8;
-			preferredProjectObjectVersion = 56;
 			productRefGroup = 26710DF12A93A92600E8F9A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -546,7 +526,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.Flavorly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -576,7 +556,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.Flavorly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
