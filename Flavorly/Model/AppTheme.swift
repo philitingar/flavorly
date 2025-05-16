@@ -62,7 +62,7 @@ extension AppTheme {
         
         bottomTabButtonColorLight: Color.secondary,
         bottomTabButtonColorDark: Color.black,
-        tabBarBackgroundColor: Color.white,
+        tabBarBackgroundColor: Color(white: 0.95),
 
         dividerColor: Color.black,
         accentColor: Color.secondary,
@@ -105,9 +105,9 @@ extension AppTheme {
             addButtonColor: .glowingInsectGreen,
             searchButtonColor: .coral,
             deleteButtonColor: .deepRed,
-            bottomTabButtonColorLight: .lightGray,
-            bottomTabButtonColorDark: .darkGray,
-            tabBarBackgroundColor: .veryDarkGreen,
+            bottomTabButtonColorLight: .glowingInsectGreen,
+            bottomTabButtonColorDark: .mutedLeafGreen,
+            tabBarBackgroundColor: .darkForestGreen,
             dividerColor: .forestGreenDivider,
             accentColor: .goldenYellow,
             textFieldBackgroundColor: .darkGray // Using dark gray here, you can also modify it
@@ -162,7 +162,7 @@ extension AppTheme {
             addButtonColor: .neonPurple,
             searchButtonColor: .neonPink,
             deleteButtonColor: .brightNeonMagenta,
-            bottomTabButtonColorLight: .softGrayish,
+            bottomTabButtonColorLight: .neonPurple,
             bottomTabButtonColorDark: .vibrantFuchsia,
             tabBarBackgroundColor: .neonBlack,
             dividerColor: .neonPink,
