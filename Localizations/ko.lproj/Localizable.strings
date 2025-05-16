@@ -70,3 +70,24 @@
 
 "warning.alert" = "경고!";
 "delete.tag.warning.text" = "이 태그를 삭제하면 모든 레시피에서 삭제됩니다. 더 이상 어떤 레시피에도 이 태그가 표시되지 않습니다!";
+
+"feedback.suggestion" = "피드백 및 제안";
+"client.question.text" = "질문이나 피드백이 있거나 부정확한 점을 발견하시면 연락처 양식을 통해 알려주세요. 여러분의 의견은 Flavourly를 더 나은 서비스로 만드는 데 도움이 됩니다!";
+"open.form" = "피드백 양식 열기";
+"contact.url.invalid" = "연락처 양식 URL이 잘못되었습니다.";
+"disclaimer.contact" = "연락처 및 면책 조항";
+"about.flavourly" = "Flavourly 소개";
+"about.one" = "Flavourly는 요리 애호가를 위한 사용자 친화적인 앱입니다.";
+"about.two" = "개인정보를 소중히 여깁니다: 데이터 수집 없음.";
+"about.three" = "좋아하는 레시피를 쉽게 저장하고 관리하세요.";
+"about.four" = "14개 언어로 제공됩니다.";
+"about.flavourly.one" = "Flavourly 정보";
+"privacy.view" = "개인정보처리방침";
+"privacy.error" = "개인정보처리방침을 찾을 수 없습니다";
+"theme" = "색상 테마 선택";
+"privacy" = "개인정보";
+"info" = "정보";
+"info.about" = "앱 정보";
+"contact" = "연락처";
+"themes" = "테마";
+"personalization" = "개인화";

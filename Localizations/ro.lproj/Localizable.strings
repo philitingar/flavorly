@@ -75,3 +75,24 @@
 "warning.alert" = "ATENȚIE!";
 "delete.tag.warning.text" = "Dacă ștergi această etichetă, ea va fi eliminată din toate rețetele. Niciuna dintre rețetele tale nu va mai avea această etichetă!";
 
+"feedback.suggestion" = "Feedback și sugestii
+";
+"client.question.text" = "Dacă aveți întrebări, feedback sau observați inexactități, vă rugăm să ne anunțați prin intermediul formularului nostru de contact. Contribuția dvs. ne ajută să facem Flavourly mai bun!";
+"open.form" = "Deschideți formularul de feedback";
+"contact.url.invalid" = "URL-ul formularului de contact este invalid.";
+"disclaimer.contact" = "Contact & Disclaimer";
+"about.flavourly" = "Despre Flavourly";
+"about.one" = "Flavourly este o aplicație ușor de utilizat pentru pasionații de gătit.";
+"about.two" = "Prețuim confidențialitatea dvs.: nu colectăm date.";
+"about.three" = "Salvați și stocați cu ușurință rețetele dvs. preferate.";
+"about.four" = "Disponibil în 14 limbi diferite.";
+"about.flavourly.one" = "Informații despre Flavourly";
+"privacy.view" = "Politica de confidențialitate";
+"privacy.error" = "Politica de confidențialitate nu a fost găsită";
+"theme" = "Alegeți tema dvs. de culoare";
+"privacy" = "Confidențialitate";
+"info" = "Informații";
+"info.about" = "Informații despre aplicație";
+"contact" = "Contacte";
+"themes" = "Teme";
+"personalization" = "Personalizare";

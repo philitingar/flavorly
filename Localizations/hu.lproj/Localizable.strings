@@ -72,6 +72,26 @@
 "warning.alert" = "FIGYELEM!";
 "delete.tag.warning.text" = "Ha le törlöd ezt a címkét (címkéket), az összes receptből eltávolítod. Egyik recepted sem fogja többé ezt a címkét tartalmazni!";
 
+"feedback.suggestion" = "Visszajelzések és javaslatok";
+"client.question.text" = "Ha bármilyen kérdése, visszajelzése van, vagy bármilyen pontatlanságot észlel, kérjük, jelezze nekünk a kapcsolatfelvételi űrlapon keresztül. Az Ön hozzájárulása segít nekünk, hogy a Flavourly jobb legyen!";
+"open.form" = "Visszajelzési űrlap megnyitása";
+"contact.url.invalid" = "A kapcsolatfelvételi űrlap URL címe érvénytelen.";
+"disclaimer.contact" = "Kapcsolat és jogi nyilatkozat";
+"about.flavourly" = "Flavourly-ról";
+"about.one" = "Flavourly egy felhasználóbarát alkalmazás a főzés szerelmeseinek.";
+"about.two" = "Nagyra értékeljük a magánéletét: nincs adatgyűjtés.";
+"about.three" = "Mentse és tárolja könnyedén kedvenc receptjeit.";
+"about.four" = "Elérhető 14 különböző nyelven.";
+"about.flavourly.one" = "Flavourly Információk";
+"privacy.view" = "Adatvédelmi irányelvek";
+"privacy.error" = "Adatvédelmi szabályzat nem található";
+"theme" = "Válasszon színtémát";
+"privacy" = "Adatvédelem";
+"info" = "Információk";
+"info.about" = "Információk az alkalmazásról";
+"contact" = "Kapcsolat";
+"themes" = "Témák";
+"personalization" = "Személyre szabás";
 
 
 

@@ -70,3 +70,24 @@
 
 "warning.alert" = "ATTENZIONE!";
 "delete.tag.warning.text" = "Se si elimina questo tag, verrà rimosso da tutte le ricette. Nessuna delle vostre ricette avrà più questo tag!";
+
+"feedback.suggestion" = "Feedback e suggerimenti";
+"client.question.text" = "Se avete domande, feedback o notate qualche imprecisione, fatecelo sapere attraverso il nostro modulo di contatto. I vostri suggerimenti ci aiutano a migliorare Flavourly!";
+"open.form" = "Aprire il modulo di feedback";
+"contact.url.invalid" = "L'URL del modulo di contatto non è valido.";
+"disclaimer.contact" = "Contatti & Disclaimer";
+"about.flavourly" = "Informazioni su Flavourly";
+"about.one" = "Flavourly è un'applicazione facile da usare per gli appassionati di cucina.";
+"about.two" = "Teniamo alla vostra privacy: nessuna raccolta di dati.";
+"about.three" = "Salva e archivia facilmente le tue ricette preferite.";
+"about.four" = "Disponibile in 14 lingue diverse.";
+"about.flavourly.one" = "Informazioni su Flavourly";
+"privacy.view" = "Informativa sulla privacy";
+"privacy.error" = "Informativa sulla privacy non trovata";
+"theme" = "Scegli il tuo tema di colore";
+"privacy" = "Privacy";
+"info" = "Informazioni";
+"info.about" = "Informazioni sull'applicazione";
+"contact" = "Contatto";
+"themes" = "Temi";
+"personalization" = "Personalizzazione";

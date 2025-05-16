@@ -25,7 +25,7 @@ struct PrivacyView: View {
                             Image(systemName: "doc.text.fill")
                                 .font(.system(size: 60))
                                 .foregroundColor(.gray)
-                            Text("Privacy Policy Not Found")
+                            Text("privacy.error")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                         }
@@ -38,7 +38,7 @@ struct PrivacyView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Privacy Policy")
+                    Text("privacy.view")
                         .foregroundColor(themeManager.currentTheme.viewTitleColor)
                         .font(.title2)
                         .bold()

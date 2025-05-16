@@ -19,12 +19,12 @@ struct ContactView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
                         Group {
-                            Text("Feedback & Suggestions")
+                            Text("feedback.suggestion")
                                 .font(.title2)
                                 .foregroundStyle(themeManager.currentTheme.primaryTextColor)
                                 .fontWeight(.semibold)
                                 .padding(.bottom, 5)
-                            Text("If you have any questions, feedback, or notice any inaccuracies, please let us know through our contact form. Your input helps us make Flavourly better!")
+                            Text("client.question.text")
                                 .font(.body)
                                 .foregroundStyle(themeManager.currentTheme.primaryTextColor)
                             if let url = URL(string: googleFormURLString) {
@@ -33,7 +33,7 @@ struct ContactView: View {
                                 } label: {
                                     HStack {
                                         Image(systemName: "link")
-                                        Text("Open Feedback Form")
+                                        Text("open.form")
                                             .font(.body)
                                             .foregroundStyle(themeManager.currentTheme.primaryTextColor)
                                     }
@@ -52,7 +52,7 @@ struct ContactView: View {
                                     SafariView(url: url)
                                 }
                             } else {
-                                Text("Contact form URL is invalid. Please contact support.")
+                                Text("contact.url.invalid")
                                     .font(.body)
                                     .foregroundColor(.red)
                                     .padding()
@@ -66,7 +66,7 @@ struct ContactView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("Contact & Disclaimer")
+                        Text("disclaimer.contact")
                             .font(.title2)
                             .bold()
                             .foregroundStyle(themeManager.currentTheme.viewTitleColor)

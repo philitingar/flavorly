@@ -71,3 +71,24 @@
 
 "warning.alert" = "警告!";
 "delete.tag.warning.text" = "如果删除此标签，它将从所有食谱中删除。您的所有食谱都不会再有这个标签！";
+
+"feedback.suggestion" = "反馈与建议";
+"client.question.text" = "如果您有任何问题、反馈或发现任何不准确之处，请通过我们的联系表告诉我们。您的意见帮助我们改进Flavourly！";
+"open.form" = "打开反馈表单";
+"contact.url.invalid" = "联系表单网址无效。";
+"disclaimer.contact" = "联系与免责声明";
+"about.flavourly" = "关于Flavourly";
+"about.one" = "Flavourly是一个面向烹饪爱好者的用户友好型应用。";
+"about.two" = "我们重视您的隐私：不收集任何数据。";
+"about.three" = "轻松保存和管理您喜欢的食谱。";
+"about.four" = "支持14种不同语言。";
+"about.flavourly.one" = "Flavourly 信息";
+"privacy.view" = "隐私政策";
+"privacy.error" = "未找到隐私政策";
+"theme" = "选择您的颜色主题";
+"privacy" = "隐私";
+"info" = "信息";
+"info.about" = "关于应用的信息";
+"contact" = "联系";
+"themes" = "主题";
+"personalization" = "个性化";

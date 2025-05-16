@@ -17,7 +17,7 @@ struct SettingsView: View {
                 VStack {
                     List {
                         Section(header:
-                                    Text("PERSONALIZATION")
+                                    Text("personalization".capitalized)
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
@@ -27,7 +27,7 @@ struct SettingsView: View {
                                     Image(systemName: "star.circle")
                                         .resizable()
                                         .commonIconStyle()
-                                    Text("Themes")
+                                    Text("themes")
                                         .font(.body)
                                         .fontWeight(.medium)
                                         .foregroundStyle(themeManager.currentTheme.primaryTextColor)
@@ -35,7 +35,7 @@ struct SettingsView: View {
                             }.listRowBackground(Color.clear)
                         }
                         Section(header:
-                                    Text("CONTACT")
+                                    Text("contact".capitalized)
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
@@ -45,7 +45,7 @@ struct SettingsView: View {
                                     Image(systemName: "paperplane.circle")
                                         .resizable()
                                         .commonIconStyle()
-                                    Text("Contact")
+                                    Text("contact")
                                         .font(.body)
                                         .fontWeight(.medium)
                                         .foregroundStyle(themeManager.currentTheme.primaryTextColor)
@@ -53,7 +53,7 @@ struct SettingsView: View {
                             }.listRowBackground(Color.clear)
                         }
                         Section(header:
-                                    Text("INFORMATION ABOUT THE APP")
+                                    Text("info.about".capitalized)
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
@@ -63,7 +63,7 @@ struct SettingsView: View {
                                     Image(systemName: "info.circle")
                                         .resizable()
                                         .commonIconStyle()
-                                    Text("Information")
+                                    Text("info")
                                         .font(.body)
                                         .fontWeight(.medium)
                                         .foregroundStyle(themeManager.currentTheme.primaryTextColor)
@@ -71,7 +71,7 @@ struct SettingsView: View {
                             }.listRowBackground(Color.clear)
                         }
                         Section(header:
-                                    Text("PRIVACY")
+                                    Text("privacy".capitalized)
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
@@ -81,7 +81,7 @@ struct SettingsView: View {
                                     Image(systemName: "lock.circle")
                                         .resizable()
                                         .commonIconStyle()
-                                    Text("Privacy")
+                                    Text("privacy")
                                         .font(.body)
                                         .fontWeight(.medium)
                                         .foregroundStyle(themeManager.currentTheme.primaryTextColor)

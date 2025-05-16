@@ -71,3 +71,24 @@
 
 "warning.alert" = "UYARI!";
 "delete.tag.warning.text" = "Bu etiketi silerseniz, tüm tariflerden kaldırılacaktır. Tariflerinizin hiçbirinde artık bu etiket olmayacak!";
+
+"feedback.suggestion" = "Geri Bildirim ve Öneriler";
+"client.question.text" = "Herhangi bir sorunuz, geri bildiriminiz varsa veya herhangi bir yanlışlık fark ederseniz lütfen iletişim formumuz üzerinden bize bildirin. Görüşleriniz Flavourly'i daha iyi hale getirmemize yardımcı olur!";
+"open.form" = "Geri Bildirim Formunu Aç";
+"contact.url.invalid" = "İletişim formu URL'si geçersiz.";
+"disclaimer.contact" = "İletişim & Feragatnameler";
+"about.flavourly" = "Flavourly Hakkında";
+"about.one" = "Flavourly, yemek yapmayı sevenler için kullanıcı dostu bir uygulamadır.";
+"about.two" = "Gizliliğinize önem veriyoruz: Veri toplanmaz.";
+"about.three" = "Favori tariflerinizi kolayca kaydedin ve saklayın.";
+"about.four" = "14 farklı dilde kullanılabilir.";
+"about.flavourly.one" = "Flavourly Bilgileri";
+"privacy.view" = "Gizlilik Politikası";
+"privacy.error" = "Gizlilik Politikası Bulunamadı";
+"theme" = "Renk Temanızı Seçin";
+"privacy" = "Gizlilik";
+"info" = "Bilgi";
+"info.about" = "Uygulama hakkında bilgi";
+"contact" = "İletişim";
+"themes" = "Temalar";
+"personalization" = "Kişiselleştirme";

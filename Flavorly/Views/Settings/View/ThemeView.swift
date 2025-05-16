@@ -14,7 +14,7 @@ struct ThemeView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
-                Text("Choose Your Color Theme")
+                Text("theme")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(themeManager.currentTheme.viewTitleColor)

@@ -17,22 +17,22 @@ struct InformationView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 25) {
                         InfoBoxContainer {
-                            SectionTitle("About Flavourly")
+                            SectionTitle("about.flavourly")
                             InfoPoint(
                                 icon: "info.circle",
-                                text: "Flavourly is a user-friendly app for cooking enthusiasts."
+                                text: LocalizedStringKey("about.one")
                             )
                             InfoPoint(
                                 icon: "lock.shield",
-                                text: "We value your privacy: no data collection."
+                                text: LocalizedStringKey("about.two")
                             )
                             InfoPoint(
                                 icon: "book",
-                                text: "Easily save and store your favorite recipes."
+                                text: LocalizedStringKey("about.three")
                             )
                             InfoPoint(
                                 icon: "globe",
-                                text: "Available in 14 different languages."
+                                text: LocalizedStringKey("about.four")
                             )
                         }
                     }
@@ -44,7 +44,7 @@ struct InformationView: View {
                 .navigationBarBackButtonHidden(true)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("Flavourly Information")
+                        Text("about.flavourly.one")
                             .foregroundColor(themeManager.currentTheme.viewTitleColor)
                             .font(.title2)
                             .bold()
