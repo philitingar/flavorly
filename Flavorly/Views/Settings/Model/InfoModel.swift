@@ -81,7 +81,7 @@ struct SectionTitle: View {
     }
 
     var body: some View {
-        Text(title)
+        Text(LocalizedStringKey(title))
             .font(.headline)
             .fontWeight(.semibold)
             .foregroundColor(themeManager.currentTheme.primaryTextColor)

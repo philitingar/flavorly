@@ -17,7 +17,7 @@ struct SettingsView: View {
                 VStack {
                     List {
                         Section(header:
-                                    Text("personalization".capitalized)
+                                    Text(NSLocalizedString("personalization", comment: "").uppercased())
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
@@ -35,7 +35,7 @@ struct SettingsView: View {
                             }.listRowBackground(Color.clear)
                         }
                         Section(header:
-                                    Text("contact".capitalized)
+                                    Text(NSLocalizedString("contact", comment: "").uppercased())
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
@@ -53,7 +53,7 @@ struct SettingsView: View {
                             }.listRowBackground(Color.clear)
                         }
                         Section(header:
-                                    Text("info.about".capitalized)
+                                    Text(NSLocalizedString("about.flavourly", comment: "").uppercased())
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
@@ -71,7 +71,7 @@ struct SettingsView: View {
                             }.listRowBackground(Color.clear)
                         }
                         Section(header:
-                                    Text("privacy".capitalized)
+                                    Text(NSLocalizedString("privacy", comment: "").uppercased())
                             .font(.caption2)
                             .bold()
                             .foregroundColor(themeManager.currentTheme.primaryTextColor)
