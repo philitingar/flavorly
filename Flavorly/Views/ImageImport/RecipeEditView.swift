@@ -29,8 +29,19 @@ struct RecipeEditView: View {
                         .font(.caption)
                 }) {
                     ForEach($parsedRecipe.ingredients.indices, id: \.self) { index in
-                        TextField("Ingredient", text: $parsedRecipe.ingredients[index])
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        HStack {
+                            TextField("Ingredient", text: $parsedRecipe.ingredients[index])
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            
+                            Button(action: {
+                                parsedRecipe.ingredients.remove(at: index)
+                                ensureMinimumIngredients()
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.red)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
                     }
                     .onDelete { indices in
                         parsedRecipe.ingredients.remove(atOffsets: indices)
@@ -54,10 +65,20 @@ struct RecipeEditView: View {
                 }) {
                     ForEach($parsedRecipe.instructions.indices, id: \.self) { index in
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Step \(index + 1)")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            
+                            HStack {
+                                Text("Step \(index + 1)")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                Spacer()
+                                Button(action: {
+                                    parsedRecipe.instructions.remove(at: index)
+                                    ensureMinimumInstructions()
+                                }) {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(.red)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            }
                             TextEditor(text: $parsedRecipe.instructions[index])
                                 .frame(minHeight: 60)
                                 .overlay(
