@@ -19,7 +19,6 @@ struct RecipeImportView: View {
     @State private var isLoading = false
     @State private var showCameraNotAvailableAlert = false
     @State private var importHistory = [ImportedRecipe]()
-    @State private var showHistory = false
     @State private var currentPage = 0
     @State private var processingProgress = 0.0
     
@@ -181,18 +180,6 @@ struct RecipeImportView: View {
                         .controlSize(.large)
                         .padding(.horizontal)
                         
-                        if !importHistory.isEmpty {
-                            Button {
-                                showHistory = true
-                            } label: {
-                                Label("View Import History (\(importHistory.count))", systemImage: "clock.arrow.circlepath")
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 50)
-                            }
-                            .buttonStyle(.bordered)
-                            .padding(.horizontal)
-                        }
-                        
                         // Tips section
                         VStack(alignment: .leading, spacing: 12) {
                             Text("Tips for better results:")
@@ -227,12 +214,6 @@ struct RecipeImportView: View {
                     saveRecipe()
                 } onCancel: {
                     // Just dismiss
-                }
-            }
-            .sheet(isPresented: $showHistory) {
-                ImportHistoryView(history: $importHistory) { recipe in
-                    self.parsedRecipe = recipe
-                    self.showEditView = true
                 }
             }
             .alert("Camera Not Available", isPresented: $showCameraNotAvailableAlert) {
