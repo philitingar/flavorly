@@ -220,9 +220,7 @@ struct RecipeImportView: View {
                 }
                 
                 Spacer()
-            }
-            .navigationTitle("Import Recipe")
-            .navigationBarTitleDisplayMode(.large)
+            } 
             .fullScreenCover(isPresented: $showImagePicker) {
                 CameraView(images: $inputImages)
                     .onDisappear {
