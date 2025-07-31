@@ -120,19 +120,12 @@ struct RecipeImportView: View {
                         
                         // Action buttons
                         VStack(spacing: 12) {
-                            HStack(spacing: 12) {
-                                Button("Add More Photos") {
-                                    showImagePicker = true
-                                }
-                                .buttonStyle(.bordered)
-                                .frame(maxWidth: .infinity)
-                                
-                                Button("Retry OCR") {
-                                    processImages()
-                                }
-                                .buttonStyle(.bordered)
-                                .frame(maxWidth: .infinity)
+                            
+                            Button("Add More Photos") {
+                                showImagePicker = true
                             }
+                            .buttonStyle(.bordered)
+                            .frame(maxWidth: .infinity)
                             
                             HStack(spacing: 12) {
                                 Button("Edit & Save") {
@@ -142,7 +135,7 @@ struct RecipeImportView: View {
                                 .frame(maxWidth: .infinity)
                                 .disabled(recognizedText.isEmpty)
                                 
-                                Button("Start Over") {
+                                Button("Reset All") {
                                     resetImport()
                                 }
                                 .buttonStyle(.bordered)
