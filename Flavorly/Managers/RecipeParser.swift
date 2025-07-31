@@ -210,13 +210,13 @@ class RecipeParser {
     
     private func cleanIngredientLine(_ line: String) -> String {
         // Remove bullet points, dashes, numbers at start
-        var cleaned = line.replacingOccurrences(of: "^[-•*\\d+.)\\s]+", with: "", options: .regularExpression)
+        let cleaned = line.replacingOccurrences(of: "^[-•*\\d+.)\\s]+", with: "", options: .regularExpression)
         return cleaned.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     private func cleanInstructionLine(_ line: String) -> String {
         // Remove step numbers at the beginning
-        var cleaned = line.replacingOccurrences(of: "^(Step\\s*)?\\d+[.)\\s]+", with: "", options: .regularExpression)
+        let cleaned = line.replacingOccurrences(of: "^(Step\\s*)?\\d+[.)\\s]+", with: "", options: .regularExpression)
         return cleaned.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
