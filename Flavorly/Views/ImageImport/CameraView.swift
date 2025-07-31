@@ -105,7 +105,7 @@ class CameraViewController: UIViewController {
     
     private func setupUI() {
         // Capture button
-        captureButton.setTitle("📷", for: .normal)
+        captureButton.setTitle("", for: .normal)
         captureButton.titleLabel?.font = UIFont.systemFont(ofSize: 50)
         captureButton.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         captureButton.layer.cornerRadius = 40
