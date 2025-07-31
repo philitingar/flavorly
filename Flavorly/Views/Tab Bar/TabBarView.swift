@@ -17,7 +17,7 @@ struct TabBarView: View {
     let horizontalPadding: CGFloat = 20
     let tabBarBottomPadding: CGFloat = 20
     @EnvironmentObject var themeManager: ThemeManager
-
+    
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.colorScheme) var colorScheme
     
@@ -30,6 +30,9 @@ struct TabBarView: View {
                 
                 SearchView(tag: Tag(), recipe: nil)
                     .tag(Tab.search)
+                    .environment(\.managedObjectContext, viewContext)
+                RecipeImportView()
+                    .tag(Tab.importRecipe)
                     .environment(\.managedObjectContext, viewContext)
                 
                 SettingsView(navigationPath: $settingsNavigationPath)
@@ -115,12 +118,14 @@ struct TabBarView: View {
 enum Tab: String, CaseIterable {
     case home = "Home"
     case search = "Search"
+    case importRecipe = "Import"
     case settings = "Settings"
     
     var image: String {
         switch self {
         case .home: return "house.fill"
         case .search: return "magnifyingglass"
+        case .importRecipe: return "camera.fill"
         case .settings: return "gearshape.fill"
         }
     }
