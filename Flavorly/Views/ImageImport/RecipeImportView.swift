@@ -11,6 +11,7 @@ import VisionKit
 
 struct RecipeImportView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var showImagePicker = false
     @State private var inputImages = [UIImage]()
     @State private var recognizedText = ""
@@ -24,204 +25,232 @@ struct RecipeImportView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
-                if isLoading {
-                    VStack(spacing: 16) {
-                        ProgressView("Processing recipe...")
-                            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                            .scaleEffect(1.5)
-                        
-                        if processingProgress > 0 {
-                            ProgressView(value: processingProgress)
-                                .progressViewStyle(LinearProgressViewStyle())
-                                .frame(maxWidth: 200)
+            ZStack {
+                themeManager.currentTheme.appBackgroundColor.ignoresSafeArea()
+                VStack(spacing: 20) {
+                    if isLoading {
+                        VStack(spacing: 16) {
+                            ProgressView("Processing recipe...")
+                                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                                .scaleEffect(1.5)
                             
-                            Text("\(Int(processingProgress * 100))% Complete")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                    .padding()
-                } else if !inputImages.isEmpty {
-                    // Image preview section
-                    VStack(spacing: 16) {
-                        // Photo count and navigation
-                        HStack {
-                            Text("\(inputImages.count) photo\(inputImages.count == 1 ? "" : "s") captured")
-                                .font(.headline)
-                                .foregroundColor(.primary)
-                            
-                            Spacer()
-                            
-                            if inputImages.count > 1 {
-                                Text("\(currentPage + 1) of \(inputImages.count)")
+                            if processingProgress > 0 {
+                                ProgressView(value: processingProgress)
+                                    .progressViewStyle(LinearProgressViewStyle())
+                                    .frame(maxWidth: 200)
+                                
+                                Text("\(Int(processingProgress * 100))% Complete")
                                     .font(.caption)
                                     .foregroundColor(.secondary)
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 6)
-                                    .background(Color.secondary.opacity(0.2))
-                                    .cornerRadius(12)
-                            }
-                        }
-                        .padding(.horizontal)
-                        
-                        // Image carousel
-                        TabView(selection: $currentPage) {
-                            ForEach(inputImages.indices, id: \.self) { index in
-                                VStack {
-                                    Image(uiImage: inputImages[index])
-                                        .resizable()
-                                        .scaledToFit()
-                                        .cornerRadius(12)
-                                        .shadow(radius: 4)
-                                        .tag(index)
-                                    
-                                    // Delete button for individual images
-                                    Button(action: {
-                                        deleteImage(at: index)
-                                    }) {
-                                        Label("Delete Photo", systemImage: "trash")
-                                            .font(.caption)
-                                            .foregroundColor(.red)
-                                    }
-                                    .padding(.top, 8)
-                                }
-                            }
-                        }
-                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: inputImages.count > 1 ? .automatic : .never))
-                        .frame(height: 300)
-                        .padding(.horizontal)
-                        
-                        // Recognized text preview
-                        if !recognizedText.isEmpty {
-                            VStack(alignment: .leading, spacing: 8) {
-                                HStack {
-                                    Text("Recognized Text")
-                                        .font(.headline)
-                                    Spacer()
-                                    Text("\(recognizedText.count) characters")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                }
-                                
-                                ScrollView {
-                                    Text(recognizedText)
-                                        .font(.system(.body, design: .monospaced))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .padding(12)
-                                }
-                                .frame(maxHeight: 150)
-                                .background(Color(.systemGray6))
-                                .cornerRadius(12)
-                            }
-                            .padding(.horizontal)
-                        }
-                        
-                        // Action buttons
-                        VStack(spacing: 12) {
-                            
-                            Button("Add More Photos") {
-                                showImagePicker = true
-                            }
-                            .buttonStyle(.bordered)
-                            .frame(maxWidth: .infinity)
-                            
-                            HStack(spacing: 12) {
-                                Button("Edit & Save") {
-                                    showEditView = true
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .frame(maxWidth: .infinity)
-                                .disabled(recognizedText.isEmpty)
-                                
-                                Button("Reset All") {
-                                    resetImport()
-                                }
-                                .buttonStyle(.bordered)
-                                .tint(.red)
-                                .frame(maxWidth: .infinity)
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
-                } else {
-                    // Initial state
-                    VStack(spacing: 24) {
-                        VStack(spacing: 16) {
-                            Image(systemName: "camera.viewfinder")
-                                .font(.system(size: 60))
-                                .foregroundColor(.blue)
-                            
-                            VStack(spacing: 8) {
-                                Text("Import Recipe from Photos")
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
-                                
-                                Text("Take photos of recipe pages and we'll extract the text for you")
-                                    .font(.body)
-                                    .foregroundColor(.secondary)
-                                    .multilineTextAlignment(.center)
-                            }
-                        }
-                        .symbolEffect(.bounce, options: .repeating)
-                        
-                        Button {
-                            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                                showImagePicker = true
-                            } else {
-                                showCameraNotAvailableAlert = true
-                            }
-                        } label: {
-                            Label("Take Photos", systemImage: "camera.fill")
-                                .font(.headline)
-                                .frame(maxWidth: .infinity)
-                                .frame(height: 50)
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .controlSize(.large)
-                        .padding(.horizontal)
-                        
-                        // Tips section
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Tips for better results:")
-                                .font(.headline)
-                            
-                            VStack(alignment: .leading, spacing: 8) {
-                                tipRow(icon: "lightbulb", text: "Ensure good lighting")
-                                tipRow(icon: "camera.aperture", text: "Keep the camera steady")
-                                tipRow(icon: "doc.text", text: "Capture text clearly")
-                                tipRow(icon: "photo.stack", text: "Take multiple photos if needed")
                             }
                         }
                         .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(12)
-                        .padding(.horizontal)
-                    }
-                }
-                
-                Spacer()
-            }
-            .padding(.top)
-            .fullScreenCover(isPresented: $showImagePicker) {
-                CameraView(images: $inputImages)
-                    .onDisappear {
-                        if !inputImages.isEmpty && recognizedText.isEmpty {
-                            processImages()
+                    } else if !inputImages.isEmpty {
+                        // Image preview section
+                        VStack(spacing: 16) {
+                            // Photo count and navigation
+                            HStack {
+                                Text("\(inputImages.count) photo\(inputImages.count == 1 ? "" : "s") captured")
+                                    .font(.headline)
+                                    .foregroundColor(.primary)
+                                
+                                Spacer()
+                                
+                                if inputImages.count > 1 {
+                                    Text("\(currentPage + 1) of \(inputImages.count)")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 6)
+                                        .background(Color.secondary.opacity(0.2))
+                                        .cornerRadius(12)
+                                }
+                            }
+                            .padding(.horizontal)
+                            
+                            // Image carousel
+                            TabView(selection: $currentPage) {
+                                ForEach(inputImages.indices, id: \.self) { index in
+                                    VStack {
+                                        Image(uiImage: inputImages[index])
+                                            .resizable()
+                                            .scaledToFit()
+                                            .cornerRadius(12)
+                                            .shadow(radius: 4)
+                                            .tag(index)
+                                        
+                                        // Delete button for individual images
+                                        Button(action: {
+                                            deleteImage(at: index)
+                                        }) {
+                                            Label("Delete Photo", systemImage: "trash")
+                                                .font(.caption)
+                                                .foregroundColor(.red)
+                                        }
+                                        .padding(.top, 8)
+                                    }
+                                }
+                            }
+                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: inputImages.count > 1 ? .automatic : .never))
+                            .frame(height: 300)
+                            .padding(.horizontal)
+                            
+                            // Recognized text preview
+                            if !recognizedText.isEmpty {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    HStack {
+                                        Text("Recognized Text")
+                                            .font(.headline)
+                                        Spacer()
+                                        Text("\(recognizedText.count) characters")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    
+                                    ScrollView {
+                                        Text(recognizedText)
+                                            .font(.system(.body, design: .monospaced))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            .padding(12)
+                                    }
+                                    .frame(maxHeight: 150)
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(12)
+                                }
+                                .padding(.horizontal)
+                            }
+                            
+                            // Action buttons
+                            VStack(spacing: 12) {
+                                
+                                Button {
+                                    showImagePicker = true
+                                } label: {
+                                    Text("Add More Photos")
+                                        .font(.headline)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: 50)
+                                        .foregroundColor(themeManager.currentTheme.appBackgroundColor)
+                                        .background(themeManager.currentTheme.secondaryTextColor)
+                                        .cornerRadius(8)
+                                }
+                                .buttonStyle(.plain)
+                                
+                                HStack(spacing: 12) {
+                                    Button {
+                                        showEditView = true
+                                    } label: {
+                                        Text("Edit & Save")
+                                            .font(.headline)
+                                            .frame(maxWidth: .infinity)
+                                            .frame(height: 50)
+                                            .foregroundColor(themeManager.currentTheme.appBackgroundColor)
+                                            .background(themeManager.currentTheme.secondaryTextColor)
+                                            .cornerRadius(8)
+                                    }
+                                    .buttonStyle(.plain)
+                                    .disabled(recognizedText.isEmpty)
+                                    
+                                    
+                                    Button {
+                                        resetImport()
+                                    } label: {
+                                        Text("Reset All")
+                                            .font(.headline)
+                                            .frame(maxWidth: .infinity)
+                                            .frame(height: 50)
+                                            .foregroundColor(themeManager.currentTheme.appBackgroundColor)
+                                            .background(themeManager.currentTheme.secondaryTextColor)
+                                            .cornerRadius(8)
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
+                    } else {
+                        // Initial state
+                        VStack(spacing: 24) {
+                            VStack(spacing: 16) {
+                                Image(systemName: "camera.viewfinder")
+                                    .font(.system(size: 60))
+                                    .foregroundColor(themeManager.currentTheme.addButtonColor)
+                                
+                                VStack(spacing: 8) {
+                                    Text("Import Recipe from Photos")
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(themeManager.currentTheme.primaryTextColor)
+                                    
+                                    Text("Take photos of recipe pages and we'll extract the text for you")
+                                        .font(.body)
+                                        .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+                                        .multilineTextAlignment(.center)
+                                }
+                            }
+                            .symbolEffect(.bounce, options: .repeating)
+                            
+                            Button {
+                                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                                    showImagePicker = true
+                                } else {
+                                    showCameraNotAvailableAlert = true
+                                }
+                            } label: {
+                                Label("Take Photos", systemImage: "camera.fill")
+                                    .font(.headline)
+                                    .frame(maxWidth: .infinity)
+                                    .frame(height: 50)
+                                    .foregroundColor(themeManager.currentTheme.appBackgroundColor)
+                                    .background(themeManager.currentTheme.secondaryTextColor) // Background for label only
+                                    .cornerRadius(8)
+                            }
+                            .buttonStyle(.plain)
+                            .padding(.horizontal)
+                            
+                            // Tips section
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Tips for better results:")
+                                    .font(.headline)
+                                    .foregroundColor(themeManager.currentTheme.appBackgroundColor)
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    tipRow(icon: "lightbulb", text: "Ensure good lighting")
+                                    tipRow(icon: "camera.aperture", text: "Keep the camera steady")
+                                    tipRow(icon: "doc.text", text: "Capture text clearly")
+                                    tipRow(icon: "photo.stack", text: "Take multiple photos if needed")
+                                }
+                            }
+                            .padding()
+                            .background(themeManager.currentTheme.secondaryTextColor)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
                         }
                     }
-            }
-            .sheet(isPresented: $showEditView) {
-                RecipeEditView(parsedRecipe: $parsedRecipe) {
-                    saveRecipe()
-                } onCancel: {
-                    // Just dismiss
+                    
+                    Spacer()
                 }
-            }
-            .alert("Camera Not Available", isPresented: $showCameraNotAvailableAlert) {
-                Button("OK", role: .cancel) { }
-            } message: {
-                Text("This device doesn't have a camera or camera access is restricted.")
+                .padding(.top)
+                .fullScreenCover(isPresented: $showImagePicker) {
+                    CameraView(images: $inputImages)
+                        .onDisappear {
+                            if !inputImages.isEmpty && recognizedText.isEmpty {
+                                processImages()
+                            }
+                        }
+                }
+                .sheet(isPresented: $showEditView) {
+                    RecipeEditView(parsedRecipe: $parsedRecipe) {
+                        saveRecipe()
+                    } onCancel: {
+                        // Just dismiss
+                    }
+                }
+                .alert("Camera Not Available", isPresented: $showCameraNotAvailableAlert) {
+                    Button("OK", role: .cancel) { }
+                } message: {
+                    Text("This device doesn't have a camera or camera access is restricted.")
+                }
             }
         }
     }
@@ -230,12 +259,12 @@ struct RecipeImportView: View {
     private func tipRow(icon: String, text: String) -> some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
-                .foregroundColor(.blue)
+                .foregroundColor(themeManager.currentTheme.appBackgroundColor)
                 .frame(width: 20)
             
             Text(text)
                 .font(.subheadline)
-                .foregroundColor(.primary)
+                .foregroundColor(themeManager.currentTheme.appBackgroundColor)
             
             Spacer()
         }
