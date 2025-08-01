@@ -124,6 +124,7 @@ struct AddEditRecipeView: View {
                             }
                         }
                         .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarBackButtonHidden(true)
                         .toolbar {
                             // Consistent back button for both modes
                             ToolbarItem(placement: .navigationBarLeading) {
