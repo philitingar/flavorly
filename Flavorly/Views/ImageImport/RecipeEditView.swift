@@ -15,114 +15,122 @@ struct RecipeEditView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationStack {
-            Form {
-                Section(header: Text("Recipe Title")) {
-                    TextField("Enter recipe title", text: $parsedRecipe.title)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
-                
-                Section(header: HStack {
-                    Text("Ingredients")
-                    Spacer()
-                    Text("(\(parsedRecipe.ingredients.filter { !$0.isEmpty }.count))")
-                        .foregroundColor(.secondary)
-                        .font(.caption)
-                }) {
-                    ForEach($parsedRecipe.ingredients.indices, id: \.self) { index in
-                        HStack {
-                            TextField("Ingredient", text: $parsedRecipe.ingredients[index])
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                            
-                            Button(action: {
-                                parsedRecipe.ingredients.remove(at: index)
-                                ensureMinimumIngredients()
-                            }) {
-                                Image(systemName: "xmark.circle.fill")
-                                    .foregroundColor(.red)
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                        }
-                    }
-                    .onDelete { indices in
-                        parsedRecipe.ingredients.remove(atOffsets: indices)
-                        ensureMinimumIngredients()
+        ZStack {
+            themeManager.currentTheme.appBackgroundColor.ignoresSafeArea()
+            NavigationStack {
+                Form {
+                    Section(header: Text("Recipe Title")) {
+                        TextField("Enter recipe title", text: $parsedRecipe.title)
+                            .textFieldStyle(.roundedBorder)
+                            .background(themeManager.currentTheme.textFieldBackgroundColor)
                     }
                     
-                    Button {
-                        parsedRecipe.ingredients.append("")
-                    } label: {
-                        Label("Add Ingredient", systemImage: "plus.circle.fill")
-                            .foregroundColor(.green)
-                    }
-                }
-                
-                Section(header: HStack {
-                    Text("Instructions")
-                    Spacer()
-                    Text("(\(parsedRecipe.instructions.filter { !$0.isEmpty }.count))")
-                        .foregroundColor(.secondary)
-                        .font(.caption)
-                }) {
-                    ForEach($parsedRecipe.instructions.indices, id: \.self) { index in
-                        VStack(alignment: .leading, spacing: 4) {
+                    Section(header: HStack {
+                        Text("Ingredients")
+                            .foregroundColor(themeManager.currentTheme.primaryTextColor)
+                        Spacer()
+                        Text("(\(parsedRecipe.ingredients.filter { !$0.isEmpty }.count))")
+                            .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+                            .font(.caption)
+                    }) {
+                        ForEach($parsedRecipe.ingredients.indices, id: \.self) { index in
                             HStack {
-                                Text("Step \(index + 1)")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                Spacer()
+                                TextField("Ingredient", text: $parsedRecipe.ingredients[index])
+                                    .textFieldStyle(.roundedBorder)
+                                    .background(themeManager.currentTheme.textFieldBackgroundColor)
+                                
                                 Button(action: {
-                                    parsedRecipe.instructions.remove(at: index)
-                                    ensureMinimumInstructions()
+                                    parsedRecipe.ingredients.remove(at: index)
+                                    ensureMinimumIngredients()
                                 }) {
                                     Image(systemName: "xmark.circle.fill")
-                                        .foregroundColor(.red)
+                                        .foregroundColor(themeManager.currentTheme.deleteButtonColor)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
-                            TextEditor(text: $parsedRecipe.instructions[index])
-                                .frame(minHeight: 60)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 6)
-                                        .stroke(Color.secondary.opacity(0.3), lineWidth: 1)
-                                )
                         }
-                        .padding(.vertical, 4)
-                    }
-                    .onDelete { indices in
-                        parsedRecipe.instructions.remove(atOffsets: indices)
-                        ensureMinimumInstructions()
+                        .onDelete { indices in
+                            parsedRecipe.ingredients.remove(atOffsets: indices)
+                            ensureMinimumIngredients()
+                        }
+                        
+                        Button {
+                            parsedRecipe.ingredients.append("")
+                        } label: {
+                            Label("Add Ingredient", systemImage: "plus.circle.fill")
+                                .foregroundColor(themeManager.currentTheme.addButtonColor)
+                        }
                     }
                     
-                    Button {
-                        parsedRecipe.instructions.append("")
-                    } label: {
-                        Label("Add Step", systemImage: "plus.circle.fill")
-                            .foregroundColor(.green)
+                    Section(header: HStack {
+                        Text("Instructions")
+                        Spacer()
+                        Text("(\(parsedRecipe.instructions.filter { !$0.isEmpty }.count))")
+                            .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+                            .font(.caption)
+                    }) {
+                        ForEach($parsedRecipe.instructions.indices, id: \.self) { index in
+                            VStack(alignment: .leading, spacing: 4) {
+                                HStack {
+                                    Text("Step \(index + 1)")
+                                        .font(.caption)
+                                        .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+                                    Spacer()
+                                    Button(action: {
+                                        parsedRecipe.instructions.remove(at: index)
+                                        ensureMinimumInstructions()
+                                    }) {
+                                        Image(systemName: "xmark.circle.fill")
+                                            .foregroundColor(themeManager.currentTheme.deleteButtonColor)
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                }
+                                TextEditor(text: $parsedRecipe.instructions[index])
+                                    .frame(minHeight: 60)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(themeManager.currentTheme.secondaryTextColor, lineWidth: 1)
+                                    )
+                            }
+                            .padding(.vertical, 4)
+                        }
+                        .onDelete { indices in
+                            parsedRecipe.instructions.remove(atOffsets: indices)
+                            ensureMinimumInstructions()
+                        }
+                        
+                        Button {
+                            parsedRecipe.instructions.append("")
+                        } label: {
+                            Label("Add Step", systemImage: "plus.circle.fill")
+                                .foregroundColor(themeManager.currentTheme.addButtonColor)
+                        }
                     }
                 }
-            }
-            .navigationTitle("Edit Recipe")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        onCancel()
-                        dismiss()
+                .navigationTitle("Edit Recipe")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            onCancel()
+                            dismiss()
+                        }
+                        .foregroundColor(themeManager.currentTheme.deleteButtonColor)
+                    }
+                    
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Save") {
+                            cleanupEmptyFields()
+                            onSave()
+                            dismiss()
+                        }
+                        .disabled(parsedRecipe.title.isEmpty)
+                        .foregroundColor(themeManager.currentTheme.addButtonColor)
                     }
                 }
-                
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
-                        cleanupEmptyFields()
-                        onSave()
-                        dismiss()
-                    }
-                    .disabled(parsedRecipe.title.isEmpty)
+                .onAppear {
+                    setupInitialFields()
                 }
-            }
-            .onAppear {
-                setupInitialFields()
             }
         }
     }
