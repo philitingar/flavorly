@@ -210,7 +210,7 @@ struct RecipeImportView: View {
                             
                             // Tips section
                             VStack(alignment: .leading, spacing: 12) {
-                                Text("Tips for better results:")
+                                Text(LocalizedStringKey("Tips for better results:"))
                                     .font(.headline)
                                     .foregroundColor(themeManager.currentTheme.appBackgroundColor)
                                 
@@ -219,6 +219,22 @@ struct RecipeImportView: View {
                                     tipRow(icon: "camera.aperture", text: "Keep the camera steady")
                                     tipRow(icon: "doc.text", text: "Capture text clearly")
                                     tipRow(icon: "photo.stack", text: "Take multiple photos if needed")
+                                }
+                            }
+                            .padding()
+                            .background(themeManager.currentTheme.secondaryTextColor)
+                            .cornerRadius(12)
+                            .padding(.horizontal)
+                            
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Important:")
+                                    .font(.headline)
+                                    .foregroundColor(themeManager.currentTheme.appBackgroundColor)
+                                
+                                VStack(alignment: .leading, spacing: 8) {
+                                    tipRow(icon: "exclamationmark.triangle", text: "At the moment the photos option is only available in English.")
+                                    tipRow(icon: "lightbulb.min.badge.exclamationmark", text: "We are working on adding more languages, but feel free to try it out")
+                                    tipRow(icon: "person.badge.shield.exclamationmark", text: "The picture might not accurately represent the recipe, but it should give you a good starting point")
                                 }
                             }
                             .padding()
@@ -256,7 +272,7 @@ struct RecipeImportView: View {
     }
     
     @ViewBuilder
-    private func tipRow(icon: String, text: String) -> some View {
+    private func tipRow(icon: String, text: LocalizedStringKey) -> some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
                 .foregroundColor(themeManager.currentTheme.appBackgroundColor)
