@@ -9,6 +9,7 @@ import CoreData
 
 struct RecipeEditView: View {
     @Binding var parsedRecipe: ParsedRecipe
+    @EnvironmentObject var themeManager: ThemeManager
     var onSave: () -> Void
     var onCancel: () -> Void
     @Environment(\.dismiss) var dismiss
