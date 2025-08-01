@@ -163,6 +163,7 @@ struct RecipeImportView: View {
                                     .multilineTextAlignment(.center)
                             }
                         }
+                        .symbolEffect(.bounce, options: .repeating)
                         
                         Button {
                             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -200,7 +201,8 @@ struct RecipeImportView: View {
                 }
                 
                 Spacer()
-            } 
+            }
+            .padding(.top)
             .fullScreenCover(isPresented: $showImagePicker) {
                 CameraView(images: $inputImages)
                     .onDisappear {
