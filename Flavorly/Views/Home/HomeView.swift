@@ -81,7 +81,7 @@ struct HomeView: View {
                         } label: {
                             Image(systemName: "plus.circle.fill")
                                 .symbolRenderingMode(.hierarchical)
-                                .font(.headline)
+                                .font(.title3)
                                 .foregroundColor(themeManager.currentTheme.addButtonColor)
                         }
                     }

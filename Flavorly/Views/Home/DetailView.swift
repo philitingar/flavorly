@@ -157,7 +157,7 @@ struct DetailView: View {
         } label: {
             Image(systemName: "pencil.circle")
                 .symbolRenderingMode(.hierarchical)
-                .font(.headline)
+                .font(.title3)
                 .foregroundColor(themeManager.currentTheme.addButtonColor)
         }
     }
@@ -168,7 +168,7 @@ struct DetailView: View {
         } label: {
             Image(systemName: "trash.circle")
                 .symbolRenderingMode(.hierarchical)
-                .font(.headline)
+                .font(.title3)
                 .foregroundColor(themeManager.currentTheme.deleteButtonColor)
         }
     }
