@@ -10,25 +10,52 @@ import CoreData
 
 class RecipeSharingViewModel: ObservableObject {
     @Published var showShareSheet = false
+    @Published var isGeneratingPDF = false
     var tempPDFURL: URL?
     
     @MainActor func shareRecipe(_ recipe: Recipe) {
-        let pdfDocument = RecipePDFService.generatePDF(for: recipe)
-        tempPDFURL = RecipePDFService.savePDFToTempFile(
-            pdfDocument,
-            filename: recipe.title ?? "Recipe"
-        )
-        showShareSheet = true
+        isGeneratingPDF = true
+        
+        Task {
+            // Generate the PDF document
+            let pdfDocument = RecipePDFService.generatePDF(for: recipe)
+            
+            // Save to temporary file with sanitized filename
+            let sanitizedTitle = recipe.title?
+                .replacingOccurrences(of: "/", with: "-")
+                .replacingOccurrences(of: "\\", with: "-")
+                .replacingOccurrences(of: ":", with: "-") ?? "Recipe"
+            
+            tempPDFURL = RecipePDFService.savePDFToTempFile(
+                pdfDocument,
+                filename: sanitizedTitle
+            )
+            
+            isGeneratingPDF = false
+            
+            // Show the share sheet
+            if tempPDFURL != nil {
+                showShareSheet = true
+            }
+        }
     }
     
     func getShareItems() -> [Any] {
         guard let url = tempPDFURL else { return [] }
-        return [url]
+        
+        // Verify the file exists before sharing
+        if FileManager.default.fileExists(atPath: url.path) {
+            return [url]
+        }
+        return []
     }
     
     func cleanup() {
-        if let url = tempPDFURL {
+        // Clean up the temporary file when done
+        if let url = tempPDFURL, FileManager.default.fileExists(atPath: url.path) {
             try? FileManager.default.removeItem(at: url)
         }
+        tempPDFURL = nil
+        showShareSheet = false
     }
 }
