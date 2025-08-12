@@ -379,6 +379,9 @@
         }
       }
     },
+    "• %@" : {
+
+    },
     "about.flavourly" : {
       "localizations" : {
         "de" : {
@@ -3012,6 +3015,9 @@
         }
       }
     },
+    "Created: %@" : {
+
+    },
     "created.date" : {
       "localizations" : {
         "de" : {
@@ -3881,6 +3887,7 @@
       }
     },
     "feature.onboarding" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -5679,6 +5686,7 @@
       "shouldTranslate" : false
     },
     "onboarding.consent" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -5767,6 +5775,7 @@
       }
     },
     "onboarding.tags.alternative.usage" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -5855,6 +5864,7 @@
       }
     },
     "onboarding.tags.explained" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -8315,6 +8325,9 @@
           }
         }
       }
+    },
+    "Tags" : {
+
     },
     "tags.in.recipe" : {
       "localizations" : {
