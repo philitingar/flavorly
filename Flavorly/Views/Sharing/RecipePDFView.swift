@@ -12,23 +12,28 @@ import CoreData
 struct RecipePDFContentView: View {
     let recipe: Recipe
     let availableHeight: CGFloat
-    
+
+    // Define margins and footer height - match them with PDF generation constants
+    let topMargin: CGFloat = 40
+    let bottomMargin: CGFloat = 40
+    let footerHeight: CGFloat = 60
+
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             // Header
             RecipePDFHeaderView(recipe: recipe)
-            
             // Ingredients Section
             if let ingredients = recipe.ingredients, !ingredients.isEmpty {
                 RecipePDFIngredientsView(ingredients: ingredients)
             }
-            
             // Instructions Section
             if let instructions = recipe.text, !instructions.isEmpty {
                 RecipePDFInstructionsView(instructions: instructions)
             }
         }
-        .padding(40)
+        .padding(.top, topMargin) // Add explicit top padding
+        .padding(.bottom, bottomMargin + footerHeight) // Add bottom padding including footer space
+        .padding(.horizontal, 40) // Keep horizontal padding consistent
         .frame(width: 595.2, alignment: .topLeading)
     }
 }
