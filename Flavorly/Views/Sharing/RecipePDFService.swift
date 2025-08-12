@@ -35,7 +35,7 @@ class RecipePDFService {
         
         // Get the actual content height (subtract the padding already in the view)
         let actualSize = hostingController.view.sizeThatFits(measurementSize)
-        let totalContentHeight = actualSize.height - 80 // Remove the padding from measurement
+        let totalContentHeight = actualSize.height - 90 // Remove the padding from measurement
         
         // Calculate number of pages needed
         let numberOfPages = max(1, Int(ceil(totalContentHeight / contentHeight)))
