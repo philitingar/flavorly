@@ -385,6 +385,12 @@
     "•" : {
       "shouldTranslate" : false
     },
+    "✨ Keep cooking amazing things!\n🚀 Your support fuels our improvements" : {
+
+    },
+    "🎉  New Sharing Feature! Now you can easily share your favorite recipes.\n💌  Send your culinary creations to friends and family with just one tap.\n📱  Perfect for meal planning, special occasions, or just spreading food love!" : {
+
+    },
     "about.flavourly" : {
       "localizations" : {
         "de" : {
@@ -4167,6 +4173,9 @@
         }
       },
       "shouldTranslate" : false
+    },
+    "Got it!" : {
+
     },
     "Home" : {
       "extractionState" : "manual",
@@ -9800,6 +9809,9 @@
           }
         }
       }
+    },
+    "What's new" : {
+
     }
   },
   "version" : "1.0"
