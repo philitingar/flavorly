@@ -11,9 +11,9 @@ struct DetailView: View {
     @ObservedObject var recipe: Recipe  // Changed to ObservedObject for CoreData object
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var themeManager: ThemeManager
-    
     @Environment(\.dismiss) var dismiss
     @State private var showingDeleteAlert = false
+    @StateObject private var sharingViewModel = RecipeSharingViewModel()
     
     var body: some View {
         ZStack {
@@ -45,9 +45,15 @@ struct DetailView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 16) {
+                        shareButton
                         editButton
                         deleteButton
                     }
+                }
+            }
+            .sheet(isPresented: $sharingViewModel.showShareSheet) {
+                if let url = sharingViewModel.tempPDFURL {
+                    ActivityViewController(activityItems: [url])
                 }
             }
             .alert(LocalizedStringKey("recipe.delete"), isPresented: $showingDeleteAlert) {
@@ -60,7 +66,17 @@ struct DetailView: View {
     }
     
     // MARK: - Subviews
-    
+    private var shareButton: some View {
+        Button {
+            sharingViewModel.shareRecipe(recipe)
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+                .symbolRenderingMode(.hierarchical)
+                .font(.title3)
+                .foregroundColor(themeManager.currentTheme.addButtonColor)
+        }
+        
+    }
     private var headerSection: some View {
         VStack(spacing: 8) {
             Text(recipe.title ?? "Untitled Recipe")
@@ -180,4 +196,18 @@ struct DetailView: View {
         try? moc.save()
         dismiss()
     }
+}
+
+struct ActivityViewController: UIViewControllerRepresentable {
+    var activityItems: [Any]
+    
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let controller = UIActivityViewController(
+            activityItems: activityItems,
+            applicationActivities: nil
+        )
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
