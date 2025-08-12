@@ -191,8 +191,7 @@ struct SearchView: View {
         Button {
             deletePrompt()
         } label: {
-            Image(systemName: "trash.circle.fill")
-                .symbolRenderingMode(.hierarchical)
+            Image(systemName: "trash.circle")
                 .font(.title2)
                 .foregroundColor(themeManager.currentTheme.deleteButtonColor)
         }
@@ -202,8 +201,7 @@ struct SearchView: View {
         Button {
             showingRecipeListScreen.toggle()
         } label: {
-            Image(systemName: "magnifyingglass.circle.fill")
-                .symbolRenderingMode(.hierarchical)
+            Image(systemName: "magnifyingglass.circle")
                 .font(.title2)
                 .foregroundColor(themeManager.currentTheme.searchButtonColor)
         }

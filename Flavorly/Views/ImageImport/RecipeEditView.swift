@@ -21,8 +21,6 @@ struct RecipeEditView: View {
                 Form {
                     Section(header: Text("Recipe Title")) {
                         TextField("Enter recipe title", text: $parsedRecipe.title)
-                            .textFieldStyle(.roundedBorder)
-                            .background(themeManager.currentTheme.textFieldBackgroundColor)
                     }
                     
                     Section(header: HStack {
@@ -36,8 +34,7 @@ struct RecipeEditView: View {
                         ForEach($parsedRecipe.ingredients.indices, id: \.self) { index in
                             HStack {
                                 TextField("Ingredient", text: $parsedRecipe.ingredients[index])
-                                    .textFieldStyle(.roundedBorder)
-                                    .background(themeManager.currentTheme.textFieldBackgroundColor)
+                                   
                                 
                                 Button(action: {
                                     parsedRecipe.ingredients.remove(at: index)

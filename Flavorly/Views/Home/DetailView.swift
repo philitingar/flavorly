@@ -45,7 +45,7 @@ struct DetailView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 16) {
-                        shareButton
+                        
                         editButton
                         deleteButton
                     }
@@ -66,33 +66,28 @@ struct DetailView: View {
     }
     
     // MARK: - Subviews
-    private var shareButton: some View {
-        Button {
-            sharingViewModel.shareRecipe(recipe)
-        } label: {
-            Image(systemName: "square.and.arrow.up")
-                .symbolRenderingMode(.hierarchical)
-                .font(.title3)
-                .foregroundColor(themeManager.currentTheme.addButtonColor)
-        }
-        
-    }
+
     private var headerSection: some View {
-        VStack(spacing: 8) {
-            Text(recipe.title ?? "Untitled Recipe")
-                .font(.headline.bold())
-                .foregroundColor(themeManager.currentTheme.viewTitleColor)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 2)
-            
-            if let author = recipe.author, !author.isEmpty {
-                Text("By: \(author)")
-                    .font(.caption)
-                    .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+        HStack {
+            Spacer()
+            VStack(spacing: 8) {
+                Text(recipe.title ?? "Untitled Recipe")
+                    .font(.headline.bold())
+                    .foregroundColor(themeManager.currentTheme.viewTitleColor)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 2)
+                
+                if let author = recipe.author, !author.isEmpty {
+                    Text("By: \(author)")
+                        .font(.caption)
+                        .foregroundColor(themeManager.currentTheme.secondaryTextColor)
+                }
             }
+            .padding(.vertical, 5)
+            .padding(.top, -10)
+            Spacer()
+            shareButton
         }
-        .padding(.vertical, 5)
-        .padding(.top, -10)
     }
     
     private func cardView(title: String, content: String, icon: String) -> some View {
@@ -171,8 +166,7 @@ struct DetailView: View {
         NavigationLink {
             AddEditRecipeView(recipe: recipe)
         } label: {
-            Image(systemName: "pencil.circle")
-                .symbolRenderingMode(.hierarchical)
+            Image(systemName: "pencil.tip.crop.circle")
                 .font(.title3)
                 .foregroundColor(themeManager.currentTheme.addButtonColor)
         }
@@ -183,12 +177,20 @@ struct DetailView: View {
             showingDeleteAlert = true
         } label: {
             Image(systemName: "trash.circle")
-                .symbolRenderingMode(.hierarchical)
                 .font(.title3)
                 .foregroundColor(themeManager.currentTheme.deleteButtonColor)
         }
     }
-    
+    private var shareButton: some View {
+        Button {
+            sharingViewModel.shareRecipe(recipe)
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+                .font(.title3)
+                .foregroundColor(themeManager.currentTheme.searchButtonColor)
+        }
+        
+    }
     // MARK: - Functions
     
     private func deleteRecipe() {
