@@ -16,7 +16,7 @@ class RecipePDFService {
         let footerHeight: CGFloat = 60
         let topMargin: CGFloat = 40
         let bottomMargin: CGFloat = 40
-        let contentHeight = pageSize.height - footerHeight - topMargin - bottomMargin
+        let contentHeight = pageSize.height - topMargin - bottomMargin - footerHeight
         
         // Create content view with available height
         let contentView = RecipePDFContentView(recipe: recipe, availableHeight: contentHeight)
@@ -42,7 +42,7 @@ class RecipePDFService {
         
         // Create each page
         for pageIndex in 0..<numberOfPages {
-            let yOffset = -CGFloat(pageIndex) * contentHeight + topMargin
+            let yOffset = -CGFloat(pageIndex) * contentHeight
             
             // Create the page image
             let renderer = UIGraphicsImageRenderer(size: pageSize)
@@ -53,6 +53,9 @@ class RecipePDFService {
                 
                 // Render content with offset
                 context.cgContext.saveGState()
+                context.cgContext.beginPath()
+                context.cgContext.addRect(CGRect(x: 0, y: 0, width: pageSize.width, height: contentHeight))
+                context.cgContext.clip()
                 context.cgContext.translateBy(x: 0, y: yOffset)
                 
                 let pageHostingController = UIHostingController(rootView: contentView)
