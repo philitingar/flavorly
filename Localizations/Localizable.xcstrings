@@ -27,6 +27,9 @@
       },
       "shouldTranslate" : false
     },
+    "%lld" : {
+
+    },
     "%lld characters" : {
       "localizations" : {
         "de" : {
@@ -379,7 +382,7 @@
         }
       }
     },
-    "• %@" : {
+    "•" : {
 
     },
     "about.flavourly" : {
@@ -3015,7 +3018,7 @@
         }
       }
     },
-    "Created: %@" : {
+    "Created with Flavourly" : {
 
     },
     "created.date" : {
@@ -6040,6 +6043,16 @@
         }
       }
     },
+    "Page %lld of %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Page %1$lld of %2$lld"
+          }
+        }
+      }
+    },
     "personalization" : {
       "localizations" : {
         "de" : {
@@ -8325,9 +8338,6 @@
           }
         }
       }
-    },
-    "Tags" : {
-
     },
     "tags.in.recipe" : {
       "localizations" : {
