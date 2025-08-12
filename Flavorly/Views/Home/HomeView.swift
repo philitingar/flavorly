@@ -79,10 +79,9 @@ struct HomeView: View {
                         Button {
                             showingAddScreen.toggle()
                         } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .symbolRenderingMode(.hierarchical)
+                            Image(systemName: "plus.circle")
                                 .font(.title3)
-                                .foregroundColor(themeManager.currentTheme.addButtonColor)
+                                .foregroundColor(themeManager.currentTheme.searchButtonColor)
                         }
                     }
                     ToolbarItem(placement: .principal) {
