@@ -176,15 +176,16 @@ struct RecipePDFFooterView: View {
                 .padding(.horizontal, 40)
             
             HStack {
-                if let qrImage = UIImage(named: "qr-flavourly") {
+                if let qrImage = UIImage(named: "App-store") {
                     Image(uiImage: qrImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 18, height: 18)
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
                 }
                 
                 Text("Created with Flavourly")
-                    .font(.system(size: 12, weight: .medium))
+                    .font(.system(size: 8, weight: .light))
                     .foregroundColor(.black)
                 
                 Spacer()
